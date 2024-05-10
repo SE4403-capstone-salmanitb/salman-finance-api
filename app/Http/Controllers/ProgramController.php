@@ -13,7 +13,9 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        //
+        $programs = program::latest()->paginate(5);
+
+        return response()->json($programs);
     }
 
     /**
@@ -21,7 +23,11 @@ class ProgramController extends Controller
      */
     public function store(StoreprogramRequest $request)
     {
-        //
+        $program = program::create([
+            'nama' => $request->nama
+        ]);
+
+        return response()->json($program, $status = 201);
     }
 
     /**
@@ -29,7 +35,7 @@ class ProgramController extends Controller
      */
     public function show(program $program)
     {
-        //
+        return response()->json($program);
     }
 
     /**
@@ -37,7 +43,9 @@ class ProgramController extends Controller
      */
     public function update(UpdateprogramRequest $request, program $program)
     {
-        //
+        $program->update(['nama' => $request->nama]);
+
+        return response()->json($program);
     }
 
     /**
@@ -45,6 +53,8 @@ class ProgramController extends Controller
      */
     public function destroy(program $program)
     {
-        //
+        $program->delete();
+
+        return response()->noContent();
     }
 }

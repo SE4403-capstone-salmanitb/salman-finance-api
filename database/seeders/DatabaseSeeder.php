@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\program;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,18 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'is_admin' => true,
         ]);
+
+        $programs = [
+            'PROGRAM KEPUSTAKAAN', 
+            'PROGRAM INTELEKTUALITAS', 
+            'PROGRAM EKOLITERASI',
+            'PROGRAM SUPPORTING SYSTEM'
+        ];
+
+        foreach ($programs as $value) {
+            program::factory()->create([
+                'nama' => $value
+            ]);
+        }
     }
 }

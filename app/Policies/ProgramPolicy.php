@@ -13,7 +13,7 @@ class ProgramPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,8 @@ class ProgramPolicy
      */
     public function view(User $user, program $program): bool
     {
-        //
+        return true;
+
     }
 
     /**
@@ -29,7 +30,7 @@ class ProgramPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->is_admin;
     }
 
     /**
@@ -37,7 +38,8 @@ class ProgramPolicy
      */
     public function update(User $user, program $program): bool
     {
-        //
+        return $user->is_admin;
+        
     }
 
     /**
@@ -45,7 +47,7 @@ class ProgramPolicy
      */
     public function delete(User $user, program $program): bool
     {
-        //
+        return $user->is_admin;
     }
 
     /**
@@ -53,7 +55,7 @@ class ProgramPolicy
      */
     public function restore(User $user, program $program): bool
     {
-        //
+        return $user->is_admin;
     }
 
     /**
@@ -61,6 +63,6 @@ class ProgramPolicy
      */
     public function forceDelete(User $user, program $program): bool
     {
-        //
+        return $user->is_admin;
     }
 }

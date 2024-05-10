@@ -11,7 +11,7 @@ class UpdateprogramRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->is_admin;
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateprogramRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => ['required', 'string'],
         ];
     }
 }
