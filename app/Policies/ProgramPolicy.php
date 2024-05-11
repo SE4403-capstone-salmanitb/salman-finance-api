@@ -30,7 +30,7 @@ class ProgramPolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin;
+        return $user->is_admin == 1;
     }
 
     /**
@@ -38,7 +38,7 @@ class ProgramPolicy
      */
     public function update(User $user, program $program): bool
     {
-        return $user->is_admin;
+        return $user->is_admin == 1;
         
     }
 
@@ -47,7 +47,7 @@ class ProgramPolicy
      */
     public function delete(User $user, program $program): bool
     {
-        return $user->is_admin;
+        return $user->is_admin == 1;
     }
 
     /**
@@ -55,7 +55,7 @@ class ProgramPolicy
      */
     public function restore(User $user, program $program): bool
     {
-        return $user->is_admin;
+        return $user->is_admin == 1;
     }
 
     /**
@@ -63,6 +63,6 @@ class ProgramPolicy
      */
     public function forceDelete(User $user, program $program): bool
     {
-        return $user->is_admin;
+        return $user->is_admin == 1;
     }
 }

@@ -18,6 +18,8 @@ class ProgramFactory extends Factory
     {
         return [
             //
+            'nama' => fake()->userName
+
         ];
     }
 }

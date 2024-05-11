@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\program;
 use App\Http\Requests\StoreprogramRequest;
 use App\Http\Requests\UpdateprogramRequest;
+use Illuminate\Support\Facades\Gate;
 
 class ProgramController extends Controller
 {
@@ -13,6 +14,8 @@ class ProgramController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', program::class);
+
         $programs = program::latest()->paginate(5);
 
         return response()->json($programs);
@@ -23,6 +26,8 @@ class ProgramController extends Controller
      */
     public function store(StoreprogramRequest $request)
     {
+        Gate::authorize('create', program::class);
+
         $program = program::create([
             'nama' => $request->nama
         ]);
@@ -35,6 +40,8 @@ class ProgramController extends Controller
      */
     public function show(program $program)
     {
+        Gate::authorize('view', $program);
+
         return response()->json($program);
     }
 
@@ -43,6 +50,8 @@ class ProgramController extends Controller
      */
     public function update(UpdateprogramRequest $request, program $program)
     {
+        Gate::authorize('update', $program);
+
         $program->update(['nama' => $request->nama]);
 
         return response()->json($program);
@@ -53,6 +62,8 @@ class ProgramController extends Controller
      */
     public function destroy(program $program)
     {
+        Gate::authorize('delete', $program);
+
         $program->delete();
 
         return response()->noContent();
