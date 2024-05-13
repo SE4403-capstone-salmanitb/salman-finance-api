@@ -12,4 +12,9 @@ class program extends Model
     protected $fillable = [
         'nama',
     ];
+
+    public function programKegiatanRKA()
+    {
+        return $this->hasMany(ProgramKegiatanRka::class, 'id_program');
+    }
 }
