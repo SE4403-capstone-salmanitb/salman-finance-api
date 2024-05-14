@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('output');
             $table->integer('tahun');
 
-            $table->integer('sumber_dana_pusat');
-            $table->integer('sumber_dana_ras');
-            $table->integer('sumber_dana_kepesertaan');
-            $table->integer('sumber_dana_pihak_ketiga');
-            $table->integer('sumber_dana_pusat_wakaf_salman');
+            $table->integer('sumber_dana_pusat')->default(0);
+            $table->integer('sumber_dana_ras')->default(0);
+            $table->integer('sumber_dana_kepesertaan')->default(0);
+            $table->integer('sumber_dana_pihak_ketiga')->default(0);
+            $table->integer('sumber_dana_pusat_wakaf_salman')->default(0);
 
             $table->timestamps();
             $table->foreignId('id_program')->references('id')->on('programs')->onDelete('cascade');

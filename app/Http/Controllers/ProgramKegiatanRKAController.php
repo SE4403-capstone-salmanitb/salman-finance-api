@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProgramKegiatanRKA;
 use App\Http\Requests\StoreProgramKegiatanRKARequest;
 use App\Http\Requests\UpdateProgramKegiatanRKARequest;
+use Illuminate\Support\Facades\Gate;
 
 class ProgramKegiatanRKAController extends Controller
 {
@@ -13,7 +14,11 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function index()
     {
-        //
+        Gate::authorize('viewAny', ProgramKegiatanRKA::class);
+
+        $data = ProgramKegiatanRKA::latest()->paginate(5);
+
+        return response()->json($data);
     }
 
     /**
@@ -21,7 +26,11 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function store(StoreProgramKegiatanRKARequest $request)
     {
-        //
+        Gate::authorize('create', ProgramKegiatanRKA::class);
+        
+        $programKegiatanRKA = ProgramKegiatanRKA::create(array_filter($request->validated()));
+
+        return response()->json($programKegiatanRKA, 201);
     }
 
     /**
@@ -29,7 +38,10 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function show(ProgramKegiatanRKA $programKegiatanRKA)
     {
-        //
+        info($programKegiatanRKA);
+
+        Gate::authorize('view', $programKegiatanRKA);
+        return response()->json($programKegiatanRKA);
     }
 
     /**
@@ -37,7 +49,12 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function update(UpdateProgramKegiatanRKARequest $request, ProgramKegiatanRKA $programKegiatanRKA)
     {
-        //
+        Gate::authorize('update', $programKegiatanRKA);
+
+        $programKegiatanRKA->update(array_filter($request->validated()));
+
+        return response()->json($programKegiatanRKA, 200);
+        
     }
 
     /**
@@ -45,6 +62,10 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function destroy(ProgramKegiatanRKA $programKegiatanRKA)
     {
-        //
+        Gate::authorize('delete', $programKegiatanRKA);
+        
+        $programKegiatanRKA->delete();
+
+        return response()->noContent();
     }
 }

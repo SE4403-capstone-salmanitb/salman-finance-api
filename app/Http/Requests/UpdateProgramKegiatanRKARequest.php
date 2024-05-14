@@ -11,7 +11,7 @@ class UpdateProgramKegiatanRKARequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,18 @@ class UpdateProgramKegiatanRKARequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'nullable|string|max:255',
+            'deskripsi' => 'nullable|string|max:255',
+            'output' => 'nullable|string|max:255',
+            'tahun' => 'nullable|integer|min:1900',
+    
+            'sumber_dana_pusat' => 'integer|nullable',
+            'sumber_dana_ras' => 'integer|nullable',
+            'sumber_dana_kepesertaan' => 'integer|nullable',
+            'sumber_dana_pihak_ketiga' => 'integer|nullable',
+            'sumber_dana_pusat_wakaf_salman' => 'integer|nullable',
+    
+            'id_program' => 'nullable|integer|exists:programs,id',
         ];
     }
 }

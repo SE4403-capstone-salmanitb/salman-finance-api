@@ -17,7 +17,16 @@ class ProgramKegiatanRKAFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => 'mock_'.fake()->name(),
+            'deskripsi' => fake()->sentence(),
+            'output' => fake()->sentence(2),
+            'tahun' => now()->year,
+
+            'sumber_dana_pusat' => fake()->numberBetween(0, 1000000)*100,
+            'sumber_dana_ras' => fake()->numberBetween(0, 1000000)*100,
+            'sumber_dana_kepesertaan' => fake()->numberBetween(0, 1000000)*100,
+            'sumber_dana_pihak_ketiga' => fake()->numberBetween(0, 1000000)*100,
+            'sumber_dana_pusat_wakaf_salman' => fake()->numberBetween(0, 1000000)*100,
         ];
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\program;
+use App\Models\ProgramKegiatanRKA;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -30,7 +31,9 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($programs as $value) {
-            program::factory()->create([
+            program::factory()
+            ->has(ProgramKegiatanRKA::factory()->count(2), 'programKegiatanRKA')
+            ->create([
                 'nama' => $value
             ]);
         }

@@ -13,7 +13,7 @@ class ProgramKegiatanRKAPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -22,6 +22,8 @@ class ProgramKegiatanRKAPolicy
     public function view(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -30,6 +32,8 @@ class ProgramKegiatanRKAPolicy
     public function create(User $user): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -38,6 +42,8 @@ class ProgramKegiatanRKAPolicy
     public function update(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -46,6 +52,8 @@ class ProgramKegiatanRKAPolicy
     public function delete(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -54,6 +62,8 @@ class ProgramKegiatanRKAPolicy
     public function restore(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -62,5 +72,7 @@ class ProgramKegiatanRKAPolicy
     public function forceDelete(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
     {
         //
+        return true;
+
     }
 }
