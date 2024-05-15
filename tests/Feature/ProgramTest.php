@@ -205,8 +205,6 @@ class ProgramTest extends TestCase
         $response = $this->deleteJson("/api/program/{$program->id}", [], [
             'authorization' => "Bearer ".$user->createToken('')->plainTextToken
         ]);
-        info($user);
-        info($program);
 
         $response->assertStatus(403);
     }

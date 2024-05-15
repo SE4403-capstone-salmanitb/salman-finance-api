@@ -195,4 +195,31 @@ class ProgramKegiatanRKAControllerTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+    function test_delete_normal() 
+    {
+        $user = User::factory()->create();
+        $programKegiatanRKA =  ProgramKegiatanRKA::factory()->for(program::factory())->create();
+
+
+        $response = $this->deleteJson('/api/programKegiatanRKA/'.$programKegiatanRKA->id,
+        headers:[
+            'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
+        ]);
+
+        $response->assertStatus(204);
+    }
+
+    function test_delete_not_found() 
+    {
+        $user = User::factory()->create();
+
+
+        $response = $this->deleteJson('/api/programKegiatanRKA/-99',
+        headers:[
+            'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
+        ]);
+
+        $response->assertStatus(404);
+    }
 }
