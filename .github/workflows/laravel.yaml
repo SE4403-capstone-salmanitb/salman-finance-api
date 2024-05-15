@@ -31,8 +31,8 @@ jobs:
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           # Use composer.json for key, if composer.lock is not committed.
-          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          # key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Install Composer dependencies
@@ -46,11 +46,6 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sqlite
-          touch database/database.sqlite_test_1
-          touch database/database.sqlite_test_2
-          touch database/database.sqlite_test_3
-          touch database/database.sqlite_test_4
-          touch database/database.sqlite_test_5
       - name: Clear Config
         run: php artisan config:clear
 
@@ -58,4 +53,4 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
-        run: php artisan test --parallel --recreate-databases --coverage-text
+        run: vendor/bin/phpunit --coverage-text
