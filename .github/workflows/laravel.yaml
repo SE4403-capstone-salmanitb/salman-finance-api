@@ -46,6 +46,11 @@ jobs:
         run: |
           mkdir -p database
           touch database/database.sqlite
+          touch database/database.sqlite_test_1
+          touch database/database.sqlite_test_2
+          touch database/database.sqlite_test_3
+          touch database/database.sqlite_test_4
+          touch database/database.sqlite_test_5
       - name: Clear Config
         run: php artisan config:clear
 
