@@ -1,6 +1,6 @@
 # GitHub Action for Laravel
 name: Testing Laravel
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   laravel:
     name: Laravel (PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }})
@@ -50,4 +50,7 @@ jobs:
         run: php artisan config:clear
 
       - name: Test with phpunit
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit --coverage-text

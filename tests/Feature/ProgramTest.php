@@ -23,8 +23,9 @@ class ProgramTest extends TestCase
     public function test_program_index_non_admin(): void
     {
         $user = User::factory()->create();
+        $token = $user->createToken('')->plainTextToken;
         $response = $this->getJson('/api/program', [
-            'authorization' => "Bearer ".$user->createToken('')->plainTextToken
+            'authorization' => "Bearer $token"
         ]);
 
         $response->assertStatus(200);
@@ -53,7 +54,7 @@ class ProgramTest extends TestCase
             [
                 'nama' => fake()->name()
             ],
-            [
+            headers:[
                 'authorization' => "Bearer ".$user->createToken('')->plainTextToken
             ]
         );
@@ -73,7 +74,7 @@ class ProgramTest extends TestCase
             [
                 'nama' => $fake_name
             ],
-            [
+            headers:[
                 'authorization' => "Bearer ".$user->createToken('')->plainTextToken
             ]
         );
