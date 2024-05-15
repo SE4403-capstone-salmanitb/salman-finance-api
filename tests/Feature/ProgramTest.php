@@ -141,13 +141,14 @@ class ProgramTest extends TestCase
 
         $program = Program::factory()->create();
 
-        $updatedName = 'New Program Name';
+        $updatedName = 'New Program Name '.now()->timestamp;
 
         $response = $this->putJson("/api/program/{$program->id}", [
             'nama' => $updatedName,
         ], [
             'authorization' => "Bearer ".$user->createToken('')->plainTextToken
         ]);
+        info($response->json());
 
         $response->assertStatus(200);
         $response->assertJsonFragment(['nama' => $updatedName]);
