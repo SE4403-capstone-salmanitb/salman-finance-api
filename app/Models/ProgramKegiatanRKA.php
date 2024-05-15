@@ -19,7 +19,7 @@ class ProgramKegiatanRKA extends Model
         'sumber_dana_ras',
         'sumber_dana_kepesertaan',
         'sumber_dana_pihak_ketiga',
-        'sumber_dana_pusat_wakaf_salman',
+        'sumber_dana_wakaf_salman',
 
         'id_program'
     ];

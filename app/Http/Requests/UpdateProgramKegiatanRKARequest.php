@@ -31,7 +31,7 @@ class UpdateProgramKegiatanRKARequest extends FormRequest
             'sumber_dana_ras' => 'integer|nullable',
             'sumber_dana_kepesertaan' => 'integer|nullable',
             'sumber_dana_pihak_ketiga' => 'integer|nullable',
-            'sumber_dana_pusat_wakaf_salman' => 'integer|nullable',
+            'sumber_dana_wakaf_salman' => 'integer|nullable',
     
             'id_program' => 'nullable|integer|exists:programs,id',
         ];
