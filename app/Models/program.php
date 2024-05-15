@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class program extends Model
+class Program extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,8 @@ class program extends Model
         'nama',
     ];
 
-    public function programKegiatanRKA()
+    public function ProgramKegiatanRKA()
     {
-        return $this->hasMany(ProgramKegiatanRka::class, 'id_program');
+        return $this->hasMany(ProgramKegiatanRka::class, 'id_Program');
     }
 }
