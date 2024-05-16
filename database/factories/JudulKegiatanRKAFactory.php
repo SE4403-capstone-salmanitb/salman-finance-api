@@ -17,7 +17,7 @@ class JudulKegiatanRKAFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => fake()->regexify('[a-z]').". ".fake()->text()
         ];
     }
 }

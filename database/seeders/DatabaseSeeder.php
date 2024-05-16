@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JudulKegiatanRKA;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanRKA;
@@ -32,7 +33,15 @@ class DatabaseSeeder extends Seeder
 
         foreach ($programs as $value) {
             program::factory()
-            ->has(ProgramKegiatanRKA::factory()->count(2), 'programKegiatanRKA')
+            ->has(
+                ProgramKegiatanRKA::factory()
+                ->has(
+                    JudulKegiatanRKA::factory()->count(2),
+                    "judul"
+                )
+                ->count(2), 
+                'programKegiatanRKA'
+            )
             ->create([
                 'nama' => $value
             ]);
