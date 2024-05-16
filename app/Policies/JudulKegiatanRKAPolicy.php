@@ -13,7 +13,7 @@ class JudulKegiatanRKAPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,8 @@ class JudulKegiatanRKAPolicy
      */
     public function view(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -29,7 +30,8 @@ class JudulKegiatanRKAPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -37,7 +39,8 @@ class JudulKegiatanRKAPolicy
      */
     public function update(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -45,7 +48,8 @@ class JudulKegiatanRKAPolicy
      */
     public function delete(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -53,7 +57,8 @@ class JudulKegiatanRKAPolicy
      */
     public function restore(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -61,6 +66,7 @@ class JudulKegiatanRKAPolicy
      */
     public function forceDelete(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
     {
-        //
+        return true;
+        
     }
 }

@@ -11,7 +11,7 @@ class UpdateJudulKegiatanRKARequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateJudulKegiatanRKARequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'nullable|string|max:255',        
+            'id_program_kegiatan_rka' => 'nullable|integer|exists:program_kegiatan_r_k_a_s,id',
         ];
     }
 }
