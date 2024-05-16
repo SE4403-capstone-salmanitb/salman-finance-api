@@ -101,7 +101,7 @@ class ProgramKegiatanRKAControllerTest extends TestCase
         $program = program::factory()->create();
 
         $data = [
-            'id' => 1,
+            'id' => 111,
             'nama' => 'Test Program Kegiatan RKA',
             'deskripsi' => 'This is a test description',
             'output' => 'Test output',
