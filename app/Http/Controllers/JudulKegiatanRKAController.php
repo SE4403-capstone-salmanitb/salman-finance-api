@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JudulKegiatanRKA;
 use App\Http\Requests\StoreJudulKegiatanRKARequest;
 use App\Http\Requests\UpdateJudulKegiatanRKARequest;
+use Illuminate\Support\Facades\Gate;
 
 class JudulKegiatanRKAController extends Controller
 {
@@ -13,7 +14,11 @@ class JudulKegiatanRKAController extends Controller
      */
     public function index()
     {
-        //
+        Gate::authorize('viewAny', JudulKegiatanRKA::class);
+
+        $data = JudulKegiatanRKA::latest()->paginate(5);
+
+        return response()->json($data);
     }
 
     /**
@@ -21,7 +26,11 @@ class JudulKegiatanRKAController extends Controller
      */
     public function store(StoreJudulKegiatanRKARequest $request)
     {
-        //
+        Gate::authorize('create', JudulKegiatanRKA::class);
+        
+        $judulKegiatanRKA = JudulKegiatanRKA::create(array_filter($request->validated()));
+
+        return response()->json($judulKegiatanRKA, 201);
     }
 
     /**
@@ -29,7 +38,10 @@ class JudulKegiatanRKAController extends Controller
      */
     public function show(JudulKegiatanRKA $judulKegiatanRKA)
     {
-        //
+        info($judulKegiatanRKA);
+
+        Gate::authorize('view', $judulKegiatanRKA);
+        return response()->json($judulKegiatanRKA);
     }
 
     /**
@@ -37,7 +49,12 @@ class JudulKegiatanRKAController extends Controller
      */
     public function update(UpdateJudulKegiatanRKARequest $request, JudulKegiatanRKA $judulKegiatanRKA)
     {
-        //
+        Gate::authorize('update', $judulKegiatanRKA);
+
+        $judulKegiatanRKA->update(array_filter($request->validated()));
+
+        return response()->json($judulKegiatanRKA, 200);
+        
     }
 
     /**
@@ -45,6 +62,10 @@ class JudulKegiatanRKAController extends Controller
      */
     public function destroy(JudulKegiatanRKA $judulKegiatanRKA)
     {
-        //
+        Gate::authorize('delete', $judulKegiatanRKA);
+        
+        $judulKegiatanRKA->delete();
+
+        return response()->noContent();
     }
 }
