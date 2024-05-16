@@ -27,7 +27,7 @@ class JudulKegiatanRKAController extends Controller
     public function store(StoreJudulKegiatanRKARequest $request)
     {
         Gate::authorize('create', JudulKegiatanRKA::class);
-        
+
         $judulKegiatanRKA = JudulKegiatanRKA::create(array_filter($request->validated()));
 
         return response()->json($judulKegiatanRKA, 201);

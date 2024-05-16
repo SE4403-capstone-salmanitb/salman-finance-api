@@ -10,7 +10,8 @@ class JudulKegiatanRKA extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama'
+        'nama',
+        'id_program_kegiatan_rka'
     ];
 
     /**
