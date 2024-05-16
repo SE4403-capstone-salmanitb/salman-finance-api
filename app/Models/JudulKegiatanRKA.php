@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class JudulKegiatanRKA extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama'
+    ];
+
+    /**
+     * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
+     */
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'id_program');
+    }
 }

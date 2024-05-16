@@ -31,4 +31,12 @@ class ProgramKegiatanRKA extends Model
     {
         return $this->belongsTo(Program::class, 'id_program');
     }
+
+    /**
+     * Satu ProgramKegiatanRKA memiliki banyak judul kegiatan rka
+     */
+    public function judul()
+    {
+        return $this->hasMany(JudulKegiatanRKA::class, 'id_program_kegiatan_rka');
+    }
 }
