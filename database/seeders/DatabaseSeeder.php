@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\program;
+use App\Models\ProgramKegiatanRKA;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +20,22 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'is_admin' => true,
         ]);
+
+        $programs = [
+            'PROGRAM KEPUSTAKAAN', 
+            'PROGRAM INTELEKTUALITAS', 
+            'PROGRAM EKOLITERASI',
+            'PROGRAM SUPPORTING SYSTEM'
+        ];
+
+        foreach ($programs as $value) {
+            program::factory()
+            ->has(ProgramKegiatanRKA::factory()->count(2), 'programKegiatanRKA')
+            ->create([
+                'nama' => $value
+            ]);
+        }
     }
 }
