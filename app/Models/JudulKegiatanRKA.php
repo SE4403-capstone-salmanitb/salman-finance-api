@@ -16,8 +16,8 @@ class JudulKegiatanRKA extends Model
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
      */
-    public function program()
+    public function programKegiatan()
     {
-        return $this->belongsTo(Program::class, 'id_program');
+        return $this->belongsTo(ProgramKegiatanRKA::class, 'id_program_kegiatan_rka');
     }
 }
