@@ -2,22 +2,22 @@
 
 namespace Tests\Feature\Http\Controllers;
 
-use App\Models\program;
+use App\Models\JudulKegiatanRKA;
+use App\Models\Program;
 use App\Models\ProgramKegiatanRKA;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ProgramKegiatanRKAControllerTest extends TestCase
+class JudulKegiatanRKAControllerTest extends TestCase
 {
-    use RefreshDatabase;
     /**
      * index with no user authenticated
      */
     public function test_index_no_user(): void
     {
-        $response = $this->getJson('/api/programKegiatanRKA');
+        $response = $this->getJson('/api/judulKegiatanRKA');
 
         $response->assertStatus(401);
     }
@@ -28,7 +28,7 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     public function test_index_with_user(): void
     {
         $user = User::factory()->create();
-        $response = $this->getJson('/api/programKegiatanRKA', [
+        $response = $this->getJson('/api/judulKegiatanRKA', [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
 
@@ -38,22 +38,14 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     public function test_create_valid_input()
     {
         $user = User::factory()->create();
-        $program = program::factory()->create();
+        $program = ProgramKegiatanRKA::factory()->for(program::factory())->create();
 
         $data = [
             'nama' => 'Test Program Kegiatan RKA',
-            'deskripsi' => 'This is a test description',
-            'output' => 'Test output',
-            'tahun' => 2024,
-            'sumber_dana_pusat' => 1000000,
-            'sumber_dana_ras' => 2000000,
-            'sumber_dana_kepesertaan' => 3000000,
-            'sumber_dana_pihak_ketiga' => 4000000,
-            'sumber_dana_wakaf_salman' => 5000000,
-            'id_program' => $program->id,
+            'id_program_kegiatan_rka' => $program->id,
         ];
 
-        $response = $this->postJson('/api/programKegiatanRKA', $data, 
+        $response = $this->postJson('/api/judulKegiatanRKA', $data, 
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
@@ -68,18 +60,10 @@ class ProgramKegiatanRKAControllerTest extends TestCase
 
         $data = [
             'nama' => 'Test Program Kegiatan RKA',
-            'deskripsi' => 'This is a test description',
-            'output' => 'Test output',
-            'tahun' => 2024,
-            'sumber_dana_pusat' => 1000000,
-            'sumber_dana_ras' => 2000000,
-            'sumber_dana_kepesertaan' => 3000000,
-            'sumber_dana_pihak_ketiga' => 4000000,
-            'sumber_dana_wakaf_salman' => 5000000,
-            'id_program' => -999,
+            'id_program_kegiatan_rka' => -999,
         ];
 
-        $response = $this->postJson('/api/programKegiatanRKA', $data, 
+        $response = $this->postJson('/api/judulKegiatanRKA', $data, 
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
@@ -89,8 +73,12 @@ class ProgramKegiatanRKAControllerTest extends TestCase
 
     public function test_show_no_user()
     {
-        $programKegiatanRKA = ProgramKegiatanRKA::factory()->for(program::factory())->create();
-        $response = $this->getJson('/api/programKegiatanRKA/'.$programKegiatanRKA->id);
+        $judulKegiatanRKA = JudulKegiatanRKA::factory()
+        ->for(ProgramKegiatanRKA::factory()
+            ->for(Program::factory())
+            ->create(), 'programKegiatan')
+        ->create();
+        $response = $this->getJson('/api/judulKegiatanRKA/'.$judulKegiatanRKA->id);
 
         $response->assertStatus(401);
     }
@@ -98,22 +86,22 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     public function test_show_with_user()
     {  
         $user = User::factory()->create();
-        $program = program::factory()->create();
+        $program = JudulKegiatanRKA::factory()
+        ->for(ProgramKegiatanRKA::factory()
+            ->for(Program::factory())
+            ->create(), 'programKegiatan')
+        ->create();
 
         $data = [
-            'id' => 111,
+            'id' => 101,
             'nama' => 'Test Program Kegiatan RKA',
-            'deskripsi' => 'This is a test description',
-            'output' => 'Test output',
-            'tahun' => 2024,
-            'sumber_dana_ras' => 2000000,
-            'id_program' => $program->id,
+            'id_program_kegiatan_rka' => $program->id,
         ];
 
-        ProgramKegiatanRKA::factory()->create($data);
+        JudulKegiatanRKA::factory()->create($data);
 
 
-        $response = $this->getJson('/api/programKegiatanRKA/'.$data['id'],
+        $response = $this->getJson('/api/judulKegiatanRKA/'.$data['id'],
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
@@ -127,12 +115,14 @@ class ProgramKegiatanRKAControllerTest extends TestCase
         $user = User::factory()->create();
         $newName = "This is the new name";
 
-        $programKegiatanRKA = ProgramKegiatanRKA::factory()
-        ->for(program::factory())
+        $judulKegiatanRKA = JudulKegiatanRKA::factory()
+        ->for(ProgramKegiatanRKA::factory()
+            ->for(Program::factory())
+            ->create(), 'programKegiatan')
         ->create();
 
 
-        $response = $this->patchJson('/api/programKegiatanRKA/'.$programKegiatanRKA->id,
+        $response = $this->patchJson('/api/judulKegiatanRKA/'.$judulKegiatanRKA->id,
         [
             'nama' => $newName
         ],
@@ -150,7 +140,7 @@ class ProgramKegiatanRKAControllerTest extends TestCase
 
 
 
-        $response = $this->getJson('/api/programKegiatanRKA/100001',
+        $response = $this->getJson('/api/judulKegiatanRKA/100001',
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
@@ -162,13 +152,15 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $programKegiatanRKA = ProgramKegiatanRKA::factory()
-        ->for(program::factory())
+        $judulKegiatanRKA = JudulKegiatanRKA::factory()
+        ->for(ProgramKegiatanRKA::factory()
+            ->for(Program::factory())
+            ->create(), 'programKegiatan')
         ->create();
 
-        $response = $this->patchJson('/api/programKegiatanRKA/'.$programKegiatanRKA->id,
+        $response = $this->patchJson('/api/judulKegiatanRKA/'.$judulKegiatanRKA->id,
         [
-            'id_program' => -999
+            'id_program_kegiatan_rka' => -999
         ],
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
@@ -181,13 +173,9 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $programKegiatanRKA = ProgramKegiatanRKA::factory()
-        ->for(program::factory())
-        ->create();
-
-        $response = $this->patchJson('/api/programKegiatanRKA/-99',
+        $response = $this->patchJson('/api/judulKegiatanRKA/-99',
         [
-            'id_program' => -999
+            'id_program_kegiatan_rka' => -999
         ],
         [
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
@@ -199,10 +187,14 @@ class ProgramKegiatanRKAControllerTest extends TestCase
     function test_delete_normal() 
     {
         $user = User::factory()->create();
-        $programKegiatanRKA =  ProgramKegiatanRKA::factory()->for(program::factory())->create();
+        $judulKegiatanRKA =  JudulKegiatanRKA::factory()
+        ->for(ProgramKegiatanRKA::factory()
+            ->for(Program::factory())
+            ->create(), 'programKegiatan')
+        ->create();
 
 
-        $response = $this->deleteJson('/api/programKegiatanRKA/'.$programKegiatanRKA->id,
+        $response = $this->deleteJson('/api/judulKegiatanRKA/'.$judulKegiatanRKA->id,
         headers:[
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
@@ -215,7 +207,7 @@ class ProgramKegiatanRKAControllerTest extends TestCase
         $user = User::factory()->create();
 
 
-        $response = $this->deleteJson('/api/programKegiatanRKA/-99',
+        $response = $this->deleteJson('/api/judulKegiatanRKA/-99',
         headers:[
             'authorization' => 'Bearer '.$user->createToken('test')->plainTextToken
         ]);
