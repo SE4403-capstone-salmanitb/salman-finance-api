@@ -32,24 +32,33 @@ class DatabaseSeeder extends Seeder
             'PROGRAM SUPPORTING SYSTEM'
         ];
 
-        foreach ($programs as $value) {
-            program::factory()
-            ->has(
-                ProgramKegiatanRKA::factory()
+        if (config('app.debug') == false) {
+            foreach ($programs as $value) {
+                program::factory()->create([
+                    'nama' => $value
+                ]);
+            }
+        } else {
+            foreach ($programs as $value) {
+                program::factory()
                 ->has(
-                    JudulKegiatanRKA::factory()->has(
-                        ItemKegiatanRKA::factory()->count(2),
-                        'item'
+                    ProgramKegiatanRKA::factory()
+                    ->has(
+                        JudulKegiatanRKA::factory()->has(
+                            ItemKegiatanRKA::factory()->count(2),
+                            'item'
+                        )
+                        ->count(2),
+                        "judul"
                     )
-                    ->count(2),
-                    "judul"
+                    ->count(2), 
+                    'programKegiatanRKA'
                 )
-                ->count(2), 
-                'programKegiatanRKA'
-            )
-            ->create([
-                'nama' => $value
-            ]);
+                ->create([
+                    'nama' => $value
+                ]);
+            }
         }
+        
     }
 }
