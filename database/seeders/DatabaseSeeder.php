@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\User;
 use App\Models\program;
@@ -36,7 +37,11 @@ class DatabaseSeeder extends Seeder
             ->has(
                 ProgramKegiatanRKA::factory()
                 ->has(
-                    JudulKegiatanRKA::factory()->count(2),
+                    JudulKegiatanRKA::factory()->has(
+                        ItemKegiatanRKA::factory()->count(2),
+                        'item'
+                    )
+                    ->count(2),
                     "judul"
                 )
                 ->count(2), 

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Program;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,6 +28,14 @@ class ProgramKegiatanRKAFactory extends Factory
             'sumber_dana_kepesertaan' => fake()->numberBetween(0, 1000000)*100,
             'sumber_dana_pihak_ketiga' => fake()->numberBetween(0, 1000000)*100,
             'sumber_dana_wakaf_salman' => fake()->numberBetween(0, 1000000)*100,
+
+            'id_program' => function() {
+                $program = Program::first();
+                if (!$program) {
+                    $program = Program::factory()->create();
+                }
+                return $program->id;
+            }
         ];
     }
 }
