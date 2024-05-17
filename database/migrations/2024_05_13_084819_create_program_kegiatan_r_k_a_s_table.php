@@ -17,15 +17,8 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('output');
             $table->integer('tahun');
-
-            $table->integer('sumber_dana_pusat')->default(0);
-            $table->integer('sumber_dana_ras')->default(0);
-            $table->integer('sumber_dana_kepesertaan')->default(0);
-            $table->integer('sumber_dana_pihak_ketiga')->default(0);
-            $table->integer('sumber_dana_wakaf_salman')->default(0);
-
-            $table->timestamps();
             $table->foreignId('id_program')->references('id')->on('programs')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

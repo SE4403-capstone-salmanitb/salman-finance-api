@@ -15,12 +15,6 @@ class ProgramKegiatanRKA extends Model
         'output',
         'tahun',
 
-        'sumber_dana_pusat',
-        'sumber_dana_ras',
-        'sumber_dana_kepesertaan',
-        'sumber_dana_pihak_ketiga',
-        'sumber_dana_wakaf_salman',
-
         'id_program'
     ];
 
