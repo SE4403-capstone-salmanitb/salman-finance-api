@@ -27,12 +27,6 @@ class UpdateProgramKegiatanRKARequest extends FormRequest
             'output' => 'nullable|string|max:255',
             'tahun' => 'nullable|integer|min:1900',
     
-            'sumber_dana_pusat' => 'integer|nullable',
-            'sumber_dana_ras' => 'integer|nullable',
-            'sumber_dana_kepesertaan' => 'integer|nullable',
-            'sumber_dana_pihak_ketiga' => 'integer|nullable',
-            'sumber_dana_wakaf_salman' => 'integer|nullable',
-    
             'id_program' => 'nullable|integer|exists:programs,id',
         ];
     }

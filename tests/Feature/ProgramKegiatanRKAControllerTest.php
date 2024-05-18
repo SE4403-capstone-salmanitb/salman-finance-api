@@ -45,11 +45,6 @@ class ProgramKegiatanRKAControllerTest extends TestCase
             'deskripsi' => 'This is a test description',
             'output' => 'Test output',
             'tahun' => 2024,
-            'sumber_dana_pusat' => 1000000,
-            'sumber_dana_ras' => 2000000,
-            'sumber_dana_kepesertaan' => 3000000,
-            'sumber_dana_pihak_ketiga' => 4000000,
-            'sumber_dana_wakaf_salman' => 5000000,
             'id_program' => $program->id,
         ];
 
@@ -71,11 +66,6 @@ class ProgramKegiatanRKAControllerTest extends TestCase
             'deskripsi' => 'This is a test description',
             'output' => 'Test output',
             'tahun' => 2024,
-            'sumber_dana_pusat' => 1000000,
-            'sumber_dana_ras' => 2000000,
-            'sumber_dana_kepesertaan' => 3000000,
-            'sumber_dana_pihak_ketiga' => 4000000,
-            'sumber_dana_wakaf_salman' => 5000000,
             'id_program' => -999,
         ];
 
@@ -106,7 +96,6 @@ class ProgramKegiatanRKAControllerTest extends TestCase
             'deskripsi' => 'This is a test description',
             'output' => 'Test output',
             'tahun' => 2024,
-            'sumber_dana_ras' => 2000000,
             'id_program' => $program->id,
         ];
 
