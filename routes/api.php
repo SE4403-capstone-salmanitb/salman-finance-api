@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
-use App\Models\JudulKegiatanRKA;
-use App\Models\ProgramKegiatanRKA;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +18,8 @@ Route::apiResources(
     [
         '/program' => ProgramController::class,
         '/programKegiatanRKA' => ProgramKegiatanRKAController::class,
-        '/judulKegiatanRKA' => JudulKegiatanRKAController::class
+        '/judulKegiatanRKA' => JudulKegiatanRKAController::class,
+        '/itemKegiatanRKA' => ItemKegiatanRKAController::class,
     ],
     [
         'middleware' => ['auth:sanctum', 'verified']
