@@ -21,4 +21,9 @@ class JudulKegiatanRKA extends Model
     {
         return $this->belongsTo(ProgramKegiatanRKA::class, 'id_program_kegiatan_rka');
     }
+
+    public function item()
+    {
+        return $this->hasMany(ItemKegiatanRKA::class, 'id_judul_kegiatan');
+    }
 }
