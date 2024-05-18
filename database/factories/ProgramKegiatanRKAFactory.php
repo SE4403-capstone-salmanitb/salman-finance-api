@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Program;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,13 @@ class ProgramKegiatanRKAFactory extends Factory
             'output' => fake()->sentence(2),
             'tahun' => now()->year,
 
+            'id_program' => function() {
+                $program = Program::first();
+                if (!$program) {
+                    $program = Program::factory()->create();
+                }
+                return $program->id;
+            }
         ];
     }
 }

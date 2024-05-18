@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ProgramKegiatanRKA;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,14 @@ class JudulKegiatanRKAFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama' => fake()->regexify('[a-z]').". ".fake()->text()
+            'nama' => fake()->regexify('[a-z]').". ".fake()->text(),
+            'id_program_kegiatan_rka' => function() {
+                $prokegRKA = ProgramKegiatanRKA::first();
+                if (!$prokegRKA) {
+                    $prokegRKA = ProgramKegiatanRKA::factory()->create();
+                }
+                return $prokegRKA->id;
+            }
         ];
     }
 }
