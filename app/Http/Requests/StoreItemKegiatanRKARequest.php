@@ -23,28 +23,28 @@ class StoreItemKegiatanRKARequest extends FormRequest
     public function rules(): array
     {
         return [
-            'uraian' => 'required|string',
-        'nilai_satuan' => 'required|integer',
-        'quantity' => 'required|integer',
-        'quantity_unit' => 'required|string',
-        'frequency' => 'required|integer',
-        'frequency_unit' => 'required|string',
-        'sumber_dana' => 'required|string',
+            'uraian' => 'required|string|max:255',
+            'nilai_satuan' => 'required|integer',
+            'quantity' => 'required|integer',
+            'quantity_unit' => 'required|string|max:255',
+            'frequency' => 'required|integer',
+            'frequency_unit' => 'required|string|max:255',
+            'sumber_dana' => 'required|string|in:Pusat,RAS,Kepesertaan,Pihak Ketiga,Wakaf Salman',
 
-        'dana_jan' => 'required|boolean',
-        'dana_feb' => 'required|boolean',
-        'dana_mar' => 'required|boolean',
-        'dana_apr' => 'required|boolean',
-        'dana_mei' => 'required|boolean',
-        'dana_jun' => 'required|boolean',
-        'dana_jul' => 'required|boolean',
-        'dana_aug' => 'required|boolean',
-        'dana_sep' => 'required|boolean',
-        'dana_oct' => 'required|boolean',
-        'dana_nov' => 'required|boolean',
-        'dana_dec' => 'required|boolean',
-        
-        'id_judul_kegiatan' => 'required|integer',
+            'dana_jan' => 'nullable|boolean',
+            'dana_feb' => 'nullable|boolean',
+            'dana_mar' => 'nullable|boolean',
+            'dana_apr' => 'nullable|boolean',
+            'dana_mei' => 'nullable|boolean',
+            'dana_jun' => 'nullable|boolean',
+            'dana_jul' => 'nullable|boolean',
+            'dana_aug' => 'nullable|boolean',
+            'dana_sep' => 'nullable|boolean',
+            'dana_oct' => 'nullable|boolean',
+            'dana_nov' => 'nullable|boolean',
+            'dana_dec' => 'nullable|boolean',
+
+            'id_judul_kegiatan' => 'required|integer|exists:judul_kegiatan_r_k_a_s,id',
         ];
     }
 }
