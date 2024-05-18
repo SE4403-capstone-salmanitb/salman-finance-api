@@ -38,8 +38,6 @@ class ProgramKegiatanRKAController extends Controller
      */
     public function show(ProgramKegiatanRKA $programKegiatanRKA)
     {
-        info($programKegiatanRKA);
-
         Gate::authorize('view', $programKegiatanRKA);
         return response()->json($programKegiatanRKA);
     }

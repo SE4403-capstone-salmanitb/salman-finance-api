@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ItemKegiatanRKA;
 use App\Http\Requests\StoreItemKegiatanRKARequest;
 use App\Http\Requests\UpdateItemKegiatanRKARequest;
+use Illuminate\Support\Facades\Gate;
 
 class ItemKegiatanRKAController extends Controller
 {
@@ -13,7 +14,11 @@ class ItemKegiatanRKAController extends Controller
      */
     public function index()
     {
-        //
+        Gate::authorize('viewAny', ItemKegiatanRKA::class);
+
+        $data = ItemKegiatanRKA::latest()->paginate(5);
+
+        return response()->json($data);
     }
 
     /**
@@ -21,7 +26,11 @@ class ItemKegiatanRKAController extends Controller
      */
     public function store(StoreItemKegiatanRKARequest $request)
     {
-        //
+        Gate::authorize('create', ItemKegiatanRKA::class);
+
+        $itemKegiatanRKA = ItemKegiatanRKA::create(array_filter($request->validated()));
+
+        return response()->json($itemKegiatanRKA, 201);
     }
 
     /**
@@ -29,7 +38,8 @@ class ItemKegiatanRKAController extends Controller
      */
     public function show(ItemKegiatanRKA $itemKegiatanRKA)
     {
-        //
+        Gate::authorize('view', $itemKegiatanRKA);
+        return response()->json($itemKegiatanRKA);
     }
 
     /**
@@ -37,7 +47,12 @@ class ItemKegiatanRKAController extends Controller
      */
     public function update(UpdateItemKegiatanRKARequest $request, ItemKegiatanRKA $itemKegiatanRKA)
     {
-        //
+        Gate::authorize('update', $itemKegiatanRKA);
+
+        $itemKegiatanRKA->update(array_filter($request->validated()));
+
+        return response()->json($itemKegiatanRKA, 200);
+        
     }
 
     /**
@@ -45,6 +60,10 @@ class ItemKegiatanRKAController extends Controller
      */
     public function destroy(ItemKegiatanRKA $itemKegiatanRKA)
     {
-        //
+        Gate::authorize('delete', $itemKegiatanRKA);
+        
+        $itemKegiatanRKA->delete();
+
+        return response()->noContent();
     }
 }

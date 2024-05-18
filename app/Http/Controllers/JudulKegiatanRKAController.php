@@ -38,8 +38,6 @@ class JudulKegiatanRKAController extends Controller
      */
     public function show(JudulKegiatanRKA $judulKegiatanRKA)
     {
-        info($judulKegiatanRKA);
-
         Gate::authorize('view', $judulKegiatanRKA);
         return response()->json($judulKegiatanRKA);
     }
