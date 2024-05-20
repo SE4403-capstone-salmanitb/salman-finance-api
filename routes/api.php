@@ -14,6 +14,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/user', function (Request 
 //Route::apiResource('/program', App\Http\Controllers\ProgramController::class)
 //->middleware(['auth:sanctum', 'verified']);
 
+Route::get('/programKegiatanRKA/full/{year}', [ProgramKegiatanRKAController::class, 'full']) 
+->middleware(['auth:sanctum', 'verified']);
+
 Route::apiResources(
     [
         '/program' => ProgramController::class,
