@@ -1794,6 +1794,154 @@ paths:
         - authorization: []
           cookie: []
       summary: Post Api Program Kegiatan RKA
+  /api/programKegiatanRKA/full/{tahun}:
+    parameters:
+      - name: tahun
+        in: path
+        description: tahun rka
+        required: true
+        schema:
+          type: integer
+    get:
+      description: melihat tabel rka untuk tahun ke sekian
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 1|9hooBE9884Tz2vrfYWXZhKPXj8otNThJ0erlWUMZe22a41f5
+            type: string
+      responses:
+        '200':
+          description: return the table
+          content:
+            application/json:
+              example:
+                0: 
+                  id: "1"
+                  nama: "mock_Gerardo Boyer"
+                  deskripsi: "Perspiciatis corporis qui eos quae et occaecati quos."
+                  output: "Aliquid sunt."
+                  Dana_Pusat: "241204800"
+                  Dana_RAS: "0"
+                  Dana_Kepesertaan: "515270000"
+                  Dana_Pihak_Ketiga: "0"
+                  Dana_Wakaf_Salman: "72106000"
+                  Total_Dana: "828580800"
+                1: 
+                  id: "2"
+                  nama: "mock_Wiley Abshire"
+                  deskripsi: "Voluptatum sit occaecati qui doloribus expedita expedita."
+                  output: "Eaque quo iste."
+                  Dana_Pusat: "0"
+                  Dana_RAS: "0"
+                  Dana_Kepesertaan: "1676855400"
+                  Dana_Pihak_Ketiga: "779297400"
+                  Dana_Wakaf_Salman: "152697600"
+                  Total_Dana: "2608850400"
+                2: 
+                  id: "3"
+                  nama: "mock_Edgar Conroy V"
+                  deskripsi: "Possimus eum dolor id sed cum harum."
+                  output: "Odio quo."
+                  Dana_Pusat: "1734480000"
+                  Dana_RAS: "0"
+                  Dana_Kepesertaan: "40563600"
+                  Dana_Pihak_Ketiga: "217922400"
+                  Dana_Wakaf_Salman: "75107000"
+                  Total_Dana: "2068073000"
+                3: 
+                  id: "4"
+                  nama: "mock_Darryl Emard"
+                  deskripsi: "Et quas quasi itaque autem."
+                  output: "Doloribus et est."
+                  Dana_Pusat: "372027600"
+                  Dana_RAS: "280686400"
+                  Dana_Kepesertaan: "946633600"
+                  Dana_Pihak_Ketiga: "0"
+                  Dana_Wakaf_Salman: "0"
+                  Total_Dana: "1599347600"
+                4: 
+                  id: "5"
+                  nama: "mock_Prof. Brycen Stanton"
+                  deskripsi: "Quia dolorum adipisci aspernatur quae."
+                  output: "Sapiente iure."
+                  Dana_Pusat: "0"
+                  Dana_RAS: "0"
+                  Dana_Kepesertaan: "9036400"
+                  Dana_Pihak_Ketiga: "245127200"
+                  Dana_Wakaf_Salman: "6331500"
+                  Total_Dana: "260495100"
+                5: 
+                  id: "6"
+                  nama: "mock_Prof. Eleazar Hoppe Sr."
+                  deskripsi: "Voluptate praesentium sed eos quas quis."
+                  output: "Atque facilis."
+                  Dana_Pusat: "0"
+                  Dana_RAS: "87162400"
+                  Dana_Kepesertaan: "342144000"
+                  Dana_Pihak_Ketiga: "24979800"
+                  Dana_Wakaf_Salman: "604327500"
+                  Total_Dana: "1058613700"
+                6: 
+                  id: "7"
+                  nama: "mock_Ms. Angeline Treutel Jr."
+                  deskripsi: "Modi aut adipisci dignissimos odio ut."
+                  output: "Repellat quas."
+                  Dana_Pusat: "163521600"
+                  Dana_RAS: "10595000"
+                  Dana_Kepesertaan: "114875600"
+                  Dana_Pihak_Ketiga: "0"
+                  Dana_Wakaf_Salman: "230388000"
+                  Total_Dana: "519380200"
+                7: 
+                  id: "8"
+                  nama: "mock_Kenton Spinka"
+                  deskripsi: "Maxime quia soluta dolorem optio."
+                  output: "Pariatur aperiam."
+                  Dana_Pusat: "0"
+                  Dana_RAS: "190134800"
+                  Dana_Kepesertaan: "0"
+                  Dana_Pihak_Ketiga: "1229918400"
+                  Dana_Wakaf_Salman: "0"
+                  Total_Dana: "1420053200"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "8"
+                    nama:
+                      type: string
+                      example: "mock_Kenton Spinka"
+                    deskripsi:
+                      type: string
+                      example: "Maxime quia soluta dolorem optio."
+                    output:
+                      type: string
+                      example: "Pariatur aperiam."
+                    Dana_Pusat:
+                      type: string
+                      example: "0"
+                    Dana_RAS:
+                      type: string
+                      example: "190134800"
+                    Dana_Kepesertaan:
+                      type: string
+                      example: "0"
+                    Dana_Pihak_Ketiga:
+                      type: string
+                      example: "1229918400"
+                    Dana_Wakaf_Salman:
+                      type: string
+                      example: "0"
+                    Total_Dana:
+                      type: string
+                      example: "1420053200"
+                  
+
   /api/programKegiatanRKA/{id}:
     parameters:
     - name: id
