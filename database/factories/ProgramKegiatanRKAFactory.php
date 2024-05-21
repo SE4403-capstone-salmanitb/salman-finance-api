@@ -23,7 +23,7 @@ class ProgramKegiatanRKAFactory extends Factory
             'output' => fake()->sentence(2),
             'tahun' => now()->year,
 
-            'id_Program' => function() {
+            'id_program' => function() {
                 $program = Program::first();
                 if (!$program) {
                     $program = Program::factory()->create();

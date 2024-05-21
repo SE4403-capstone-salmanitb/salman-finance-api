@@ -3,6 +3,7 @@
 use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::apiResources(
     [
         '/program' => ProgramController::class,
         '/programKegiatanRKA' => ProgramKegiatanRKAController::class,
+        '/programKegiatanKPI' => ProgramKegiatanKPIController::class,
         '/judulKegiatanRKA' => JudulKegiatanRKAController::class,
         '/itemKegiatanRKA' => ItemKegiatanRKAController::class,
     ],

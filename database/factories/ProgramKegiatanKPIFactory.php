@@ -21,7 +21,7 @@ class ProgramKegiatanKPIFactory extends Factory
             'nama' => 'produksi_'.fake()->name(),
             'tahun' => now()->year,
 
-            'id_Program' => function() {
+            'id_program' => function() {
                 $program = Program::first();
                 if (!$program) {
                     $program = Program::factory()->create();
