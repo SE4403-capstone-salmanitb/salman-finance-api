@@ -12,6 +12,8 @@ use Tests\TestCase;
 
 class JudulKegiatanRKAControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * index with no user authenticated
      */

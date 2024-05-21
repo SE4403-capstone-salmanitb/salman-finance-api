@@ -15,6 +15,11 @@ class Program extends Model
 
     public function ProgramKegiatanRKA()
     {
-        return $this->hasMany(ProgramKegiatanRka::class, 'id_Program');
+        return $this->hasMany(ProgramKegiatanRka::class, 'id_program');
+    }
+
+    public function ProgramKegiatanKPI()
+    {
+        return $this->hasMany(ProgramKegiatanKPI::class, 'id_program');
     }
 }

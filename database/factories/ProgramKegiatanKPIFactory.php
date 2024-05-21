@@ -6,9 +6,9 @@ use App\Models\Program;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProgramKegiatanRKA>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProgramKegiatanKPI>
  */
-class ProgramKegiatanRKAFactory extends Factory
+class ProgramKegiatanKPIFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,7 @@ class ProgramKegiatanRKAFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama' => 'mock_'.fake()->name(),
-            'deskripsi' => fake()->sentence(),
-            'output' => fake()->sentence(2),
+            'nama' => 'produksi_'.fake()->name(),
             'tahun' => now()->year,
 
             'id_program' => function() {
