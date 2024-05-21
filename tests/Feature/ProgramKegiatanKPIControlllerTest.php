@@ -11,6 +11,8 @@ use Tests\TestCase;
 
 class ProgramKegiatanKPIControlllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * index with no user authenticated
      */
