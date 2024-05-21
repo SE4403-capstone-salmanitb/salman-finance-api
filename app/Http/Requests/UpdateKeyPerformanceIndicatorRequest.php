@@ -11,7 +11,7 @@ class UpdateKeyPerformanceIndicatorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateKeyPerformanceIndicatorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'indikator' => "string|nullable|max:255",
+            'target' => "string|nullable|max:255",
+            'id_program_kegiatan_kpi' => "integer|nullable",
         ];
     }
 }

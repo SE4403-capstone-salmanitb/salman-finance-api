@@ -13,7 +13,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function view(User $user, KeyPerformanceIndicator $keyPerformanceIndicator): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function update(User $user, KeyPerformanceIndicator $keyPerformanceIndicator): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function delete(User $user, KeyPerformanceIndicator $keyPerformanceIndicator): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class KeyPerformanceIndicatorPolicy
      */
     public function restore(User $user, KeyPerformanceIndicator $keyPerformanceIndicator): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class KeyPerformanceIndicatorPolicy
      */
     public function forceDelete(User $user, KeyPerformanceIndicator $keyPerformanceIndicator): bool
     {
-        //
+        return true;
     }
 }

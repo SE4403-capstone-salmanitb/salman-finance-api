@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
+use App\Models\KeyPerformanceIndicator;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanKPI;
@@ -56,7 +57,11 @@ class DatabaseSeeder extends Seeder
                     'programKegiatanRKA'
                 )
                 ->has(
-                    ProgramKegiatanKPI::factory()->count(2),
+                    ProgramKegiatanKPI::factory()->has(
+                        KeyPerformanceIndicator::factory()->count(2),
+                        'kpi'
+                    )
+                    ->count(2),
                     "programKegiatanKPI"
                 )
                 ->create([

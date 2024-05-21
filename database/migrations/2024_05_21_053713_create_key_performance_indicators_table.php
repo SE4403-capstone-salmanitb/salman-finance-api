@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('key_performance_indicators', function (Blueprint $table) {
             $table->id();
+            $table->string('indikator');
+            $table->string('target');
+            $table->foreignId('id_program_kegiatan_kpi')->references('id')
+                ->on('program_kegiatan_k_p_i_s')->cascadeOnDelete();
             $table->timestamps();
         });
     }
