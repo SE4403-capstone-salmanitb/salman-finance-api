@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class ProgramKegiatanKPI extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'tahun',
+        'id_program',
+    ];
+
+    /**
+     * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
+     */
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'id_program');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Program;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,17 @@ class ProgramKegiatanKPIFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => 'produksi_'.fake()->name(),
+            'tahun' => now()->year,
+
+            'id_Program' => function() {
+                $program = Program::first();
+                if (!$program) {
+                    $program = Program::factory()->create();
+                }
+                return $program->id;
+            }
+
         ];
     }
 }

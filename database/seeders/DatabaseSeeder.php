@@ -6,6 +6,7 @@ use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\User;
 use App\Models\program;
+use App\Models\ProgramKegiatanKPI;
 use App\Models\ProgramKegiatanRKA;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -53,6 +54,10 @@ class DatabaseSeeder extends Seeder
                     )
                     ->count(2), 
                     'programKegiatanRKA'
+                )
+                ->has(
+                    ProgramKegiatanKPI::factory()->count(2),
+                    "programKegiatanKPI"
                 )
                 ->create([
                     'nama' => $value

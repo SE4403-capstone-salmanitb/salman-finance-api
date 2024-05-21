@@ -13,7 +13,7 @@ class ProgramKegiatanKPIPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -22,6 +22,8 @@ class ProgramKegiatanKPIPolicy
     public function view(User $user, ProgramKegiatanKPI $programKegiatanKPI): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -30,6 +32,8 @@ class ProgramKegiatanKPIPolicy
     public function create(User $user): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -38,6 +42,8 @@ class ProgramKegiatanKPIPolicy
     public function update(User $user, ProgramKegiatanKPI $programKegiatanKPI): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -46,6 +52,8 @@ class ProgramKegiatanKPIPolicy
     public function delete(User $user, ProgramKegiatanKPI $programKegiatanKPI): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -54,6 +62,8 @@ class ProgramKegiatanKPIPolicy
     public function restore(User $user, ProgramKegiatanKPI $programKegiatanKPI): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -62,5 +72,7 @@ class ProgramKegiatanKPIPolicy
     public function forceDelete(User $user, ProgramKegiatanKPI $programKegiatanKPI): bool
     {
         //
+        return true;
+
     }
 }

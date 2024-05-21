@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProgramKegiatanKPI;
 use App\Http\Requests\StoreProgramKegiatanKPIRequest;
 use App\Http\Requests\UpdateProgramKegiatanKPIRequest;
+use Illuminate\Support\Facades\Gate;
 
 class ProgramKegiatanKPIController extends Controller
 {
@@ -13,7 +14,11 @@ class ProgramKegiatanKPIController extends Controller
      */
     public function index()
     {
-        //
+        Gate::authorize('viewAny', ProgramKegiatanKPI::class);
+
+        $data = ProgramKegiatanKPI::latest()->paginate(5);
+
+        return response()->json($data);
     }
 
     /**
@@ -21,7 +26,11 @@ class ProgramKegiatanKPIController extends Controller
      */
     public function store(StoreProgramKegiatanKPIRequest $request)
     {
-        //
+        Gate::authorize('create', ProgramKegiatanKPI::class);
+        
+        $programKegiatanKPI = ProgramKegiatanKPI::create(array_filter($request->validated()));
+
+        return response()->json($programKegiatanKPI, 201);
     }
 
     /**
@@ -29,7 +38,8 @@ class ProgramKegiatanKPIController extends Controller
      */
     public function show(ProgramKegiatanKPI $programKegiatanKPI)
     {
-        //
+        Gate::authorize('view', $programKegiatanKPI);
+        return response()->json($programKegiatanKPI);
     }
 
     /**
@@ -37,7 +47,12 @@ class ProgramKegiatanKPIController extends Controller
      */
     public function update(UpdateProgramKegiatanKPIRequest $request, ProgramKegiatanKPI $programKegiatanKPI)
     {
-        //
+        Gate::authorize('update', $programKegiatanKPI);
+
+        $programKegiatanKPI->update(array_filter($request->validated()));
+
+        return response()->json($programKegiatanKPI, 200);
+        
     }
 
     /**
@@ -45,6 +60,10 @@ class ProgramKegiatanKPIController extends Controller
      */
     public function destroy(ProgramKegiatanKPI $programKegiatanKPI)
     {
-        //
+        Gate::authorize('delete', $programKegiatanKPI);
+        
+        $programKegiatanKPI->delete();
+
+        return response()->noContent();
     }
 }

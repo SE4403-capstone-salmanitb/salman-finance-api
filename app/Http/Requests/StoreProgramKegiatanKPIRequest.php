@@ -11,7 +11,7 @@ class StoreProgramKegiatanKPIRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreProgramKegiatanKPIRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'string|required|max:255',
+            'tahun' => 'integer|required|min:1900',
+            'id_program' => 'required|integer|exists:programs,id'
         ];
     }
 }

@@ -11,7 +11,7 @@ class UpdateProgramKegiatanKPIRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateProgramKegiatanKPIRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'nullable|string|max:255',
+            'tahun' => 'integer|nullable|min:1900',
+            'id_program' => 'nullable|integer|exists:programs,id'
         ];
     }
 }
