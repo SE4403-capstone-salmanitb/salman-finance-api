@@ -2139,6 +2139,691 @@ paths:
         - authorization: []
           cookie: []
       summary: Put Api Program Kegiatan RKA at id
+  /api/keyPerformanceIndicator:
+    get:
+      description: ''
+      operationId: getApiKeyPerformanceIndicator
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                current_page: 1
+                data:
+                  - created_at: '2024-05-21T10:26:07.000000Z'
+                    id: 9941
+                    id_program_kegiatan_kpi: 135
+                    indikator: Jumlah porro
+                    target: Minimal 1425 item per bulan
+                    updated_at: '2024-05-21T10:26:07.000000Z'
+                  - created_at: '2024-05-21T10:26:07.000000Z'
+                    id: 9942
+                    id_program_kegiatan_kpi: 135
+                    indikator: Jumlah possimus
+                    target: Minimal 5603 item per bulan
+                    updated_at: '2024-05-21T10:26:07.000000Z'
+                  - created_at: '2024-05-21T10:26:07.000000Z'
+                    id: 9943
+                    id_program_kegiatan_kpi: 136
+                    indikator: Jumlah quas
+                    target: Minimal 9071 item per bulan
+                    updated_at: '2024-05-21T10:26:07.000000Z'
+                  - created_at: '2024-05-21T10:26:07.000000Z'
+                    id: 9944
+                    id_program_kegiatan_kpi: 136
+                    indikator: Jumlah totam
+                    target: Minimal 7847 item per bulan
+                    updated_at: '2024-05-21T10:26:07.000000Z'
+                  - created_at: '2024-05-21T10:26:06.000000Z'
+                    id: 9929
+                    id_program_kegiatan_kpi: 129
+                    indikator: Jumlah perspiciatis
+                    target: Minimal 8220 item per bulan
+                    updated_at: '2024-05-21T10:26:06.000000Z'
+                first_page_url: http://localhost:8000/api/keyPerformanceIndicator?page=1
+                from: 1
+                last_page: 4
+                last_page_url: http://localhost:8000/api/keyPerformanceIndicator?page=4
+                links:
+                  - active: false
+                    label: '&laquo; Previous'
+                    url: null
+                  - active: true
+                    label: '1'
+                    url: http://localhost:8000/api/keyPerformanceIndicator?page=1
+                  - active: false
+                    label: '2'
+                    url: http://localhost:8000/api/keyPerformanceIndicator?page=2
+                  - active: false
+                    label: '3'
+                    url: http://localhost:8000/api/keyPerformanceIndicator?page=3
+                  - active: false
+                    label: '4'
+                    url: http://localhost:8000/api/keyPerformanceIndicator?page=4
+                  - active: false
+                    label: Next &raquo;
+                    url: http://localhost:8000/api/keyPerformanceIndicator?page=2
+                next_page_url: http://localhost:8000/api/keyPerformanceIndicator?page=2
+                path: http://localhost:8000/api/keyPerformanceIndicator
+                per_page: 5
+                prev_page_url: null
+                to: 5
+                total: 16
+              schema:
+                additionalProperties: false
+                properties:
+                  current_page:
+                    type: integer
+                  data:
+                    items:
+                      additionalProperties: false
+                      properties:
+                        created_at:
+                          format: date-time
+                          type: string
+                        id:
+                          type: integer
+                        id_program_kegiatan_kpi:
+                          type: integer
+                        indikator:
+                          type: string
+                        target:
+                          type: string
+                        updated_at:
+                          format: date-time
+                          type: string
+                      title: Datum
+                      type: object
+                    type: array
+                  first_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  from:
+                    type: integer
+                  last_page:
+                    type: integer
+                  last_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  links:
+                    items:
+                      additionalProperties: false
+                      properties:
+                        active:
+                          type: boolean
+                        label:
+                          type: string
+                        url:
+                          anyOf:
+                            - format: uri
+                              nullable: true
+                              type: string
+                              x-qt-uri-protocols:
+                                - http
+                      title: Link
+                      type: object
+                    type: array
+                  next_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  path:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  per_page:
+                    type: integer
+                  prev_page_url:
+                    nullable: true
+                  to:
+                    type: integer
+                  total:
+                    type: integer
+                title: APIKeyPerformanceIndicatorGetRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Get Api Key Performance Indicator
+    parameters: []
+    post:
+      description: ''
+      operationId: postApiKeyPerformanceIndicator
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                id_program_kegiatan_kpi:
+                  type: string
+                indikator:
+                  type: string
+                target:
+                  type: string
+              required:
+                - target
+                - indikator
+                - id_program_kegiatan_kpi
+              type: object
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-22T05:45:56.000000Z'
+                id: 9945
+                id_program_kegiatan_kpi: '136'
+                indikator: sebanyak anu per ini
+                target: jumlah something
+                updated_at: '2024-05-22T05:45:56.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program_kegiatan_kpi:
+                    format: integer
+                    type: string
+                  indikator:
+                    type: string
+                  target:
+                    type: string
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIKeyPerformanceIndicatorPostRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Post Api Key Performance Indicator
+  /api/keyPerformanceIndicator/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: ID of program kegiatan rka to use
+      required: true
+      schema:
+        type: string
+    get:
+      description: ''
+      operationId: getApiKeyPerformanceIndicatorById
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-21T10:26:07.000000Z'
+                id: 9944
+                id_program_kegiatan_kpi: 136
+                indikator: Jumlah totam
+                target: Minimal 7847 item per bulan
+                updated_at: '2024-05-21T10:26:07.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program_kegiatan_kpi:
+                    type: integer
+                  indikator:
+                    type: string
+                  target:
+                    type: string
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIKeyPerformanceIndicatorByIDGetRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Get Api Key Performance Indicator By ID
+    delete:
+      description: ''
+      operationId: deleteApiKeyPerformanceIndicatorById
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '204':
+          description: Deleted
+      security:
+        - authorization: []
+          cookie: []
+      summary: Delete Api Key Performance Indicator By ID
+    put:
+      description: ''
+      operationId: putApiKeyPerformanceIndicatorById
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-22T05:45:56.000000Z'
+                id: 9945
+                id_program_kegiatan_kpi: '131'
+                indikator: jumlah sebuah kotak
+                target: >-
+                  digital per Sunt minima corporis sapiente ullam doloremque
+                  autem iure.
+                updated_at: '2024-05-22T05:47:35.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program_kegiatan_kpi:
+                    format: integer
+                    type: string
+                  indikator:
+                    type: string
+                  target:
+                    type: string
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIKeyPerformanceIndicatorByIDPutRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Put Api Key Performance Indicator By ID
+  /api/programKegiatanKPI:
+    get:
+      description: ''
+      operationId: getApiProgramKegiatanKpi
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                current_page: 1
+                data:
+                  - created_at: '2024-05-21T10:26:07.000000Z'
+                    id: 136
+                    id_program: 43
+                    nama: produksi_Alycia Gleichner
+                    tahun: 2024
+                    updated_at: '2024-05-21T10:26:07.000000Z'
+                  - created_at: '2024-05-21T10:26:06.000000Z'
+                    id: 129
+                    id_program: 40
+                    nama: produksi_Kacie Skiles
+                    tahun: 2024
+                    updated_at: '2024-05-21T10:26:06.000000Z'
+                  - created_at: '2024-05-21T10:26:06.000000Z'
+                    id: 130
+                    id_program: 40
+                    nama: produksi_Candido Donnelly
+                    tahun: 2024
+                    updated_at: '2024-05-21T10:26:06.000000Z'
+                  - created_at: '2024-05-21T10:26:06.000000Z'
+                    id: 131
+                    id_program: 41
+                    nama: produksi_Nicole Boehm
+                    tahun: 2024
+                    updated_at: '2024-05-21T10:26:06.000000Z'
+                  - created_at: '2024-05-21T10:26:06.000000Z'
+                    id: 132
+                    id_program: 41
+                    nama: produksi_Adelle Mertz
+                    tahun: 2024
+                    updated_at: '2024-05-21T10:26:06.000000Z'
+                first_page_url: http://localhost:8000/api/programKegiatanKPI?page=1
+                from: 1
+                last_page: 2
+                last_page_url: http://localhost:8000/api/programKegiatanKPI?page=2
+                links:
+                  - active: false
+                    label: '&laquo; Previous'
+                    url: null
+                  - active: true
+                    label: '1'
+                    url: http://localhost:8000/api/programKegiatanKPI?page=1
+                  - active: false
+                    label: '2'
+                    url: http://localhost:8000/api/programKegiatanKPI?page=2
+                  - active: false
+                    label: Next &raquo;
+                    url: http://localhost:8000/api/programKegiatanKPI?page=2
+                next_page_url: http://localhost:8000/api/programKegiatanKPI?page=2
+                path: http://localhost:8000/api/programKegiatanKPI
+                per_page: 5
+                prev_page_url: null
+                to: 5
+                total: 8
+              schema:
+                additionalProperties: false
+                properties:
+                  current_page:
+                    type: integer
+                  data:
+                    items:
+                      additionalProperties: false
+                      properties:
+                        created_at:
+                          format: date-time
+                          type: string
+                        id:
+                          type: integer
+                        id_program:
+                          type: integer
+                        nama:
+                          type: string
+                        tahun:
+                          type: integer
+                        updated_at:
+                          format: date-time
+                          type: string
+                      title: Datum
+                      type: object
+                    type: array
+                  first_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  from:
+                    type: integer
+                  last_page:
+                    type: integer
+                  last_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  links:
+                    items:
+                      additionalProperties: false
+                      properties:
+                        active:
+                          type: boolean
+                        label:
+                          type: string
+                        url:
+                          anyOf:
+                            - format: uri
+                              nullable: true
+                              type: string
+                              x-qt-uri-protocols:
+                                - http
+                      title: Link
+                      type: object
+                    type: array
+                  next_page_url:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  path:
+                    format: uri
+                    type: string
+                    x-qt-uri-protocols:
+                      - http
+                  per_page:
+                    type: integer
+                  prev_page_url:
+                    nullable: true
+                  to:
+                    type: integer
+                  total:
+                    type: integer
+                title: APIProgramKegiatanKpiGetRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Get Api Program Kegiatan KPI
+    parameters: []
+    post:
+      description: ''
+      operationId: postApiProgramKegiatanKpi
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                id_program:
+                  type: string
+                nama:
+                  type: string
+                tahun:
+                  type: string
+              required:
+                - nama
+                - tahun
+                - id_program
+              type: object
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-22T05:41:21.000000Z'
+                id: 137
+                id_program: '40'
+                nama: Jumlah RS80078030860190717672
+                tahun: '2024'
+                updated_at: '2024-05-22T05:41:21.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program:
+                    format: integer
+                    type: string
+                  nama:
+                    type: string
+                  tahun:
+                    format: integer
+                    type: string
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIProgramKegiatanKpiPostRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Post Api Program Kegiatan KPI
+  /api/programKegiatanKPI/{id}:
+    parameters:
+    - name: id
+      in: path
+      description: ID of program kegiatan rka to use
+      required: true
+      schema:
+        type: string
+    get:
+      description: ''
+      operationId: getApiProgramKegiatanKpi130
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+        - description: postman-token
+          in: header
+          name: postman-token
+          schema:
+            example: 2107492d-76d1-440f-985e-510a64b80fc3
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-21T10:26:06.000000Z'
+                id: 130
+                id_program: 40
+                nama: produksi_Candido Donnelly
+                tahun: 2024
+                updated_at: '2024-05-21T10:26:06.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program:
+                    type: integer
+                  nama:
+                    type: string
+                  tahun:
+                    type: integer
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIProgramKegiatanKpi130GetRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Get Api Program Kegiatan KPI 130
+    delete:
+      description: ''
+      operationId: deleteApiProgramKegiatanKpi137
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '204':
+          description: Deleted
+      security:
+        - authorization: []
+          cookie: []
+      summary: Delete Api Program Kegiatan KPI 137
+    put:
+      description: ''
+      operationId: putApiProgramKegiatanKpi137
+      parameters:
+        - description: authorization
+          in: header
+          name: authorization
+          schema:
+            example: Bearer 57|F6tTBZ0QEiR0BInNnCXdGtKbCo1mnSGo1v0Re2uwc48c5f04
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                created_at: '2024-05-22T05:41:21.000000Z'
+                id: 137
+                id_program: '40'
+                nama: jumlah primary's Home Loan Account
+                tahun: '2021'
+                updated_at: '2024-05-22T05:42:29.000000Z'
+              schema:
+                additionalProperties: false
+                properties:
+                  created_at:
+                    format: date-time
+                    type: string
+                  id:
+                    type: integer
+                  id_program:
+                    format: integer
+                    type: string
+                  nama:
+                    type: string
+                  tahun:
+                    format: integer
+                    type: string
+                  updated_at:
+                    format: date-time
+                    type: string
+                title: APIProgramKegiatanKpi137PutRequest
+                type: object
+          description: ''
+      security:
+        - authorization: []
+          cookie: []
+      summary: Put Api Program Kegiatan KPI 137
+  
   /forgot-password:
     post:
       description: ''
