@@ -12,7 +12,6 @@
         "APP_NAME": "Salman Finance App",
         "APP_TIMEZONE": "UTC",
         "APP_ENV": "production",
-        "APP_KEY": "",
         "APP_DEBUG": "true",
         "APP_URL": "https://salman-finance-app.vercel.app",
         "FRONTEND_URL": "http://localhost:3000",
@@ -30,7 +29,8 @@
         "APP_SERVICES_CACHE": "/tmp/services.php",
         "VIEW_COMPILED_PATH": "/tmp",
 
-        "CACHE_DRIVER": "array",
+        "CACHE_STORE": "redis",
+
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "database",
 
@@ -43,7 +43,6 @@
         "DB_PORT": "5432",
         "DB_DATABASE": "verceldb",
         "DB_USERNAME": "default",
-        "DB_PASSWORD": "",
         "DB_SSLMODE": "require",
 
         "SESSION_LIFETIME": "120",
@@ -57,20 +56,17 @@
         "BROADCAST_CONNECTION": "log",
         "FILESYSTEM_DISK": "local",
         "QUEUE_CONNECTION": "database",
-        "CACHE_STORE": "database",
-        "CACHE_PREFIX": "",
-        "MEMCACHED_HOST": "127.0.0.1",
+        
 
         "REDIS_CLIENT": "phpredis",
-        "REDIS_HOST": "127.0.0.1",
-        "REDIS_PASSWORD": "null",
+        "REDIS_HOST": "https://warm-anemone-34389.upstash.io",
+        "REDIS_USERNAME":"default",
         "REDIS_PORT": "6379",
 
         "MAIL_MAILER": "smtp",
-        "MAIL_HOST": "pop.dnsexit.com",
+        "MAIL_HOST": "out.dnsexit.com",
         "MAIL_PORT": "587",
-        "MAIL_USERNAME": "no-reply",
-        "MAIL_PASSWORD": "",
+        "MAIL_USERNAME": "no-reply@admfirst.my.id",
         "MAIL_ENCRYPTION": "tls",
         "MAIL_FROM_ADDRESS": "no-reply@admfirst.my.id",
         "MAIL_FROM_NAME": "${APP_NAME}",
