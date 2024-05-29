@@ -2,16 +2,26 @@
     "version": 2,
       "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+        "api/index.php": { "runtime": "vercel-php@0.6.1" }
     },
     "routes": [{
         "src": "/(.*)",
         "dest": "/api/index.php"
     }],
     "env": {
+        "APP_NAME": "Salman Finance App",
+        "APP_TIMEZONE": "UTC",
         "APP_ENV": "production",
+        "APP_KEY": "",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourprojectdomain.com",
+        "APP_URL": "https://salman-finance-app.vercel.app",
+        "FRONTEND_URL": "http://localhost:3000",
+
+        "APP_LOCALE": "en",
+        "APP_FALLBACK_LOCALE": "en",
+        "APP_FAKER_LOCALE": "en_US",
+        "APP_MAINTENANCE_DRIVER": "file",
+        "APP_MAINTENANCE_STORE": "database",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
@@ -22,6 +32,49 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie"
+        "SESSION_DRIVER": "database",
+
+        
+        
+        "BCRYPT_ROUNDS": "12",
+
+        "DB_CONNECTION": "pgsql",
+        "DB_HOST": "ep-withered-moon-a14vgckp-pooler.ap-southeast-1.aws.neon.tech",
+        "DB_PORT": "5432",
+        "DB_DATABASE": "verceldb",
+        "DB_USERNAME": "default",
+        "DB_PASSWORD": "",
+        "DB_SSLMODE": "require",
+
+        "SESSION_LIFETIME": "120",
+        "SESSION_ENCRYPT": "true",
+        "SESSION_PATH": "/",
+        "SESSION_DOMAIN": "null",
+        "SESSION_SAME_SITE": "none",
+        "SESSION_SECURE_COOKIE": "true",
+        "SESSION_PARTITIONED_COOKIE": "true",
+
+        "BROADCAST_CONNECTION": "log",
+        "FILESYSTEM_DISK": "local",
+        "QUEUE_CONNECTION": "database",
+        "CACHE_STORE": "database",
+        "CACHE_PREFIX": "",
+        "MEMCACHED_HOST": "127.0.0.1",
+
+        "REDIS_CLIENT": "phpredis",
+        "REDIS_HOST": "127.0.0.1",
+        "REDIS_PASSWORD": "null",
+        "REDIS_PORT": "6379",
+
+        "MAIL_MAILER": "smtp",
+        "MAIL_HOST": "pop.dnsexit.com",
+        "MAIL_PORT": "587",
+        "MAIL_USERNAME": "no-reply",
+        "MAIL_PASSWORD": "",
+        "MAIL_ENCRYPTION": "tls",
+        "MAIL_FROM_ADDRESS": "no-reply@admfirst.my.id",
+        "MAIL_FROM_NAME": "${APP_NAME}",
+
+        "VITE_APP_NAME": "${APP_NAME}"
     }
 }
