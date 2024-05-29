@@ -43,6 +43,7 @@
         "DB_PORT": "5432",
         "DB_DATABASE": "verceldb",
         "DB_USERNAME": "default",
+        "DB_PASSWORD": "${POSTGRES_PASSWORD}",
         "DB_SSLMODE": "require",
 
         "SESSION_LIFETIME": "120",
@@ -59,14 +60,17 @@
         
 
         "REDIS_CLIENT": "phpredis",
+        "REDIS_URL":"${KV_URL}",
         "REDIS_HOST": "https://warm-anemone-34389.upstash.io",
         "REDIS_USERNAME":"default",
+        "REDIS_PASSWORD": "${KV_REST_API_TOKEN}",
         "REDIS_PORT": "6379",
 
         "MAIL_MAILER": "smtp",
         "MAIL_HOST": "out.dnsexit.com",
         "MAIL_PORT": "587",
         "MAIL_USERNAME": "no-reply@admfirst.my.id",
+        "MAIL_PASSWORD": "${DNSEXIT_PASSWORD}",
         "MAIL_ENCRYPTION": "tls",
         "MAIL_FROM_ADDRESS": "no-reply@admfirst.my.id",
         "MAIL_FROM_NAME": "${APP_NAME}",
