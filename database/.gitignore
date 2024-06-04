@@ -1,3 +1,5 @@
 *.sqlite*
 
 maxmind.tar.gz
+maxmind/*
+/maxmind
