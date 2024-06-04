@@ -20,4 +20,8 @@ Route::get('/login', function(){
     return redirect('https://localhost/login', secure:true);
 });
 
+Route::get('/profile', function () {
+    // Your controller logic
+})->middleware('geolocation');
+
 require __DIR__.'/auth.php';
