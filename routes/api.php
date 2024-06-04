@@ -6,6 +6,7 @@ use App\Http\Controllers\KeyPerformanceIndicatorController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
+use App\Http\Middleware\geolocationNotification; // <----
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('/myip', function (Request $request ){
     } else {
         return response(['ip'=> 'null', 'message'=> 'failed'], 500);
     }
-});
+})->middleware(geolocationNotification::class); // <----
 
 //Route::apiResource('/program', App\Http\Controllers\ProgramController::class)
 //->middleware(['auth:sanctum', 'verified']);
