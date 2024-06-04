@@ -35,11 +35,13 @@ class geolocationNotification
             DB::table('geolocation_history')
             ->insert(
                 array_merge([
-                    'user_id'=>$user->id
+                    'user_id'=>$user->id,
+                    'created_at'=> now(),
+                    'updated_at'=> now()
                 ], $newLocation->toArray()
             )); 
 
-            
+
         }
 
         return $response;

@@ -22,7 +22,7 @@ Route::get('/myip', function (Request $request ){
     } else {
         return response(['ip'=> 'null', 'message'=> 'failed'], 500);
     }
-})->middleware(geolocationNotification::class); // <----
+}); // <----
 
 //Route::apiResource('/program', App\Http\Controllers\ProgramController::class)
 //->middleware(['auth:sanctum', 'verified']);
