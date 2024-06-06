@@ -3346,7 +3346,41 @@
 					"id": "28b606c8-95e4-4766-93bd-76190330e19e"
 				}
 			],
-			"id": "502f4530-c686-44e0-b3d6-0608891c2d14"
+			"id": "502f4530-c686-44e0-b3d6-0608891c2d14",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a52b1ad6-00f4-45d3-8a91-ae2cbcdf3f44",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "50d999cb-dfc0-4df1-b83d-b97c14450ea2",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "forgot-password",
@@ -3469,6 +3503,28 @@
 			"item": [
 				{
 					"name": "Post Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4e3f4717-2df1-4317-9f0b-bf916729993e",
+								"exec": [
+									"pm.collectionVariables.set(\r",
+									"    'csrf-token',\r",
+									"    pm.cookies.get('XSRF-TOKEN')\r",
+									")\r",
+									"\r",
+									"pm.collectionVariables.set(\r",
+									"    'access_token',\r",
+									"    pm.response.json().access_token\r",
+									")\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "63d879fe-286f-4cf6-8068-a0254ed4b4b8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -3478,17 +3534,8 @@
 						"header": [
 							{
 								"key": "x-xsrf-token",
-								"value": "eyJpdiI6InM5a1ZPZER1SGpmaEpudmVuS1F0dVE9PSIsInZhbHVlIjoic25nRitNcWlRcEl3YmhKeDFINDZxelJGYVdjUitkWGNmenVsT08xQ3ExOWN1Y1VwN2p6RnVtUmV0L3lBSmRMZHZCZmp6enFNSE03OE1vdkhQOTZTQWE3MUt1c3VubWZ6R0hnUVZrQmYyV3dnV1AvbmVkSGF4TFBGUnJidGVCOXciLCJtYWMiOiJjOTZiNDBiMmUwYjk4ZGM5ZTEwOWI1ZmRmM2UwNjQxZjM1NmM2NWNhNThjZmJkNjUwMDk0MGI5NTYwMzU1NGI5IiwidGFnIjoiIn0=",
+								"value": "{{csrf-token}}",
 								"description": "x-xsrf-token"
-							},
-							{
-								"key": "cookie",
-								"value": "XSRF-TOKEN=eyJpdiI6InM5a1ZPZER1SGpmaEpudmVuS1F0dVE9PSIsInZhbHVlIjoic25nRitNcWlRcEl3YmhKeDFINDZxelJGYVdjUitkWGNmenVsT08xQ3ExOWN1Y1VwN2p6RnVtUmV0L3lBSmRMZHZCZmp6enFNSE03OE1vdkhQOTZTQWE3MUt1c3VubWZ6R0hnUVZrQmYyV3dnV1AvbmVkSGF4TFBGUnJidGVCOXciLCJtYWMiOiJjOTZiNDBiMmUwYjk4ZGM5ZTEwOWI1ZmRmM2UwNjQxZjM1NmM2NWNhNThjZmJkNjUwMDk0MGI5NTYwMzU1NGI5IiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IjkvcFdqeEJaVmRJVHNKZGRoTGdlVmc9PSIsInZhbHVlIjoiNkNDb2hoMURzT2dWVWdFcFRBOFcxU3pmOEJ2aVZWeVV1UHEzQVh0SThuZDM1NUVneWhscngvOVp5b0o2aTJ6TG5Kd1lWc1RwWm9ZUjRhRTVvWlhJdTZuRDVzVnV4RUhzc1RFQXdBQ3NPeG5MMVVpMlFMQUdpaENHWXVHNWdkaVEiLCJtYWMiOiI0YTRkZThjNTM2NDJhZGQ4NzM3MTIxYjU3YjkyYTAzNGY5NDNmZjM1YTU4M2E4ZGMwMzVhOTE3NTYxNTY5MTYzIiwidGFnIjoiIn0%3D",
-								"description": "cookie"
-							},
-							{
-								"key": "Content-Type",
-								"value": "multipart/form-data"
 							},
 							{
 								"key": "Accept",
@@ -3496,12 +3543,21 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
-									"description": "(Required) ",
-									"key": "----------------------------948447648983169998306809\r\nContent-Disposition: form-data; name",
-									"value": "<string>",
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "remember",
+									"value": "false",
 									"type": "text"
 								}
 							]
@@ -3519,7 +3575,7 @@
 					"response": [
 						{
 							"id": "e7582c97-7ae5-4691-acbd-539ce78ba946",
-							"name": "Untitled Example",
+							"name": "Normal Login",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -3535,7 +3591,9 @@
 									},
 									{
 										"key": "Content-Type",
-										"value": "multipart/form-data"
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
 									},
 									{
 										"key": "Accept",
@@ -3543,12 +3601,21 @@
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"mode": "urlencoded",
+									"urlencoded": [
 										{
-											"description": "(Required) ",
-											"key": "----------------------------948447648983169998306809\r\nContent-Disposition: form-data; name",
-											"value": "<string>",
+											"key": "email",
+											"value": "test@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "remember",
+											"value": "false",
 											"type": "text"
 										}
 									]
@@ -3643,6 +3710,22 @@
 			"item": [
 				{
 					"name": "Post Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "115672a3-48da-4b08-9e5e-e428eca90b12",
+								"exec": [
+									"pm.collectionVariables.set(\r",
+									"    'csrf-token',\r",
+									"    pm.cookies.get('XSRF-TOKEN')\r",
+									")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "1fb7977d-ae13-43ab-ad82-6ae367e3b931",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -3652,13 +3735,8 @@
 						"header": [
 							{
 								"key": "x-xsrf-token",
-								"value": "eyJpdiI6IitnaGtXSmwvM29mSCt5MHhEQXI0RlE9PSIsInZhbHVlIjoidkVYeGE1OEtDcFVsSTByempDWTcyNWY2TzBKbExuNHdHOWxEbFR1QXFtK1Zod1gvTXh4VDlCMXZmWjRKME5ZTUFpdnMzSjVYVEFUY25FL3pTZ1FpR1hheEdiWmk3UkNJMFpDTWtsZm96RmRRNFJjek5wV3RhWGxBS3VrOUNtNmYiLCJtYWMiOiI1NmMxMGNjZDhhYzE3YmVmMTU4ODk3NzllNWQxNzRkZThkNmRmNjI5OWI1NDBhYTU2YjUwMTBhNTQ3NGZjNDEyIiwidGFnIjoiIn0=",
+								"value": "{{csrf-token}}",
 								"description": "x-xsrf-token"
-							},
-							{
-								"key": "cookie",
-								"value": "XSRF-TOKEN=eyJpdiI6IitnaGtXSmwvM29mSCt5MHhEQXI0RlE9PSIsInZhbHVlIjoidkVYeGE1OEtDcFVsSTByempDWTcyNWY2TzBKbExuNHdHOWxEbFR1QXFtK1Zod1gvTXh4VDlCMXZmWjRKME5ZTUFpdnMzSjVYVEFUY25FL3pTZ1FpR1hheEdiWmk3UkNJMFpDTWtsZm96RmRRNFJjek5wV3RhWGxBS3VrOUNtNmYiLCJtYWMiOiI1NmMxMGNjZDhhYzE3YmVmMTU4ODk3NzllNWQxNzRkZThkNmRmNjI5OWI1NDBhYTU2YjUwMTBhNTQ3NGZjNDEyIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IlJGQytWOHZia2RORi85UUxkejhUWHc9PSIsInZhbHVlIjoiZnp3U1hKZnFObHFvUWVCTVdib3gzQVZOTlV2MFk2ck5PTzZ1TFdVbTU4anczejFuVkxGVHluNWlTbG1KOGZ3R0hmY0EyRjJsZm9XQlV4MmRBZ0lRZFllaGF6QmpBb3NhQUExazk3WGgvTDB3TGZHSnhsWUNsN3VBTzQ2M2J6NEkiLCJtYWMiOiJmODZkMTZlOWM0MDAyMjNjMjI0Yjg3ZjA5ODBjYmQzODg3MTI4ZTE0MTcwMjllYzgxMzFiOGU0NjhlNmU1MGI5IiwidGFnIjoiIn0%3D",
-								"description": "cookie"
 							}
 						],
 						"url": {
@@ -3834,6 +3912,22 @@
 					"item": [
 						{
 							"name": "Get Sanctum Csrf Cookie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e372c35f-628a-4248-9333-f668dbfab8f4",
+										"exec": [
+											"pm.collectionVariables.set(\r",
+											"    'csrf-token',\r",
+											"    pm.cookies.get('XSRF-TOKEN')\r",
+											")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d8d42212-1173-4dab-8379-ab781a6e80d8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3899,9 +3993,19 @@
 	],
 	"variable": [
 		{
-			"id": "d1602815-b6bc-4c16-ad4c-96d91976cff2",
+			"id": "9b21de21-1657-413c-99b3-8f7638df0698",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
+		},
+		{
+			"id": "6b1b76f0-9c4d-4656-acdb-a291077db77a",
+			"key": "csrf-token",
+			"value": "-"
+		},
+		{
+			"id": "87e88fc0-228a-4f18-91e5-151b99519996",
+			"key": "access_token",
+			"value": ""
 		}
 	]
 }
