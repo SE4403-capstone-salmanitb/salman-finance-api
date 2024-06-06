@@ -28,6 +28,9 @@ return [
 
     'fallbacks' => [
         Stevebauman\Location\Drivers\Ip2locationio::class,
+        Stevebauman\Location\Drivers\GeoPlugin::class,
+        Stevebauman\Location\Drivers\IpApi::class,
+        Stevebauman\Location\Drivers\IpInfo::class,
     ],
 
     /*
