@@ -76,7 +76,7 @@ return [
 
     'maxmind' => [
         'web' => [
-            'enabled' => false,
+            'enabled' => env('MAXMIND_USE_WEB', true),
             'user_id' => env('MAXMIND_USER_ID'),
             'license_key' => env('MAXMIND_LICENSE_KEY'),
             'options' => ['host' => 'geoip.maxmind.com'],
