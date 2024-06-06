@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('laporan_bulanans', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('nama');
+            $table->string('kode');
+            $table->date('bulanLaporan');
+            $table->foreignId('disusun_oleh')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('diperiksa_oleh')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamp('tanggal_pemeriksaan')->nullable();
         });
     }
 
