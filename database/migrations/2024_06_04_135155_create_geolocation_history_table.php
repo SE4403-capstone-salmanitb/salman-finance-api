@@ -15,20 +15,15 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('ip');
-            $table->string('driver')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->string('countryName')->nullable();
             $table->string('countryCode')->nullable();
             $table->string('regionCode')->nullable();
             $table->string('regionName')->nullable();
             $table->string('cityName')->nullable();
-            $table->string('zipCode')->nullable();
-            $table->string('isoCode')->nullable();
-            $table->string('postalCode')->nullable();
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
-            $table->string('metroCode')->nullable();
-            $table->string('areaCode')->nullable();
             $table->string('timezone')->nullable();
+            $table->string('driver')->nullable();
             $table->timestamps();
         });
     }
