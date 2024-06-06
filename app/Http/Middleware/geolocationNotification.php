@@ -36,13 +36,21 @@ class geolocationNotification
         // if not then save the location to history and notify user
         if ($lastLocation->isEmpty() && $newLocation = Location::get()){
             DB::table('geolocation_history')
-            ->insert(
-                array_merge([
-                    'user_id'=>$user->id,
-                    'created_at'=> now(),
-                    'updated_at'=> now()
-                ], $newLocation->toArray()
-            )); 
+            ->insert([
+                'user_id'=>$user->id,
+                'ip'=>$request->ip(),
+                'latitude' => $newLocation->latitude,
+                'longitude' => $newLocation->longitude,
+                'countryName' => $newLocation->countryName,
+                'countryCode' => $newLocation->countryCode,
+                'regionName' => $newLocation->regionName,
+                'regionCode' => $newLocation->regionCode,
+                'cityName' => $newLocation->cityName,
+                'timezone' => $newLocation->timezone,
+                'driver' => $newLocation->driver,
+                'created_at'=> now(),
+                'updated_at'=> now()
+            ]); 
             $local = "(".$newLocation->ip.")";
             if($newLocation->countryName){
                 $local = $newLocation->countryName.", ".$local;
