@@ -17,7 +17,14 @@ class LaporanBulananFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => 
+            'program_id',
+            'kode',
+            'bulan_laporan',
+            'disusun_oleh',
+            'diperiksa_oleh',
+            'tanggal_pemeriksaan',
+            'tanggal_pembuatan',
         ];
     }
 }

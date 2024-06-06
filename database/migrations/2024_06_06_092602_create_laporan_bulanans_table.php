@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('laporan_bulanans', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('nama');
+            $table->foreignId('program_id')->references('id')->on('programs')->onDelete('cascade');
             $table->string('kode');
-            $table->date('bulanLaporan');
-            $table->foreignId('disusun_oleh')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('diperiksa_oleh')->references('id')->on('users')->onDelete('cascade');
+            $table->date('bulan_laporan');
+            $table->foreignId('disusun_oleh')->nullable()->references('id')->on('users')->nullOnDelete();
+            $table->foreignId('diperiksa_oleh')->nullable()->references('id')->on('users')->nullOnDelete();
             $table->timestamp('tanggal_pemeriksaan')->nullable();
+            $table->timestamp('tanggal_pembuatan')->useCurrent();
+            $table->timestamp('updated_at')->useCurrentOnUpdate();
         });
     }
 
