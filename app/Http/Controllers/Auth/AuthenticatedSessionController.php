@@ -19,10 +19,11 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        $request->user()->tokens()->delete();
 
         return response()->json([
             'user' => $request->user(),
-            'access_token' => $request->user()->createToken('bearer')->plainTextToken,
+            'access_token' => $request->user()->createToken('bearer', ["*"], now()->addWeek())->plainTextToken,
         ]);
     }
 

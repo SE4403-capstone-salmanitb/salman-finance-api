@@ -5,10 +5,12 @@ namespace Database\Seeders;
 use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\KeyPerformanceIndicator;
+use App\Models\LaporanBulanan;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanKPI;
 use App\Models\ProgramKegiatanRKA;
+use Illuminate\Auth\Events\Verified;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -63,6 +65,14 @@ class DatabaseSeeder extends Seeder
                     )
                     ->count(2),
                     "programKegiatanKPI"
+                )
+                ->has( // verified
+                    LaporanBulanan::factory()->verified()->count(3),
+                    "LaporanBulanan"
+                )
+                ->has( // not verified
+                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->count(1),
+                    "LaporanBulanan"
                 )
                 ->create([
                     'nama' => $value

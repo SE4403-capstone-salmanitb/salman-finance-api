@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
 
         return response()->json([
             'user' => $user,
-            'access_token' => $user->createToken('bearer')->plainTextToken
+            'access_token' => $user->createToken('bearer', expiresAt: now()->addWeek())->plainTextToken
         ]);
     }
 }

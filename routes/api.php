@@ -3,6 +3,7 @@
 use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\KeyPerformanceIndicatorController;
+use App\Http\Controllers\LaporanBulananController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
@@ -38,6 +39,8 @@ Route::apiResources(
         '/judulKegiatanRKA' => JudulKegiatanRKAController::class,
         '/itemKegiatanRKA' => ItemKegiatanRKAController::class,
         '/keyPerformanceIndicator' => KeyPerformanceIndicatorController::class,
+
+        '/laporanBulanan' => LaporanBulananController::class,
     ],
     [
         'middleware' => ['auth:sanctum', 'verified']
