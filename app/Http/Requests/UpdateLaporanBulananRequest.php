@@ -11,7 +11,7 @@ class UpdateLaporanBulananRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class UpdateLaporanBulananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'program_id' => 'exists:programs,id|nullable',
+            'kode' => 'string|max:255|nullable',
+            'bulan_laporan' =>'date|date_format:m-Y|nullable',
+            'disusun_oleh' => 'nullable|exists:users,id',
+            'diperiksa_oleh' => 'nullable|exists:users,id',
         ];
     }
 }

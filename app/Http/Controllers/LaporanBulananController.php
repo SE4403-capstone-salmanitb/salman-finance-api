@@ -5,15 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\LaporanBulanan;
 use App\Http\Requests\StoreLaporanBulananRequest;
 use App\Http\Requests\UpdateLaporanBulananRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LaporanBulananController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query = DB::table('laporanBulanan');
+
+        $filters = ['program_id', 'bulan', 'tahun'];
+
+        if ($request->has('program_id')){
+            $query->where('program_id', '=', $request->get('program_id'));
+        }
+        if ($request->has('bulan')) {
+            $query->whereMonth('bulan_laporan', $request->get('bulan')); 
+        }
+    
+        if ($request->has('tahun')) {
+            $query->whereYear('bulan_laporan', $request->get('tahun')); 
+        }
+
+        return response()->json($query->get());
     }
 
     /**

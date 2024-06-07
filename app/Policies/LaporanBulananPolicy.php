@@ -13,7 +13,7 @@ class LaporanBulananPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,8 @@ class LaporanBulananPolicy
      */
     public function view(User $user, LaporanBulanan $laporanBulanan): bool
     {
-        //
+        return true;
+        
     }
 
     /**
@@ -30,6 +31,8 @@ class LaporanBulananPolicy
     public function create(User $user): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -38,6 +41,17 @@ class LaporanBulananPolicy
     public function update(User $user, LaporanBulanan $laporanBulanan): bool
     {
         //
+        return $user->id === $laporanBulanan->disusun_oleh 
+        && $laporanBulanan->diperiksa_oleh === null;
+    }
+
+    /**
+     * Determine whether the user can update the model on the verify field.
+     */
+    public function verify(User $user, LaporanBulanan $laporanBulanan): bool
+    {
+        //
+        return $laporanBulanan->diperiksa_oleh === null;
     }
 
     /**
@@ -46,6 +60,8 @@ class LaporanBulananPolicy
     public function delete(User $user, LaporanBulanan $laporanBulanan): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -54,6 +70,8 @@ class LaporanBulananPolicy
     public function restore(User $user, LaporanBulanan $laporanBulanan): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -62,5 +80,7 @@ class LaporanBulananPolicy
     public function forceDelete(User $user, LaporanBulanan $laporanBulanan): bool
     {
         //
+        return true;
+
     }
 }

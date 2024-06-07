@@ -11,7 +11,7 @@ class StoreLaporanBulananRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreLaporanBulananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'program_id' => 'exists:programs,id|required',
+            'kode' => 'required|string|max:255',
+            'bulan_laporan' =>'required|date|date_format:m-Y',
+            'disusun_oleh' => 'required|exists:users,id',
         ];
     }
 }

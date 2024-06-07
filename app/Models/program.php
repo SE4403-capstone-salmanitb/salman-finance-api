@@ -22,4 +22,9 @@ class Program extends Model
     {
         return $this->hasMany(ProgramKegiatanKPI::class, 'id_program');
     }
+
+    public function LaporanBulanan()
+    {
+        return $this->hasMany(LaporanBulanan::class, 'program_id');
+    }
 }
