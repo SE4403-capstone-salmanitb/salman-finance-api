@@ -66,8 +66,12 @@ class DatabaseSeeder extends Seeder
                     ->count(2),
                     "programKegiatanKPI"
                 )
-                ->has(
-                    LaporanBulanan::factory()->verified()->count(1),
+                ->has( // verified
+                    LaporanBulanan::factory()->verified()->count(3),
+                    "LaporanBulanan"
+                )
+                ->has( // not verified
+                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->count(1),
                     "LaporanBulanan"
                 )
                 ->create([

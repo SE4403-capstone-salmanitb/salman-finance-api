@@ -15,21 +15,29 @@ class LaporanBulananController extends Controller
      */
     public function index(Request $request)
     {
-        $query = DB::table('laporanBulanan');
+        $query = DB::table('laporan_bulanans');
 
         $filters = ['program_id', 'bulan', 'tahun'];
 
         if ($request->has('program_id')){
             $query->where('program_id', '=', $request->get('program_id'));
         }
+
+        if ($request->input('verified', false)) {
+            $query->whereNotNull("diperiksa_oleh"); 
+        } elseif ($request->input('verified') === false){
+            $query->whereNull("diperiksa_oleh"); 
+        }
+
         if ($request->has('bulan')) {
-            $query->whereMonth('bulan_laporan', $request->get('bulan')); 
+            $query->whereMonth('bulan_laporan',"=", $request->input('bulan')); 
         }
     
         if ($request->has('tahun')) {
-            $query->whereYear('bulan_laporan', $request->get('tahun')); 
+            $query->whereYear('bulan_laporan', "=", $request->input("tahun")); 
         }
 
+        $query->orderByDesc('bulan_laporan');
         return response()->json($query->get());
     }
 

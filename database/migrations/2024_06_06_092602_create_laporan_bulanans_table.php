@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('diperiksa_oleh')->nullable()->references('id')->on('users')->nullOnDelete();
             $table->timestamp('tanggal_pemeriksaan')->nullable();
             $table->timestamp('tanggal_pembuatan')->useCurrent();
-            $table->timestamp('updated_at')->useCurrentOnUpdate();
+            $table->timestamp('updated_at')->useCurrentOnUpdate()->useCurrent();
         });
     }
 
