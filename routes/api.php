@@ -30,6 +30,8 @@ Route::get('/myip', function (Request $request ){
 
 Route::get('/programKegiatanRKA/full/{year}', [ProgramKegiatanRKAController::class, 'full']) 
 ->middleware(['auth:sanctum', 'verified']);
+Route::patch('/laporanBulanan/verify/{laporanBulanan}', [LaporanBulananController::class, 'verify'])
+->middleware(['auth:sanctum', 'verified']);
 
 Route::apiResources(
     [

@@ -40,7 +40,7 @@ class LaporanBulananPolicy
      */
     public function update(User $user, LaporanBulanan $laporanBulanan): bool
     {
-        //
+        // Jika penyusun dan belum diperiksa
         return $user->id === $laporanBulanan->disusun_oleh 
         && $laporanBulanan->diperiksa_oleh === null;
     }
@@ -50,8 +50,10 @@ class LaporanBulananPolicy
      */
     public function verify(User $user, LaporanBulanan $laporanBulanan): bool
     {
-        //
-        return $laporanBulanan->diperiksa_oleh === null;
+        // Hanya boleh juka belum diperiksa dan 
+        // tidak boleh oleh orang yang sama dengan penyusun
+        return $laporanBulanan->diperiksa_oleh === null && 
+        $laporanBulanan->disusun_oleh !== $user->id;
     }
 
     /**
@@ -60,7 +62,7 @@ class LaporanBulananPolicy
     public function delete(User $user, LaporanBulanan $laporanBulanan): bool
     {
         //
-        return true;
+        return $user->id === $laporanBulanan->disusun_oleh;
 
     }
 
