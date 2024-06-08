@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('tanggal_pemeriksaan')->nullable();
             $table->timestamp('tanggal_pembuatan')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate()->useCurrent();
+            $table->softDeletes();
         });
     }
 
