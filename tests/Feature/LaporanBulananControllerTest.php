@@ -243,12 +243,13 @@ class LaporanBulananControllerTest extends TestCase
         $laporanBulanan = LaporanBulanan::factory()->create();
 
         // Send a DELETE request to the /laporanBulanan/{id} endpoint
-        $response = $this->actingAs($user)->delete('/laporanBulanan/'.$laporanBulanan->id);
+        $response = $this->actingAs($user)->delete('/api/laporanBulanan/'.$laporanBulanan->id);
 
         // Assert that the response status is 200 (OK)
-        $response->assertStatus(200);
+        $response->assertStatus(204);
 
         // Assert that the LaporanBulanan was deleted from the database
-        $this->assertDeleted($laporanBulanan);
+        $this->assertDatabaseMissing('laporan_bulanan', ['id' => $laporanBulanan->id]);
     }
+
 }
