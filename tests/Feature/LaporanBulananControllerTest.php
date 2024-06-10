@@ -249,7 +249,7 @@ class LaporanBulananControllerTest extends TestCase
         $response->assertStatus(204);
 
         // Assert that the LaporanBulanan was deleted from the database
-        $this->assertDatabaseMissing('laporan_bulanan', ['id' => $laporanBulanan->id]);
+        $this->assertDatabaseMissing('laporan_bulanans', ['id' => $laporanBulanan->id]);
     }
 
 }
