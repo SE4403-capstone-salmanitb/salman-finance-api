@@ -25,10 +25,13 @@ class LaporanBulananController extends Controller
             $query->where('program_id', '=', $request->get('program_id'));
         }
 
-        if ($request->input('verified', false)) {
-            $query->whereNotNull("diperiksa_oleh"); 
-        } elseif ($request->input('verified') === false){
-            $query->whereNull("diperiksa_oleh"); 
+        $verified_filter = $request->input('verified');
+        if($verified_filter !== null){
+            if($verified_filter == true){
+                $query->whereNotNull("diperiksa_oleh");
+            } elseif ($verified_filter == false) {
+                $query->whereNull("diperiksa_oleh");
+            }
         }
 
         if ($request->has('bulan')) {
