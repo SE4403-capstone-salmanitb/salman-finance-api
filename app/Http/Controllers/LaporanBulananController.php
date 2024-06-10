@@ -7,6 +7,7 @@ use App\Http\Requests\StoreLaporanBulananRequest;
 use App\Http\Requests\UpdateLaporanBulananRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class LaporanBulananController extends Controller
 {
@@ -15,6 +16,7 @@ class LaporanBulananController extends Controller
      */
     public function index(Request $request)
     {
+        Gate::authorize("viewAny", LaporanBulanan::class);
         $query = DB::table('laporan_bulanans');
 
         $filters = ['program_id', 'bulan', 'tahun'];
@@ -23,10 +25,13 @@ class LaporanBulananController extends Controller
             $query->where('program_id', '=', $request->get('program_id'));
         }
 
-        if ($request->input('verified', false)) {
-            $query->whereNotNull("diperiksa_oleh"); 
-        } elseif ($request->input('verified') === false){
-            $query->whereNull("diperiksa_oleh"); 
+        $verified_filter = $request->input('verified');
+        if($verified_filter !== null){
+            if($verified_filter == true){
+                $query->whereNotNull("diperiksa_oleh");
+            } elseif ($verified_filter == false) {
+                $query->whereNull("diperiksa_oleh");
+            }
         }
 
         if ($request->has('bulan')) {
@@ -46,7 +51,17 @@ class LaporanBulananController extends Controller
      */
     public function store(StoreLaporanBulananRequest $request)
     {
-        //
+        Gate::authorize("create", LaporanBulanan::class);
+
+        $data = array_merge([
+            "disusun_oleh" => $request->user()->id,
+        ],
+            array_filter($request->validated())
+        );
+
+        $new = LaporanBulanan::create($data);
+
+        return response()->json($new, 201);
     }
 
     /**
@@ -54,7 +69,9 @@ class LaporanBulananController extends Controller
      */
     public function show(LaporanBulanan $laporanBulanan)
     {
-        //
+        Gate::authorize("view", $laporanBulanan);
+
+        return response()->json($laporanBulanan);
     }
 
     /**
@@ -62,7 +79,10 @@ class LaporanBulananController extends Controller
      */
     public function update(UpdateLaporanBulananRequest $request, LaporanBulanan $laporanBulanan)
     {
-        //
+        Gate::authorize("update", $laporanBulanan);
+
+        $laporanBulanan->updateOrFail(array_filter($request->validated()));
+        return response()->json($laporanBulanan);
     }
 
     /**
@@ -70,6 +90,22 @@ class LaporanBulananController extends Controller
      */
     public function destroy(LaporanBulanan $laporanBulanan)
     {
-        //
+        Gate::authorize('delete', $laporanBulanan);
+
+        $laporanBulanan->deleteOrFail();
+
+        return response()->noContent();
+    }
+
+    public function verify(Request $request, LaporanBulanan $laporanBulanan)
+    {
+        Gate::authorize('verify', $laporanBulanan);
+
+        $laporanBulanan->updateOrFail([
+            "tanggal_pemeriksaan" => now(),
+            "diperiksa_oleh" => $request->user()->id
+        ]);
+
+        return response()->json($laporanBulanan);
     }
 }
