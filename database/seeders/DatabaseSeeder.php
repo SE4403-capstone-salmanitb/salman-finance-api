@@ -93,9 +93,14 @@ class DatabaseSeeder extends Seeder
             $kpis = ProgramKegiatanKPI::where(
                 "id_program", 
                 $pelaksanaan->laporanBulanan->program_id)
+            ->where(
+                "tahun",
+                $pelaksanaan->laporanBulanan->bulan_laporan->year
+            )
             ->get();
-            
-            $pelaksanaan->id_program_kegiatan_kpi = $kpis[random_int(0, count($kpis)-1)]->id;
+            $pelaksanaan->updateQuietly([
+                "id_program_kegiatan_kpi" => $kpis[random_int(0, count($kpis)-1)]->id
+            ]);
         }
     }
 }
