@@ -6,6 +6,7 @@ use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\KeyPerformanceIndicator;
 use App\Models\LaporanBulanan;
+use App\Models\Pelaksanaan;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanKPI;
@@ -77,7 +78,10 @@ class DatabaseSeeder extends Seeder
                     "LaporanBulanan"
                 )
                 ->has( // not verified
-                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->count(1),
+                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->has(
+                        Pelaksanaan::factory()->randomKPI()->count(4),
+                        "pelaksanaans"
+                    )->count(1),
                     "LaporanBulanan"
                 )
                 ->create([
