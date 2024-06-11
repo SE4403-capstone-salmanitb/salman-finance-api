@@ -14,6 +14,8 @@ use App\Models\ProgramKegiatanRKA;
 use Illuminate\Auth\Events\Verified;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
 {
@@ -79,7 +81,7 @@ class DatabaseSeeder extends Seeder
                 )
                 ->has( // not verified
                     LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->has(
-                        Pelaksanaan::factory()->randomKPI()->count(4),
+                        Pelaksanaan::factory()->count(4),
                         "pelaksanaans"
                     )->count(1),
                     "LaporanBulanan"
@@ -90,5 +92,15 @@ class DatabaseSeeder extends Seeder
             }
         }
         
+        foreach (Pelaksanaan::all() as $pelaksanaan) {
+            Log::info(json_encode($pelaksanaan->laporanBulanan));
+            $kpis = ProgramKegiatanKPI::where("id_program", 
+                $pelaksanaan->laporanBulanan->program_id)->get();
+            Log::info(json_encode($kpis));
+            $pelaksanaan->id_program_kegiatan_kpi = $kpis[random_int(0, count($kpis)-1)]->id;
+        }
+        //DB::table("pelaksanaans")->orderBy("id")->each(function($pelaksanaan){
+            
+        //});
     }
 }
