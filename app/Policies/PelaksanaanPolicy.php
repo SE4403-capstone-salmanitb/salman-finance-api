@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\LaporanBulanan;
 use App\Models\Pelaksanaan;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
@@ -13,7 +14,7 @@ class PelaksanaanPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,23 +22,23 @@ class PelaksanaanPolicy
      */
     public function view(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        //
+        return true;
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user, LaporanBulanan $laporanBulanan): bool
     {
-        //
+        return $laporanBulanan->disusun_oleh === $user->id;
     }
-
+ 
     /**
      * Determine whether the user can update the model.
      */
     public function update(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +46,7 @@ class PelaksanaanPolicy
      */
     public function delete(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +54,7 @@ class PelaksanaanPolicy
      */
     public function restore(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +62,6 @@ class PelaksanaanPolicy
      */
     public function forceDelete(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        //
+        return true;
     }
 }

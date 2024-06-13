@@ -4,6 +4,7 @@ use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\KeyPerformanceIndicatorController;
 use App\Http\Controllers\LaporanBulananController;
+use App\Http\Controllers\PelaksanaanController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
@@ -43,6 +44,7 @@ Route::apiResources(
         '/keyPerformanceIndicator' => KeyPerformanceIndicatorController::class,
 
         '/laporanBulanan' => LaporanBulananController::class,
+        '/pelaksanaan' => PelaksanaanController::class,
     ],
     [
         'middleware' => ['auth:sanctum', 'verified']

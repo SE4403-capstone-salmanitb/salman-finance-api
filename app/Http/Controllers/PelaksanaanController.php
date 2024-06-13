@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Pelaksanaan;
 use App\Http\Requests\StorePelaksanaanRequest;
 use App\Http\Requests\UpdatePelaksanaanRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 
 class PelaksanaanController extends Controller
 {
