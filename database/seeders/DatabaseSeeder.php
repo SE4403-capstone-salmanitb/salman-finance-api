@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
                     "LaporanBulanan"
                 )
                 ->has( // not verified
-                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->has(
+                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()->format('Y-m-01')])->has(
                         Pelaksanaan::factory()->count(4),
                         "pelaksanaans"
                     )->count(1),

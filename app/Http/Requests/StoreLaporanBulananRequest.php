@@ -24,7 +24,7 @@ class StoreLaporanBulananRequest extends FormRequest
         return [
             'program_id' => 'exists:programs,id|required',
             'kode' => 'required|string|max:255',
-            'bulan_laporan' =>'required|date|date_format:Y-m-d',
+            'bulan_laporan' =>'required|date|date_format:Y-m-01',
         ];
     }
 }

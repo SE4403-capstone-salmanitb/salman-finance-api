@@ -22,6 +22,7 @@ return new class extends Migration
             $table->timestamp('tanggal_pembuatan')->useCurrent();
             $table->timestamp('updated_at')->useCurrentOnUpdate()->useCurrent();
             $table->softDeletes();
+            $table->unique(['program_id', 'bulan_laporan']);
         });
     }
 
