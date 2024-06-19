@@ -11,7 +11,7 @@ class StorePelaksanaanRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePelaksanaanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "penjelasan" => "required|string|max:255",
+            "waktu" => "required|string|max:255",
+            "tempat" => "required|string|max:255",
+            "penyaluran" => "required|string|max:255",
+            "id_program_kegiatan_kpi" => "nullable|integer|exists:program_kegiatan_k_p_i_s,id",
+            "id_laporan_bulanan" => "required|integer|exists:laporan_bulanans,id",
         ];
     }
 }

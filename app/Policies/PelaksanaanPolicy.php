@@ -38,7 +38,7 @@ class PelaksanaanPolicy
      */
     public function update(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        return true;
+        return $pelaksanaan->laporanBulanan->disusun_oleh === $user->id;
     }
 
     /**
@@ -46,7 +46,8 @@ class PelaksanaanPolicy
      */
     public function delete(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        return true;
+        return $pelaksanaan->laporanBulanan->disusun_oleh === $user->id;
+
     }
 
     /**
