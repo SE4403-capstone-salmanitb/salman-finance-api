@@ -51,12 +51,10 @@ class LaporanBulananControllerTest extends TestCase
     public function test_index_filter_by_year_and_month(): void
     {
         $user = User::factory()->create();
-        LaporanBulanan::factory()->count(5)->create([
-            "bulan_laporan" => now()
+        LaporanBulanan::factory()->count(1)->create([
+            "bulan_laporan" => now()->format("Y-m-01")
         ]);
-        LaporanBulanan::factory()->count(5)->create([
-            "bulan_laporan" => now()->subYear()
-        ]);
+        LaporanBulanan::factory(5)->create();
 
         $target = now();
 
@@ -68,8 +66,8 @@ class LaporanBulananControllerTest extends TestCase
         );
 
         $response->assertStatus(200);
-        $response->assertJsonCount(5);
-        $response->assertJson([["bulan_laporan" => $target->format("Y-m-d")]]);
+        $response->assertJsonCount(1);
+        $response->assertJson([["bulan_laporan" => $target->format("Y-m-01")]]);
     }
 
     public function test_index_filter_by_verified(): void

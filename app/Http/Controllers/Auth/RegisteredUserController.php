@@ -21,6 +21,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('admin')){
+            return response(["message" => "user is authenticated but your sanctum/user 
+            token does not have a required ability assigned to it"]);
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
