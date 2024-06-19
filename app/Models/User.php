@@ -48,4 +48,14 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function menyusunLaporan()
+    {
+        return $this->hasMany(LaporanBulanan::class, "disusun_oleh");
+    }
+
+    public function memverifikasiLaporan()
+    {
+        return $this->hasMany(LaporanBulanan::class, "diperiksa_oleh");
+    }
 }

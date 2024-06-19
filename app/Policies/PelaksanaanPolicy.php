@@ -6,6 +6,7 @@ use App\Models\LaporanBulanan;
 use App\Models\Pelaksanaan;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Log;
 
 class PelaksanaanPolicy
 {
@@ -30,7 +31,8 @@ class PelaksanaanPolicy
      */
     public function create(User $user, LaporanBulanan $laporanBulanan): bool
     {
-        return $laporanBulanan->disusun_oleh === $user->id;
+        //return true;
+        return $laporanBulanan->disusunOleh->id === $user->id;
     }
  
     /**

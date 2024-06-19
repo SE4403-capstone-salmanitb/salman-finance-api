@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\LaporanBulanan;
 use App\Models\Pelaksanaan;
+use App\Models\Program;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -17,7 +18,8 @@ class PelaksanaanControllerTest extends TestCase
     public function test_index_filtered(): void
     {
         $user = User::factory()->create();
-        Pelaksanaan::factory(20);
+        $program = Program::factory()->create();
+        Pelaksanaan::factory(5, ["program_id" => $program->id]);
 
         
         $data = [
@@ -52,19 +54,28 @@ class PelaksanaanControllerTest extends TestCase
 
     public function test_create(): void
     {
+        $program = Program::factory()->create();
         $user = User::factory()->create();
-        
+        $lap = LaporanBulanan::factory()->create([
+            "program_id" => $program->id,
+            "disusun_oleh" => $user->id
+        ]);
+
         $data = [
-            "id_laporan_bulanan" => LaporanBulanan::factory()->create()->id,
+            "id_laporan_bulanan" => $lap->id,
             "penjelasan" => "halo halo bandung",
             "waktu" => "ibu kota periangan",
             "tempat" => "sudah lama beta",
             "penyaluran" => "tidak berjumpa dengan kau"
         ];
-
-        $response = $this->actingAs($user)->post(
+        
+        $response = $this->post(
             '/api/pelaksanaan',
-            $data
+            $data,
+            [
+                "authorization" => "Bearer ".$user->createToken("test", ["user"])->plainTextToken
+
+            ]
         );
 
         $response->assertCreated();
@@ -73,12 +84,17 @@ class PelaksanaanControllerTest extends TestCase
 
     public function test_create_other_person(): void
     {
+        $p = Program::factory()->create();
         $user = User::factory()->create();
         $user2 = User::factory()->create();
+        $lap = LaporanBulanan::factory()->create([
+            "program_id" => $p->id,
+            "disusun_oleh" => $user2->id
+        ]);
+
         
         $data = [
-            "id_laporan_bulanan" => LaporanBulanan::factory()
-                ->create(["disusun_oleh" => $user2->id])->id,
+            "id_laporan_bulanan" => $lap->id,
             "penjelasan" => "halo halo bandung",
             "waktu" => "ibu kota periangan",
             "tempat" => "sudah lama beta",
