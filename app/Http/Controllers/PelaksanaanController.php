@@ -10,6 +10,7 @@ use App\Models\ProgramKegiatanKPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class PelaksanaanController extends Controller
 {
@@ -56,7 +57,10 @@ class PelaksanaanController extends Controller
         /** @var LaporanBulanan */
         $laporanBulanan = LaporanBulanan::where("id", $request->validated("id_laporan_bulanan"))->first();
         
-        Gate::authorize('create', $laporanBulanan, Pelaksanaan::class);
+        Log::alert(Gate::authorize('create', $laporanBulanan, Pelaksanaan::class));
+        Log::debug(json_encode($laporanBulanan));
+        Log::debug(json_encode($request->user()));
+        Log::error("Something is not right ==================".$laporanBulanan->disusun_oleh === $request->user()->id);
         
         if ($request->validated("id_program_kegiatan_kpi") !== null){
             /** @var ProgramKegiatanKPI */
