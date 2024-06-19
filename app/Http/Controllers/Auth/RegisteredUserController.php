@@ -35,11 +35,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
         return response()->json([
             'user' => $user,
-            'access_token' => $user->createToken('bearer', expiresAt: now()->addWeek())->plainTextToken
-        ]);
+        ], 201);
     }
 }
