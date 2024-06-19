@@ -29,10 +29,10 @@ class PelaksanaanPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user, LaporanBulanan $laporanBulanan): bool
+    public function create(User $user): bool
     {
-        //return true;
-        return $laporanBulanan->disusunOleh->id === $user->id;
+        return true;
+        //return $laporanBulanan->disusunOleh->id === $user->id;
     }
  
     /**

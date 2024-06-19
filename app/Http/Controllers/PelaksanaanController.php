@@ -53,6 +53,8 @@ class PelaksanaanController extends Controller
      */
     public function store(StorePelaksanaanRequest $request)
     {
+        Gate::authorize("create", Pelaksanaan::class);
+
         /** @var LaporanBulanan */
         $laporanBulanan = LaporanBulanan::where("id", $request->validated("id_laporan_bulanan"))->first();
         
