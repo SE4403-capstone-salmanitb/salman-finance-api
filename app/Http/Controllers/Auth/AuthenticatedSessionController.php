@@ -20,10 +20,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         $request->user()->tokens()->delete();
+        
+        if(request()->user()->is_admin){
+            $ability = ["*", "admin"];
+        } else {
+            $ability = ["user"];
+        }
 
         return response()->json([
             'user' => $request->user(),
-            'access_token' => $request->user()->createToken('bearer', ["*"], now()->addWeek())->plainTextToken,
+            'access_token' => $request->user()->createToken('bearer', $ability, now()->addWeek())->plainTextToken,
         ]);
     }
 
