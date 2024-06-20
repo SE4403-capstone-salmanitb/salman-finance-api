@@ -57,4 +57,9 @@ class LaporanBulanan extends Model
     {
         return $this->program->nama;
     }
+
+    public function pelaksanaans()
+    {
+        return $this->hasMany(Pelaksanaan::class, "id_laporan_bulanan");
+    }
 }

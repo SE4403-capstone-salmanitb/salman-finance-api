@@ -24,7 +24,7 @@ class UpdateLaporanBulananRequest extends FormRequest
         return [
             'program_id' => 'exists:programs,id|nullable',
             'kode' => 'string|max:255|nullable',
-            'bulan_laporan' =>'date|date_format:Y-m-d|nullable',
+            'bulan_laporan' =>'date|date_format:Y-m-01|nullable',
             'disusun_oleh' => 'nullable|exists:users,id',
             'diperiksa_oleh' => 'nullable|exists:users,id',
         ];

@@ -6,11 +6,11 @@ use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\KeyPerformanceIndicator;
 use App\Models\LaporanBulanan;
+use App\Models\Pelaksanaan;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanKPI;
 use App\Models\ProgramKegiatanRKA;
-use Illuminate\Auth\Events\Verified;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -77,7 +77,10 @@ class DatabaseSeeder extends Seeder
                     "LaporanBulanan"
                 )
                 ->has( // not verified
-                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()])->count(1),
+                    LaporanBulanan::factory(state: ["bulan_laporan"=>now()->format('Y-m-01')])->has(
+                        Pelaksanaan::factory()->count(4),
+                        "pelaksanaans"
+                    )->count(1),
                     "LaporanBulanan"
                 )
                 ->create([
@@ -86,5 +89,18 @@ class DatabaseSeeder extends Seeder
             }
         }
         
+        foreach (Pelaksanaan::all() as $pelaksanaan) {
+            $kpis = ProgramKegiatanKPI::where(
+                "id_program", 
+                $pelaksanaan->laporanBulanan->program_id)
+            ->where(
+                "tahun",
+                $pelaksanaan->laporanBulanan->bulan_laporan->year
+            )
+            ->get();
+            $pelaksanaan->updateQuietly([
+                "id_program_kegiatan_kpi" => $kpis[random_int(0, count($kpis)-1)]->id
+            ]);
+        }
     }
 }

@@ -6,6 +6,7 @@ use App\Models\LaporanBulanan;
 use App\Http\Requests\StoreLaporanBulananRequest;
 use App\Http\Requests\UpdateLaporanBulananRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -52,6 +53,25 @@ class LaporanBulananController extends Controller
     public function store(StoreLaporanBulananRequest $request)
     {
         Gate::authorize("create", LaporanBulanan::class);
+
+        $program = $request->input("program_id");
+        $date = Carbon::parse($request->input("bulan_laporan"));
+        $record = LaporanBulanan::where('program_id', $program)
+                      ->whereYear('bulan_laporan', $date->year)
+                      ->whereMonth('bulan_laporan', $date->month)
+                      ->first();
+
+        if ($record) {
+            // A record for the foreign ID already exists for the given month.
+            return response()
+            ->json([
+                'message' => 'A record for this program ID already exists for this month.',
+                'errors' => [
+                    'program_id' => ["Unique constrain violation"],
+                    'bulan_laporan' => ["Unique constrain violation"],
+                ]
+            ], 422);
+        }
 
         $data = array_merge([
             "disusun_oleh" => $request->user()->id,

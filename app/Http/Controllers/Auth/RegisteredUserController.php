@@ -21,6 +21,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+        if (!$request->user()->tokenCan('admin')){
+            return response(["message" => "user is authenticated but your sanctum/user 
+            token does not have a required ability assigned to it"]);
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -35,11 +40,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
         return response()->json([
             'user' => $user,
-            'access_token' => $user->createToken('bearer', expiresAt: now()->addWeek())->plainTextToken
-        ]);
+        ], 201);
     }
 }
