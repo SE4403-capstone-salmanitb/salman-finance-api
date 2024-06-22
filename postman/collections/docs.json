@@ -1524,15 +1524,15 @@
 							},
 							"response": [
 								{
-									"id": "b6060415-fec9-4865-9c07-a455553c4beb",
-									"name": "Untitled Example",
+									"id": "7d8869ba-8e8c-4872-9442-1cef1c0992be",
+									"name": "Get Api Program",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
 											{
-												"description": "cookie",
 												"key": "cookie",
-												"value": "XSRF-TOKEN=eyJpdiI6InVoU2pWZ1VYSHZJckVrRTZXalZvVlE9PSIsInZhbHVlIjoiRmszTzdzZDNWdGxrVHNSUlplUkpDSmFXUFpmYVpXUVVzZEcxUHdjc3o1T0NqWHVNZXFaUWxZOVBuTy9oZCtSWldGZDR3YXBQV0FCWnN2M0JNaGtOdUJERi90QjN2RCtYVEdpT3pDUXFZTU12d1hQbjRlK2dhbHlsbEk4V0RaQXMiLCJtYWMiOiIzYjVmYmFkMDczN2QxOTA4N2NhNjRlMDgzZDMyMWI0MGNmMGNmMjY2YThlYzI1M2YzM2Q3NDUwZjA4OTdjZWVkIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IkZwcmdscDJjWHlzdmpuZFdLNFlhTWc9PSIsInZhbHVlIjoiVEJRazNpMEVXR3ZYS3RHUGVwUW5TR2QvYU9mSHZpN2xmUnpvang3a3dJa1AraEU0eERzUHREeHJEQ1U5SHUrQWFid3NieHdCYmNSK1kyVFZ1VXRhRG9pb3V2azdiWkJqSzdEVWUvaHBSQ3NTcjJobVl2VHBhbk10MUNPc2JXbzgiLCJtYWMiOiI5NjM1OTU4YThhYjQ1NTdiYzYwZWY3OWM4OGZhMmE3ODhiMzEyYjI2NzNiNGM3MTNmNWFjMzE2MDFmNTRlNWRjIiwidGFnIjoiIn0%3D"
+												"value": "XSRF-TOKEN=eyJpdiI6InVoU2pWZ1VYSHZJckVrRTZXalZvVlE9PSIsInZhbHVlIjoiRmszTzdzZDNWdGxrVHNSUlplUkpDSmFXUFpmYVpXUVVzZEcxUHdjc3o1T0NqWHVNZXFaUWxZOVBuTy9oZCtSWldGZDR3YXBQV0FCWnN2M0JNaGtOdUJERi90QjN2RCtYVEdpT3pDUXFZTU12d1hQbjRlK2dhbHlsbEk4V0RaQXMiLCJtYWMiOiIzYjVmYmFkMDczN2QxOTA4N2NhNjRlMDgzZDMyMWI0MGNmMGNmMjY2YThlYzI1M2YzM2Q3NDUwZjA4OTdjZWVkIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IkZwcmdscDJjWHlzdmpuZFdLNFlhTWc9PSIsInZhbHVlIjoiVEJRazNpMEVXR3ZYS3RHUGVwUW5TR2QvYU9mSHZpN2xmUnpvang3a3dJa1AraEU0eERzUHREeHJEQ1U5SHUrQWFid3NieHdCYmNSK1kyVFZ1VXRhRG9pb3V2azdiWkJqSzdEVWUvaHBSQ3NTcjJobVl2VHBhbk10MUNPc2JXbzgiLCJtYWMiOiI5NjM1OTU4YThhYjQ1NTdiYzYwZWY3OWM4OGZhMmE3ODhiMzEyYjI2NzNiNGM3MTNmNWFjMzE2MDFmNTRlNWRjIiwidGFnIjoiIn0%3D",
+												"description": "cookie"
 											},
 											{
 												"key": "Accept",
@@ -1555,12 +1555,44 @@
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 10:16:52 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 10:16:52 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
 											"key": "Content-Type",
 											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://github.com"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"current_page\": \"<integer>\",\n  \"data\": [\n    {\n      \"created_at\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"nama\": \"<string>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"created_at\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"nama\": \"<string>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"first_page_url\": \"<uri>\",\n  \"from\": \"<integer>\",\n  \"last_page\": \"<integer>\",\n  \"last_page_url\": \"<uri>\",\n  \"links\": [\n    {\n      \"active\": \"<boolean>\",\n      \"label\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"label\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"next_page_url\": {\n    \"nullable\": true\n  },\n  \"path\": \"<uri>\",\n  \"per_page\": \"<integer>\",\n  \"prev_page_url\": {\n    \"nullable\": true\n  },\n  \"to\": \"<integer>\",\n  \"total\": \"<integer>\"\n}"
+									"body": "[\n    {\n        \"id\": 1,\n        \"nama\": \"PROGRAM KEPUSTAKAAN\",\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nama\": \"PROGRAM INTELEKTUALITAS\",\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nama\": \"PROGRAM EKOLITERASI\",\n        \"created_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nama\": \"PROGRAM SUPPORTING SYSTEM\",\n        \"created_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\"\n    }\n]"
 								}
 							]
 						},
@@ -1670,97 +1702,6 @@
 				{
 					"name": "programKegiatanRKA",
 					"item": [
-						{
-							"name": "full",
-							"item": [
-								{
-									"name": "{tahun}",
-									"item": [
-										{
-											"name": "melihat tabel rka untuk tahun ke sekian",
-											"id": "46db55ac-ec76-4a04-be05-d39981754e9c",
-											"protocolProfileBehavior": {
-												"disableBodyPruning": true
-											},
-											"request": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Accept",
-														"value": "application/json"
-													}
-												],
-												"url": {
-													"raw": "{{baseUrl}}/api/programKegiatanRKA/full/:tahun",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"programKegiatanRKA",
-														"full",
-														":tahun"
-													],
-													"variable": [
-														{
-															"key": "tahun",
-															"value": "<integer>",
-															"description": "(Required) tahun rka"
-														}
-													]
-												},
-												"description": "melihat tabel rka untuk tahun ke sekian"
-											},
-											"response": [
-												{
-													"id": "22fb2faf-5cdd-4454-8e87-9f997ce5a4d4",
-													"name": "return the table",
-													"originalRequest": {
-														"method": "GET",
-														"header": [
-															{
-																"key": "Accept",
-																"value": "application/json"
-															}
-														],
-														"url": {
-															"raw": "{{baseUrl}}/api/programKegiatanRKA/full/:tahun",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"api",
-																"programKegiatanRKA",
-																"full",
-																":tahun"
-															],
-															"variable": [
-																{
-																	"key": "tahun"
-																}
-															]
-														}
-													},
-													"status": "OK",
-													"code": 200,
-													"_postman_previewlanguage": "json",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "application/json"
-														}
-													],
-													"cookie": [],
-													"body": "[\n  {\n    \"id\": \"<string>\",\n    \"nama\": \"<string>\",\n    \"deskripsi\": \"<string>\",\n    \"output\": \"<string>\",\n    \"Dana_Pusat\": \"<string>\",\n    \"Dana_RAS\": \"<string>\",\n    \"Dana_Kepesertaan\": \"<string>\",\n    \"Dana_Pihak_Ketiga\": \"<string>\",\n    \"Dana_Wakaf_Salman\": \"<string>\",\n    \"Total_Dana\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"nama\": \"<string>\",\n    \"deskripsi\": \"<string>\",\n    \"output\": \"<string>\",\n    \"Dana_Pusat\": \"<string>\",\n    \"Dana_RAS\": \"<string>\",\n    \"Dana_Kepesertaan\": \"<string>\",\n    \"Dana_Pihak_Ketiga\": \"<string>\",\n    \"Dana_Wakaf_Salman\": \"<string>\",\n    \"Total_Dana\": \"<string>\"\n  }\n]"
-												}
-											]
-										}
-									],
-									"id": "391a7ac1-bab9-47aa-963e-8b1a438d6490"
-								}
-							],
-							"id": "1d7bfd1f-6965-430e-80b0-8fbc318b08c1"
-						},
 						{
 							"name": "{id}",
 							"item": [
@@ -5372,6 +5313,342 @@
 						}
 					],
 					"id": "ed2b2dbc-1c43-45ed-a3d8-3200b012f447"
+				},
+				{
+					"name": "custom",
+					"item": [
+						{
+							"name": "melihat tabel rka untuk tahun ke sekian",
+							"id": "46db55ac-ec76-4a04-be05-d39981754e9c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/custom/rencanaAnggaran?id_program=4&tahun=2024",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"custom",
+										"rencanaAnggaran"
+									],
+									"query": [
+										{
+											"key": "id_program",
+											"value": "4"
+										},
+										{
+											"key": "tahun",
+											"value": "2024"
+										}
+									]
+								},
+								"description": "melihat tabel rka untuk tahun ke sekian"
+							},
+							"response": [
+								{
+									"id": "d5ff4784-b8c9-4be5-b5f3-33e443175d22",
+									"name": "melihat tabel rka untuk tahun ke sekian",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/custom/rencanaAnggaran?id_program=2&tahun=2024",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"custom",
+												"rencanaAnggaran"
+											],
+											"query": [
+												{
+													"key": "id_program",
+													"value": "2"
+												},
+												{
+													"key": "tahun",
+													"value": "2024"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:02:06 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:02:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://github.com"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 7,\n        \"nama\": \"mock_Aurelie Shanahan\",\n        \"deskripsi\": \"Dicta omnis rerum dolores sunt magni autem consequuntur.\",\n        \"output\": \"Est sit.\",\n        \"Dana_Pusat\": 48441600,\n        \"Dana_RAS\": 292536000,\n        \"Dana_Kepesertaan\": 0,\n        \"Dana_Pihak_Ketiga\": 20519000,\n        \"Dana_Wakaf_Salman\": 1274240000,\n        \"Total_Dana\": 1635736600\n    },\n    {\n        \"id\": 8,\n        \"nama\": \"mock_Joy Goodwin Jr.\",\n        \"deskripsi\": \"Maiores expedita est vel laudantium quia voluptatem error qui.\",\n        \"output\": \"Maxime facilis.\",\n        \"Dana_Pusat\": 0,\n        \"Dana_RAS\": 1264425000,\n        \"Dana_Kepesertaan\": 0,\n        \"Dana_Pihak_Ketiga\": 667982700,\n        \"Dana_Wakaf_Salman\": 56706000,\n        \"Total_Dana\": 1989113700\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "tahun/RKA",
+							"id": "d152a7f3-1476-4869-9c63-c3a1575f9605",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/custom/tahunanRKA?year=2024&id_program=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"custom",
+										"tahunanRKA"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "id_program",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ad77d794-c8a3-40ad-89e6-5afa2f4ca2ce",
+									"name": "filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/custom/tahunanRKA?year=2024&id_program=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"custom",
+												"tahunanRKA"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "2024"
+												},
+												{
+													"key": "id_program",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:13:19 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:13:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://github.com"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"nama\": \"mock_Noe Rohan\",\n        \"deskripsi\": \"Nihil qui saepe non est voluptatem nihil officia.\",\n        \"output\": \"Ut quibusdam.\",\n        \"tahun\": 2024,\n        \"id_program\": 1,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"judul\": [\n            {\n                \"id\": 1,\n                \"nama\": \"q. Architecto reprehenderit iusto alias et et dolorem quasi dolores. Soluta sed architecto ratione aut illum odit quis.\",\n                \"id_program_kegiatan_rka\": 1,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"item\": [\n                    {\n                        \"id\": 1,\n                        \"uraian\": \"Est id.\",\n                        \"nilai_satuan\": 279800,\n                        \"quantity\": 71,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 7,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"RAS\",\n                        \"dana_jan\": 1,\n                        \"dana_feb\": 0,\n                        \"dana_mar\": 1,\n                        \"dana_apr\": 0,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 0,\n                        \"dana_jul\": 0,\n                        \"dana_aug\": 0,\n                        \"dana_sep\": 1,\n                        \"dana_oct\": 1,\n                        \"dana_nov\": 1,\n                        \"dana_dec\": 1,\n                        \"id_judul_kegiatan\": 1,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    },\n                    {\n                        \"id\": 2,\n                        \"uraian\": \"Sit eveniet eum.\",\n                        \"nilai_satuan\": 1886700,\n                        \"quantity\": 42,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 6,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"Wakaf Salman\",\n                        \"dana_jan\": 0,\n                        \"dana_feb\": 1,\n                        \"dana_mar\": 1,\n                        \"dana_apr\": 1,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 0,\n                        \"dana_jul\": 1,\n                        \"dana_aug\": 0,\n                        \"dana_sep\": 0,\n                        \"dana_oct\": 0,\n                        \"dana_nov\": 1,\n                        \"dana_dec\": 0,\n                        \"id_judul_kegiatan\": 1,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 2,\n                \"nama\": \"q. Autem eum labore incidunt aliquam a. Aut id optio neque omnis rerum. Vel et voluptate in quisquam veritatis itaque at.\",\n                \"id_program_kegiatan_rka\": 1,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"item\": [\n                    {\n                        \"id\": 3,\n                        \"uraian\": \"Nesciunt alias voluptatem.\",\n                        \"nilai_satuan\": 288700,\n                        \"quantity\": 85,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 4,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"Pusat\",\n                        \"dana_jan\": 1,\n                        \"dana_feb\": 0,\n                        \"dana_mar\": 0,\n                        \"dana_apr\": 0,\n                        \"dana_mei\": 0,\n                        \"dana_jun\": 1,\n                        \"dana_jul\": 0,\n                        \"dana_aug\": 1,\n                        \"dana_sep\": 0,\n                        \"dana_oct\": 0,\n                        \"dana_nov\": 0,\n                        \"dana_dec\": 1,\n                        \"id_judul_kegiatan\": 2,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    },\n                    {\n                        \"id\": 4,\n                        \"uraian\": \"Odio et.\",\n                        \"nilai_satuan\": 999600,\n                        \"quantity\": 94,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 10,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"RAS\",\n                        \"dana_jan\": 0,\n                        \"dana_feb\": 1,\n                        \"dana_mar\": 1,\n                        \"dana_apr\": 1,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 1,\n                        \"dana_jul\": 1,\n                        \"dana_aug\": 1,\n                        \"dana_sep\": 0,\n                        \"dana_oct\": 1,\n                        \"dana_nov\": 1,\n                        \"dana_dec\": 1,\n                        \"id_judul_kegiatan\": 2,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"nama\": \"mock_Cordie Luettgen IV\",\n        \"deskripsi\": \"Quia vitae pariatur sequi.\",\n        \"output\": \"Est aspernatur sint.\",\n        \"tahun\": 2024,\n        \"id_program\": 1,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"judul\": [\n            {\n                \"id\": 3,\n                \"nama\": \"f. Vitae non velit ut aspernatur reprehenderit voluptatibus. Quos labore atque dolor. Quo dolores ratione rerum hic error.\",\n                \"id_program_kegiatan_rka\": 2,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"item\": [\n                    {\n                        \"id\": 5,\n                        \"uraian\": \"Laborum iure id.\",\n                        \"nilai_satuan\": 1716900,\n                        \"quantity\": 86,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 11,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"Pihak Ketiga\",\n                        \"dana_jan\": 1,\n                        \"dana_feb\": 0,\n                        \"dana_mar\": 1,\n                        \"dana_apr\": 1,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 1,\n                        \"dana_jul\": 1,\n                        \"dana_aug\": 1,\n                        \"dana_sep\": 1,\n                        \"dana_oct\": 1,\n                        \"dana_nov\": 1,\n                        \"dana_dec\": 1,\n                        \"id_judul_kegiatan\": 3,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    },\n                    {\n                        \"id\": 6,\n                        \"uraian\": \"Et consequatur.\",\n                        \"nilai_satuan\": 679900,\n                        \"quantity\": 7,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 4,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"Pihak Ketiga\",\n                        \"dana_jan\": 0,\n                        \"dana_feb\": 1,\n                        \"dana_mar\": 0,\n                        \"dana_apr\": 0,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 0,\n                        \"dana_jul\": 1,\n                        \"dana_aug\": 1,\n                        \"dana_sep\": 0,\n                        \"dana_oct\": 0,\n                        \"dana_nov\": 0,\n                        \"dana_dec\": 0,\n                        \"id_judul_kegiatan\": 3,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    }\n                ]\n            },\n            {\n                \"id\": 4,\n                \"nama\": \"q. Voluptatibus ipsam debitis placeat omnis blanditiis ut commodi. Cum mollitia aliquam accusamus qui quo. Quo consequuntur nam veniam illo rerum reiciendis sit ut. Molestiae et temporibus itaque id.\",\n                \"id_program_kegiatan_rka\": 2,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"item\": [\n                    {\n                        \"id\": 7,\n                        \"uraian\": \"Et veritatis facilis.\",\n                        \"nilai_satuan\": 1668700,\n                        \"quantity\": 66,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 9,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"RAS\",\n                        \"dana_jan\": 0,\n                        \"dana_feb\": 1,\n                        \"dana_mar\": 1,\n                        \"dana_apr\": 1,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 1,\n                        \"dana_jul\": 1,\n                        \"dana_aug\": 1,\n                        \"dana_sep\": 1,\n                        \"dana_oct\": 1,\n                        \"dana_nov\": 0,\n                        \"dana_dec\": 0,\n                        \"id_judul_kegiatan\": 4,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    },\n                    {\n                        \"id\": 8,\n                        \"uraian\": \"Fugit velit.\",\n                        \"nilai_satuan\": 449900,\n                        \"quantity\": 88,\n                        \"quantity_unit\": \"org\",\n                        \"frequency\": 2,\n                        \"frequency_unit\": \"bln\",\n                        \"sumber_dana\": \"Pusat\",\n                        \"dana_jan\": 0,\n                        \"dana_feb\": 0,\n                        \"dana_mar\": 0,\n                        \"dana_apr\": 0,\n                        \"dana_mei\": 1,\n                        \"dana_jun\": 0,\n                        \"dana_jul\": 0,\n                        \"dana_aug\": 0,\n                        \"dana_sep\": 0,\n                        \"dana_oct\": 1,\n                        \"dana_nov\": 0,\n                        \"dana_dec\": 0,\n                        \"id_judul_kegiatan\": 4,\n                        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                        \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n                    }\n                ]\n            }\n        ]\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "rkakpi",
+							"id": "5ae7e192-7179-4887-88a3-e78da6d14dda",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/custom/RKAKPI?year=2024&id_program=1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"custom",
+										"RKAKPI"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2024"
+										},
+										{
+											"key": "id_program",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b5183a73-87d2-4021-a105-c1222388b3d2",
+									"name": "with filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/custom/RKAKPI?year=2024&id_program=1",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"custom",
+												"RKAKPI"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "2024"
+												},
+												{
+													"key": "id_program",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:23:21 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 22 Jun 2024 11:23:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://github.com"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"nama\": \"produksi_Al Marks\",\n        \"tahun\": 2024,\n        \"id_program\": 1,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"kpi\": [\n            {\n                \"id\": 1,\n                \"indikator\": \"Jumlah ea\",\n                \"target\": \"Minimal 4948 item per bulan\",\n                \"id_program_kegiatan_kpi\": 1,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"indikator\": \"Jumlah magni\",\n                \"target\": \"Minimal 4118 item per bulan\",\n                \"id_program_kegiatan_kpi\": 1,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"nama\": \"produksi_Ephraim Kuhn II\",\n        \"tahun\": 2024,\n        \"id_program\": 1,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"kpi\": [\n            {\n                \"id\": 3,\n                \"indikator\": \"Jumlah sapiente\",\n                \"target\": \"Minimal 502 item per bulan\",\n                \"id_program_kegiatan_kpi\": 2,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"indikator\": \"Jumlah qui\",\n                \"target\": \"Minimal 5947 item per bulan\",\n                \"id_program_kegiatan_kpi\": 2,\n                \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n                \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n            }\n        ]\n    }\n]"
+								}
+							]
+						}
+					],
+					"id": "980577c3-ad0c-4ebb-91e2-03d350425c78"
 				}
 			],
 			"id": "502f4530-c686-44e0-b3d6-0608891c2d14",
@@ -5661,7 +5938,7 @@
 								},
 								{
 									"key": "remember",
-									"value": "false",
+									"value": "true",
 									"type": "text"
 								}
 							]
@@ -7260,22 +7537,22 @@
 	],
 	"variable": [
 		{
-			"id": "8db21b4d-7855-4ec2-9690-5a145271b8aa",
+			"id": "c3d2c56e-3a39-41e7-bccd-245f4b492820",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "8fd9e0b0-cdd6-4dc8-ba6c-8494e1108d31",
+			"id": "d0c4b525-c65b-420a-a2bb-f57ab74672bd",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "8ae782c7-881c-4274-a65a-f9b2215d652a",
+			"id": "5746f09c-bbe8-4152-a07c-78c06bcd9065",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "6974598b-7b28-4d6e-87cc-4552555bc89b",
+			"id": "fa11b320-65f9-4f79-9a7d-b2390c42e8d8",
 			"key": "id",
 			"value": ""
 		}
