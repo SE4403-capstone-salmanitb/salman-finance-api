@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\program;
 use App\Http\Requests\StoreprogramRequest;
 use App\Http\Requests\UpdateprogramRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class ProgramController extends Controller
@@ -15,10 +16,9 @@ class ProgramController extends Controller
     public function index()
     {
         Gate::authorize('viewAny', program::class);
+        
+        return response()->json(program::all());
 
-        $programs = program::latest()->paginate(5);
-
-        return response()->json($programs);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProgramKegiatanKPI;
 use App\Http\Requests\StoreProgramKegiatanKPIRequest;
 use App\Http\Requests\UpdateProgramKegiatanKPIRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
 class ProgramKegiatanKPIController extends Controller
@@ -65,5 +66,23 @@ class ProgramKegiatanKPIController extends Controller
         $programKegiatanKPI->delete();
 
         return response()->noContent();
+    }
+
+    public function RKAKPI(Request $request){
+        $request->validate([
+            "id_program" => "integer|nullable|exists:programs,id",
+            "year" => "integer|nullable"
+        ]);
+
+        $result = ProgramKegiatanKPI::with("kpi");
+
+        if($request->has("id_program")){
+            $result = $result->where("id_program", $request->id_program);
+        }
+        if($request->has("year")){
+            $result = $result->where("tahun", "=", $request->year);
+        }
+
+        return response()->json($result->get());
     }
 }
