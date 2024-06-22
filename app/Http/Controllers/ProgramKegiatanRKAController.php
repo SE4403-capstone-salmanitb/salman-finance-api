@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProgramKegiatanRKA;
 use App\Http\Requests\StoreProgramKegiatanRKARequest;
 use App\Http\Requests\UpdateProgramKegiatanRKARequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
@@ -69,10 +70,16 @@ class ProgramKegiatanRKAController extends Controller
     }
 
     /**
-     * Get the full table view of Program Kegiatan RKA
+     * Get the rencanaAnggaran table view of Program Kegiatan RKA
      */
-    public function full(int $year)
+    public function rencanaAnggaran(Request $request)
     {
+
+        $request->validate([
+            "id_program" => "integer|nullable|exists:programs,id",
+            "year" => "integer|nullable"
+        ]);
+
         $result = DB::table('program_kegiatan_r_k_a_s')
         ->join('judul_kegiatan_r_k_a_s', 'program_kegiatan_r_k_a_s.id', '=', 'judul_kegiatan_r_k_a_s.id_program_kegiatan_rka')
         ->join('item_kegiatan_r_k_a_s', 'judul_kegiatan_r_k_a_s.id', '=', 'item_kegiatan_r_k_a_s.id_judul_kegiatan')
@@ -85,10 +92,34 @@ class ProgramKegiatanRKAController extends Controller
             DB::raw('SUM(item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) AS Total_Dana')
         )
         ->groupBy('program_kegiatan_r_k_a_s.id', 'program_kegiatan_r_k_a_s.nama', 'program_kegiatan_r_k_a_s.deskripsi', 'program_kegiatan_r_k_a_s.output')
-        ->where("program_kegiatan_r_k_a_s.tahun", "=", $year)
-        ->orderBy('program_kegiatan_r_k_a_s.id')
-        ->get();
+        ->orderBy('program_kegiatan_r_k_a_s.id');
 
-        return response()->json($result);
+        if($request->has("id_program")){
+            $result = $result->where("program_kegiatan_r_k_a_s.id_program", $request->id_program);
+        }
+        if($request->has("year")){
+            $result = $result->where("program_kegiatan_r_k_a_s.tahun", "=", $request->year);
+        }
+
+        return response()->json($result->get());
+    }
+
+    public function tahunanRKA(Request $request){
+
+        $request->validate([
+            "id_program" => "integer|nullable|exists:programs,id",
+            "year" => "integer|nullable"
+        ]);
+
+        $result = ProgramKegiatanRKA::with("judul.item");
+
+        if($request->has("id_program")){
+            $result = $result->where("program_kegiatan_r_k_a_s.id_program", $request->id_program);
+        }
+        if($request->has("year")){
+            $result = $result->where("program_kegiatan_r_k_a_s.tahun", "=", $request->year);
+        }
+
+        return response()->json($result->get());
     }
 }
