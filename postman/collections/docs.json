@@ -7537,22 +7537,22 @@
 	],
 	"variable": [
 		{
-			"id": "c3d2c56e-3a39-41e7-bccd-245f4b492820",
+			"id": "0aaae0bb-1853-4952-b345-cb23999b1a3e",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "d0c4b525-c65b-420a-a2bb-f57ab74672bd",
+			"id": "fca57a6b-71e3-408c-ae02-bfef940b74d2",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "5746f09c-bbe8-4152-a07c-78c06bcd9065",
+			"id": "0f7d0e77-822d-4f33-be91-2fec268256e0",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "fa11b320-65f9-4f79-9a7d-b2390c42e8d8",
+			"id": "d77c6cbb-ccac-4a40-b4bd-72a36413dffb",
 			"key": "id",
 			"value": ""
 		}
