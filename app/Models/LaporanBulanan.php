@@ -62,4 +62,9 @@ class LaporanBulanan extends Model
     {
         return $this->hasMany(Pelaksanaan::class, "id_laporan_bulanan");
     }
+
+    public function KPIBulanans()
+    {
+        return $this->hasMany(LaporanKPIBulanan::class, "id_laporan_bulanan");
+    }
 }

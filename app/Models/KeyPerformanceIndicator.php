@@ -19,4 +19,10 @@ class KeyPerformanceIndicator extends Model
     {
         return $this->belongsTo(ProgramKegiatanKPI::class, 'id_program_kegiatan_kpi');
     }
+
+    public function KPIBulanan()
+    {
+        return $this->hasMany(LaporanKPIBulanan::class, "id_laporan_bulanan");
+    }
+
 }

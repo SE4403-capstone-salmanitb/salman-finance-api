@@ -19,7 +19,7 @@ class PelaksanaanController extends Controller
     public function index(Request $request)
     {
         Gate::authorize("viewAny", Pelaksanaan::class);
-        $query = DB::table('pelaksanaans');
+        $query = Pelaksanaan::query();
 
         $likeFilters = [
             "penjelasan",
@@ -45,7 +45,7 @@ class PelaksanaanController extends Controller
             }
         }
 
-        return response()->json($query->get());
+        return response()->json($query->get()->load("programKegiatan"));
     }
 
     /**
