@@ -5722,11 +5722,6 @@
 								"key": "cookie",
 								"value": "XSRF-TOKEN=eyJpdiI6ImJVNFdreng2Qzg4Sy9kYU85WW44cUE9PSIsInZhbHVlIjoiRW9TSzFWVkh3Sk12ZjZZK29TVWtXQStaNXBER3dlMWZ6TDg2NEZmbUJnMzY1M2dVdzFyRG1hU1lSbGtIVnArYTdvaVBOekp2eWJ3M0ticGZJeFVtbzR4T3RsRU1BNFlEdXE5bUpuaHBONVN5M1l5RlQ5OFpsSmQ5Mm5rYnA4TksiLCJtYWMiOiI0YjNhZTkyNjVmNGYxNWJlZjFkOGRjN2NiMzM4N2JkYjhlN2E5NWQxMTk4NDIyYzdlOTk2N2U0OGU4MDcyMDVhIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6ImNkNGp2WCtjOXY0SkpYeW1XWFRKdFE9PSIsInZhbHVlIjoiY0hrY3JqMmVaL1cveG9DYmZrOFUwcHNGWDZRdzlVbWQ3QUI0TUdDZExQWGQxTkZZRWs5eHo1QzRlV0R1L2hwMHUvYXZIVEhoN0phbERBcVVJOTYydW9qcGdmdkIyVkp5emVsNEI4N0N3VmpJYUZUTFBHSklKTFNpT0s3WGd1dEgiLCJtYWMiOiI0MzdlZWY5OGI4ZjhlM2RmOWNhMzAxZTk2ZTcxNmEyYTliNTMwNTE4Nzc1ZGFhNzMyNmFiNzQ0MmJjZjUwZDRjIiwidGFnIjoiIn0%3D",
 								"description": "cookie"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Go-http-client/1.1",
-								"type": "text"
 							}
 						],
 						"url": {
@@ -7537,22 +7532,22 @@
 	],
 	"variable": [
 		{
-			"id": "0aaae0bb-1853-4952-b345-cb23999b1a3e",
+			"id": "d78617e4-ebbe-4312-8f1c-68ca01ced02b",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "fca57a6b-71e3-408c-ae02-bfef940b74d2",
+			"id": "fde3d563-ffb3-4d8c-a52f-04943f2c5add",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "0f7d0e77-822d-4f33-be91-2fec268256e0",
+			"id": "ccd03987-96f5-4503-a3c5-a436476c5dc6",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "d77c6cbb-ccac-4a40-b4bd-72a36413dffb",
+			"id": "911eb7e3-a1d8-4100-9846-e4951665f93b",
 			"key": "id",
 			"value": ""
 		}
