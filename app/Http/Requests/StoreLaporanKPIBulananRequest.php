@@ -11,7 +11,7 @@ class StoreLaporanKPIBulananRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreLaporanKPIBulananRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'capaian' => 'integer|nullable',
+            'deskripsi' => 'string|nullable|max:255',
+            'id_laporan_bulanan' => 'integer|required|exists:laporan_bulanans,id',
+            'id_kpi' => 'integer|required|exists:key_performance_indicators,id'
         ];
     }
 }

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\LaporanKPIBulanan;
 use App\Http\Requests\StoreLaporanKPIBulananRequest;
 use App\Http\Requests\UpdateLaporanKPIBulananRequest;
+use App\Models\KeyPerformanceIndicator;
+use App\Models\LaporanBulanan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 
 class LaporanKPIBulananController extends Controller
 {
@@ -48,7 +50,33 @@ class LaporanKPIBulananController extends Controller
      */
     public function store(StoreLaporanKPIBulananRequest $request)
     {
-        //
+        Gate::authorize("create", LaporanKPIBulanan::class);
+
+        /** @var LaporanBulanan */
+        $laporanBulanan = LaporanBulanan::where("id", $request->validated("id_laporan_bulanan"))->first();
+        
+        if ($laporanBulanan->disusunOleh->id !== $request->user()->id){
+            return response("Unauthorized, Resource belongs to someone else", 403);
+        }
+
+        /** @var KeyPerformanceIndicator */
+        $sebuahkpi = KeyPerformanceIndicator::where("id", $request->validated("id_kpi"))->first();
+
+        if($laporanBulanan->program->id !== $sebuahkpi->programKegiatan->program->id ){
+            return response()
+            ->json([
+                'message' => 'Missmatch program',
+                'errors' => [
+                    'id_laporan_bulanan' => ["This entity belongs to a different program"],
+                    'id_kpi' => ["This entity belongs to a different program"],
+                ]
+            ], 422);
+        }
+        
+
+        $programKegiatanKPI = LaporanKPIBulanan::create(array_filter($request->validated()));
+
+        return response()->json($programKegiatanKPI, 201);
     }
 
     /**
@@ -56,7 +84,9 @@ class LaporanKPIBulananController extends Controller
      */
     public function show(LaporanKPIBulanan $laporanKPIBulanan)
     {
-        //
+        Gate::authorize("view", $laporanKPIBulanan);
+
+        return response()->json($laporanKPIBulanan);
     }
 
     /**
@@ -64,14 +94,57 @@ class LaporanKPIBulananController extends Controller
      */
     public function update(UpdateLaporanKPIBulananRequest $request, LaporanKPIBulanan $laporanKPIBulanan)
     {
-        //
+        Gate::authorize("update", $laporanKPIBulanan);
+
+        $failResponse = response()
+        ->json([
+            'message' => 'Missmatch program',
+            'errors' => [
+                'id_laporan_bulanan' => ["This entity belongs to a different program"],
+                'id_program_kegiatan_kpi' => ["This entity belongs to a different program"],
+            ]
+        ], 422);
+
+        if ($request->validated("id_kpi") !== null){
+            /** @var KeyPerfomanceIncator */
+            $kpi = KeyPerformanceIndicator::where(
+                "id", $request->validated("id_kpi")
+            )->first();
+
+            if($laporanKPIBulanan->laporanBulanan->program->id !== 
+                $kpi->programKegiatan->program->id ){
+                return $failResponse;
+            }
+        } else if ($request->validated("id_laporan_bulanan") !== null) {
+            /** @var LaporanBulanan */
+            $laporan = LaporanBulanan::where(
+                "id", $request->validated("id_laporan_bulanan")
+            )->first();
+
+            if($laporanKPIBulanan->KPI->programKegiatan->program->id
+                !== $laporan->program->id ){
+                return $failResponse;
+            } else if ($laporan->disusun_oleh !== $request->user()->id) {
+                return response("Unauthorized, Resource belongs to someone else", 403);
+            }
+        }
+
+        $laporanKPIBulanan->updateOrFail(array_filter($request->validated()));
+        return response()->json($laporanKPIBulanan);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LaporanKPIBulanan $laporanKPIBulanan)
+    public function destroy(LaporanKPIBulanan $laporanKPIBulanan, Request $request)
     {
-        //
+        Gate::authorize("delete", $laporanKPIBulanan);
+
+        if ($laporanKPIBulanan->laporanBulanan->disusunOleh->id !== $request->user()->id){
+            return response("Unauthorized, Resource belongs to someone else", 403);
+        }
+
+        $laporanKPIBulanan->deleteOrFail();
+        return response()->noContent();
     }
 }

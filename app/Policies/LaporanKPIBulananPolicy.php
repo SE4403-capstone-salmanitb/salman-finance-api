@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\LaporanBulanan;
 use App\Models\LaporanKPIBulanan;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
@@ -13,7 +14,7 @@ class LaporanKPIBulananPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -22,6 +23,8 @@ class LaporanKPIBulananPolicy
     public function view(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -29,7 +32,8 @@ class LaporanKPIBulananPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // WARNING implemet more strict policies on controller
+        return true;
     }
 
     /**
@@ -37,7 +41,8 @@ class LaporanKPIBulananPolicy
      */
     public function update(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
-        //
+        $temp = LaporanBulanan::where("id", $laporanKPIBulanan->id_laporan_bulanan)->first();
+        return $temp->disusun_oleh === $user->id;
     }
 
     /**
@@ -46,6 +51,8 @@ class LaporanKPIBulananPolicy
     public function delete(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
         //
+        return $laporanKPIBulanan->laporanBulanan->disusunOleh->id === $user->id;
+
     }
 
     /**
@@ -54,6 +61,8 @@ class LaporanKPIBulananPolicy
     public function restore(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
         //
+        return $laporanKPIBulanan->laporanBulanan->disusunOleh === $user->id;
+
     }
 
     /**
@@ -62,5 +71,7 @@ class LaporanKPIBulananPolicy
     public function forceDelete(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
         //
+        return $laporanKPIBulanan->laporanBulanan->disusunOleh === $user->id;
+
     }
 }
