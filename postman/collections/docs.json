@@ -3138,8 +3138,8 @@
 							},
 							"response": [
 								{
-									"id": "27417035-374c-4e52-b2b5-d1a08893d920",
-									"name": "Untitled Example",
+									"id": "f7f9a5a9-419e-4940-8f25-b9eff2b69a1a",
+									"name": "Get Api Program Kegiatan KPI",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -3164,12 +3164,52 @@
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
+											"key": "Date",
+											"value": "Thu, 27 Jun 2024 11:24:40 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
 											"key": "Content-Type",
 											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://localhost:3000"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"current_page\": \"<integer>\",\n  \"data\": [\n    {\n      \"created_at\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"id_program\": \"<integer>\",\n      \"nama\": \"<string>\",\n      \"tahun\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"created_at\": \"<dateTime>\",\n      \"id\": \"<integer>\",\n      \"id_program\": \"<integer>\",\n      \"nama\": \"<string>\",\n      \"tahun\": \"<integer>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ],\n  \"first_page_url\": \"<uri>\",\n  \"from\": \"<integer>\",\n  \"last_page\": \"<integer>\",\n  \"last_page_url\": \"<uri>\",\n  \"links\": [\n    {\n      \"active\": \"<boolean>\",\n      \"label\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"active\": \"<boolean>\",\n      \"label\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"next_page_url\": \"<uri>\",\n  \"path\": \"<uri>\",\n  \"per_page\": \"<integer>\",\n  \"prev_page_url\": {\n    \"nullable\": true\n  },\n  \"to\": \"<integer>\",\n  \"total\": \"<integer>\"\n}"
+									"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 7,\n            \"nama\": \"produksi_Arnulfo Rowe\",\n            \"tahun\": 2024,\n            \"id_program\": 4,\n            \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:56.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"nama\": \"produksi_Dr. Rafaela Adams\",\n            \"tahun\": 2024,\n            \"id_program\": 4,\n            \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:56.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"nama\": \"produksi_Hermina Kihn DDS\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"nama\": \"produksi_Sydney Wilkinson DDS\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"nama\": \"produksi_Dr. Keaton Farrell PhD\",\n            \"tahun\": 2024,\n            \"id_program\": 2,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n        }\n    ],\n    \"first_page_url\": \"http://localhost:8000/api/programKegiatanKPI?page=1\",\n    \"from\": 1,\n    \"last_page\": 2,\n    \"last_page_url\": \"http://localhost:8000/api/programKegiatanKPI?page=2\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/programKegiatanKPI?page=1\",\n            \"label\": \"1\",\n            \"active\": true\n        },\n        {\n            \"url\": \"http://localhost:8000/api/programKegiatanKPI?page=2\",\n            \"label\": \"2\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://localhost:8000/api/programKegiatanKPI?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://localhost:8000/api/programKegiatanKPI?page=2\",\n    \"path\": \"http://localhost:8000/api/programKegiatanKPI\",\n    \"per_page\": 5,\n    \"prev_page_url\": null,\n    \"to\": 5,\n    \"total\": 8\n}"
 								}
 							]
 						},
@@ -4557,6 +4597,562 @@
 					"id": "243817a5-a10c-404c-8e3c-b29746341dc9"
 				},
 				{
+					"name": "laporanKPIBulanan",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "show one by id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a505d5bc-9ea9-4e96-bfdc-8fe62d617c60",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "847bd8dc-6057-4a2c-8ba9-b6a64e5676fb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"laporanKPIBulanan",
+												"{{id}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "0420490e-476b-45d1-8c61-3cb1ed44f968",
+											"name": "show one by id",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"laporanKPIBulanan",
+														"{{id}}"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 27 Jun 2024 11:35:02 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://localhost:3000"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 9,\n    \"capaian\": 143,\n    \"deskripsi\": \"82 Nonfarm Animal Caretaker, 41 Annealing Machine Operator, 82 Forest Fire Inspector, 5 HVAC Mechanic\",\n    \"id_kpi\": 9,\n    \"id_laporan_bulanan\": 6,\n    \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n    \"updated_at\": \"2024-06-24T12:42:56.000000Z\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update",
+									"id": "1b4000f7-4f88-4403-b427-a5c8c892b009",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}?capaian=101&deskripsi=50 John doe, 51 Jane doe",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"laporanKPIBulanan",
+												"{{id}}"
+											],
+											"query": [
+												{
+													"key": "capaian",
+													"value": "101"
+												},
+												{
+													"key": "deskripsi",
+													"value": "50 John doe, 51 Jane doe"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "82066caa-5ab1-456c-a364-b7d603c733c6",
+											"name": "update success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}?capaian=101&deskripsi=50 John doe, 51 Jane doe",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"laporanKPIBulanan",
+														"{{id}}"
+													],
+													"query": [
+														{
+															"key": "capaian",
+															"value": "101"
+														},
+														{
+															"key": "deskripsi",
+															"value": "50 John doe, 51 Jane doe"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 27 Jun 2024 12:05:55 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://localhost:3000"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 17,\n    \"capaian\": \"101\",\n    \"deskripsi\": \"50 John doe, 51 Jane doe\",\n    \"id_kpi\": 5,\n    \"id_laporan_bulanan\": 9,\n    \"created_at\": \"2024-06-27T11:29:14.000000Z\",\n    \"updated_at\": \"2024-06-27T12:01:30.000000Z\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete one",
+									"id": "d58c245f-d3f0-4fc9-98ce-2f9db2689a51",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"laporanKPIBulanan",
+												"{{id}}"
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ba9f5050-6234-42be-9107-e0c5e8e72a1c",
+											"name": "delete one",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/laporanKPIBulanan/{{id}}",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"laporanKPIBulanan",
+														"{{id}}"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 27 Jun 2024 12:21:35 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://localhost:3000"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												}
+											],
+											"cookie": []
+										}
+									]
+								}
+							],
+							"id": "a04619b9-7310-4024-a1e7-55efad775ad4"
+						},
+						{
+							"name": "index",
+							"id": "d054d096-bdd2-4e2c-bcf3-ace3c2abf4b4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/laporanKPIBulanan?id_laporan_bulanan=9",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"laporanKPIBulanan"
+									],
+									"query": [
+										{
+											"key": "id_laporan_bulanan",
+											"value": "9"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "85e6a12c-9d83-4ffa-b906-0629ae088cb2",
+									"name": "with filter laporan bulanan",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/laporanKPIBulanan?id_laporan_bulanan=4",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"laporanKPIBulanan"
+											],
+											"query": [
+												{
+													"key": "id_laporan_bulanan",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Jun 2024 13:17:45 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Jun 2024 13:17:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "http://github.com"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 5,\n        \"capaian\": 5290,\n        \"deskripsi\": \"1711 Production Inspector, 1253 Answering Service, 1711 Legal Support Worker, 1704 Physical Scientist\",\n        \"id_kpi\": 5,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"updated_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"k_p_i\": {\n            \"id\": 5,\n            \"indikator\": \"Jumlah aliquid\",\n            \"target\": \"Minimal 7967 item per bulan\",\n            \"id_program_kegiatan_kpi\": 3,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"program_kegiatan\": {\n                \"id\": 3,\n                \"nama\": \"produksi_Dr. Keaton Farrell PhD\",\n                \"tahun\": 2024,\n                \"id_program\": 2,\n                \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n                \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n            }\n        }\n    },\n    {\n        \"id\": 6,\n        \"capaian\": 9461,\n        \"deskripsi\": \"747 Fishing OR Forestry Supervisor, 258 Poultry Cutter, 747 Substance Abuse Counselor, 3332 Door To Door Sales\",\n        \"id_kpi\": 6,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"updated_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"k_p_i\": {\n            \"id\": 6,\n            \"indikator\": \"Jumlah doloremque\",\n            \"target\": \"Minimal 1502 item per bulan\",\n            \"id_program_kegiatan_kpi\": 3,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"program_kegiatan\": {\n                \"id\": 3,\n                \"nama\": \"produksi_Dr. Keaton Farrell PhD\",\n                \"tahun\": 2024,\n                \"id_program\": 2,\n                \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n                \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n            }\n        }\n    },\n    {\n        \"id\": 7,\n        \"capaian\": 9956,\n        \"deskripsi\": \"544 Infantry Officer, 8392 Fire Investigator, 544 Drywall Installer, 11 Mining Machine Operator\",\n        \"id_kpi\": 7,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"updated_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"k_p_i\": {\n            \"id\": 7,\n            \"indikator\": \"Jumlah aliquid\",\n            \"target\": \"Minimal 3776 item per bulan\",\n            \"id_program_kegiatan_kpi\": 4,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"program_kegiatan\": {\n                \"id\": 4,\n                \"nama\": \"produksi_Mona Fahey\",\n                \"tahun\": 2024,\n                \"id_program\": 2,\n                \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n                \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n            }\n        }\n    },\n    {\n        \"id\": 8,\n        \"capaian\": 4807,\n        \"deskripsi\": \"4048 Music Arranger and Orchestrator, 228 Coaches and Scout, 4048 Conservation Scientist, 372 Fraud Investigator\",\n        \"id_kpi\": 8,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"updated_at\": \"2024-06-24T12:42:56.000000Z\",\n        \"k_p_i\": {\n            \"id\": 8,\n            \"indikator\": \"Jumlah dolores\",\n            \"target\": \"Minimal 2825 item per bulan\",\n            \"id_program_kegiatan_kpi\": 4,\n            \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"updated_at\": \"2024-06-24T12:42:55.000000Z\",\n            \"program_kegiatan\": {\n                \"id\": 4,\n                \"nama\": \"produksi_Mona Fahey\",\n                \"tahun\": 2024,\n                \"id_program\": 2,\n                \"created_at\": \"2024-06-24T12:42:55.000000Z\",\n                \"updated_at\": \"2024-06-24T12:42:55.000000Z\"\n            }\n        }\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "tambah baru",
+							"id": "e7dbdcfa-d9ab-4ebf-bda5-0d7a5f482922",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id_laporan_bulanan",
+											"value": "9",
+											"type": "text"
+										},
+										{
+											"key": "id_kpi",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "capaian",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "deskripsi",
+											"value": "50 John Doe, 50 Jane Doe",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/laporanKPIBulanan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"laporanKPIBulanan"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "595255f7-d6a1-47a2-b4b8-8af285a0d5f8",
+									"name": "default tambah",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "id_laporan_bulanan",
+													"value": "9",
+													"type": "text"
+												},
+												{
+													"key": "id_kpi",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "capaian",
+													"value": "100",
+													"type": "text"
+												},
+												{
+													"key": "deskripsi",
+													"value": "50 John Doe, 50 Jane Doe",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/laporanKPIBulanan",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"laporanKPIBulanan"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 27 Jun 2024 11:29:14 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://localhost:3000"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"capaian\": \"100\",\n    \"deskripsi\": \"50 John Doe, 50 Jane Doe\",\n    \"id_laporan_bulanan\": \"9\",\n    \"id_kpi\": \"5\",\n    \"updated_at\": \"2024-06-27T11:29:14.000000Z\",\n    \"created_at\": \"2024-06-27T11:29:14.000000Z\",\n    \"id\": 17\n}"
+								}
+							]
+						}
+					],
+					"id": "c939bbd9-fd36-4e8a-a2be-93a876edb351"
+				},
+				{
 					"name": "pelaksanaan",
 					"item": [
 						{
@@ -4598,7 +5194,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/pelaksanaan?id_laporan_bulanan=17",
+									"raw": "{{baseUrl}}/api/pelaksanaan?id_laporan_bulanan=4",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -4607,15 +5203,6 @@
 										"pelaksanaan"
 									],
 									"query": [
-										{
-											"key": "id_laporan_bulanan",
-											"value": "17"
-										},
-										{
-											"key": "id_program_kegiatan_kpi",
-											"value": "7",
-											"disabled": true
-										},
 										{
 											"key": "waktu",
 											"value": "senin",
@@ -4635,19 +5222,28 @@
 											"key": "penyaluran",
 											"value": "dakwah",
 											"disabled": true
+										},
+										{
+											"key": "id_program_kegiatan_kpi",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "id_laporan_bulanan",
+											"value": "4"
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "36108f9c-5cf8-45d7-96c7-d20f1f87955b",
+									"id": "0e242d86-b9ca-465d-bac4-4f41c8050d01",
 									"name": "filter by laporan bulanan id",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/pelaksanaan?id_laporan_bulanan=16",
+											"raw": "{{baseUrl}}/api/pelaksanaan?id_laporan_bulanan=4",
 											"host": [
 												"{{baseUrl}}"
 											],
@@ -4657,79 +5253,33 @@
 											],
 											"query": [
 												{
-													"key": "id_laporan_bulanan",
-													"value": "16"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8000"
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:42:43 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:42:43 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "PHP/8.2.4"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "http://localhost:3000"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										}
-									],
-									"cookie": [],
-									"body": "[\n    {\n        \"id\": 13,\n        \"penjelasan\": \"cupiditate aliquid\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Reggieberg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 14,\n        \"penjelasan\": \"sed eos\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"East Llewellynburgh\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 8,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 15,\n        \"penjelasan\": \"dolorem reiciendis\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Hermanton\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 8,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 16,\n        \"penjelasan\": \"illum dolorem\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Jovanistad\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    }\n]"
-								},
-								{
-									"id": "ba66d5a3-3083-42d9-b202-893b45a233e8",
-									"name": "filter by laporan bulanan dan prokegkpi",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/pelaksanaan?id_laporan_bulanan=16&id_program_kegiatan_kpi=7",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"pelaksanaan"
-											],
-											"query": [
+													"key": "waktu",
+													"value": "senin",
+													"disabled": true
+												},
 												{
-													"key": "id_laporan_bulanan",
-													"value": "16"
+													"key": "tempat",
+													"value": "Port",
+													"disabled": true
+												},
+												{
+													"key": "penjelasan",
+													"value": "a",
+													"disabled": true
+												},
+												{
+													"key": "penyaluran",
+													"value": "dakwah",
+													"disabled": true
 												},
 												{
 													"key": "id_program_kegiatan_kpi",
-													"value": "7"
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "id_laporan_bulanan",
+													"value": "4"
 												}
 											]
 										}
@@ -4744,11 +5294,11 @@
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:43:17 GMT"
+											"value": "Mon, 24 Jun 2024 11:16:02 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:43:17 GMT"
+											"value": "Mon, 24 Jun 2024 11:16:02 GMT"
 										},
 										{
 											"key": "Connection",
@@ -4768,7 +5318,7 @@
 										},
 										{
 											"key": "Access-Control-Allow-Origin",
-											"value": "http://localhost:3000"
+											"value": "http://github.com"
 										},
 										{
 											"key": "Access-Control-Allow-Credentials",
@@ -4776,10 +5326,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n    {\n        \"id\": 13,\n        \"penjelasan\": \"cupiditate aliquid\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Reggieberg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 16,\n        \"penjelasan\": \"illum dolorem\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Jovanistad\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    }\n]"
+									"body": "[\n    {\n        \"id\": 1,\n        \"penjelasan\": \"eveniet qui\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Lake Rosemary\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"deleted_at\": null,\n        \"program_kegiatan\": {\n            \"id\": 1,\n            \"nama\": \"produksi_Al Marks\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n            \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"penjelasan\": \"ea dolorem\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"East Carlo\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 2,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"deleted_at\": null,\n        \"program_kegiatan\": {\n            \"id\": 2,\n            \"nama\": \"produksi_Ephraim Kuhn II\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n            \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"penjelasan\": \"asperiores consectetur\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Germanberg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 2,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"deleted_at\": null,\n        \"program_kegiatan\": {\n            \"id\": 2,\n            \"nama\": \"produksi_Ephraim Kuhn II\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n            \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"penjelasan\": \"tempore aspernatur\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Johnstonburgh\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"deleted_at\": null,\n        \"program_kegiatan\": {\n            \"id\": 1,\n            \"nama\": \"produksi_Al Marks\",\n            \"tahun\": 2024,\n            \"id_program\": 1,\n            \"created_at\": \"2024-06-20T10:04:56.000000Z\",\n            \"updated_at\": \"2024-06-20T10:04:56.000000Z\"\n        }\n    }\n]"
 								},
 								{
-									"id": "4854fb93-6f70-4189-8a77-12f342c9b846",
+									"id": "1b313dab-a876-4118-9a47-193fefc5f9d3",
 									"name": "filter by body",
 									"originalRequest": {
 										"method": "GET",
@@ -4795,18 +5345,6 @@
 											],
 											"query": [
 												{
-													"key": "id_laporan_bulanan",
-													"value": "16",
-													"uuid": "1f119608-0192-42ab-a96a-53b7846eb24e",
-													"disabled": true
-												},
-												{
-													"key": "id_program_kegiatan_kpi",
-													"value": "7",
-													"uuid": "ecbca3e5-1a72-4f58-8f3a-607ea3d2a009",
-													"disabled": true
-												},
-												{
 													"key": "waktu",
 													"value": "senin"
 												},
@@ -4821,104 +5359,16 @@
 												{
 													"key": "penyaluran",
 													"value": "dakwah"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8000"
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:44:44 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:44:44 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "PHP/8.2.4"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "http://localhost:3000"
-										},
-										{
-											"key": "Access-Control-Allow-Credentials",
-											"value": "true"
-										}
-									],
-									"cookie": [],
-									"body": "[\n    {\n        \"id\": 1,\n        \"penjelasan\": \"aut ut\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Port Gregg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 2,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 3,\n        \"penjelasan\": \"omnis ad\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Revaport\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    }\n]"
-								},
-								{
-									"id": "5661e97c-a801-408c-a5f9-a284aa7bd21e",
-									"name": "get all no filter",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/pelaksanaan",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"pelaksanaan"
-											],
-											"query": [
-												{
-													"key": "id_laporan_bulanan",
-													"value": "16",
-													"uuid": "1f119608-0192-42ab-a96a-53b7846eb24e",
-													"disabled": true
 												},
 												{
 													"key": "id_program_kegiatan_kpi",
-													"value": "7",
-													"uuid": "ecbca3e5-1a72-4f58-8f3a-607ea3d2a009",
+													"value": "1",
 													"disabled": true
 												},
 												{
-													"key": "waktu",
-													"value": "senin",
-													"uuid": "59559c6f-807c-443b-ab66-2f3d68a7ecec",
-													"disabled": true
-												},
-												{
-													"key": "tempat",
-													"value": "Port",
-													"uuid": "dbb48d04-807a-4056-b15b-fd031d805817",
-													"disabled": true
-												},
-												{
-													"key": "penjelasan",
-													"value": "a",
-													"uuid": "d36b9e98-ac1b-416f-9eb5-21b6c3c1fb73",
-													"disabled": true
-												},
-												{
-													"key": "penyaluran",
-													"value": "dakwah",
-													"uuid": "14b0a1cb-85ed-4612-9b54-c2dc79941877",
+													"key": "id_laporan_bulanan",
+													"value": "4",
+													"uuid": "0948995b-0557-4627-9629-da26183cf723",
 													"disabled": true
 												}
 											]
@@ -4934,11 +5384,11 @@
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:45:03 GMT"
+											"value": "Mon, 24 Jun 2024 11:16:43 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Wed, 19 Jun 2024 05:45:03 GMT"
+											"value": "Mon, 24 Jun 2024 11:16:43 GMT"
 										},
 										{
 											"key": "Connection",
@@ -4958,7 +5408,7 @@
 										},
 										{
 											"key": "Access-Control-Allow-Origin",
-											"value": "http://localhost:3000"
+											"value": "http://github.com"
 										},
 										{
 											"key": "Access-Control-Allow-Credentials",
@@ -4966,7 +5416,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "[\n    {\n        \"id\": 1,\n        \"penjelasan\": \"aut ut\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Port Gregg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 2,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 2,\n        \"penjelasan\": \"cumque sint\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Rodriguezstad\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 3,\n        \"penjelasan\": \"omnis ad\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Revaport\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 4,\n        \"penjelasan\": \"cumque ratione\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Raymondchester\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 1,\n        \"id_laporan_bulanan\": 4,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 5,\n        \"penjelasan\": \"quae beatae\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Paytonview\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 4,\n        \"id_laporan_bulanan\": 8,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 6,\n        \"penjelasan\": \"quisquam non\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"East Berthastad\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 3,\n        \"id_laporan_bulanan\": 8,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 7,\n        \"penjelasan\": \"minus ex\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Mullerton\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 3,\n        \"id_laporan_bulanan\": 8,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 8,\n        \"penjelasan\": \"pariatur blanditiis\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"East Ahmadchester\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 3,\n        \"id_laporan_bulanan\": 8,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 9,\n        \"penjelasan\": \"dolorum ex\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Saulfurt\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 5,\n        \"id_laporan_bulanan\": 12,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 10,\n        \"penjelasan\": \"quas consequatur\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Laruemouth\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 5,\n        \"id_laporan_bulanan\": 12,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 11,\n        \"penjelasan\": \"tenetur quod\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Ursulahaven\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 5,\n        \"id_laporan_bulanan\": 12,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 12,\n        \"penjelasan\": \"et neque\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"South Tabithafurt\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 6,\n        \"id_laporan_bulanan\": 12,\n        \"created_at\": \"2024-06-19 05:37:13\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 13,\n        \"penjelasan\": \"cupiditate aliquid\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Reggieberg\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 14,\n        \"penjelasan\": \"sed eos\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"East Llewellynburgh\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 8,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 15,\n        \"penjelasan\": \"dolorem reiciendis\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Hermanton\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 8,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    },\n    {\n        \"id\": 16,\n        \"penjelasan\": \"illum dolorem\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Jovanistad\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 7,\n        \"id_laporan_bulanan\": 16,\n        \"created_at\": \"2024-06-19 05:37:14\",\n        \"updated_at\": \"2024-06-19 05:37:14\",\n        \"deleted_at\": null\n    }\n]"
+									"body": "[\n    {\n        \"id\": 11,\n        \"penjelasan\": \"ab et\",\n        \"waktu\": \"Senin-Jumat 09.00 - 17.00 WIB\",\n        \"tempat\": \"Aufderharport\",\n        \"penyaluran\": \"Dakwah-Advokasi\",\n        \"id_program_kegiatan_kpi\": 5,\n        \"id_laporan_bulanan\": 12,\n        \"created_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"updated_at\": \"2024-06-20T10:04:57.000000Z\",\n        \"deleted_at\": null,\n        \"program_kegiatan\": {\n            \"id\": 5,\n            \"nama\": \"produksi_Holly Hansen\",\n            \"tahun\": 2024,\n            \"id_program\": 3,\n            \"created_at\": \"2024-06-20T10:04:57.000000Z\",\n            \"updated_at\": \"2024-06-20T10:04:57.000000Z\"\n        }\n    }\n]"
 								}
 							]
 						},
@@ -5649,6 +6099,39 @@
 						}
 					],
 					"id": "980577c3-ad0c-4ebb-91e2-03d350425c78"
+				},
+				{
+					"name": "user (check auth)",
+					"id": "85fe3287-681b-412a-9ec7-0ca810d9f4b0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "Application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{csrf-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "502f4530-c686-44e0-b3d6-0608891c2d14",
@@ -7510,7 +7993,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2682bd8c-e35d-4a90-bf5d-6b7e299d5a04",
+				"id": "39690aa2-2092-48f5-8d47-b435d7f50c0f",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -7521,7 +8004,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "908603ab-26e0-4473-bb36-57ba0d649f79",
+				"id": "d1fdfddf-8cb2-4e5e-9ff2-fbb900c0a851",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -7532,22 +8015,22 @@
 	],
 	"variable": [
 		{
-			"id": "d78617e4-ebbe-4312-8f1c-68ca01ced02b",
+			"id": "346eb73c-f89a-4bed-9905-3ebafffb11c2",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "fde3d563-ffb3-4d8c-a52f-04943f2c5add",
+			"id": "76bac162-f2ec-4930-9e08-b93586877cc9",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "ccd03987-96f5-4503-a3c5-a436476c5dc6",
+			"id": "88bff777-921b-416f-a797-5c034ef4d483",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "911eb7e3-a1d8-4100-9846-e4951665f93b",
+			"id": "e5c40a8d-79e4-4247-b42f-b61a6fb7a374",
 			"key": "id",
 			"value": ""
 		}
