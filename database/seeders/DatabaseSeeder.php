@@ -8,6 +8,7 @@ use App\Models\KeyPerformanceIndicator;
 use App\Models\LaporanBulanan;
 use App\Models\LaporanKPIBulanan;
 use App\Models\Pelaksanaan;
+use App\Models\PenerimaManfaat;
 use App\Models\User;
 use App\Models\program;
 use App\Models\ProgramKegiatanKPI;
@@ -83,6 +84,10 @@ class DatabaseSeeder extends Seeder
                     ->has(
                         Pelaksanaan::factory()->count(4),
                         "pelaksanaans"
+                    )
+                    ->has(
+                        PenerimaManfaat::factory()->count(5),
+                        "penerimaManfaats"
                     )
                     ->count(1),
                     "LaporanBulanan"

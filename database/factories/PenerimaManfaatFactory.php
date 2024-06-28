@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\LaporanBulanan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class PenerimaManfaatFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'kategori' => fake()->word,
+            'tipe_rutinitas' => fake()->word,
+            'tipe_penyaluran' => fake()->word,
+            'rencana' => fake()->numberBetween(1, 100),
+            'realisasi' => fake()->numberBetween(1, 100),
+            'id_laporan_bulanan' => LaporanBulanan::factory()->create()->id,
         ];
     }
 }
