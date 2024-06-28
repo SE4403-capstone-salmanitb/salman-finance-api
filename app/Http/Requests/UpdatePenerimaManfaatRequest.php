@@ -11,7 +11,7 @@ class UpdatePenerimaManfaatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class UpdatePenerimaManfaatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "id_laporan_bulanan" => "nullable|exists:laporan_bulanans,id|required",
+            "kategori" => "string|nullable|max:255",
+            "tipe_rutinitas" => "string|nullable|max:255",
+            "tipe_penyaluran" => "string|nullable|max:255",
+            "rencana" => "integer|nullable",
+            "realisasi" => "integer|nullable",
         ];
     }
 }

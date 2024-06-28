@@ -11,7 +11,7 @@ class StorePenerimaManfaatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StorePenerimaManfaatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "id_laporan_bulanan" => "integer|exists:laporan_bulanans,id|required",
+            "kategori" => "string|required|max:255",
+            "tipe_rutinitas" => "string|required|max:255",
+            "tipe_penyaluran" => "string|required|max:255",
+            "rencana" => "integer|required",
+            "realisasi" => "integer|required",
         ];
     }
 }

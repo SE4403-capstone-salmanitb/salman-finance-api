@@ -14,6 +14,7 @@ class PenerimaManfaatPolicy
     public function viewAny(User $user): bool
     {
         //
+        return true;
     }
 
     /**
@@ -21,7 +22,7 @@ class PenerimaManfaatPolicy
      */
     public function view(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +30,8 @@ class PenerimaManfaatPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // Implement the comlicated rule on controller
+        return true;
     }
 
     /**
@@ -37,7 +39,7 @@ class PenerimaManfaatPolicy
      */
     public function update(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
-        //
+        return $penerimaManfaat->laporanBulanan->disusun_oleh === $user->id;
     }
 
     /**
@@ -46,21 +48,8 @@ class PenerimaManfaatPolicy
     public function delete(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
         //
+        return $penerimaManfaat->laporanBulanan->disusun_oleh === $user->id;
+
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, PenerimaManfaat $penerimaManfaat): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, PenerimaManfaat $penerimaManfaat): bool
-    {
-        //
-    }
 }
