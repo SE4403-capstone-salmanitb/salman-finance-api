@@ -24,8 +24,8 @@ class UpdateLaporanKPIBulananRequest extends FormRequest
         return [
             'capaian' => ['integer', 'nullable'],
             'deskripsi' => 'string|nullable|max:255',
-            'id_laporan_bulanan' => 'integer|nullable|exists:id,laporan_bulanans',
-            'id_kpi' => 'integer|nullable|exists:id,key_performance_indicators'
+            'id_laporan_bulanan' => 'integer|nullable|exists:laporan_bulanans,id',
+            'id_kpi' => 'integer|nullable|exists:key_performance_indicators,id'
         ];
     }
 }
