@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('timezone')->nullable();
             $table->string('driver')->nullable();
             $table->timestamps();
+            $table->unique(["ip", "user_id"]);
         });
     }
 

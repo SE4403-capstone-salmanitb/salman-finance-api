@@ -19,7 +19,7 @@ class PelaksanaanController extends Controller
     public function index(Request $request)
     {
         Gate::authorize("viewAny", Pelaksanaan::class);
-        $query = DB::table('pelaksanaans');
+        $query = Pelaksanaan::query();
 
         $likeFilters = [
             "penjelasan",
@@ -45,7 +45,7 @@ class PelaksanaanController extends Controller
             }
         }
 
-        return response()->json($query->get());
+        return response()->json($query->get()->load("programKegiatan"));
     }
 
     /**
@@ -127,6 +127,10 @@ class PelaksanaanController extends Controller
             if($pelaksanaan->programKegiatan->program->id !== $laporan->program->id ){
                 return $failResponse;
             }
+
+            if ($laporan->disusunOleh->id !== $request->user()->id){
+                return response("Unauthorized, Resource belongs to someone else", 403);
+            }
         }
 
         $pelaksanaan->updateOrFail(array_filter($request->validated()));
@@ -136,9 +140,13 @@ class PelaksanaanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pelaksanaan $pelaksanaan)
+    public function destroy(Pelaksanaan $pelaksanaan, Request $request)
     {
         Gate::authorize('delete', $pelaksanaan);
+
+        if ($pelaksanaan->laporanBulanan->disusunOleh->id !== $request->user()->id){
+            return response("Unauthorized, Resource belongs to someone else", 403);
+        }
 
         $pelaksanaan->deleteOrFail();
 
