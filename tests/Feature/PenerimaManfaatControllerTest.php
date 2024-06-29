@@ -187,4 +187,38 @@ class PenerimaManfaatControllerTest extends TestCase
 
         $response->assertStatus(403);
     }
+
+    public function test_user_bisa_delete() {
+        $user = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne([
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user->id
+        ]);
+        $pm = PenerimaManfaat::factory()->createOne([
+            "id_laporan_bulanan" => $lap->id
+        ]);
+
+        $response = $this->actingAs($user)->deleteJson("/api/penerimaManfaat/".$pm->id);
+
+        $response->assertNoContent();
+        $this->assertDatabaseMissing("penerima_manfaats", $pm->toArray());
+    }
+
+    public function test_random_user_cannot_delete() {
+        $user = User::factory()->createOne();
+        $user2 = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne([
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user->id
+        ]);
+        $pm = PenerimaManfaat::factory()->createOne([
+            "id_laporan_bulanan" => $lap->id
+        ]);
+
+        $response = $this->actingAs($user2)->deleteJson("/api/penerimaManfaat/".$pm->id);
+
+        $response->assertStatus(403);
+    }
 }

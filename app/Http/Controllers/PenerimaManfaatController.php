@@ -89,7 +89,9 @@ class PenerimaManfaatController extends Controller
      */
     public function destroy(PenerimaManfaat $penerimaManfaat)
     {
-        
+        Gate::authorize("delete", $penerimaManfaat);
+
+        $penerimaManfaat->deleteOrFail();
 
         return response()->noContent();
     }
