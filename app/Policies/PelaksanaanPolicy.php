@@ -40,7 +40,7 @@ class PelaksanaanPolicy
      */
     public function update(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        return $pelaksanaan->laporanBulanan->disusun_oleh === $user->id;
+        return $pelaksanaan->laporanBulanan->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -48,7 +48,7 @@ class PelaksanaanPolicy
      */
     public function delete(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        return $pelaksanaan->laporanBulanan->disusun_oleh === $user->id;
+        return $pelaksanaan->laporanBulanan->checkIfAuthorizedToEdit($user);
 
     }
 

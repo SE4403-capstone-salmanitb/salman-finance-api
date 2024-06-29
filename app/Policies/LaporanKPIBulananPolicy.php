@@ -41,8 +41,7 @@ class LaporanKPIBulananPolicy
      */
     public function update(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
-        $temp = LaporanBulanan::where("id", $laporanKPIBulanan->id_laporan_bulanan)->first();
-        return $temp->disusun_oleh === $user->id;
+        return $laporanKPIBulanan->laporanBulanan->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -51,7 +50,7 @@ class LaporanKPIBulananPolicy
     public function delete(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
         //
-        return $laporanKPIBulanan->laporanBulanan->disusunOleh->id === $user->id;
+        return $laporanKPIBulanan->laporanBulanan->checkIfAuthorizedToEdit($user);
 
     }
 

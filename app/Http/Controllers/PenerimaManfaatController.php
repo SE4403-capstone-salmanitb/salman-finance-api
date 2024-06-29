@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\PenerimaManfaat;
 use App\Http\Requests\StorePenerimaManfaatRequest;
 use App\Http\Requests\UpdatePenerimaManfaatRequest;
+use App\Models\LaporanBulanan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class PenerimaManfaatController extends Controller
 {
@@ -45,7 +48,13 @@ class PenerimaManfaatController extends Controller
      */
     public function store(StorePenerimaManfaatRequest $request)
     {
-        //
+        Gate::authorize("create", PenerimaManfaat::class);
+
+        $this->chechForLaporanAuthor($request->id_laporan_bulanan, $request->user());
+
+        $penerimaManfaat = PenerimaManfaat::create(array_filter($request->validated()));
+
+        return response()->json($penerimaManfaat, 201);
     }
 
     /**
@@ -70,5 +79,14 @@ class PenerimaManfaatController extends Controller
     public function destroy(PenerimaManfaat $penerimaManfaat)
     {
         //
+    }
+
+    protected function chechForLaporanAuthor(int $id_laporan_bulanan, User $user)
+    {
+        if( LaporanBulanan::findOrFail($id_laporan_bulanan)->isDisusunOleh($user) === false ){
+            abort(403, "Resource belongs to someone else");
+        } else {
+            return true;
+        }
     }
 }

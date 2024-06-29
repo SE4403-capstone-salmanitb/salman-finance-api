@@ -31,13 +31,13 @@ Route::get('/myip', function (Request $request ){
 //Route::apiResource('/program', App\Http\Controllers\ProgramController::class)
 //->middleware(['auth:sanctum', 'verified']);
 
-Route::prefix('custom')->group(function(){
+Route::group(['prefix' => 'custom', 'middleware' => ['auth:sanctum', 'verified']], function(){
     Route::get('/rencanaAnggaran', [ProgramKegiatanRKAController::class, 'rencanaAnggaran']); 
     Route::get('/tahunanRKA', [ProgramKegiatanRKAController::class, 'tahunanRKA']); 
     Route::get('/RKAKPI', [ProgramKegiatanKPIController::class, 'RKAKPI']); 
-})->middleware(['auth:sanctum', 'verified']);
+});
 
-Route::patch('/laporanBulanan/verify/{laporanBulanan}', [LaporanBulananController::class, 'verify'])
+Route::match(['patch', 'put'], '/laporanBulanan/verify/{laporanBulanan}', [LaporanBulananController::class, 'verify'])
 ->middleware(['auth:sanctum', 'verified']);
 
 Route::apiResources(

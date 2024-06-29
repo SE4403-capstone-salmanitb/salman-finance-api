@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('penerima_manfaats', function (Blueprint $table) {
             $table->id();
-            $table->string('kategori');
-            $table->string('tipe_rutinitas');
-            $table->string('tipe_penyaluran');
-            $table->integer('rencana');
-            $table->integer('realisasi');
+            $table->string('kategori')->nullable();
+            $table->string('tipe_rutinitas')->nullable();
+            $table->string('tipe_penyaluran')->nullable();
+            $table->integer('rencana')->nullable()->default(0);
+            $table->integer('realisasi')->nullable()->default(0);
             $table->foreignId('id_laporan_bulanan')->references('id')
                 ->on('laporan_bulanans')->cascadeOnDelete();
             $table->timestamps();

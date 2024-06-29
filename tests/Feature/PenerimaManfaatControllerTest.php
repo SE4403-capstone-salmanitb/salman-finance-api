@@ -7,6 +7,7 @@ use App\Models\PenerimaManfaat;
 use App\Models\Program;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
 class PenerimaManfaatControllerTest extends TestCase
@@ -53,7 +54,7 @@ class PenerimaManfaatControllerTest extends TestCase
             "disusun_oleh" => $user->id
         ]);
         $data = [
-            "ketegori" => "Internal",
+            "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
             "rencana" => 4,
@@ -61,7 +62,7 @@ class PenerimaManfaatControllerTest extends TestCase
             "id_laporan_bulanan" => $lap->id
         ];
 
-        $response = $this->actingAs($user)->post("/api/penerimaManfaat", $data);
+        $response = $this->actingAs($user)->postJson("/api/penerimaManfaat", $data);
 
         $response->assertCreated();
     }
@@ -76,7 +77,7 @@ class PenerimaManfaatControllerTest extends TestCase
             "disusun_oleh" => $user->id
         ]);
         $data = [
-            "ketegori" => "Internal",
+            "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
             "rencana" => 4,
@@ -84,8 +85,9 @@ class PenerimaManfaatControllerTest extends TestCase
             "id_laporan_bulanan" => $lap->id
         ];
 
-        $response = $this->actingAs($user2)->post("/api/penerimaManfaat", $data);
+        $response = $this->actingAs($user2)->postJson("/api/penerimaManfaat", $data);
 
+        //Log::error(json_encode($response->json()));
         $response->assertCreated();
     }
 }

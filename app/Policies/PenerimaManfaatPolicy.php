@@ -39,7 +39,8 @@ class PenerimaManfaatPolicy
      */
     public function update(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
-        return $penerimaManfaat->laporanBulanan->disusun_oleh === $user->id;
+        
+        return $penerimaManfaat->laporanBulanan->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -48,7 +49,7 @@ class PenerimaManfaatPolicy
     public function delete(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
         //
-        return $penerimaManfaat->laporanBulanan->disusun_oleh === $user->id;
+        return $penerimaManfaat->laporanBulanan->checkIfAuthorizedToEdit($user);
 
     }
 
