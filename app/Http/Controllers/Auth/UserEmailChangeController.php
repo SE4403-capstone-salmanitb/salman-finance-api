@@ -24,7 +24,7 @@ class UserEmailChangeController extends Controller
 
         $request->validate([
             "password" => ['required', 'string'],
-            "new_email" => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class]
+            "new_email" => ['required', 'string', 'email', 'max:255', 'unique:'.User::class.',email']
         ]);
 
         if(!password_verify($request->password, $user->password)){

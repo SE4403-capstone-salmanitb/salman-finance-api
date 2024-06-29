@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use function PHPUnit\Framework\isEmpty;
+
 class LaporanBulanan extends Model
 {
     use HasFactory, SoftDeletes;
@@ -38,6 +40,39 @@ class LaporanBulanan extends Model
         ];
     }
 
+    public function isDisusunOleh(User $user)
+    {
+        return $this->disusun_oleh === $user->id;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->tanggal_pemeriksaan && $this->diperiksa_oleh;
+    }
+
+    public function isNotVerified(): bool
+    {
+        return !$this->isVerified();
+    }
+
+    public function checkIfEditPossible()
+    {
+        if ( $this->isNotVerified() ){
+            return true;
+        } else {
+            abort(423, "Locked, this laporan is already verified and may not be edited");
+        }
+    }
+
+    public function checkIfAuthorizedToEdit(User $user)
+    {
+        if ( $this->isDisusunOleh($user) ){
+            return $this->checkIfEditPossible();
+        } else {
+            abort(403, "Unauthorized, resource belongs to someone else");
+        }
+    }
+
     public function program()
     {
         return $this->belongsTo(Program::class);
@@ -66,5 +101,10 @@ class LaporanBulanan extends Model
     public function KPIBulanans()
     {
         return $this->hasMany(LaporanKPIBulanan::class, "id_laporan_bulanan");
+    }
+
+    public function PenerimaManfaats()
+    {
+        return $this->hasMany(PenerimaManfaat::class, "id_laporan_bulanan");
     }
 }

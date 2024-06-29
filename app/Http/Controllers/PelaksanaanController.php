@@ -8,7 +8,6 @@ use App\Http\Requests\UpdatePelaksanaanRequest;
 use App\Models\LaporanBulanan;
 use App\Models\ProgramKegiatanKPI;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class PelaksanaanController extends Controller
@@ -58,9 +57,8 @@ class PelaksanaanController extends Controller
         /** @var LaporanBulanan */
         $laporanBulanan = LaporanBulanan::where("id", $request->validated("id_laporan_bulanan"))->first();
         
-        if ($laporanBulanan->disusunOleh->id !== $request->user()->id){
-            return response("Unauthorized, Resource belongs to someone else", 403);
-        }
+        $laporanBulanan->checkIfAuthorizedToEdit($request->user());
+
         
         if ($request->validated("id_program_kegiatan_kpi") !== null){
             /** @var ProgramKegiatanKPI */
@@ -128,9 +126,8 @@ class PelaksanaanController extends Controller
                 return $failResponse;
             }
 
-            if ($laporan->disusunOleh->id !== $request->user()->id){
-                return response("Unauthorized, Resource belongs to someone else", 403);
-            }
+            $laporan->checkIfAuthorizedToEdit($request->user());
+
         }
 
         $pelaksanaan->updateOrFail(array_filter($request->validated()));
@@ -143,10 +140,6 @@ class PelaksanaanController extends Controller
     public function destroy(Pelaksanaan $pelaksanaan, Request $request)
     {
         Gate::authorize('delete', $pelaksanaan);
-
-        if ($pelaksanaan->laporanBulanan->disusunOleh->id !== $request->user()->id){
-            return response("Unauthorized, Resource belongs to someone else", 403);
-        }
 
         $pelaksanaan->deleteOrFail();
 

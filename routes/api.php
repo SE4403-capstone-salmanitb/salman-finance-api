@@ -6,6 +6,7 @@ use App\Http\Controllers\KeyPerformanceIndicatorController;
 use App\Http\Controllers\LaporanBulananController;
 use App\Http\Controllers\LaporanKPIBulananController;
 use App\Http\Controllers\PelaksanaanController;
+use App\Http\Controllers\PenerimaManfaatController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
@@ -30,13 +31,13 @@ Route::get('/myip', function (Request $request ){
 //Route::apiResource('/program', App\Http\Controllers\ProgramController::class)
 //->middleware(['auth:sanctum', 'verified']);
 
-Route::prefix('custom')->group(function(){
+Route::group(['prefix' => 'custom', 'middleware' => ['auth:sanctum', 'verified']], function(){
     Route::get('/rencanaAnggaran', [ProgramKegiatanRKAController::class, 'rencanaAnggaran']); 
     Route::get('/tahunanRKA', [ProgramKegiatanRKAController::class, 'tahunanRKA']); 
     Route::get('/RKAKPI', [ProgramKegiatanKPIController::class, 'RKAKPI']); 
-})->middleware(['auth:sanctum', 'verified']);
+});
 
-Route::patch('/laporanBulanan/verify/{laporanBulanan}', [LaporanBulananController::class, 'verify'])
+Route::match(['patch', 'put'], '/laporanBulanan/verify/{laporanBulanan}', [LaporanBulananController::class, 'verify'])
 ->middleware(['auth:sanctum', 'verified']);
 
 Route::apiResources(
@@ -51,8 +52,12 @@ Route::apiResources(
         '/laporanBulanan' => LaporanBulananController::class,
         '/pelaksanaan' => PelaksanaanController::class,
         '/laporanKPIBulanan' => LaporanKPIBulananController::class,
+        '/penerimaManfaat' => PenerimaManfaatController::class,
     ],
     [
-        'middleware' => ['auth:sanctum', 'verified']
+        'middleware' => [
+            'auth:sanctum', 
+            'verified'
+        ]
     ]
 );

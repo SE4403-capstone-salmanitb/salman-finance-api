@@ -55,9 +55,7 @@ class LaporanKPIBulananController extends Controller
         /** @var LaporanBulanan */
         $laporanBulanan = LaporanBulanan::where("id", $request->validated("id_laporan_bulanan"))->first();
         
-        if ($laporanBulanan->disusunOleh->id !== $request->user()->id){
-            return response("Unauthorized, Resource belongs to someone else", 403);
-        }
+        $laporanBulanan->checkIfAuthorizedToEdit($request->user());
 
         /** @var KeyPerformanceIndicator */
         $sebuahkpi = KeyPerformanceIndicator::where("id", $request->validated("id_kpi"))->first();
@@ -124,9 +122,8 @@ class LaporanKPIBulananController extends Controller
             if($laporanKPIBulanan->KPI->programKegiatan->program->id
                 !== $laporan->program->id ){
                 return $failResponse;
-            } else if ($laporan->disusun_oleh !== $request->user()->id) {
-                return response("Unauthorized, Resource belongs to someone else", 403);
-            }
+            } 
+            $laporan->checkIfAuthorizedToEdit($request->user());
         }
 
         $laporanKPIBulanan->updateOrFail(array_filter($request->validated()));
@@ -140,11 +137,8 @@ class LaporanKPIBulananController extends Controller
     {
         Gate::authorize("delete", $laporanKPIBulanan);
 
-        if ($laporanKPIBulanan->laporanBulanan->disusunOleh->id !== $request->user()->id){
-            return response("Unauthorized, Resource belongs to someone else", 403);
-        }
-
         $laporanKPIBulanan->deleteOrFail();
+        
         return response()->noContent();
     }
 }

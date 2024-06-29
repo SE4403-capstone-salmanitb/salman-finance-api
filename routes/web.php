@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function(){
-    return redirect('https://localhost/login', secure:true);
+    return redirect(config("app.frontend_url"), secure:true);
 });
 
 require __DIR__.'/auth.php';
