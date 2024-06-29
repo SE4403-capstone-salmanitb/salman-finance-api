@@ -88,6 +88,19 @@ class PenerimaManfaatControllerTest extends TestCase
         $response = $this->actingAs($user2)->postJson("/api/penerimaManfaat", $data);
 
         //Log::error(json_encode($response->json()));
-        $response->assertCreated();
+        $response->assertStatus(403);
+    }
+
+    public function test_user_can_see_specific_penerima_manfaat()
+    {
+        $user = User::factory()->createOne();
+        $test = PenerimaManfaat::factory()->createOne();
+
+        $response = $this->actingAs($user)->getJson(
+            "/api/penerimaManfaat/".$test->id
+        );
+
+        $response->assertOk();
+        $response->assertJsonFragment($test->toArray());
     }
 }
