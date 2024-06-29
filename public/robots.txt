@@ -1,2 +1,4 @@
+# Hello world, from the freshly graduated (hopefully soon) team at Telkom University!
+
 User-agent: *
-Disallow:
+Disallow: /api/
