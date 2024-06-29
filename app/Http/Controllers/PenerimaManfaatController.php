@@ -62,7 +62,9 @@ class PenerimaManfaatController extends Controller
      */
     public function show(PenerimaManfaat $penerimaManfaat)
     {
-        //
+        Gate::authorize('view', $penerimaManfaat);
+
+        return response()->json($penerimaManfaat);
     }
 
     /**
