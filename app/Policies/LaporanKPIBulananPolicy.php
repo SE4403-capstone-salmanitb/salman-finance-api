@@ -41,7 +41,8 @@ class LaporanKPIBulananPolicy
      */
     public function update(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
     {
-        return $laporanKPIBulanan->laporanBulanan->checkIfAuthorizedToEdit($user);
+        return LaporanBulanan::find($laporanKPIBulanan->id_laporan_bulanan)
+            ->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -51,26 +52,6 @@ class LaporanKPIBulananPolicy
     {
         //
         return $laporanKPIBulanan->laporanBulanan->checkIfAuthorizedToEdit($user);
-
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
-    {
-        //
-        return $laporanKPIBulanan->laporanBulanan->disusunOleh === $user->id;
-
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, LaporanKPIBulanan $laporanKPIBulanan): bool
-    {
-        //
-        return $laporanKPIBulanan->laporanBulanan->disusunOleh === $user->id;
 
     }
 }

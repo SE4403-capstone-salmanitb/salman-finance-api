@@ -72,7 +72,16 @@ class PenerimaManfaatController extends Controller
      */
     public function update(UpdatePenerimaManfaatRequest $request, PenerimaManfaat $penerimaManfaat)
     {
-        //
+        Gate::authorize('update', $penerimaManfaat);
+
+        if ($request->has('id_laporan_bulanan')){
+            LaporanBulanan::findOrFail($request->id_laporan_bulanan)
+                ->checkIfAuthorizedToEdit($request->user());
+        }
+        
+        $penerimaManfaat->updateOrFail(array_filter($request->validated()));
+        
+        return response()->json($penerimaManfaat);
     }
 
     /**
@@ -80,7 +89,9 @@ class PenerimaManfaatController extends Controller
      */
     public function destroy(PenerimaManfaat $penerimaManfaat)
     {
-        //
+        
+
+        return response()->noContent();
     }
 
     protected function chechForLaporanAuthor(int $id_laporan_bulanan, User $user)

@@ -103,4 +103,88 @@ class PenerimaManfaatControllerTest extends TestCase
         $response->assertOk();
         $response->assertJsonFragment($test->toArray());
     }
+
+    public function test_user_can_update_penerima_manfaat()
+    {
+        $user = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne([
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user->id
+        ]);
+        $pm = PenerimaManfaat::factory()->createOne([
+            "id_laporan_bulanan" => $lap->id
+        ]);
+
+        $data = [
+            "kategori" => "Internal",
+            "tipe_rutinitas" => "Rutin",
+            "tipe_penyaluran" => "Dakwah-Advokasi",
+            "rencana" => 4,
+            "realisasi" => 4,
+        ];
+
+        $response = $this->actingAs($user)->patchJson("/api/penerimaManfaat/".$pm->id, $data);
+
+        $response->assertOk();
+        $response->assertJsonFragment($data);
+    }
+
+    public function test_random_user_cannot_update_penerima_manfaat()
+    {
+        $user = User::factory()->createOne();
+        $user2 = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne([
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user->id
+        ]);
+        $pm = PenerimaManfaat::factory()->createOne([
+            "id_laporan_bulanan" => $lap->id
+        ]);
+
+        $data = [
+            "kategori" => "Internal",
+            "tipe_rutinitas" => "Rutin",
+            "tipe_penyaluran" => "Dakwah-Advokasi",
+            "rencana" => 4,
+            "realisasi" => 4,
+        ];
+
+        $response = $this->actingAs($user2)->patchJson("/api/penerimaManfaat/".$pm->id, $data);
+
+        $response->assertStatus(403);
+    }
+
+    public function test_user_cannot_update_id_laporan_bulanan_to_something_they_dont_own()
+    {
+        $user = User::factory()->createOne();
+        $user2 = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne([
+            "bulan_laporan" => now()->addMonth(),
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user->id
+        ]);
+        $lap2 = LaporanBulanan::factory()->createOne([
+            "program_id" => $prog->id, 
+            "disusun_oleh" => $user2->id
+        ]);
+        $pm = PenerimaManfaat::factory()->createOne([
+            "id_laporan_bulanan" => $lap->id
+        ]);
+
+        $data = [
+            "id_laporan_bulanan" => $lap2->id,
+            "kategori" => "Internal",
+            "tipe_rutinitas" => "Rutin",
+            "tipe_penyaluran" => "Dakwah-Advokasi",
+            "rencana" => 4,
+            "realisasi" => 4,
+        ];
+
+        $response = $this->actingAs($user2)->patchJson("/api/penerimaManfaat/".$pm->id, $data);
+
+        $response->assertStatus(403);
+    }
 }

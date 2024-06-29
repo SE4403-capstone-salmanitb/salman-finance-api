@@ -40,7 +40,8 @@ class PelaksanaanPolicy
      */
     public function update(User $user, Pelaksanaan $pelaksanaan): bool
     {
-        return $pelaksanaan->laporanBulanan->checkIfAuthorizedToEdit($user);
+        return LaporanBulanan::find($pelaksanaan->id_laporan_bulanan)
+            ->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -50,21 +51,5 @@ class PelaksanaanPolicy
     {
         return $pelaksanaan->laporanBulanan->checkIfAuthorizedToEdit($user);
 
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Pelaksanaan $pelaksanaan): bool
-    {
-        return true;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Pelaksanaan $pelaksanaan): bool
-    {
-        return true;
     }
 }

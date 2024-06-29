@@ -22,7 +22,7 @@ class UpdatePenerimaManfaatRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "id_laporan_bulanan" => "nullable|exists:laporan_bulanans,id|required",
+            "id_laporan_bulanan" => "nullable|exists:laporan_bulanans,id|nullable",
             "kategori" => "string|nullable|max:255",
             "tipe_rutinitas" => "string|nullable|max:255",
             "tipe_penyaluran" => "string|nullable|max:255",

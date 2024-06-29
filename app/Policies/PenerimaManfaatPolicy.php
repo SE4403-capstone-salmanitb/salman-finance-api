@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\LaporanBulanan;
 use App\Models\PenerimaManfaat;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
@@ -39,8 +40,8 @@ class PenerimaManfaatPolicy
      */
     public function update(User $user, PenerimaManfaat $penerimaManfaat): bool
     {
-        
-        return $penerimaManfaat->laporanBulanan->checkIfAuthorizedToEdit($user);
+        return LaporanBulanan::find($penerimaManfaat->id_laporan_bulanan)
+            ->checkIfAuthorizedToEdit($user);
     }
 
     /**
