@@ -30,6 +30,8 @@ jobs:
       run: |
         cp .env.example .env
         php artisan key:generate
+        composer dumpautoload
+        php artisan optimize
  
     - name: Run Testsuite
       env:
