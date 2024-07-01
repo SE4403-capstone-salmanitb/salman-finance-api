@@ -27,8 +27,11 @@ return [
     */
 
     'fallbacks' => [
+        Stevebauman\Location\Drivers\Cloudflare::class,
         Stevebauman\Location\Drivers\Ip2locationio::class,
         Stevebauman\Location\Drivers\GeoPlugin::class,
+
+        // will probably never be used
         Stevebauman\Location\Drivers\IpApi::class,
         Stevebauman\Location\Drivers\IpInfo::class,
     ],
@@ -78,6 +81,8 @@ return [
     */
 
     'maxmind' => [
+        'license_key' => env('MAXMIND_LICENSE_KEY'),
+
         'web' => [
             'enabled' => env('MAXMIND_USE_WEB', true),
             'user_id' => env('MAXMIND_USER_ID'),

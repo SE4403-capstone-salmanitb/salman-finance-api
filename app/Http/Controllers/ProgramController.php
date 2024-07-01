@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\program;
-use App\Http\Requests\StoreprogramRequest;
-use App\Http\Requests\UpdateprogramRequest;
+use App\Models\Program;
+use App\Http\Requests\StoreProgramRequest;
+use App\Http\Requests\UpdateProgramRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,57 +14,57 @@ class ProgramController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        Gate::authorize('viewAny', program::class);
+    {   
+        Gate::authorize('viewAny', Program::class);
         
-        return response()->json(program::all());
+        return response()->json(Program::all());
 
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreprogramRequest $request)
+    public function store(StoreProgramRequest $request)
     {
-        Gate::authorize('create', program::class);
+        Gate::authorize('create', Program::class);
 
-        $program = program::create([
+        $Program = Program::create([
             'nama' => $request->nama
         ]);
 
-        return response()->json($program, $status = 201);
+        return response()->json($Program, $status = 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(program $program)
+    public function show(Program $Program)
     {
-        Gate::authorize('view', $program);
+        Gate::authorize('view', $Program);
 
-        return response()->json($program);
+        return response()->json($Program);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateprogramRequest $request, program $program)
+    public function update(UpdateProgramRequest $request, Program $Program)
     {
-        Gate::authorize('update', $program);
+        Gate::authorize('update', $Program);
 
-        $program->update(['nama' => $request->nama]);
+        $Program->update(['nama' => $request->nama]);
 
-        return response()->json($program);
+        return response()->json($Program);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(program $program)
+    public function destroy(Program $Program)
     {
-        Gate::authorize('delete', $program);
+        Gate::authorize('delete', $Program);
 
-        $program->delete();
+        $Program->delete();
 
         return response()->noContent();
     }
