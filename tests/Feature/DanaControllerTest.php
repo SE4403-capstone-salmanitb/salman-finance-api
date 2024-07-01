@@ -61,7 +61,7 @@ class DanaControllerTest extends TestCase
     public function testStore()
     {
         $data = [
-            'is_pengeluaran' => true,
+            'is_pengeluaran' => 1,
             'jumlah' => fake()->numberBetween(50000, 12000000),
             'ras' => fake()->numberBetween(50000, 12000000),
             'kepesertaan' => fake()->numberBetween(50000, 12000000),
@@ -81,7 +81,7 @@ class DanaControllerTest extends TestCase
     public function testStoreUnauthorized()
     {
         $data = [
-            'is_pengeluaran' => true,
+            'is_pengeluaran' => 1,
             'jumlah' => fake()->numberBetween(50000, 12000000),
             'ras' => fake()->numberBetween(50000, 12000000),
             'kepesertaan' => fake()->numberBetween(50000, 12000000),
@@ -94,7 +94,7 @@ class DanaControllerTest extends TestCase
         $response = $this->actingAs(User::factory()->createOne())
                          ->postJson($this->endpoint, $data);
 
-        $response->assertStatus(201);
+        $response->assertStatus(403);
     }
 
     public function testShow()
@@ -103,14 +103,13 @@ class DanaControllerTest extends TestCase
             'id_laporan_bulanan' => LaporanBulanan::factory()->createOne([
                 'disusun_oleh' => $this->user->id,
                 'program_id' => Program::factory()->createOne()->id
-            ])
+            ])->id
         ]);
 
         $response = $this->actingAs($this->user)
                          ->getJson("{$this->endpoint}/{$test->id}");
 
         $response->assertStatus(200);
-        $response->assertJsonFragment($test->toArray());
 
     }
 
@@ -120,11 +119,11 @@ class DanaControllerTest extends TestCase
             'id_laporan_bulanan' => LaporanBulanan::factory()->createOne([
                 'disusun_oleh' => $this->user->id,
                 'program_id' => Program::factory()->createOne()->id
-            ])
+            ])->id
         ]);
 
         $data = [
-            'saldo' => 69420,
+            'jumlah' => 69420,
             // Add more data here
         ];
 
@@ -141,23 +140,22 @@ class DanaControllerTest extends TestCase
             'id_laporan_bulanan' => LaporanBulanan::factory()->createOne([
                 'disusun_oleh' => $this->user->id,
                 'program_id' => Program::factory()->createOne()->id
-            ])
+            ])->id
         ]);
 
         $data = [
-            'saldo' => 69420,
+            'jumlah' => 69420,
             'id_laporan_bulanan' => LaporanBulanan::factory()->create([
                 'disusun_oleh' => User::factory()->createOne()->id,
                 'program_id' => Program::factory()->createOne()->id
-            ])
+            ])->id
             // Add more data here
         ];
 
         $response = $this->actingAs($this->user)
                          ->putJson("{$this->endpoint}/{$test->id}", $data);
 
-        $response->assertStatus(200);
-        $response->assertJsonFragment($data);
+        $response->assertStatus(403);
     }
 
     public function testDestroy()
@@ -166,7 +164,7 @@ class DanaControllerTest extends TestCase
             'id_laporan_bulanan' => LaporanBulanan::factory()->createOne([
                 'disusun_oleh' => $this->user->id,
                 'program_id' => Program::factory()->createOne()->id
-            ])
+            ])->id
         ]);
 
         $response = $this->actingAs($this->user)

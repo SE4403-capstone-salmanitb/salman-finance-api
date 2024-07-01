@@ -22,6 +22,6 @@ class Dana extends Model
 
     public function laporanBulanan()
     {
-        $this->belongsTo(LaporanBulanan::class, 'id_laporan_bulanan');
+        return $this->belongsTo(LaporanBulanan::class, 'id_laporan_bulanan');
     }
 }
