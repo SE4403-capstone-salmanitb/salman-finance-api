@@ -107,4 +107,9 @@ class LaporanBulanan extends Model
     {
         return $this->hasMany(PenerimaManfaat::class, "id_laporan_bulanan");
     }
+
+    public function Danas()
+    {
+        return $this->hasMany(Dana::class, 'id_laporan_bulanan');
+    }
 }
