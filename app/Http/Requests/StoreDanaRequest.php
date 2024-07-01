@@ -11,7 +11,7 @@ class StoreDanaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreDanaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'is_pengeluaran' => "boolean|required",
+            'jumlah' => "integer|required",
+            'ras' => "integer|required",
+            'kepesertaan' => "integer|required",
+            'dpk' => "integer|required",
+            'pusat' => "integer|required",
+            'wakaf' => "integer|required",
+            'id_laporan_bulanan' => "integer|required|exists:laporan_bulanans,id"
         ];
     }
 }

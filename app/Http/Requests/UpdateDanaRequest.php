@@ -11,7 +11,7 @@ class UpdateDanaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class UpdateDanaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'is_pengeluaran' => "boolean|nullable",
+            'jumlah' => "integer|nullable",
+            'ras' => "integer|nullable",
+            'kepesertaan' => "integer|nullable",
+            'dpk' => "integer|nullable",
+            'pusat' => "integer|nullable",
+            'wakaf' => "integer|nullable",
+            'id_laporan_bulanan' => "integer|nullable|exists:laporan_bulanans,id"
         ];
     }
 }

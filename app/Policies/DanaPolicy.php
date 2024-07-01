@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Dana;
+use App\Models\LaporanBulanan;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
@@ -14,6 +15,7 @@ class DanaPolicy
     public function viewAny(User $user): bool
     {
         //
+        return true;
     }
 
     /**
@@ -22,6 +24,8 @@ class DanaPolicy
     public function view(User $user, Dana $dana): bool
     {
         //
+        return true;
+
     }
 
     /**
@@ -29,7 +33,8 @@ class DanaPolicy
      */
     public function create(User $user): bool
     {
-        //
+        // implement complicated rule on controller
+        return true;
     }
 
     /**
@@ -38,6 +43,8 @@ class DanaPolicy
     public function update(User $user, Dana $dana): bool
     {
         //
+        return LaporanBulanan::find($dana->id_laporan_bulanan)
+            ->checkIfAuthorizedToEdit($user);
     }
 
     /**
@@ -46,21 +53,6 @@ class DanaPolicy
     public function delete(User $user, Dana $dana): bool
     {
         //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Dana $dana): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Dana $dana): bool
-    {
-        //
+        return $dana->laporanBulanan->checkIfAuthorizedToEdit($user);
     }
 }

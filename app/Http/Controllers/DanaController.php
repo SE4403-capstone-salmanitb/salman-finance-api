@@ -13,7 +13,7 @@ class DanaController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
