@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature;
 
 use App\Models\program;
 use App\Models\ProgramKegiatanRKA;
