@@ -32,6 +32,9 @@ class UserEmailChangeController extends Controller
         }
 
         $location = Location::get();
+        if (!$location){
+            abort(500, 'Error reading request');
+        }
         Mail::to($user)->send(new EmailChangeNotification(
             $user->name,
             $location->cityName.", ".$location->regionName.", "

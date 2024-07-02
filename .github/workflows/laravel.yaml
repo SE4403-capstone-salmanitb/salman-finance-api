@@ -1,0 +1,36 @@
+# GitHub Action for Laravel
+name: Testing Laravel
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.3
+    
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+ 
+    - name: Install composer dependencies
+      run: |
+        composer install --no-scripts
+
+    - name: Make sqlite file
+      run: touch database/database.sqlite
+
+    - name: Prepare Laravel Application
+      run: |
+        cp .env.ci .env
+        php artisan key:generate
+        composer dump-autoload
+ 
+    - name: Run Testsuite
+      run: vendor/bin/phpunit tests/
