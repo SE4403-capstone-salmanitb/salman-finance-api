@@ -11,7 +11,7 @@ class UpdateAlokasiDanaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class UpdateAlokasiDanaRequest extends FormRequest
     {
         return [
             //
+            'jumlah_realisasi' => 'integer|nullable',
+            "id_laporan_bulanan" => "nullable|integer|exists:laporan_bulanans,id",
+            "id_item_rka" => "nullable|integer|exists:item_kegiatan_r_k_a_s,id",
         ];
     }
 }

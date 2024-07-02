@@ -11,7 +11,7 @@ class StoreAlokasiDanaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class StoreAlokasiDanaRequest extends FormRequest
     {
         return [
             //
+            'jumlah_realisasi' => 'integer|required',
+            "id_laporan_bulanan" => "required|integer|exists:laporan_bulanans,id",
+            "id_item_rka" => "required|integer|exists:item_kegiatan_r_k_a_s,id",
         ];
     }
 }

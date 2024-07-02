@@ -81,6 +81,50 @@ class AlokasiDanaControllerTest extends TestCase
         $response->assertJsonFragment($data);
     }
 
+    function testUserCanEditWithLaporan() {
+        $user = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne(["program_id" => $prog->id]);
+        $lap2 = LaporanBulanan::factory()->createOne(["program_id" => $prog->id, 'bulan_laporan' => now()->subYear()]);
+        $irka = ItemKegiatanRKA::factory()->createOne();
+
+        $test = AlokasiDana::factory()->createOne([
+            'id_laporan_bulanan' => $lap->id,
+            'id_item_rka' => $irka->id
+        ]);
+
+        $data = [
+            'id_laporan_bulanan' => $lap2->id,
+            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
+        ];
+
+        $response = $this->actingAs($user)->putJson("$this->path/$test->id", $data);
+
+        $response->assertOk();
+        $response->assertJsonFragment($data);
+    }
+
+    function testRandomUserCannotEdit() {
+        $user = User::factory()->createOne();
+        $user2 = User::factory()->createOne();
+        $prog = Program::factory()->createOne();
+        $lap = LaporanBulanan::factory()->createOne(["program_id" => $prog->id, 'disusun_oleh' => $user->id]);
+        $irka = ItemKegiatanRKA::factory()->createOne();
+
+        $test = AlokasiDana::factory()->createOne([
+            'id_laporan_bulanan' => $lap->id,
+            'id_item_rka' => $irka->id
+        ]);
+
+        $data = [
+            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
+        ];
+
+        $response = $this->actingAs($user2)->putJson("$this->path/$test->id", $data);
+
+        $response->assertStatus(403);
+    }
+
     function testUserCanDelete() {
         $user = User::factory()->createOne();
         $prog = Program::factory()->createOne();
@@ -94,7 +138,7 @@ class AlokasiDanaControllerTest extends TestCase
 
         $response = $this->actingAs($user)->deleteJson("$this->path/$test->id");
 
-        $response->assertCreated();
+        $response->assertNoContent();
         $this->assertModelMissing($test);
     }
 }
