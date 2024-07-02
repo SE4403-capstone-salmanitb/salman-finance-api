@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AlokasiDana;
 use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\KeyPerformanceIndicator;
@@ -123,12 +124,29 @@ class DatabaseSeeder extends Seeder
         })
         ->get()->load("programKegiatan");
 
+        $itemRKAs = ItemKegiatanRKA::query()
+        ->whereHas('Judul', function ($q) {
+            return $q->whereHas("ProgramKegiatan", function ($q) {
+                return $q->where("tahun", now()->year);
+            });
+        })->get();
+
         foreach ($laporans as $laporan) {
             foreach ($kpis as $kpi) {
                 if ($laporan->program_id === $kpi->programKegiatan->id_program){
                     LaporanKPIBulanan::factory()->create([
                         "id_laporan_bulanan" => $laporan->id,
                         "id_kpi" => $kpi->id
+                    ]);
+                }
+            }
+
+            foreach ($itemRKAs as $itemRKA) {
+                if ($laporan->program_id === $itemRKA->judul->programKegiatan->id_program
+                ){
+                    AlokasiDana::factory()->create([
+                        "id_laporan_bulanan" => $laporan->id,
+                        'id_item_rka' => $itemRKA->id
                     ]);
                 }
             }
