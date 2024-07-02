@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreDanaRequest extends FormRequest
+class StoreAlokasiDanaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,14 +22,10 @@ class StoreDanaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'is_pengeluaran' => "boolean|required",
-            'jumlah' => "integer|required",
-            'ras' => "integer|required",
-            'kepesertaan' => "integer|required",
-            'dpk' => "integer|required",
-            'pusat' => "integer|required",
-            'wakaf' => "integer|required",
-            'id_laporan_bulanan' => "integer|required|exists:laporan_bulanans,id"
+            //
+            'jumlah_realisasi' => 'integer|required',
+            "id_laporan_bulanan" => "required|integer|exists:laporan_bulanans,id",
+            "id_item_rka" => "required|integer|exists:item_kegiatan_r_k_a_s,id",
         ];
     }
 }

@@ -20,7 +20,7 @@ class LaporanBulananFactory extends Factory
     {
         return [
             'kode' => fake()->hexColor,
-            'bulan_laporan' => fake()->date('Y-m-01'),
+            'bulan_laporan' => fake()->unique()->date('Y-m-01'),
 
             'program_id' => function() {
                 $program = Program::first();

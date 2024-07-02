@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Models\Dana;
+use App\Models\AlokasiDana;
 use App\Models\LaporanBulanan;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class DanaPolicy
+class AlokasiDanaPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -21,7 +21,7 @@ class DanaPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Dana $dana): bool
+    public function view(User $user, AlokasiDana $alokasiDana): bool
     {
         //
         return true;
@@ -33,26 +33,27 @@ class DanaPolicy
      */
     public function create(User $user): bool
     {
-        // implement complicated rule on controller
+        //
         return true;
+
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Dana $dana): bool
+    public function update(User $user, AlokasiDana $alokasiDana): bool
     {
         //
-        return LaporanBulanan::find($dana->id_laporan_bulanan)
-            ->checkIfAuthorizedToEdit($user);
+        return LaporanBulanan::find($alokasiDana->id_laporan_bulanan)
+        ->checkIfAuthorizedToEdit($user);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Dana $dana): bool
+    public function delete(User $user, AlokasiDana $alokasiDana): bool
     {
-        //
-        return $dana->laporanBulanan->checkIfAuthorizedToEdit($user);
+        return $alokasiDana->laporanBulanan->checkIfAuthorizedToEdit($user);
     }
+
 }
