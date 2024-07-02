@@ -4346,7 +4346,7 @@
 									"script": {
 										"id": "76b37d6f-fb29-4a3f-a64b-802701c9f74c",
 										"exec": [
-											"pm.collectionVariables.set(\"id\", \r",
+											"pm.collectionVariables.set(\"laporan_id\", \r",
 											"    pm.response.json().id\r",
 											")"
 										],
@@ -7140,6 +7140,685 @@
 					"id": "980577c3-ad0c-4ebb-91e2-03d350425c78"
 				},
 				{
+					"name": "alokasiDana",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "view one",
+									"id": "f3ddc6aa-7c32-4e26-bb26-233675017316",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{alokasiDana_id}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b4034dc8-10a1-4753-bdd4-3a38c642dc5c",
+											"name": "view one",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/alokasiDana/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"alokasiDana",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "{{alokasiDana_id}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Tue, 02 Jul 2024 11:56:10 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://app.localhost.direct"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 34,\n    \"jumlah_realisasi\": 100,\n    \"id_laporan_bulanan\": 125,\n    \"id_item_rka\": 59,\n    \"created_at\": \"2024-07-02T11:55:58.000000Z\",\n    \"updated_at\": \"2024-07-02T11:55:58.000000Z\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update one",
+									"id": "aa708bc5-7916-4993-b5ef-383343e8951a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "jumlah_realisasi",
+													"value": "439000",
+													"type": "text"
+												}
+											],
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{alokasiDana_id}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "9ff84dc4-fc0f-4bb7-beb0-35bd7f0aebb6",
+											"name": "update one",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": [
+														{
+															"key": "jumlah_realisasi",
+															"value": "439000",
+															"type": "text"
+														}
+													],
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/alokasiDana/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"alokasiDana",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "{{alokasiDana_id}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Tue, 02 Jul 2024 11:57:57 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://app.localhost.direct"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 34,\n    \"jumlah_realisasi\": \"439000\",\n    \"id_laporan_bulanan\": 125,\n    \"id_item_rka\": 59,\n    \"created_at\": \"2024-07-02T11:55:58.000000Z\",\n    \"updated_at\": \"2024-07-02T11:57:57.000000Z\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete",
+									"id": "7e9d0d69-20c5-495a-98c7-c4c2f5aa6e0f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{alokasiDana_id}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "94cc1c80-4fcc-4ad8-bf17-29dccd6c64e1",
+											"name": "delete",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/alokasiDana/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"alokasiDana",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "{{alokasiDana_id}}"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Tue, 02 Jul 2024 11:58:41 GMT"
+												},
+												{
+													"key": "Server",
+													"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+												},
+												{
+													"key": "Host",
+													"value": "localhost:8000"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.2.4"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "https://app.localhost.direct"
+												},
+												{
+													"key": "Access-Control-Allow-Credentials",
+													"value": "true"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5, max=100"
+												},
+												{
+													"key": "Connection",
+													"value": "Keep-Alive"
+												}
+											],
+											"cookie": []
+										}
+									]
+								}
+							],
+							"id": "5ca38114-ef3e-48bb-bc27-60f20b1a68d1"
+						},
+						{
+							"name": "index",
+							"id": "56cecf38-9051-4c0e-b105-041715062a90",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/alokasiDana?id_laporan_bulanan=2&id_item_rka=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"alokasiDana"
+									],
+									"query": [
+										{
+											"key": "id_laporan_bulanan",
+											"value": "2"
+										},
+										{
+											"key": "id_item_rka",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "7623aa89-d594-4b20-81dc-4043519a1536",
+									"name": "no filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 11:27:41 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://app.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"jumlah_realisasi\": 70781,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 1,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 1,\n            \"uraian\": \"Eos voluptate minus.\",\n            \"nilai_satuan\": 1723800,\n            \"quantity\": 66,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 2,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 1,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"jumlah_realisasi\": 21655,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 2,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 2,\n            \"uraian\": \"Omnis voluptas.\",\n            \"nilai_satuan\": 785200,\n            \"quantity\": 81,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 1,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"jumlah_realisasi\": 20398,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 3,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 3,\n            \"uraian\": \"Eum ut.\",\n            \"nilai_satuan\": 1877700,\n            \"quantity\": 21,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 11,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 2,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"jumlah_realisasi\": 44162,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 4,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 4,\n            \"uraian\": \"Consequatur et.\",\n            \"nilai_satuan\": 1937700,\n            \"quantity\": 29,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 1,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 2,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"jumlah_realisasi\": 36743,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 5,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 5,\n            \"uraian\": \"Quaerat ab fugit.\",\n            \"nilai_satuan\": 1744900,\n            \"quantity\": 18,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 3,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 6,\n        \"jumlah_realisasi\": 46165,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 6,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 6,\n            \"uraian\": \"Fuga ut eveniet.\",\n            \"nilai_satuan\": 1342600,\n            \"quantity\": 13,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 4,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pusat\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 3,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 7,\n        \"jumlah_realisasi\": 53558,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 7,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 7,\n            \"uraian\": \"Iusto optio.\",\n            \"nilai_satuan\": 585700,\n            \"quantity\": 76,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 4,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 8,\n        \"jumlah_realisasi\": 48147,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 8,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 8,\n            \"uraian\": \"Totam rerum nihil.\",\n            \"nilai_satuan\": 1725800,\n            \"quantity\": 50,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 9,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 4,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    },\n    {\n        \"id\": 9,\n        \"jumlah_realisasi\": 62021,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 9,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 9,\n            \"uraian\": \"Possimus et.\",\n            \"nilai_satuan\": 720300,\n            \"quantity\": 41,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 4,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 5,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 10,\n        \"jumlah_realisasi\": 91607,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 10,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 10,\n            \"uraian\": \"Dolorem reiciendis.\",\n            \"nilai_satuan\": 1313800,\n            \"quantity\": 92,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 8,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 5,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 11,\n        \"jumlah_realisasi\": 26697,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 11,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 11,\n            \"uraian\": \"Rerum harum ab.\",\n            \"nilai_satuan\": 838200,\n            \"quantity\": 70,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 10,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 6,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 12,\n        \"jumlah_realisasi\": 26130,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 12,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 12,\n            \"uraian\": \"Repudiandae id cum.\",\n            \"nilai_satuan\": 1193500,\n            \"quantity\": 2,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 6,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 13,\n        \"jumlah_realisasi\": 41789,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 13,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 13,\n            \"uraian\": \"Nam qui occaecati.\",\n            \"nilai_satuan\": 1734000,\n            \"quantity\": 41,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 8,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 0,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 7,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 14,\n        \"jumlah_realisasi\": 48600,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 14,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 14,\n            \"uraian\": \"Harum exercitationem.\",\n            \"nilai_satuan\": 426200,\n            \"quantity\": 40,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 1,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pusat\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 0,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 7,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 15,\n        \"jumlah_realisasi\": 68806,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 15,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 15,\n            \"uraian\": \"Reprehenderit est.\",\n            \"nilai_satuan\": 1080200,\n            \"quantity\": 26,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 2,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 8,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 16,\n        \"jumlah_realisasi\": 54835,\n        \"id_laporan_bulanan\": 9,\n        \"id_item_rka\": 16,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 16,\n            \"uraian\": \"Quis sint.\",\n            \"nilai_satuan\": 445700,\n            \"quantity\": 5,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 4,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 8,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 17,\n        \"jumlah_realisasi\": 81676,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 17,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 17,\n            \"uraian\": \"Soluta atque.\",\n            \"nilai_satuan\": 364900,\n            \"quantity\": 58,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 7,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 0,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 9,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 18,\n        \"jumlah_realisasi\": 55912,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 18,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 18,\n            \"uraian\": \"Eum iusto distinctio.\",\n            \"nilai_satuan\": 567300,\n            \"quantity\": 96,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 12,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 9,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 19,\n        \"jumlah_realisasi\": 91879,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 19,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 19,\n            \"uraian\": \"Nam atque.\",\n            \"nilai_satuan\": 1898600,\n            \"quantity\": 48,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 4,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 10,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 20,\n        \"jumlah_realisasi\": 89231,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 20,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 20,\n            \"uraian\": \"Doloremque non velit.\",\n            \"nilai_satuan\": 1121100,\n            \"quantity\": 20,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 9,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 10,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 21,\n        \"jumlah_realisasi\": 10525,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 21,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 21,\n            \"uraian\": \"Deleniti sapiente nihil.\",\n            \"nilai_satuan\": 196200,\n            \"quantity\": 88,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 8,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pusat\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 11,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 22,\n        \"jumlah_realisasi\": 83997,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 22,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 22,\n            \"uraian\": \"Suscipit voluptates distinctio.\",\n            \"nilai_satuan\": 568600,\n            \"quantity\": 62,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 11,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pusat\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 11,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 23,\n        \"jumlah_realisasi\": 56470,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 23,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 23,\n            \"uraian\": \"Voluptatem est et.\",\n            \"nilai_satuan\": 199000,\n            \"quantity\": 45,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 3,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 12,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 24,\n        \"jumlah_realisasi\": 18217,\n        \"id_laporan_bulanan\": 16,\n        \"id_item_rka\": 24,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 24,\n            \"uraian\": \"Expedita placeat quod.\",\n            \"nilai_satuan\": 710500,\n            \"quantity\": 69,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 9,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 12,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 25,\n        \"jumlah_realisasi\": 31456,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 25,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 25,\n            \"uraian\": \"Soluta odio.\",\n            \"nilai_satuan\": 1724000,\n            \"quantity\": 80,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 9,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"RAS\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 13,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 26,\n        \"jumlah_realisasi\": 15709,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 26,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 26,\n            \"uraian\": \"Iusto quia aspernatur.\",\n            \"nilai_satuan\": 904300,\n            \"quantity\": 58,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 3,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 0,\n            \"dana_mar\": 0,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 0,\n            \"dana_aug\": 1,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 13,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 27,\n        \"jumlah_realisasi\": 82546,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 27,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 27,\n            \"uraian\": \"Minima enim.\",\n            \"nilai_satuan\": 792000,\n            \"quantity\": 82,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 8,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 1,\n            \"dana_mei\": 0,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 0,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 14,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 28,\n        \"jumlah_realisasi\": 70718,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 28,\n        \"created_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 28,\n            \"uraian\": \"Maxime magnam.\",\n            \"nilai_satuan\": 867300,\n            \"quantity\": 81,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 9,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 14,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 29,\n        \"jumlah_realisasi\": 19140,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 29,\n        \"created_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 29,\n            \"uraian\": \"Omnis dolorem.\",\n            \"nilai_satuan\": 593200,\n            \"quantity\": 87,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Kepesertaan\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 0,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 0,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 15,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 30,\n        \"jumlah_realisasi\": 12871,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 30,\n        \"created_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 30,\n            \"uraian\": \"Voluptatem laborum.\",\n            \"nilai_satuan\": 702300,\n            \"quantity\": 80,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 7,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 0,\n            \"dana_feb\": 1,\n            \"dana_mar\": 0,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 15,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 31,\n        \"jumlah_realisasi\": 53948,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 31,\n        \"created_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 31,\n            \"uraian\": \"Quibusdam dignissimos in.\",\n            \"nilai_satuan\": 89400,\n            \"quantity\": 47,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 11,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Pihak Ketiga\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 16,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    },\n    {\n        \"id\": 32,\n        \"jumlah_realisasi\": 16729,\n        \"id_laporan_bulanan\": 23,\n        \"id_item_rka\": 32,\n        \"created_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:44.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 32,\n            \"uraian\": \"Officia sunt.\",\n            \"nilai_satuan\": 897000,\n            \"quantity\": 16,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 10,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 1,\n            \"dana_mei\": 1,\n            \"dana_jun\": 1,\n            \"dana_jul\": 1,\n            \"dana_aug\": 1,\n            \"dana_sep\": 1,\n            \"dana_oct\": 1,\n            \"dana_nov\": 1,\n            \"dana_dec\": 0,\n            \"id_judul_kegiatan\": 16,\n            \"created_at\": \"2024-07-02T09:31:42.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:42.000000Z\"\n        }\n    }\n]"
+								},
+								{
+									"id": "38919dc6-92f1-461b-96df-8810883190bd",
+									"name": "with filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana?id_laporan_bulanan=2&id_item_rka=2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana"
+											],
+											"query": [
+												{
+													"key": "id_laporan_bulanan",
+													"value": "2"
+												},
+												{
+													"key": "id_item_rka",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 11:29:09 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://app.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"jumlah_realisasi\": 21655,\n        \"id_laporan_bulanan\": 2,\n        \"id_item_rka\": 2,\n        \"created_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"updated_at\": \"2024-07-02T09:31:43.000000Z\",\n        \"item_kegiatan_r_k_a\": {\n            \"id\": 2,\n            \"uraian\": \"Omnis voluptas.\",\n            \"nilai_satuan\": 785200,\n            \"quantity\": 81,\n            \"quantity_unit\": \"org\",\n            \"frequency\": 6,\n            \"frequency_unit\": \"bln\",\n            \"sumber_dana\": \"Wakaf Salman\",\n            \"dana_jan\": 1,\n            \"dana_feb\": 0,\n            \"dana_mar\": 1,\n            \"dana_apr\": 0,\n            \"dana_mei\": 1,\n            \"dana_jun\": 0,\n            \"dana_jul\": 1,\n            \"dana_aug\": 0,\n            \"dana_sep\": 0,\n            \"dana_oct\": 0,\n            \"dana_nov\": 1,\n            \"dana_dec\": 1,\n            \"id_judul_kegiatan\": 1,\n            \"created_at\": \"2024-07-02T09:31:41.000000Z\",\n            \"updated_at\": \"2024-07-02T09:31:41.000000Z\"\n        }\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "buat baru",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2d7753e8-d3c4-41e8-87df-7e5b9b96bb4f",
+										"exec": [
+											"pm.collectionVariables.set(\"alokasiDana_id\", \r",
+											"    pm.response.json().id\r",
+											")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e623e2e1-c7ba-4df0-8007-dcb96f69a4ed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id_laporan_bulanan",
+											"value": "{{laporan_id}}",
+											"type": "text"
+										},
+										{
+											"key": "id_item_rka",
+											"value": "59",
+											"type": "text"
+										},
+										{
+											"key": "jumlah_realisasi",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/alokasiDana",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"alokasiDana"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e77d7874-2580-4134-b6b6-2e9795e128de",
+									"name": "buat baru",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "id_laporan_bulanan",
+													"value": "{{laporan_id}}",
+													"type": "text"
+												},
+												{
+													"key": "id_item_rka",
+													"value": "60",
+													"type": "text"
+												},
+												{
+													"key": "jumlah_realisasi",
+													"value": "100",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/alokasiDana",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"alokasiDana"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 02 Jul 2024 11:53:52 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://app.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"jumlah_realisasi\": \"100\",\n    \"id_laporan_bulanan\": \"125\",\n    \"id_item_rka\": \"60\",\n    \"updated_at\": \"2024-07-02T11:53:52.000000Z\",\n    \"created_at\": \"2024-07-02T11:53:52.000000Z\",\n    \"id\": 33\n}"
+								}
+							]
+						}
+					],
+					"id": "5ba94957-d280-4e4e-8b30-de15e69a558f"
+				},
+				{
 					"name": "user (check auth)",
 					"id": "85fe3287-681b-412a-9ec7-0ca810d9f4b0",
 					"protocolProfileBehavior": {
@@ -9054,28 +9733,43 @@
 	],
 	"variable": [
 		{
-			"id": "93897da4-ad7c-425d-86c7-3360f4ba9029",
+			"id": "550233a4-17bf-4b43-99a6-e6bf3d6b5cb0",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "708c63e3-08f2-48b9-8170-412154158e69",
+			"id": "050b3c2e-6d53-45cb-ab3e-5380e6bdf37f",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "1a168729-8b99-453a-bcce-72ef94f4dd56",
+			"id": "d635b653-cfb2-486c-bb63-eab0aba2278b",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "279b5cc4-0939-498e-a183-2edb61ac22c2",
+			"id": "c6c34cec-8cc0-499a-9c6e-fbe94f63f267",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "9796deb3-4539-45a4-b289-7b453f6fb091",
+			"id": "95ee5e70-2431-4feb-8821-2a61fc912541",
 			"key": "id_penerima_manfaat",
+			"value": ""
+		},
+		{
+			"id": "6bfddc9f-d133-4049-bacb-f7efc7653b8d",
+			"key": "laporan_id",
+			"value": ""
+		},
+		{
+			"id": "fe3ca17f-a841-46cb-8109-4e6359bcbaf9",
+			"key": "id_dana",
+			"value": ""
+		},
+		{
+			"id": "018299ae-8f73-483c-9e67-b92d93411d30",
+			"key": "alokasiDana_id",
 			"value": ""
 		}
 	]
