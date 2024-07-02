@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Dana;
 use App\Models\ItemKegiatanRKA;
 use App\Models\JudulKegiatanRKA;
 use App\Models\KeyPerformanceIndicator;
@@ -89,16 +88,6 @@ class DatabaseSeeder extends Seeder
                     ->has(
                         PenerimaManfaat::factory()->count(5),
                         "penerimaManfaats"
-                    )
-                    ->has( // pengeluaran
-                        Dana::factory(1, [
-                            "is_pengeluaran" => true
-                        ]), "danas"
-                    )
-                    ->has( // pemasukan
-                        Dana::factory(1, [
-                            "is_pengeluaran" => false
-                        ]), "danas"
                     )
                     ->count(1),
                     "LaporanBulanan"

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\DanaController;
 use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\KeyPerformanceIndicatorController;
@@ -54,7 +53,6 @@ Route::apiResources(
         '/pelaksanaan' => PelaksanaanController::class,
         '/laporanKPIBulanan' => LaporanKPIBulananController::class,
         '/penerimaManfaat' => PenerimaManfaatController::class,
-        '/dana' => DanaController::class,
     ],
     [
         'middleware' => [
