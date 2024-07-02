@@ -17,7 +17,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/user', function (Request $request) {
+Route::middleware(['auth', 'auth:sanctum', 'verified'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
