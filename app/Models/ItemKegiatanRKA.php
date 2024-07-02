@@ -33,7 +33,7 @@ class ItemKegiatanRKA extends Model
         'id_judul_kegiatan'
     ];
 
-    public function judul()
+    public function Judul()
     {
         return $this->BelongsTo(JudulKegiatanRKA::class, 'id_judul_kegiatan');
     }

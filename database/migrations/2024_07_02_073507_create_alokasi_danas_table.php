@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('alokasi_danas', function (Blueprint $table) {
             $table->id();
+            $table->integer('jumlah_realisasi')->default('0');
+            $table->foreignId('id_laporan_bulanan')->references('id')
+                ->on('laporan_bulanans')->cascadeOnDelete();
+            $table->foreignId('id_item_rka')->references('id')
+                ->on('item_kegiatan_r_k_a_s')->cascadeOnDelete();
             $table->timestamps();
+            $table->unique(['id_laporan_bulanan', 'id_item_rka']);
         });
     }
 

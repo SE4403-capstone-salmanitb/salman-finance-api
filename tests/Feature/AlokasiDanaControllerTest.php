@@ -13,6 +13,7 @@ use Tests\TestCase;
 
 class AlokasiDanaControllerTest extends TestCase
 {
+    use RefreshDatabase, WithFaker;
     protected $path = '/api/alokasiDana';
 
     function testUserCanViewAny() {

@@ -107,4 +107,9 @@ class LaporanBulanan extends Model
     {
         return $this->hasMany(PenerimaManfaat::class, "id_laporan_bulanan");
     }
+
+    public function AlokasiDanas()
+    {
+        return $this->hasMany(AlokasiDana::class, 'id_laporan_bulanan');
+    }
 }

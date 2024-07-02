@@ -17,12 +17,12 @@ class JudulKegiatanRKA extends Model
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
      */
-    public function programKegiatan()
+    public function ProgramKegiatan()
     {
         return $this->belongsTo(ProgramKegiatanRKA::class, 'id_program_kegiatan_rka');
     }
 
-    public function item()
+    public function Item()
     {
         return $this->hasMany(ItemKegiatanRKA::class, 'id_judul_kegiatan');
     }
