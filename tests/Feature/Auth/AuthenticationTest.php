@@ -17,6 +17,7 @@ class AuthenticationTest extends TestCase
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
+            'h-captcha-response' => "10000000-aaaa-bbbb-cccc-000000000001"
         ]);
 
         $this->assertAuthenticated();
@@ -30,6 +31,7 @@ class AuthenticationTest extends TestCase
         $this->post('/login', [
             'email' => $user->email,
             'password' => 'wrong-password',
+            'h-captcha-response' => "10000000-aaaa-bbbb-cccc-000000000001"
         ]);
 
         $this->assertGuest();
