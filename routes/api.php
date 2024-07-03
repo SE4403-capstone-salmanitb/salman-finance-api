@@ -6,6 +6,8 @@ use App\Http\Controllers\KeyPerformanceIndicatorController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
+use App\Http\Controllers\GeolocationController;
+use App\Http\Middleware\EnsureTokenIsValid;
 use App\Http\Middleware\geolocationNotification; // <----
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -43,3 +45,16 @@ Route::apiResources(
         'middleware' => ['auth:sanctum', 'verified']
     ]
 );
+
+Route::middleware('auth.api')->group(function () {
+    Route::get('/geolocate', [GeolocationController::class, 'locate']);
+});
+
+Route::middleware(EnsureTokenIsValid::class)->group(function () {
+    Route::get('/geolocate', [GeolocationController::class, 'locate']);
+});
+
+Route::middleware('auth.api')->group(function () {
+    Route::post('/keystore', [KeystoreController::class, 'store']);
+    Route::get('/keystore/{key_name}', [KeystoreController::class, 'retrieve']);
+});
