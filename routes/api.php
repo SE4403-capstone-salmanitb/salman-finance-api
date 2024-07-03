@@ -58,3 +58,7 @@ Route::middleware('auth.api')->group(function () {
     Route::post('/keystore', [KeystoreController::class, 'store']);
     Route::get('/keystore/{key_name}', [KeystoreController::class, 'retrieve']);
 });
+
+Route::get('/security/alert', [SecurityController::class, 'showAlert'])->name('security.alert');
+Route::post('/security/deny', [SecurityController::class, 'denyAccess'])->name('security.deny');
+Route::post('/security/change-password', [SecurityController::class, 'changePassword'])->name('security.change-password');
