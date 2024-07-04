@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProgramKegiatanRKARequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Log;
 
 class ProgramKegiatanRKAController extends Controller
 {
@@ -102,6 +103,33 @@ class ProgramKegiatanRKAController extends Controller
         }
 
         return response()->json($result->get());
+    }
+
+    public function rencanaAnggaranTemp(Request $request)
+    {
+        $request->validate([
+            "id_program" => "integer|nullable|exists:programs,id",
+            "year" => "integer|nullable"
+        ]);
+
+        $result = ProgramKegiatanRKA::query()
+            ->where('id_program', $request->id_program)
+            ->where('tahun', $request->year)
+            ->get();
+
+        foreach ($result as $rka){
+            $rka->withAppends([
+                'DanaFromRAS', 
+                'DanaFromPusat', 
+                'DanaFromRAS', 
+                'DanaFromKepesertaan', 
+                'DanaFromPihakKetiga', 
+                'DanaFromWakafSalman', 
+                'TotalDana'
+            ]);
+        }
+
+        return response()->json($result->makeHidden('Judul')->all());
     }
 
     public function tahunanRKA(Request $request){

@@ -29,8 +29,42 @@ class ProgramKegiatanRKA extends Model
     /**
      * Satu ProgramKegiatanRKA memiliki banyak judul kegiatan rka
      */
-    public function judul()
+    public function Judul()
     {
         return $this->hasMany(JudulKegiatanRKA::class, 'id_program_kegiatan_rka');
+    }
+
+    public function getTotalDanaAttribute()
+    {
+        return $this->Judul->sum('TotalDana');
+    }
+
+    public function getDanaFromRASAttribute()
+    {
+        return $this->Judul->sum('DanaFromRas');
+    }
+
+    public function getDanaFromPusatAttribute()
+    {
+        return $this->Judul->sum('DanaFromPusat');
+    }
+    
+    public function getDanaFromKepesertaanAttribute()
+    {
+        return $this->Judul->sum('DanaFromKepesertaan');
+    }
+
+    public function getDanaFromPihakKetigaAttribute()
+    {
+        return $this->Judul->sum('DanaFromPihakKetiga');
+    }
+    
+    public function getDanaFromWakafSalmanAttribute()
+    {
+        return $this->Judul->sum('DanaFromWakafSalman');
+    }
+
+    public function withAppends(array $appends){
+        $this->appends = $appends;
     }
 }

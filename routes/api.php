@@ -21,6 +21,9 @@ Route::middleware(['auth', 'auth:sanctum', 'verified'])->get('/user', function (
     return $request->user();
 });
 
+Route::get('/v1/test-rka', [ProgramKegiatanRKAController::class, 'rencanaAnggaranTemp']);
+Route::get('/v1/test-rka-ori', [ProgramKegiatanRKAController::class, 'rencanaAnggaran']);
+
 Route::get('/myip', function (Request $request ){
     if( $position = Location::get() ) {
         return response(['ip'=> $position, 'message'=> 'success']);
