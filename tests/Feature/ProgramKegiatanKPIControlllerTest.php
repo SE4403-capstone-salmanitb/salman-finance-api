@@ -152,4 +152,15 @@ class ProgramKegiatanKPIControlllerTest extends TestCase
 
         $response->assertStatus(204);
     }
+
+    function test_custom_kpi()
+    {
+        $user = User::factory()->createOne();
+        $program = Program::factory()->createOne();
+        $year = now()->year;
+
+        $response = $this->actingAs($user)->get("/api/custom/RKAKPI?id_program={$program->id}&year={$year}");
+
+        $response->assertOk();
+    }
 }

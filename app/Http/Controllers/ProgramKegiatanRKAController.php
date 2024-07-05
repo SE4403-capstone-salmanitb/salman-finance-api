@@ -70,42 +70,7 @@ class ProgramKegiatanRKAController extends Controller
         return response()->noContent();
     }
 
-    /**
-     * Get the rencanaAnggaran table view of Program Kegiatan RKA
-     */
     public function rencanaAnggaran(Request $request)
-    {
-
-        $request->validate([
-            "id_program" => "integer|nullable|exists:programs,id",
-            "year" => "integer|nullable"
-        ]);
-
-        $result = DB::table('program_kegiatan_r_k_a_s')
-        ->join('judul_kegiatan_r_k_a_s', 'program_kegiatan_r_k_a_s.id', '=', 'judul_kegiatan_r_k_a_s.id_program_kegiatan_rka')
-        ->join('item_kegiatan_r_k_a_s', 'judul_kegiatan_r_k_a_s.id', '=', 'item_kegiatan_r_k_a_s.id_judul_kegiatan')
-        ->select('program_kegiatan_r_k_a_s.id','program_kegiatan_r_k_a_s.nama', 'program_kegiatan_r_k_a_s.deskripsi', 'program_kegiatan_r_k_a_s.output',
-            DB::raw('SUM(CASE WHEN item_kegiatan_r_k_a_s.sumber_dana = "Pusat" THEN (item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) ELSE 0 END) AS Dana_Pusat'),
-            DB::raw('SUM(CASE WHEN item_kegiatan_r_k_a_s.sumber_dana = "RAS" THEN (item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) ELSE 0 END) AS Dana_RAS'),
-            DB::raw('SUM(CASE WHEN item_kegiatan_r_k_a_s.sumber_dana = "Kepesertaan" THEN (item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) ELSE 0 END) AS Dana_Kepesertaan'),
-            DB::raw('SUM(CASE WHEN item_kegiatan_r_k_a_s.sumber_dana = "Pihak Ketiga" THEN (item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) ELSE 0 END) AS Dana_Pihak_Ketiga'),
-            DB::raw('SUM(CASE WHEN item_kegiatan_r_k_a_s.sumber_dana = "Wakaf Salman" THEN (item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) ELSE 0 END) AS Dana_Wakaf_Salman'),
-            DB::raw('SUM(item_kegiatan_r_k_a_s.nilai_satuan * item_kegiatan_r_k_a_s.quantity * item_kegiatan_r_k_a_s.frequency) AS Total_Dana')
-        )
-        ->groupBy('program_kegiatan_r_k_a_s.id', 'program_kegiatan_r_k_a_s.nama', 'program_kegiatan_r_k_a_s.deskripsi', 'program_kegiatan_r_k_a_s.output')
-        ->orderBy('program_kegiatan_r_k_a_s.id');
-
-        if($request->has("id_program")){
-            $result = $result->where("program_kegiatan_r_k_a_s.id_program", $request->id_program);
-        }
-        if($request->has("year")){
-            $result = $result->where("program_kegiatan_r_k_a_s.tahun", "=", $request->year);
-        }
-
-        return response()->json($result->get());
-    }
-
-    public function rencanaAnggaranTemp(Request $request)
     {
         $request->validate([
             "id_program" => "integer|nullable|exists:programs,id",
