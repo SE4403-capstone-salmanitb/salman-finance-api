@@ -32,14 +32,12 @@ class PenerimaManfaatControllerTest extends TestCase
         $prog = Program::factory()->createOne();
         $lap = LaporanBulanan::factory()->createOne(["program_id" => $prog->id]);
         $data = [
-            "kategori" => "Lorem ipsum sir dolor",
             "id_laporan_bulanan" => $lap->id
         ];
 
         PenerimaManfaat::factory()->count(7)->create();
         PenerimaManfaat::factory()->createOne($data);
-        $response = $this->actingAs($user)->get('/api/penerimaManfaat?kategori='.$data["kategori"].
-                    "&id_laporan_bulanan=".$lap->id);
+        $response = $this->actingAs($user)->get("api/penerimaManfaat?id_laporan_bulanan={$lap->id}");
 
         $response->assertStatus(200);
         $response->assertJsonCount(1);

@@ -20,13 +20,6 @@ class PelaksanaanController extends Controller
         Gate::authorize("viewAny", Pelaksanaan::class);
         $query = Pelaksanaan::query();
 
-        $likeFilters = [
-            "penjelasan",
-            "waktu",
-            "tempat",
-            "penyaluran",
-        ];
-
         $idFilters = [
             "id_program_kegiatan_kpi",
             "id_laporan_bulanan"
@@ -35,12 +28,6 @@ class PelaksanaanController extends Controller
         foreach ($idFilters as $key) {
             if ($request->has($key)){
                 $query->where($key, '=', $request->input($key));
-            }
-        }
-
-        foreach ($likeFilters as $key) {
-            if ($request->has($key)){
-                $query->where($key, 'like', '%'.$request->input($key).'%');
             }
         }
 

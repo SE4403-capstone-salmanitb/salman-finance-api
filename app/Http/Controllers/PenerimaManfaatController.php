@@ -22,20 +22,6 @@ class PenerimaManfaatController extends Controller
 
         $query = PenerimaManfaat::query();
 
-        $filters = [
-            'kategori',
-            'tipe_rutinitas',
-            'tipe_penyaluran',
-            'rencana',
-            'realisasi',
-        ];
-
-        foreach ($filters as $filter) {
-            if($request->has($filter)){
-                $query->where($filter, "like", "%".$request->input($filter)."%");
-            }
-        }
-
         if($request->has("id_laporan_bulanan")){
             $query->where("id_laporan_bulanan", $request->input("id_laporan_bulanan"));
         }

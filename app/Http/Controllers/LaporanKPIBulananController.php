@@ -20,11 +20,6 @@ class LaporanKPIBulananController extends Controller
         Gate::authorize("viewAny", LaporanKPIBulanan::class);
         $query = LaporanKPIBulanan::query();
 
-        $likeFilters = [
-            "capaian",
-            "deskripsi"
-        ];
-
         $idFilters = [
             "id_kpi",
             "id_laporan_bulanan"
@@ -33,12 +28,6 @@ class LaporanKPIBulananController extends Controller
         foreach ($idFilters as $key) {
             if ($request->has($key)){
                 $query->where($key, '=', $request->input($key));
-            }
-        }
-
-        foreach ($likeFilters as $key) {
-            if ($request->has($key)){
-                $query->where($key, 'like', '%'.$request->input($key).'%');
             }
         }
 

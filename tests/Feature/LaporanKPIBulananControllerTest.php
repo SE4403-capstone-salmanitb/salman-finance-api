@@ -29,14 +29,13 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
         LaporanKPIBulanan::factory()->create($data);
         $response = $this->actingAs($user)->get(
-            '/api/laporanKPIBulanan?id_laporan_bulanan='.$data["id_laporan_bulanan"].
-            "&deskripsi=".$data["deskripsi"]
+            '/api/laporanKPIBulanan?id_laporan_bulanan='.$data["id_laporan_bulanan"]
         );
 
         $response->assertStatus(200);
@@ -66,7 +65,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
         
@@ -96,7 +95,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
@@ -123,7 +122,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
         
@@ -150,7 +149,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
@@ -175,7 +174,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $data = [
             "id_laporan_bulanan" => $laporan->id,
             "id_kpi" => $kpi->id,
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
@@ -197,7 +196,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $laporan = LaporanBulanan::factory()->createOne(["program_id" => $program->id, "disusun_oleh" => $user->id]);
         
         $data = [
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
@@ -230,7 +229,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $laporan = LaporanBulanan::factory()->createOne(["program_id" => $program->id, "disusun_oleh" => $user->id]);
         
         $data = [
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya",
             "id_kpi" => $kpi2->id
         ];
@@ -262,7 +261,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $laporan2 = LaporanBulanan::factory()->createOne(["program_id" => $program2->id, "disusun_oleh" => $user->id]);
         
         $data = [
-            "capaian" => 300,
+            'capaian' => '300',
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya",
             "id_laporan_bulanan" => $laporan2->id
         ];
