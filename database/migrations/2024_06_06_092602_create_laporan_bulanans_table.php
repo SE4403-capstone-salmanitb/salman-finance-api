@@ -8,6 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * Not much to encrypt here, now worth the trouble
      */
     public function up(): void
     {

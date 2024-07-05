@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pelaksanaans', function (Blueprint $table) {
             $table->id();
-            $table->string("penjelasan");
-            $table->string("waktu");
-            $table->string("tempat");
-            $table->string("penyaluran");
+            $table->text("penjelasan");
+            $table->text("waktu");
+            $table->text("tempat");
+            $table->text("penyaluran");
             $table->foreignId('id_program_kegiatan_kpi')->nullable()->references('id')
                 ->on('program_kegiatan_k_p_i_s')->cascadeOnDelete();
             $table->foreignId('id_laporan_bulanan')->references('id')

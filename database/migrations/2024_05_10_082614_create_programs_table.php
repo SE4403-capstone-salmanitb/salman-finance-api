@@ -8,6 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * This thing is more of a enum, so there is no encryption needed
      */
     public function up(): void
     {

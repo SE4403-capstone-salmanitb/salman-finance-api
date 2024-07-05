@@ -103,8 +103,8 @@ class DatabaseSeeder extends Seeder
             $kpis = ProgramKegiatanKPI::where(
                 "id_program", 
                 $pelaksanaan->laporanBulanan->program_id)
-            ->where(
-                "tahun",
+            ->whereBlind(
+                "tahun", 'tahun_program_kpi_index',
                 $pelaksanaan->laporanBulanan->bulan_laporan->year
             )
             ->get();
@@ -120,14 +120,14 @@ class DatabaseSeeder extends Seeder
 
         $kpis = KeyPerformanceIndicator::query()
         ->whereHas("programKegiatan", function ($q) {
-            return $q->where("tahun", now()->year);
+            return $q->whereBlind("tahun", 'tahun_program_kpi_index', now()->year);
         })
         ->get()->load("programKegiatan");
 
         $itemRKAs = ItemKegiatanRKA::query()
         ->whereHas('Judul', function ($q) {
             return $q->whereHas("ProgramKegiatan", function ($q) {
-                return $q->where("tahun", now()->year);
+                return $q->whereBlind("tahun", 'tahun_program_rka_index', now()->year);
             });
         })->get();
 

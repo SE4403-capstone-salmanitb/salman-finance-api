@@ -5,10 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use ParagonIE\CipherSweet\BlindIndex;
+use ParagonIE\CipherSweet\EncryptedRow;
+use Spatie\LaravelCipherSweet\Concerns\UsesCipherSweet;
+use Spatie\LaravelCipherSweet\Contracts\CipherSweetEncrypted;
 
-class Pelaksanaan extends Model
+class Pelaksanaan extends Model implements CipherSweetEncrypted
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, UsesCipherSweet;
 
     protected $fillable = [
         "penjelasan",
@@ -18,6 +22,15 @@ class Pelaksanaan extends Model
         "id_program_kegiatan_kpi",
         "id_laporan_bulanan"
     ];
+
+    public static function configureCipherSweet(EncryptedRow $encryptedRow): void
+    {
+        $encryptedRow
+            ->addTextField('penjelasan')
+            ->addTextField('waktu')
+            ->addTextField('tempat')
+            ->addTextField('penyaluran');
+    }
 
     public function programKegiatan()
     {

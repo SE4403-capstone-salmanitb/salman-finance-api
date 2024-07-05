@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('program_kegiatan_k_p_i_s', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('tahun');
+            $table->text('nama');
+            $table->text('tahun');
             $table->foreignId('id_program')->references('id')->on('programs')->onDelete('cascade');
             $table->timestamps();
         });

@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ParagonIE\CipherSweet\BlindIndex;
+use ParagonIE\CipherSweet\EncryptedRow;
+use Spatie\LaravelCipherSweet\Concerns\UsesCipherSweet;
+use Spatie\LaravelCipherSweet\Contracts\CipherSweetEncrypted;
 
-class ProgramKegiatanRKA extends Model
+class ProgramKegiatanRKA extends Model implements CipherSweetEncrypted
 {
-    use HasFactory;
+    use HasFactory, UsesCipherSweet;
 
     protected $fillable = [
         'nama',
@@ -17,6 +21,16 @@ class ProgramKegiatanRKA extends Model
 
         'id_program'
     ];
+
+    public static function configureCipherSweet(EncryptedRow $encryptedRow): void
+    {
+        $encryptedRow
+            ->addTextField('nama')
+            ->addTextField('deskripsi')
+            ->addTextField('output')
+            ->addTextField('tahun')
+            ->addBlindIndex('tahun', new BlindIndex('tahun_program_rka_index'));
+    }
 
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program

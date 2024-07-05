@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Mail\newLoginLocation;
+use App\Models\GeolocationHistory;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -28,15 +29,13 @@ class geolocationNotification
         
 
         // Search if the current location is on historu
-        $lastLocation = DB::table('geolocation_history')
-        ->where('user_id', $user->id)
-        ->where('ip', $request->ip())
+        $lastLocation = GeolocationHistory::where('user_id', $user->id)
+        ->whereBlind('ip', 'ip_history_index', $request->ip())
         ->get();
 
         // if not then save the location to history and notify user
         if ($lastLocation->isEmpty() && $newLocation = Location::get()){
-            DB::table('geolocation_history')
-            ->insert([
+            GeolocationHistory::create([
                 'user_id'=>$user->id,
                 'ip'=>$request->ip(),
                 'latitude' => $newLocation->latitude,
@@ -49,7 +48,8 @@ class geolocationNotification
                 'timezone' => $newLocation->timezone,
                 'driver' => $newLocation->driver,
                 'created_at'=> now(),
-                'updated_at'=> now()
+                'updated_at'=> now(),
+                'is_authorized' => 1, // temp
             ]); 
             $local = "(".$newLocation->ip.")";
             if($newLocation->countryName){

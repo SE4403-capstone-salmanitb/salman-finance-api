@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('judul_kegiatan_r_k_a_s', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->text('nama');
             $table->foreignId('id_program_kegiatan_rka')->references('id')
                 ->on('program_kegiatan_r_k_a_s')->cascadeOnDelete();
             $table->timestamps();

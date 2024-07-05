@@ -5,15 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use ParagonIE\CipherSweet\EncryptedRow;
+use Spatie\LaravelCipherSweet\Concerns\UsesCipherSweet;
+use Spatie\LaravelCipherSweet\Contracts\CipherSweetEncrypted;
 
-class JudulKegiatanRKA extends Model
+class JudulKegiatanRKA extends Model implements CipherSweetEncrypted
 {
-    use HasFactory;
+    use HasFactory, UsesCipherSweet;
 
     protected $fillable = [
         'nama',
         'id_program_kegiatan_rka'
     ];
+
+    public static function configureCipherSweet(EncryptedRow $encryptedRow): void
+    {
+        $encryptedRow
+            ->addField('nama');
+    }
 
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
