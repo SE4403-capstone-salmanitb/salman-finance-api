@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Models\ItemKegiatanRKA;
+use App\Models\JudulKegiatanRKA;
 use App\Models\program;
 use App\Models\ProgramKegiatanRKA;
 use App\Models\User;
@@ -211,4 +213,41 @@ class ProgramKegiatanRKAControllerTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+    function test_custom_rencana_anggaran()
+    {
+        $user = User::factory()->createOne();
+        $program = Program::factory()
+            ->has(
+                ProgramKegiatanRKA::factory()
+                ->has(
+                    JudulKegiatanRKA::factory()->has(
+                        ItemKegiatanRKA::factory()->count(2),
+                        'Item'
+                    )
+                    ->count(2),
+                    "Judul"
+                )
+                ->count(2), 
+                'programKegiatanRKA'
+            )
+            ->createOne();
+        $year = now()->year;
+
+        $response = $this->actingAs($user)->get("/api/custom/rencanaAnggaran?id_program={$program->id}&year={$year}");
+
+        $response->assertOk();
+    }
+
+    function test_custom_tahunanRKA()
+    {
+        $user = User::factory()->createOne();
+        $program = Program::factory()->createOne();
+        $year = now()->year;
+
+        $response = $this->actingAs($user)->get("/api/custom/tahunanRKA?id_program={$program->id}&year={$year}");
+
+        $response->assertOk();
+    }
+
 }

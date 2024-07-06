@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlokasiDanaController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ItemKegiatanRKAController;
 use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\KeyPerformanceIndicatorController;
@@ -12,14 +13,14 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
 use App\Http\Middleware\geolocationNotification; // <----
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
-Route::middleware(['auth', 'auth:sanctum', 'verified'])->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/user', [AuthenticatedSessionController::class, 'check'])
+->middleware(['auth:sanctum', 'verified']);
 
 Route::get('/myip', function (Request $request ){
     if( $position = Location::get() ) {

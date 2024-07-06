@@ -17,7 +17,7 @@ class ProgramKegiatanKPIController extends Controller
     {
         Gate::authorize('viewAny', ProgramKegiatanKPI::class);
 
-        $data = ProgramKegiatanKPI::latest()->paginate(5);
+        $data = ProgramKegiatanKPI::latest()->get();
 
         return response()->json($data);
     }

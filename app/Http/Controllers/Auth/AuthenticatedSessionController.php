@@ -48,4 +48,9 @@ class AuthenticatedSessionController extends Controller
 
         return response()->noContent();
     }
+
+
+    public function check(Request $request){
+        return response($request->user());
+    }
 }

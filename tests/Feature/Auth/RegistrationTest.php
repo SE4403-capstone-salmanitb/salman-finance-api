@@ -12,15 +12,13 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register(): void
     {
-        $user = User::factory()->create();
-        $response = $this->post('/register', [
+        $user = User::factory()->create(['is_admin' => 1]);
+        $response = $this->actingAs($user)->post('/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
-        ], [
-            "authorization" => "Bearer ".$user->createToken("test", ["admin"])->plainTextToken
-        ]);
+        ], );
 
         $response->assertCreated();
     }

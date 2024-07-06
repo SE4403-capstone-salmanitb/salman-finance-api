@@ -37,4 +37,8 @@ class ItemKegiatanRKA extends Model
     {
         return $this->BelongsTo(JudulKegiatanRKA::class, 'id_judul_kegiatan');
     }
+
+    public function getTotalDanaAttribute(){
+        return $this->nilai_satuan * $this->quantity * $this->frequency;
+    }
 }
