@@ -1,0 +1,9 @@
+Jul 06 00:38:55 JavaBridge INFO : VM                  : 20.0.2@https://java.oracle.com/
+Jul 06 00:38:55 JavaBridge INFO : JavaBridge version             : 7.2.1    
+Jul 06 00:38:55 JavaBridge INFO : logFile             : JavaBridge.log
+Jul 06 00:38:55 JavaBridge INFO : default logLevel    : 3
+Jul 06 00:38:55 JavaBridge INFO : socket              : HTTP_LOCAL:8080
+Jul 06 00:38:55 JavaBridge INFO : java.ext.dirs       : null
+Jul 06 00:38:55 JavaBridge INFO : php.java.bridge.base: C:\Users\Rizal Rafif S
+Jul 06 00:38:55 JavaBridge INFO : thread pool size    : 20
+Jul 06 00:38:55 JavaBridge INFO : JavaBridgeRunner started on port INET_LOCAL:8080

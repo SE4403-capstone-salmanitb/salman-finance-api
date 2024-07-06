@@ -7,8 +7,10 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
 use App\Http\Controllers\GeolocationController;
+use App\Http\Controllers\DataController;
 use App\Http\Middleware\EnsureTokenIsValid;
-use App\Http\Middleware\geolocationNotification; // <----
+use App\Http\Middleware\geolocationNotification;
+use App\Http\Middleware\KeystoreMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +59,11 @@ Route::middleware(EnsureTokenIsValid::class)->group(function () {
 Route::middleware('auth.api')->group(function () {
     Route::post('/keystore', [KeystoreController::class, 'store']);
     Route::get('/keystore/{key_name}', [KeystoreController::class, 'retrieve']);
+});
+
+Route::middleware([KeystoreMiddleware::class])->group(function () {
+    Route::get('/encrypt', [DataController::class, 'encrypt']);
+    Route::post('/decrypt', [DataController::class, 'decrypt']);
 });
 
 Route::get('/security/alert', [SecurityController::class, 'showAlert'])->name('security.alert');
