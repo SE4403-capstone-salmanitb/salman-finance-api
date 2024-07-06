@@ -19,7 +19,7 @@ class ProgramKegiatanRKAController extends Controller
     {
         Gate::authorize('viewAny', ProgramKegiatanRKA::class);
 
-        $data = ProgramKegiatanRKA::latest();
+        $data = ProgramKegiatanRKA::latest()->get();
 
         return response()->json($data);
     }
@@ -73,13 +73,13 @@ class ProgramKegiatanRKAController extends Controller
     public function rencanaAnggaran(Request $request)
     {
         $request->validate([
-            "id_program" => "integer|nullable|exists:programs,id",
-            "year" => "integer|nullable"
+            "id_program" => "integer|required|exists:programs,id",
+            "tahun" => "integer|required"
         ]);
 
         $result = ProgramKegiatanRKA::query()
             ->where('id_program', $request->id_program)
-            ->where('tahun', $request->year)
+            ->where('tahun', $request->tahun)
             ->get();
 
         foreach ($result as $rka){

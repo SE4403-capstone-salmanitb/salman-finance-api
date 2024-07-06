@@ -16,7 +16,7 @@ class ItemKegiatanRKAController extends Controller
     {
         Gate::authorize('viewAny', ItemKegiatanRKA::class);
 
-        $data = ItemKegiatanRKA::latest();
+        $data = ItemKegiatanRKA::latest()->get();
 
         return response()->json($data);
     }
