@@ -6981,7 +6981,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/api/custom/rencanaAnggaran?id_program=1&tahun=2024",
+									"raw": "{{baseUrl}}/api/custom/rencanaAnggaran?id_program=1&year=2024",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -6996,7 +6996,7 @@
 											"value": "1"
 										},
 										{
-											"key": "tahun",
+											"key": "year",
 											"value": "2024"
 										}
 									]
