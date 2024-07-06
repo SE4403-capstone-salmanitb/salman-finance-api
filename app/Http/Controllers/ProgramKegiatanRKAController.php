@@ -74,12 +74,12 @@ class ProgramKegiatanRKAController extends Controller
     {
         $request->validate([
             "id_program" => "integer|required|exists:programs,id",
-            "tahun" => "integer|required"
+            "year" => "integer|required"
         ]);
 
         $result = ProgramKegiatanRKA::query()
             ->where('id_program', $request->id_program)
-            ->where('tahun', $request->tahun)
+            ->where('tahun', $request->year)
             ->get();
 
         foreach ($result as $rka){
