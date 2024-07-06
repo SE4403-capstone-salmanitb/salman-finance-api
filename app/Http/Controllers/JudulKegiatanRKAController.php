@@ -16,7 +16,7 @@ class JudulKegiatanRKAController extends Controller
     {
         Gate::authorize('viewAny', JudulKegiatanRKA::class);
 
-        $data = JudulKegiatanRKA::latest()->paginate(5);
+        $data = JudulKegiatanRKA::latest();
 
         return response()->json($data);
     }

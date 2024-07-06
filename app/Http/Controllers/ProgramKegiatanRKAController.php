@@ -18,7 +18,7 @@ class ProgramKegiatanRKAController extends Controller
     {
         Gate::authorize('viewAny', ProgramKegiatanRKA::class);
 
-        $data = ProgramKegiatanRKA::latest()->paginate(5);
+        $data = ProgramKegiatanRKA::latest();
 
         return response()->json($data);
     }

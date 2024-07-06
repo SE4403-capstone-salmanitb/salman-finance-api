@@ -20,8 +20,6 @@ class LaporanBulananController extends Controller
         Gate::authorize("viewAny", LaporanBulanan::class);
         $query = DB::table('laporan_bulanans');
 
-        $filters = ['program_id', 'bulan', 'tahun'];
-
         if ($request->has('program_id')){
             $query->where('program_id', '=', $request->get('program_id'));
         }

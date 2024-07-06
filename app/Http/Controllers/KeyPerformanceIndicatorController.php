@@ -16,7 +16,7 @@ class KeyPerformanceIndicatorController extends Controller
     {
         Gate::authorize('viewAny', KeyPerformanceIndicator::class);
 
-        $data = KeyPerformanceIndicator::latest()->paginate(5);
+        $data = KeyPerformanceIndicator::latest();
 
         return response()->json($data);
     }
