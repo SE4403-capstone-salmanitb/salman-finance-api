@@ -91,7 +91,16 @@ class LaporanBulananController extends Controller
     {
         Gate::authorize("view", $laporanBulanan);
 
-        return response()->json($laporanBulanan);
+        return response()->json(
+            $laporanBulanan->load([
+                'diperiksaOleh' => function ($q) {
+                    $q->select('id', 'name', 'profile_picture', 'is_admin');
+                }, 
+                'disusunOleh' => function ($q) {
+                    $q->select('id', 'name', 'profile_picture', 'is_admin');
+                }, 
+                'program'])
+        );
     }
 
     /**
