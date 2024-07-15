@@ -19,7 +19,7 @@ class LaporanBulananPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, LaporanBulanan $laporanBulanan): bool
+    public function view(User $user = null, LaporanBulanan $laporanBulanan): bool
     {
         return true;
         

@@ -10,8 +10,9 @@ class ProgramPolicy
 {
     /**
      * Determine whether the user can view any models.
+     * Allow the user to be null (guest)
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user = null): bool
     {
         return true;
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\JudulKegiatanRKAController;
 use App\Http\Controllers\KeyPerformanceIndicatorController;
 use App\Http\Controllers\LaporanBulananController;
 use App\Http\Controllers\LaporanKPIBulananController;
+use App\Http\Controllers\Mobile\SeeLaporanBulananController;
 use App\Http\Controllers\PelaksanaanController;
 use App\Http\Controllers\PenerimaManfaatController;
 use App\Http\Controllers\ProgramController;
@@ -64,3 +65,9 @@ Route::apiResources(
         ]
     ]
 );
+
+
+Route::prefix('mobile')->group(function () {
+    Route::get('/program', [ProgramController::class, 'index'])->name('mobile.program');
+    Route::get('/laporan', SeeLaporanBulananController::class)->name('mobile.laporan');
+});
