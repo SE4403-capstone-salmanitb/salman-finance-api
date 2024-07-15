@@ -18,6 +18,7 @@ class RegistrationTest extends TestCase
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
+            'profile_picture' => 'https://upload.wikimedia.org/wikipedia/commons/6/6a/PNG_Test.png'
         ], );
 
         $response->assertCreated();
