@@ -8608,6 +8608,11 @@
 									"key": "email",
 									"value": "test.{{$randomInt}}@example.com",
 									"type": "text"
+								},
+								{
+									"key": "profile_picture",
+									"value": "https://i.ibb.co.com/26q1msP/default-blue2.png",
+									"type": "text"
 								}
 							]
 						},
@@ -9892,6 +9897,476 @@
 							"body": "{\n    \"message\": \"The profile picture field format is invalid.\",\n    \"errors\": {\n        \"profile_picture\": [\n            \"The profile picture field format is invalid.\"\n        ]\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "delete account",
+					"id": "41e128b9-46d8-437e-ac02-400bcc085d28",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/verify-delete/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"verify-delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1f36467f-7b35-4459-a8eb-3c2e434fbbe0",
+							"name": "deleted by admin",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/verify-delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"verify-delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Jul 2024 03:42:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "5"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IlBZKzBKSW9laVNBcUhFcUdjalk2QlE9PSIsInZhbHVlIjoiQTdVZlpBZE9pV25VNEVzVTBSWHh6RHNvZE9zNDlBTTFQSWZGdzFYR1VkY2VPM3ZKNDJhMjJ0VnJub010aXkzZ2JKakJwdkx0SEhPZ0RHd3I0YXlDUm1LVDYzZHRRdERaaUJhZ1dQMHhTMWExRTFzQmlYd0JVSmN1R3FQQUtVa2siLCJtYWMiOiJiYzMyOTk4NGE3NzhiMTllNGE3OWY4NDFhMDc0MDFmYjZhZWMwNjJhODcwZDY5ZTY2NTBhNjIzY2Q3NTUzYzcwIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:42:41 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ik9NeTVWUVVQL21vSkM3VmoyQTdWRmc9PSIsInZhbHVlIjoiNGppRTdva21sZ1Y1Q2R1WU1CYS9UK2dBZ0oyMDlxMWZ5SG5WaUpJODQremR2U0l5MDNuWXZZd3U5eGxrZ1UvTzA3NERjaTFxU3oraGRlcE1aUUJlM1NVTTN4eWZ6OGtERm1TQ3cxWUdNSGJtb2JpWWVWdjBTcnBYdk80b0tpZFAiLCJtYWMiOiJjY2JjOTk5ZWFlMGY3MDU5NjkzYzI2NTZiZWUyMzA3ZWFiNTFlYTA4OGZhYTE4MTIwODE2YzRjOGIwZjA5MDFlIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:42:41 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user with id 3 is deleted successfully\"\n}"
+						},
+						{
+							"id": "b6ba3b4a-d80a-41c6-a733-8b7271e93b98",
+							"name": "delete but not admin and not signed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/verify-delete/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"verify-delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Jul 2024 04:16:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IjJsQlRlUVpocWRsMXhaVVFuZzQ2N0E9PSIsInZhbHVlIjoiemZKbGJFYUVkTkFSenluWENhaHZobXRJbkVlUWMyRXc3d0FOMXAwZk9qSDJWNTJlTStDZm11cUpEaEhFNUUrUVFRQjRTeFVVSW1qdlFkeDYwb1NHOCtGTWFPYjBFRGc2RUtKVDRjL3V3WHpiWXBCNUduQmMrZVJPQkZvN3NmTVkiLCJtYWMiOiIxM2QzMGJlMzIwNTIwMDU0ZGQzODNhOTQ0YTYwYzgwNjI2NDJlODZjNmZkZWI1YzQ4MWRhMTk3ZDI4ODFhNmU4IiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 06:16:13 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6IkFlbHU1WWk3SEh1Um1lM09zNVdINEE9PSIsInZhbHVlIjoiVTBaMERXbGc2ZTJYMnpPb2gwcDVvK3NpOUlxYnE5cjZRMTI5ai9FWkhHMjdtanpkbHNlWE5MdXpBTnRRWVlLb2gxOHMzeXcybzNqN0RLWmhwLzVIM0djOEh5a2xJVVZacEx1Nzk4Z1RJUTNEWnZCRnp4cjJZdUhnMG1VdTlvQ3EiLCJtYWMiOiJmMDJhNTg3ZDljOWQwNTU3OTIzNzcyMDU2ZGRiN2RiY2JkYmMyMTkzY2ZkNGFjZTUxOGM5ZGIzOTU4NWE3MDUxIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 06:16:13 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								}
+							],
+							"cookie": [],
+							"body": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <title>Forbidden</title>\n        <style>\n            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\\:rounded-lg{border-radius:.5rem}.sm\\:block{display:block}.sm\\:items-center{align-items:center}.sm\\:justify-start{justify-content:flex-start}.sm\\:justify-between{justify-content:space-between}.sm\\:h-20{height:5rem}.sm\\:ml-0{margin-left:0}.sm\\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\\:pt-0{padding-top:0}.sm\\:text-left{text-align:left}.sm\\:text-right{text-align:right}}@media (min-width:768px){.md\\:border-t-0{border-top-width:0}.md\\:border-l{border-left-width:1px}.md\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}\n        </style>\n        <style>\n            body {\n                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n            }\n        </style>\n    </head>\n    <body class=\"antialiased\">\n        <div class=\"relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0\">\n            <div class=\"max-w-xl mx-auto sm:px-6 lg:px-8\">\n                <div class=\"flex items-center pt-8 sm:justify-start sm:pt-0\">\n                    <div class=\"px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider\">\n                        403                    </div>\n                    <div class=\"ml-4 text-lg text-gray-500 uppercase tracking-wider\">\n                        Forbidden                    </div>\n                </div>\n            </div>\n        </div>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "delete my account",
+					"id": "728cf5ae-7394-4ef9-9f99-6b16b7e97d36",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "Application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/delete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8565c267-6dd9-4e73-9b40-d9bee8ffd30a",
+							"name": "wrong password",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "password",
+											"value": "password2",
+											"description": "you need to verify your password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"delete"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Jul 2024 03:52:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "5"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IlRDU2RVQkMzU2JXNWU0T0YyN2wwMWc9PSIsInZhbHVlIjoiV0NuVTVudG94U0hMYUR4eGt0NTRQVVkwUDlFMk5iMzA0dCt3bFh5SnlLcGNXQ3c0NjRwcFI2Y2x6TTlqTHJPZWVhaE01c05pd2I2ekM1WWZlUUhtTmxlUC9WTm5KclZSck9lVlMrazM5NzJMd3RxUWxia3QxZEV2ZEFOalRhZlQiLCJtYWMiOiI5ZjAxMzU2NjYyMjViOThjYTdiMjMyYWNhYmEzMGY3YmU4OTY1NTNiZWFmNzI1MDYzNDJjMGNiMDU3ODUwNWM1IiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:52:51 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ijd3RVdpQzE1eEh5Z0xSYTEvNkU3Wnc9PSIsInZhbHVlIjoiTVhZcFBiUjIzOGUvdE9Ld01UNXRSS1R2YjRkNEtvdFA1akhRSmVVWGZmQkN4SXFOSUViYU4yRlp1cno5VlFMejlMWVJCVGxIcWl6NzVTbld2cUhYK3JkZThRcnNOVlhwbTBVNFNtVkdZdUJuTXJZdnJ3c0hSS2h2UndBdFZuWUMiLCJtYWMiOiIwOGI1OWYyYjQ0NGM2YzYyNTI5ZmJhMTg2ZGVhZTE0ZmM1ODMyZmVmNDMxZDgwMzllOGE1OThkZjUyNGQ2OGZmIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:52:51 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The password is incorrect.\",\n    \"errors\": {\n        \"password\": [\n            \"The password is incorrect.\"\n        ]\n    }\n}"
+						},
+						{
+							"id": "f12210f4-e6d7-4669-95b0-37e10afb4c32",
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Jul 2024 03:53:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6InROZlZLdlJWNm9MdkRmUkh1U0E1dFE9PSIsInZhbHVlIjoiRS9RZTZvcitFMEdzY04rYnlmSFNBSnE1eFV0cktVQlFIdFRDeEE4U2VUMExlYXd4eTVoLzQvdnlRcDJaUWxzbW1jTlZHcVBRL0lDRk5FV1BHVnpkVjBzVjJkVVZ2TnlHTTJ2ZHJ4dlE5am9zSWR1bkFXeU9NdCtaM2M4STZWQmEiLCJtYWMiOiJkYWNjZWM1Y2M3YjkyOTUxZGFiMzQwMjQ3MTc2MWI5MDM0MmQ0MmJkZmE0OTA2NGRhZDhjY2YzZjhiNjVlYTRjIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:53:31 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ijc2dHZOd1A3WThrSVAxZDJFdFh3d0E9PSIsInZhbHVlIjoiTW9pR2NnTVNjSDZobWRhSTlSWEZmRFlTMzV1dURUbTh2YjZuOUU3UmFVOGd6VVVVdm9UWTlUVkIwUTY2OVA4SWsyUnFLS3lycEdwbW1weWNibDZqYlRNMHJYeW5OUmVGVHdjbDdRTWNaM1NHc05aQ1dYMVVuYy8rTGQ3dFAvaC8iLCJtYWMiOiJkMjIyYTYzOWNmMWZhNTNkZWM1OGZhNWMyYzcxMjE4NTRjZmRlYzAyZGRlMDhiYjI1ODU0YWQ4NTA0NzhiODRhIiwidGFnIjoiIn0%3D; expires=Mon, 15 Jul 2024 05:53:31 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"We have send you an email containing link to verify your request\"\n}"
+						}
+					]
 				}
 			],
 			"id": "9af8ac20-474f-4691-aad9-2afc5381bd6c"
@@ -9923,42 +10398,42 @@
 	],
 	"variable": [
 		{
-			"id": "1fb4772b-65e4-4085-af36-02be81ac0a48",
+			"id": "ab861136-dd4b-44a0-a551-4e6cae2b72fb",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "8df42d37-b5eb-4c50-9d06-74a76a49cec5",
+			"id": "7ac9edaa-13e0-4d43-96ed-c9ba5b6afab9",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "82577eef-acb6-4e35-b2c4-0b110135ffc0",
+			"id": "317155f7-5a5b-425a-9bc0-074e0046c0cb",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "fcaf5f97-5696-4845-98b3-ff52dcd14366",
+			"id": "8f458761-80a3-4964-b57f-e6fc6528119a",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "0c8f7afe-f75d-4fb9-9f70-ea672b3951aa",
+			"id": "8e42e82e-31be-4dab-8abf-3433f5a8da37",
 			"key": "id_penerima_manfaat",
 			"value": ""
 		},
 		{
-			"id": "03d28f54-fe55-469b-9035-0b3a0be69205",
+			"id": "7b460fdf-6ddb-484b-887a-ce627f6f5a25",
 			"key": "laporan_id",
 			"value": ""
 		},
 		{
-			"id": "08cb8c22-8f9b-488c-964a-6c83eddffeb4",
+			"id": "8d8313f5-cb8b-41a8-904f-81b2dc5aaa81",
 			"key": "id_dana",
 			"value": ""
 		},
 		{
-			"id": "cf34837f-42f6-49f2-bc99-cd299d7e7267",
+			"id": "cde8aaf5-4ebb-419d-a22a-c0be8ef11c64",
 			"key": "alokasiDana_id",
 			"value": ""
 		}
