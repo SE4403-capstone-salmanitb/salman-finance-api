@@ -30,7 +30,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            "profile_picture" => ['nullable', 'url', 'regex:(http)?s?:?(\/\/[^"\']*\.(?:png|jpg|jpeg|gif|png|svg))']
+            "profile_picture" => ['required', 'url', 'regex:~^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpe?g|gif|png)$~']
         ]);
 
         $user = User::create([

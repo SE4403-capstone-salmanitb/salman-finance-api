@@ -60,3 +60,11 @@ Route::match(['patch', 'put'], '/user/password', UserPasswordChangeController::c
 Route::match(['patch', 'put'], '/user', [UserProfileController::class, 'update'])
 ->middleware(['auth', 'auth:sanctum'])
 ->name("user.profile.update");
+
+Route::delete('/user/delete', [UserProfileController::class, 'deleteRequest'])
+->middleware(['auth', 'auth:sanctum', 'throttle:6,1'])
+->name("user.profile.delete");
+
+Route::get('/verify-delete/{user}', [UserProfileController::class, 'destroyUser'])
+->middleware([ 'throttle:6,1'])
+->name('verification.delete');
