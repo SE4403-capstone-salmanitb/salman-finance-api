@@ -33,4 +33,4 @@ jobs:
         php artisan config:clear
  
     - name: Run Testsuite
-      run: vendor/bin/phpunit tests/
+      run: php artisan test --parallel
