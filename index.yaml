@@ -7,6 +7,9 @@ servers:
   - url: https://salimapi.admfirst.my.id
 components:
   securitySchemes:
+    noauthAuth:
+      type: http
+      scheme: noauth
     bearerAuth:
       type: http
       scheme: bearer
@@ -35,6 +38,7 @@ tags:
   - name: api > custom
   - name: api > alokasiDana
   - name: api > alokasiDana > {id}
+  - name: api > Mobile API
   - name: auth
 paths:
   /api/itemKegiatanRKA/{id}:
@@ -8955,6 +8959,785 @@ paths:
                 updated_at: '2024-07-02T11:53:52.000000Z'
                 created_at: '2024-07-02T11:53:52.000000Z'
                 id: 33
+  /api/mobile/program:
+    get:
+      tags:
+        - api > Mobile API
+      summary: Program list
+      security:
+        - noauthAuth: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Jul 2024 14:36:39 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: 1
+                  nama: PROGRAM KEPUSTAKAAN
+                  created_at: '2024-07-15T14:02:29.000000Z'
+                  updated_at: '2024-07-15T14:02:29.000000Z'
+                - id: 2
+                  nama: PROGRAM INTELEKTUALITAS
+                  created_at: '2024-07-15T14:02:29.000000Z'
+                  updated_at: '2024-07-15T14:02:29.000000Z'
+                - id: 3
+                  nama: PROGRAM EKOLITERASI
+                  created_at: '2024-07-15T14:02:29.000000Z'
+                  updated_at: '2024-07-15T14:02:29.000000Z'
+                - id: 4
+                  nama: PROGRAM SUPPORTING SYSTEM
+                  created_at: '2024-07-15T14:02:30.000000Z'
+                  updated_at: '2024-07-15T14:02:30.000000Z'
+                - id: 5
+                  nama: shaina.gottlieb
+                  created_at: '2024-07-15T14:28:45.000000Z'
+                  updated_at: '2024-07-15T14:28:45.000000Z'
+                - id: 6
+                  nama: goyette.coleman
+                  created_at: '2024-07-15T14:28:45.000000Z'
+                  updated_at: '2024-07-15T14:28:45.000000Z'
+                - id: 7
+                  nama: jackeline57
+                  created_at: '2024-07-15T14:28:45.000000Z'
+                  updated_at: '2024-07-15T14:28:45.000000Z'
+                - id: 8
+                  nama: ifay
+                  created_at: '2024-07-15T14:28:45.000000Z'
+                  updated_at: '2024-07-15T14:28:45.000000Z'
+                - id: 9
+                  nama: iwiegand
+                  created_at: '2024-07-15T14:28:45.000000Z'
+                  updated_at: '2024-07-15T14:28:45.000000Z'
+                - id: 10
+                  nama: rosalyn.ortiz
+                  created_at: '2024-07-15T14:28:46.000000Z'
+                  updated_at: '2024-07-15T14:28:46.000000Z'
+                - id: 11
+                  nama: kfeeney
+                  created_at: '2024-07-15T14:28:46.000000Z'
+                  updated_at: '2024-07-15T14:28:46.000000Z'
+                - id: 12
+                  nama: isabella20
+                  created_at: '2024-07-15T14:28:46.000000Z'
+                  updated_at: '2024-07-15T14:28:46.000000Z'
+                - id: 13
+                  nama: buford.robel
+                  created_at: '2024-07-15T14:28:46.000000Z'
+                  updated_at: '2024-07-15T14:28:46.000000Z'
+                - id: 14
+                  nama: oscar.pfeffer
+                  created_at: '2024-07-15T14:28:46.000000Z'
+                  updated_at: '2024-07-15T14:28:46.000000Z'
+                - id: 15
+                  nama: gussie.wisozk
+                  created_at: '2024-07-15T14:30:25.000000Z'
+                  updated_at: '2024-07-15T14:30:25.000000Z'
+                - id: 16
+                  nama: skyla87
+                  created_at: '2024-07-15T14:30:26.000000Z'
+                  updated_at: '2024-07-15T14:30:26.000000Z'
+                - id: 17
+                  nama: jaqueline.dickinson
+                  created_at: '2024-07-15T14:30:26.000000Z'
+                  updated_at: '2024-07-15T14:30:26.000000Z'
+                - id: 18
+                  nama: acarter
+                  created_at: '2024-07-15T14:30:26.000000Z'
+                  updated_at: '2024-07-15T14:30:26.000000Z'
+                - id: 19
+                  nama: noelia.zemlak
+                  created_at: '2024-07-15T14:30:26.000000Z'
+                  updated_at: '2024-07-15T14:30:26.000000Z'
+                - id: 20
+                  nama: lucile.stoltenberg
+                  created_at: '2024-07-15T14:30:27.000000Z'
+                  updated_at: '2024-07-15T14:30:27.000000Z'
+                - id: 21
+                  nama: blanda.kylie
+                  created_at: '2024-07-15T14:30:27.000000Z'
+                  updated_at: '2024-07-15T14:30:27.000000Z'
+                - id: 22
+                  nama: bennie92
+                  created_at: '2024-07-15T14:30:27.000000Z'
+                  updated_at: '2024-07-15T14:30:27.000000Z'
+                - id: 23
+                  nama: geovanny58
+                  created_at: '2024-07-15T14:30:27.000000Z'
+                  updated_at: '2024-07-15T14:30:27.000000Z'
+                - id: 24
+                  nama: schroeder.katelin
+                  created_at: '2024-07-15T14:30:27.000000Z'
+                  updated_at: '2024-07-15T14:30:27.000000Z'
+                - id: 25
+                  nama: aisha.beatty
+                  created_at: '2024-07-15T14:32:08.000000Z'
+                  updated_at: '2024-07-15T14:32:08.000000Z'
+                - id: 26
+                  nama: rylee.langworth
+                  created_at: '2024-07-15T14:32:08.000000Z'
+                  updated_at: '2024-07-15T14:32:08.000000Z'
+                - id: 27
+                  nama: reinger.aniya
+                  created_at: '2024-07-15T14:32:08.000000Z'
+                  updated_at: '2024-07-15T14:32:08.000000Z'
+                - id: 28
+                  nama: filiberto.altenwerth
+                  created_at: '2024-07-15T14:32:09.000000Z'
+                  updated_at: '2024-07-15T14:32:09.000000Z'
+                - id: 29
+                  nama: oheathcote
+                  created_at: '2024-07-15T14:32:09.000000Z'
+                  updated_at: '2024-07-15T14:32:09.000000Z'
+                - id: 30
+                  nama: gbotsford
+                  created_at: '2024-07-15T14:32:09.000000Z'
+                  updated_at: '2024-07-15T14:32:09.000000Z'
+                - id: 31
+                  nama: julianne.bode
+                  created_at: '2024-07-15T14:32:09.000000Z'
+                  updated_at: '2024-07-15T14:32:09.000000Z'
+                - id: 32
+                  nama: moen.dolly
+                  created_at: '2024-07-15T14:32:09.000000Z'
+                  updated_at: '2024-07-15T14:32:09.000000Z'
+                - id: 33
+                  nama: evert17
+                  created_at: '2024-07-15T14:32:10.000000Z'
+                  updated_at: '2024-07-15T14:32:10.000000Z'
+                - id: 34
+                  nama: ona77
+                  created_at: '2024-07-15T14:32:10.000000Z'
+                  updated_at: '2024-07-15T14:32:10.000000Z'
+                - id: 35
+                  nama: joany04
+                  created_at: '2024-07-15T14:33:01.000000Z'
+                  updated_at: '2024-07-15T14:33:01.000000Z'
+                - id: 36
+                  nama: ledner.vesta
+                  created_at: '2024-07-15T14:33:01.000000Z'
+                  updated_at: '2024-07-15T14:33:01.000000Z'
+                - id: 37
+                  nama: reese.beatty
+                  created_at: '2024-07-15T14:33:01.000000Z'
+                  updated_at: '2024-07-15T14:33:01.000000Z'
+                - id: 38
+                  nama: terry.ernie
+                  created_at: '2024-07-15T14:33:01.000000Z'
+                  updated_at: '2024-07-15T14:33:01.000000Z'
+                - id: 39
+                  nama: tierra69
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+                - id: 40
+                  nama: zpfannerstill
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+                - id: 41
+                  nama: daisy57
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+                - id: 42
+                  nama: ansley61
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+                - id: 43
+                  nama: cole.kay
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+                - id: 44
+                  nama: walker.gennaro
+                  created_at: '2024-07-15T14:33:02.000000Z'
+                  updated_at: '2024-07-15T14:33:02.000000Z'
+  /api/mobile/laporan:
+    get:
+      tags:
+        - api > Mobile API
+      summary: Laporan view one
+      parameters:
+        - name: id_program
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: month
+          in: query
+          schema:
+            type: integer
+          example: '7'
+        - name: year
+          in: query
+          schema:
+            type: integer
+          example: '2024'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Mon, 15 Jul 2024 14:37:52 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 2
+                program_id: 1
+                kode: '#2cd6d2'
+                bulan_laporan: 07-2024
+                disusun_oleh:
+                  id: 1
+                  name: Test User
+                  email: test.user@example.com
+                  email_verified_at: '2024-07-15T14:02:28.000000Z'
+                  is_admin: 0
+                  profile_picture: https://i.ibb.co.com/2qXwjX3/default-blue1.png
+                  created_at: '2024-07-15T14:02:28.000000Z'
+                  updated_at: '2024-07-15T14:02:28.000000Z'
+                diperiksa_oleh: null
+                tanggal_pemeriksaan: null
+                tanggal_pembuatan: '2024-07-15T14:02:29.000000Z'
+                updated_at: '2024-07-15T14:02:29.000000Z'
+                deleted_at: null
+                program:
+                  id: 1
+                  nama: PROGRAM KEPUSTAKAAN
+                  created_at: '2024-07-15T14:02:29.000000Z'
+                  updated_at: '2024-07-15T14:02:29.000000Z'
+                pelaksanaans:
+                  - id: 1
+                    penjelasan: accusamus laboriosam
+                    waktu: Senin-Jumat 09.00 - 17.00 WIB
+                    tempat: Kirlinfurt
+                    penyaluran: Dakwah-Advokasi
+                    id_program_kegiatan_kpi: 1
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    deleted_at: null
+                    program_kegiatan:
+                      id: 1
+                      nama: produksi_Odie West
+                      tahun: 2024
+                      id_program: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 2
+                    penjelasan: vero sit
+                    waktu: Senin-Jumat 09.00 - 17.00 WIB
+                    tempat: Lake Jazlyn
+                    penyaluran: Dakwah-Advokasi
+                    id_program_kegiatan_kpi: 1
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    deleted_at: null
+                    program_kegiatan:
+                      id: 1
+                      nama: produksi_Odie West
+                      tahun: 2024
+                      id_program: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 3
+                    penjelasan: sunt quia
+                    waktu: Senin-Jumat 09.00 - 17.00 WIB
+                    tempat: Peterberg
+                    penyaluran: Dakwah-Advokasi
+                    id_program_kegiatan_kpi: 1
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    deleted_at: null
+                    program_kegiatan:
+                      id: 1
+                      nama: produksi_Odie West
+                      tahun: 2024
+                      id_program: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 4
+                    penjelasan: voluptatem necessitatibus
+                    waktu: Senin-Jumat 09.00 - 17.00 WIB
+                    tempat: Bartonview
+                    penyaluran: Dakwah-Advokasi
+                    id_program_kegiatan_kpi: 2
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    deleted_at: null
+                    program_kegiatan:
+                      id: 2
+                      nama: produksi_Nathan White
+                      tahun: 2024
+                      id_program: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                k_p_i_bulanans:
+                  - id: 1
+                    capaian: 8217
+                    deskripsi: >-
+                      3617 Musician, 2717 Computer Operator, 3617 Cultural
+                      Studies Teacher, 1713 Boilermaker
+                    id_kpi: 1
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    kpi:
+                      id: 1
+                      indikator: Jumlah alias
+                      target: Minimal 6515 item per bulan
+                      id_program_kegiatan_kpi: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                      program_kegiatan:
+                        id: 1
+                        nama: produksi_Odie West
+                        tahun: 2024
+                        id_program: 1
+                        created_at: '2024-07-15T14:02:29.000000Z'
+                        updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 2
+                    capaian: 2994
+                    deskripsi: >-
+                      1240 Radiologic Technologist and Technician, 294
+                      Radiologic Technologist, 1240 Correspondence Clerk, 813
+                      Budget Analyst
+                    id_kpi: 2
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    kpi:
+                      id: 2
+                      indikator: Jumlah praesentium
+                      target: Minimal 4139 item per bulan
+                      id_program_kegiatan_kpi: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                      program_kegiatan:
+                        id: 1
+                        nama: produksi_Odie West
+                        tahun: 2024
+                        id_program: 1
+                        created_at: '2024-07-15T14:02:29.000000Z'
+                        updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 3
+                    capaian: 8818
+                    deskripsi: >-
+                      2645 Choreographer, 3086 Bellhop, 2645 Auditor, 2109
+                      Personal Service Worker
+                    id_kpi: 3
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    kpi:
+                      id: 3
+                      indikator: Jumlah illo
+                      target: Minimal 7285 item per bulan
+                      id_program_kegiatan_kpi: 2
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                      program_kegiatan:
+                        id: 2
+                        nama: produksi_Nathan White
+                        tahun: 2024
+                        id_program: 1
+                        created_at: '2024-07-15T14:02:29.000000Z'
+                        updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 4
+                    capaian: 8866
+                    deskripsi: >-
+                      5144 Personal Care Worker, 401 System Administrator, 5144
+                      License Clerk, 2430 Gluing Machine Operator
+                    id_kpi: 4
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    kpi:
+                      id: 4
+                      indikator: Jumlah dignissimos
+                      target: Minimal 8457 item per bulan
+                      id_program_kegiatan_kpi: 2
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                      program_kegiatan:
+                        id: 2
+                        nama: produksi_Nathan White
+                        tahun: 2024
+                        id_program: 1
+                        created_at: '2024-07-15T14:02:29.000000Z'
+                        updated_at: '2024-07-15T14:02:29.000000Z'
+                penerima_manfaats:
+                  - id: 1
+                    kategori: quia
+                    tipe_rutinitas: velit
+                    tipe_penyaluran: delectus
+                    rencana: 46
+                    realisasi: 62
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 2
+                    kategori: aut
+                    tipe_rutinitas: quibusdam
+                    tipe_penyaluran: ad
+                    rencana: 51
+                    realisasi: 33
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 3
+                    kategori: et
+                    tipe_rutinitas: sapiente
+                    tipe_penyaluran: omnis
+                    rencana: 42
+                    realisasi: 85
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 4
+                    kategori: et
+                    tipe_rutinitas: nulla
+                    tipe_penyaluran: ipsum
+                    rencana: 22
+                    realisasi: 55
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 5
+                    kategori: laudantium
+                    tipe_rutinitas: laboriosam
+                    tipe_penyaluran: saepe
+                    rencana: 6
+                    realisasi: 60
+                    id_laporan_bulanan: 2
+                    created_at: '2024-07-15T14:02:29.000000Z'
+                    updated_at: '2024-07-15T14:02:29.000000Z'
+                alokasi_danas:
+                  - id: 1
+                    jumlah_realisasi: 84966
+                    id_laporan_bulanan: 2
+                    id_item_rka: 1
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 1
+                      uraian: Enim accusamus.
+                      nilai_satuan: 1074600
+                      quantity: 16
+                      quantity_unit: org
+                      frequency: 3
+                      frequency_unit: bln
+                      sumber_dana: RAS
+                      dana_jan: 0
+                      dana_feb: 0
+                      dana_mar: 0
+                      dana_apr: 0
+                      dana_mei: 1
+                      dana_jun: 0
+                      dana_jul: 1
+                      dana_aug: 0
+                      dana_sep: 0
+                      dana_oct: 0
+                      dana_nov: 0
+                      dana_dec: 1
+                      id_judul_kegiatan: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 2
+                    jumlah_realisasi: 28452
+                    id_laporan_bulanan: 2
+                    id_item_rka: 2
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 2
+                      uraian: Id iste et.
+                      nilai_satuan: 437300
+                      quantity: 31
+                      quantity_unit: org
+                      frequency: 6
+                      frequency_unit: bln
+                      sumber_dana: Pusat
+                      dana_jan: 1
+                      dana_feb: 1
+                      dana_mar: 0
+                      dana_apr: 0
+                      dana_mei: 1
+                      dana_jun: 0
+                      dana_jul: 0
+                      dana_aug: 0
+                      dana_sep: 1
+                      dana_oct: 0
+                      dana_nov: 1
+                      dana_dec: 1
+                      id_judul_kegiatan: 1
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 3
+                    jumlah_realisasi: 15752
+                    id_laporan_bulanan: 2
+                    id_item_rka: 3
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 3
+                      uraian: Aut dolorum.
+                      nilai_satuan: 515400
+                      quantity: 76
+                      quantity_unit: org
+                      frequency: 12
+                      frequency_unit: bln
+                      sumber_dana: Pusat
+                      dana_jan: 1
+                      dana_feb: 1
+                      dana_mar: 1
+                      dana_apr: 1
+                      dana_mei: 1
+                      dana_jun: 1
+                      dana_jul: 1
+                      dana_aug: 1
+                      dana_sep: 1
+                      dana_oct: 1
+                      dana_nov: 1
+                      dana_dec: 1
+                      id_judul_kegiatan: 2
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 4
+                    jumlah_realisasi: 97211
+                    id_laporan_bulanan: 2
+                    id_item_rka: 4
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 4
+                      uraian: Et quibusdam.
+                      nilai_satuan: 196800
+                      quantity: 47
+                      quantity_unit: org
+                      frequency: 7
+                      frequency_unit: bln
+                      sumber_dana: Pusat
+                      dana_jan: 0
+                      dana_feb: 1
+                      dana_mar: 0
+                      dana_apr: 1
+                      dana_mei: 1
+                      dana_jun: 0
+                      dana_jul: 1
+                      dana_aug: 1
+                      dana_sep: 1
+                      dana_oct: 1
+                      dana_nov: 0
+                      dana_dec: 0
+                      id_judul_kegiatan: 2
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 5
+                    jumlah_realisasi: 80562
+                    id_laporan_bulanan: 2
+                    id_item_rka: 5
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 5
+                      uraian: Excepturi qui.
+                      nilai_satuan: 1685000
+                      quantity: 31
+                      quantity_unit: org
+                      frequency: 10
+                      frequency_unit: bln
+                      sumber_dana: Kepesertaan
+                      dana_jan: 1
+                      dana_feb: 1
+                      dana_mar: 1
+                      dana_apr: 1
+                      dana_mei: 1
+                      dana_jun: 1
+                      dana_jul: 1
+                      dana_aug: 1
+                      dana_sep: 1
+                      dana_oct: 1
+                      dana_nov: 0
+                      dana_dec: 0
+                      id_judul_kegiatan: 3
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 6
+                    jumlah_realisasi: 24250
+                    id_laporan_bulanan: 2
+                    id_item_rka: 6
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 6
+                      uraian: Quaerat nostrum.
+                      nilai_satuan: 1096800
+                      quantity: 64
+                      quantity_unit: org
+                      frequency: 5
+                      frequency_unit: bln
+                      sumber_dana: Wakaf Salman
+                      dana_jan: 1
+                      dana_feb: 0
+                      dana_mar: 0
+                      dana_apr: 1
+                      dana_mei: 0
+                      dana_jun: 1
+                      dana_jul: 1
+                      dana_aug: 0
+                      dana_sep: 0
+                      dana_oct: 0
+                      dana_nov: 0
+                      dana_dec: 1
+                      id_judul_kegiatan: 3
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 7
+                    jumlah_realisasi: 66384
+                    id_laporan_bulanan: 2
+                    id_item_rka: 7
+                    created_at: '2024-07-15T14:02:30.000000Z'
+                    updated_at: '2024-07-15T14:02:30.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 7
+                      uraian: Qui fugit.
+                      nilai_satuan: 257200
+                      quantity: 66
+                      quantity_unit: org
+                      frequency: 12
+                      frequency_unit: bln
+                      sumber_dana: Pihak Ketiga
+                      dana_jan: 1
+                      dana_feb: 1
+                      dana_mar: 1
+                      dana_apr: 1
+                      dana_mei: 1
+                      dana_jun: 1
+                      dana_jul: 1
+                      dana_aug: 1
+                      dana_sep: 1
+                      dana_oct: 1
+                      dana_nov: 1
+                      dana_dec: 1
+                      id_judul_kegiatan: 4
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
+                  - id: 8
+                    jumlah_realisasi: 6391
+                    id_laporan_bulanan: 2
+                    id_item_rka: 8
+                    created_at: '2024-07-15T14:02:31.000000Z'
+                    updated_at: '2024-07-15T14:02:31.000000Z'
+                    item_kegiatan_r_k_a:
+                      id: 8
+                      uraian: Id quae iste.
+                      nilai_satuan: 924100
+                      quantity: 1
+                      quantity_unit: org
+                      frequency: 11
+                      frequency_unit: bln
+                      sumber_dana: RAS
+                      dana_jan: 1
+                      dana_feb: 1
+                      dana_mar: 1
+                      dana_apr: 0
+                      dana_mei: 1
+                      dana_jun: 1
+                      dana_jul: 1
+                      dana_aug: 1
+                      dana_sep: 1
+                      dana_oct: 1
+                      dana_nov: 1
+                      dana_dec: 1
+                      id_judul_kegiatan: 4
+                      created_at: '2024-07-15T14:02:29.000000Z'
+                      updated_at: '2024-07-15T14:02:29.000000Z'
   /api/user:
     get:
       tags:
@@ -9610,7 +10393,7 @@ paths:
                 errors:
                   profile_picture:
                     - The profile picture field format is invalid.
-  /user/{id}/toggleAdmin:
+  /user/11/toggleAdmin:
     post:
       tags:
         - auth
