@@ -3,13 +3,14 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class UserManagementControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTruncation;
     
     public function test_index(): void
     {

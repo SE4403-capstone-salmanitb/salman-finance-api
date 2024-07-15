@@ -5,13 +5,14 @@ namespace Tests\Feature;
 use App\Models\LaporanBulanan;
 use App\Models\Program;
 use App\Models\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LaporanBulananControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
     
     public function test_index_no_filter(): void
     {
