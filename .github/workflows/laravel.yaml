@@ -30,7 +30,6 @@ jobs:
       run: |
         cp .env.ci .env
         php artisan key:generate
-        composer dump-autoload
         php artisan config:clear
  
     - name: Run Testsuite
