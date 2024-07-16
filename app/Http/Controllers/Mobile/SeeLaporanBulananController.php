@@ -31,8 +31,12 @@ class SeeLaporanBulananController extends Controller
 
         $laporanBulanan->load([
             'program',
-            'diperiksaOleh',
-            'disusunOleh',
+            'diperiksaOleh' => function ($q) {
+                $q->select('id', 'name', 'profile_picture', 'is_admin');
+            }, 
+            'disusunOleh' => function ($q) {
+                $q->select('id', 'name', 'profile_picture', 'is_admin');
+            },
             'pelaksanaans.programKegiatan',
             'KPIBulanans.kpi.programKegiatan',
             'PenerimaManfaats',
