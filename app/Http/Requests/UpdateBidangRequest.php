@@ -22,7 +22,7 @@ class UpdateBidangRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['nullable', 'string'],
+            'nama' => ['nullable', 'string', 'unique:bidangs,nama'],
         ];
     }
 }

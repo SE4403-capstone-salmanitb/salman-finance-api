@@ -22,7 +22,7 @@ class StoreBidangRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'string'],
+            'nama' => ['required', 'string', 'unique:bidangs,nama'],
             
         ];
     }

@@ -22,7 +22,7 @@ class StoreProgramRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['required', 'string'],
+            'nama' => ['required', 'string', 'unique:programs,nama'],
             'id_bidang' => ['required', 'integer', 'exists:bidangs,id'],
         ];
     }
