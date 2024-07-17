@@ -19,6 +19,8 @@ tags:
   - name: api > itemKegiatanRKA > {id}
   - name: api > judulKegiatanRKA
   - name: api > judulKegiatanRKA > {id}
+  - name: api > Bidang
+  - name: api > Bidang > {id}
   - name: api > program
   - name: api > program > {id}
   - name: api > programKegiatanRKA
@@ -2230,10 +2232,10 @@ paths:
                 id_program_kegiatan_rka: <integer>
                 nama: <string>
                 updated_at: <dateTime>
-  /api/program/{id}:
+  /api/bidang/{id}:
     get:
       tags:
-        - api > program > {id}
+        - api > Bidang > {id}
       summary: Get Api Program at id
       parameters:
         - name: cookie
@@ -2252,14 +2254,54 @@ paths:
         - name: id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
-          description: (Required) ID of program to use
-          example: <integer>
+          description: (Required) ID of bidang to use
+          example: '81'
       responses:
         '200':
           description: OK
           headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:45:28 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
             Content-Type:
               schema:
                 type: string
@@ -2269,13 +2311,53 @@ paths:
               schema:
                 type: object
               example:
-                created_at: <dateTime>
-                id: <integer>
-                nama: <string>
-                updated_at: <dateTime>
+                id: 8
+                nama: Bidang pembuatan dan pengembangan AI
+                created_at: '2024-07-17T08:42:52.000000Z'
+                updated_at: '2024-07-17T08:44:01.000000Z'
         '404':
           description: Not Found
           headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:45:37 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
             Content-Type:
               schema:
                 type: string
@@ -2285,31 +2367,11 @@ paths:
               schema:
                 type: object
               example:
-                exception: <string>
-                file: <string>
-                line: <integer>
-                message: <string>
-                trace:
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-        '422':
-          description: Unprocessable Entity (WebDAV) (RFC 4918)
-          content:
-            text/plain:
-              schema:
-                type: string
+                message: No query results for model [App\Models\Bidang] 81
     delete:
       tags:
-        - api > program > {id}
-      summary: Delete Api Program at id
+        - api > Bidang > {id}
+      summary: Delete Api bidang at id
       parameters:
         - name: cookie
           in: header
@@ -2327,13 +2389,50 @@ paths:
         - name: id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
           description: (Required) ID of program to use
-          example: <integer>
+          example: '9'
       responses:
         '204':
           description: No Content
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:44:53 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
           content:
             text/plain:
               schema:
@@ -2341,6 +2440,46 @@ paths:
         '404':
           description: Not Found
           headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:44:16 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
             Content-Type:
               schema:
                 type: string
@@ -2350,33 +2489,19 @@ paths:
               schema:
                 type: object
               example:
-                exception: <string>
-                file: <string>
-                line: <integer>
-                message: <string>
-                trace:
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-        '422':
-          description: Unprocessable Entity (WebDAV) (RFC 4918)
-          content:
-            text/plain:
-              schema:
-                type: string
+                message: No query results for model [App\Models\Bidang] 11
     put:
       tags:
-        - api > program > {id}
-      summary: Put Api Program at id
+        - api > Bidang > {id}
+      summary: Put Api bidang at id
       requestBody:
-        content: {}
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                nama:
+                  type: string
+                  example: Bidang pembuatan dan pengembangan AI
       parameters:
         - name: cookie
           in: header
@@ -2394,14 +2519,54 @@ paths:
         - name: id
           in: path
           schema:
-            type: string
+            type: integer
           required: true
           description: (Required) ID of program to use
-          example: <integer>
+          example: '8'
       responses:
         '200':
           description: OK
           headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:44:01 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
             Content-Type:
               schema:
                 type: string
@@ -2411,48 +2576,15 @@ paths:
               schema:
                 type: object
               example:
-                created_at: <dateTime>
-                id: <integer>
-                nama: <string>
-                updated_at: <dateTime>
-        '404':
-          description: Not Found
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                exception: <string>
-                file: <string>
-                line: <integer>
-                message: <string>
-                trace:
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-                  - class: <string>
-                    file: <string>
-                    function: <string>
-                    line: <integer>
-                    type: '->'
-        '422':
-          description: Unprocessable Entity (WebDAV) (RFC 4918)
-          content:
-            text/plain:
-              schema:
-                type: string
-  /api/program:
+                id: 8
+                nama: Bidang pembuatan dan pengembangan AI
+                created_at: '2024-07-17T08:42:52.000000Z'
+                updated_at: '2024-07-17T08:44:01.000000Z'
+  /api/bidang:
     get:
       tags:
-        - api > program
-      summary: Get Api Program
+        - api > Bidang
+      summary: Get Api Bidang
       parameters:
         - name: cookie
           in: header
@@ -2471,18 +2603,18 @@ paths:
         '200':
           description: OK
           headers:
-            Host:
-              schema:
-                type: string
-                example: localhost:8000
             Date:
               schema:
                 type: string
-                example: Sat, 22 Jun 2024 10:16:52 GMT
-            Connection:
+                example: Wed, 17 Jul 2024 08:42:30 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
               schema:
                 type: string
-                example: close
+                example: Authorization
             X-Powered-By:
               schema:
                 type: number
@@ -2491,43 +2623,67 @@ paths:
               schema:
                 type: string
                 example: no-cache, private
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
             Access-Control-Allow-Origin:
               schema:
                 type: string
-                example: http://github.com
+                example: https://app.localhost.direct
             Access-Control-Allow-Credentials:
               schema:
                 type: boolean
                 example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
           content:
             application/json:
               schema:
                 type: object
               example:
                 - id: 1
-                  nama: PROGRAM KEPUSTAKAAN
-                  created_at: '2024-06-20T10:04:56.000000Z'
-                  updated_at: '2024-06-20T10:04:56.000000Z'
+                  nama: Bidang Pengkajian dan Penerbitan
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
                 - id: 2
-                  nama: PROGRAM INTELEKTUALITAS
-                  created_at: '2024-06-20T10:04:56.000000Z'
-                  updated_at: '2024-06-20T10:04:56.000000Z'
+                  nama: Bidang Mahasiswa, Kaderisasi, dan Alumni
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
                 - id: 3
-                  nama: PROGRAM EKOLITERASI
-                  created_at: '2024-06-20T10:04:57.000000Z'
-                  updated_at: '2024-06-20T10:04:57.000000Z'
+                  nama: Bidang Dakwah
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
                 - id: 4
-                  nama: PROGRAM SUPPORTING SYSTEM
-                  created_at: '2024-06-20T10:04:57.000000Z'
-                  updated_at: '2024-06-20T10:04:57.000000Z'
+                  nama: Lembaga Pengembangan Pendidikan
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 5
+                  nama: Bidang Sarana dan Prasarana
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 6
+                  nama: Sekretariat, Humas, dan Personalia
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 7
+                  nama: Pusat Halal
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
     post:
       tags:
-        - api > program
-      summary: Post Api Program
+        - api > Bidang
+      summary: Post Api Bidang
       requestBody:
         content:
           application/x-www-form-urlencoded:
@@ -2536,7 +2692,7 @@ paths:
                 nama:
                   type: string
                   description: '(Required) '
-                  example: <string>
+                  example: Bidang pembuatan aplikasi
       parameters:
         - name: cookie
           in: header
@@ -2560,6 +2716,46 @@ paths:
         '201':
           description: Created
           headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:43:11 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
             Content-Type:
               schema:
                 type: string
@@ -2569,10 +2765,575 @@ paths:
               schema:
                 type: object
               example:
-                created_at: <dateTime>
-                id: <integer>
-                nama: <string>
-                updated_at: <dateTime>
+                nama: Bidang pembuatan aplikasi
+                updated_at: '2024-07-17T08:43:11.000000Z'
+                created_at: '2024-07-17T08:43:11.000000Z'
+                id: 9
+  /api/program/{id}:
+    get:
+      tags:
+        - api > program > {id}
+      summary: Get Api Program at id
+      parameters:
+        - name: cookie
+          in: header
+          schema:
+            type: string
+          description: cookie, usualy default from browser
+          example: >-
+            XSRF-TOKEN=eyJpdiI6ImtBSTRsWDlhNW5la2RJdW8wbGFoOXc9PSIsInZhbHVlIjoiamYxckhabDRTaTNPa2lFbWtod1k2YzZ2TnEySlV4cFBkUmdUYmVwYnE2NDJzZlRUZ1dhRUkrRERSeU4yT0RtWWRLR1Z2SDYzTUhXMU01RDJuWHlqYmo1QWFNS0xyeHVZa3RrOFE3UW05MmhWSkRDSTlrWlZmenl6cFg2VWtCUlUiLCJtYWMiOiI4N2FkMTM3YTA0MjRhZDUxOTBlOGRjNTZlMDAzNjJmMzA3NjAwYzdhYWY4YTM2YTJkNjI1YjkxMmMzNDY4NWZjIiwidGFnIjoiIn0%3D;
+            salman_finance_api_session=eyJpdiI6IlFCeW5icHhUOTdadFBHNmxRdHFRVHc9PSIsInZhbHVlIjoiK3R6cW9vbUZKaWt1bTdZb01FbHlram1RZ3JPMVBCWm9VR2VTUUxaazkvNGltVkc5am10TTUrU2JnSzM5MHQ5SVFTSW9WbE1yT1dmb0svb2ZGVzBFeFRpT0MrNG94S3FwQlpoeUZzZVpFc0txMzNGQ0ZtMC9sUXU5MjhGTXg0RXEiLCJtYWMiOiJlMWE4NWEzNjM2ZmYyMGZlZDYxMzgzZmIxMmMxMTc1OGIwMjFhMWQ1ZWMxODUyZDYxOWUxMTA1NjAzNTIyNmRlIiwidGFnIjoiIn0%3D
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          description: (Required) ID of program to use
+          example: '11'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:28:00 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 11
+                nama: Program buatan AI
+                id_bidang: 2
+                created_at: '2024-07-17T08:25:23.000000Z'
+                updated_at: '2024-07-17T08:27:42.000000Z'
+    delete:
+      tags:
+        - api > program > {id}
+      summary: Delete Api Program at id
+      parameters:
+        - name: cookie
+          in: header
+          schema:
+            type: string
+          description: cookie
+          example: >-
+            XSRF-TOKEN=eyJpdiI6IlpMd0R1Qk5ybDVXdm1ETjVTV29GMlE9PSIsInZhbHVlIjoiL3d5N1NMOERJWnVkQ1oybjBGcmYybmhiVTdkVW1ldGJKYmFsMjhWVzI1L1hjdDFJSDZYSEllcndaVTRBRXpMbktKemVUTE9BeVRLUk9RY285ZEtDRysxeStwS08xSkRWZjB2NVJod3hOQjErLzkvT0R3ME8xSlA2TDBIZW8wNGwiLCJtYWMiOiIxMThlY2YxMTZjMmQ5NTFjYzg3YzIyOGMzNDE4MzJmZjcwYTFiNjMyZGY3YjBmN2RhMWY0ODdjZWU5ZjRjNTIwIiwidGFnIjoiIn0%3D;
+            salman_finance_api_session=eyJpdiI6ImlFNHZpNWtoWUVrRExEVEw1NWNMWHc9PSIsInZhbHVlIjoieUxrdmdCM3V2OGNDLzJxVmk0VzNFeExIdHdCTXcrV29mZEpIRTdRd1BHSmQxaklCNDBMNXlGdGxCemhFZytGeERKcmxqZTBadkE3WG9FWUs0SnZ0MnNwOTZyQnZrUmY2Y05LQ01PMjRkWFdpZXZzejlBbTVGYWZPcDEwbXFOZ3IiLCJtYWMiOiJhNzkyZWVlZTAwMDg5NWYwNmQ1ZDk3NTYwNzA4MmJkYjg5YzAzZjRiNmE3NmMxMzU3MzNhNTZmN2UwNWExY2Y4IiwidGFnIjoiIn0%3D
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          description: (Required) ID of program to use
+          example: '11'
+      responses:
+        '204':
+          description: No Content
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:28:15 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+          content:
+            text/plain:
+              schema:
+                type: string
+        '404':
+          description: Not Found
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:28:49 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                message: No query results for model [App\Models\Program] 11
+    put:
+      tags:
+        - api > program > {id}
+      summary: Put Api Program at id
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                nama:
+                  type: string
+                  example: Program buatan AI
+                id_bidang:
+                  type: integer
+                  example: '2'
+      parameters:
+        - name: cookie
+          in: header
+          schema:
+            type: string
+          description: cookie
+          example: >-
+            XSRF-TOKEN=eyJpdiI6InZhYzZZSkZsOHkvZ3k4VWFnWFR5aUE9PSIsInZhbHVlIjoiTC9rZUJrT2xHa0I2Y0FUMnRFcEhqcTJiazRmenVwallPb2RPYkp6QzkwaGNkcTdxZ0Nod2FWWWNoai8rQ3ZhQytzU3puWExNWFFuL3NTYXpjMjhrOHV0MjZrNkNUeFFuSExjYndnR2Z4My93TlZvVWJwNlJYZWcrSUhxNFZyK3EiLCJtYWMiOiI2OWY4OGY5ZDM3Nzg0ZjYyMmZlZGQ5OTQzM2IwM2NiMGMyODFkN2UwODYwYzA0MGQ0NDE3YWFiMWEzMzI3NTc3IiwidGFnIjoiIn0%3D;
+            salman_finance_api_session=eyJpdiI6Ijczd1pnOGg4UURtYWlHYi9ic0duSkE9PSIsInZhbHVlIjoiOHZmS1l0UWlFa2xpMEU2aDB2bFpuNmRCRHEvbWo3djFTM0lmUEd3U2RITlQ4SlQ2R3dtTWdndlloRGt3d1BHbjFHc0NtbzFpQXZ3eSs3dm15bUtTd2gyajRKdnJ0NTE1SWg1Zk0rNmJrRnpXN0FqMnFSaEJSWk1uL3lzMVBteXgiLCJtYWMiOiIyMzlmNzMyYmI2NWY5YTM0ZTk0NDgyMzllZWQ5NjQyNGQ1ZDYzNDUxNTVkOGM0ZTJlYjMwNDNkYTI3ODgyMDFmIiwidGFnIjoiIn0%3D
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          description: (Required) ID of program to use
+          example: '11'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:26:53 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: ubah nama dan id bidang
+                  value:
+                    id: 11
+                    nama: Program buatan komputer
+                    id_bidang: '3'
+                    created_at: '2024-07-17T08:25:23.000000Z'
+                    updated_at: '2024-07-17T08:26:54.000000Z'
+                example-1:
+                  summary: ubah id bidang
+                  value:
+                    id: 11
+                    nama: Program buatan komputer
+                    id_bidang: '2'
+                    created_at: '2024-07-17T08:25:23.000000Z'
+                    updated_at: '2024-07-17T08:27:12.000000Z'
+                example-2:
+                  summary: ubah nama
+                  value:
+                    id: 11
+                    nama: Program buatan AI
+                    id_bidang: 2
+                    created_at: '2024-07-17T08:25:23.000000Z'
+                    updated_at: '2024-07-17T08:27:42.000000Z'
+  /api/program:
+    get:
+      tags:
+        - api > program
+      summary: Get Api Program
+      parameters:
+        - name: cookie
+          in: header
+          schema:
+            type: string
+          description: cookie
+          example: >-
+            XSRF-TOKEN=eyJpdiI6InVoU2pWZ1VYSHZJckVrRTZXalZvVlE9PSIsInZhbHVlIjoiRmszTzdzZDNWdGxrVHNSUlplUkpDSmFXUFpmYVpXUVVzZEcxUHdjc3o1T0NqWHVNZXFaUWxZOVBuTy9oZCtSWldGZDR3YXBQV0FCWnN2M0JNaGtOdUJERi90QjN2RCtYVEdpT3pDUXFZTU12d1hQbjRlK2dhbHlsbEk4V0RaQXMiLCJtYWMiOiIzYjVmYmFkMDczN2QxOTA4N2NhNjRlMDgzZDMyMWI0MGNmMGNmMjY2YThlYzI1M2YzM2Q3NDUwZjA4OTdjZWVkIiwidGFnIjoiIn0%3D;
+            salman_finance_api_session=eyJpdiI6IkZwcmdscDJjWHlzdmpuZFdLNFlhTWc9PSIsInZhbHVlIjoiVEJRazNpMEVXR3ZYS3RHUGVwUW5TR2QvYU9mSHZpN2xmUnpvang3a3dJa1AraEU0eERzUHREeHJEQ1U5SHUrQWFid3NieHdCYmNSK1kyVFZ1VXRhRG9pb3V2azdiWkJqSzdEVWUvaHBSQ3NTcjJobVl2VHBhbk10MUNPc2JXbzgiLCJtYWMiOiI5NjM1OTU4YThhYjQ1NTdiYzYwZWY3OWM4OGZhMmE3ODhiMzEyYjI2NzNiNGM3MTNmNWFjMzE2MDFmNTRlNWRjIiwidGFnIjoiIn0%3D
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+        - name: id_bidang
+          in: query
+          schema:
+            type: integer
+          example: '1'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:23:58 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=99
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Get Api Program
+                  value:
+                    - id: 1
+                      nama: PROGRAM KEPUSTAKAAN
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 2
+                      nama: PROGRAM INTELEKTUALITAS
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 3
+                      nama: PROGRAM EKOLITERASI
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 4
+                      nama: PROGRAM SUPPORTING SYSTEM
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 5
+                      nama: leffler.savanah
+                      id_bidang: 2
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                    - id: 6
+                      nama: max94
+                      id_bidang: 3
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                    - id: 7
+                      nama: frederik06
+                      id_bidang: 4
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                    - id: 8
+                      nama: preston.medhurst
+                      id_bidang: 5
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                    - id: 9
+                      nama: elise.hoeger
+                      id_bidang: 6
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                    - id: 10
+                      nama: quigley.fletcher
+                      id_bidang: 7
+                      created_at: '2024-07-17T08:23:36.000000Z'
+                      updated_at: '2024-07-17T08:23:36.000000Z'
+                example-1:
+                  summary: with filter
+                  value:
+                    - id: 1
+                      nama: PROGRAM KEPUSTAKAAN
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 2
+                      nama: PROGRAM INTELEKTUALITAS
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 3
+                      nama: PROGRAM EKOLITERASI
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+                    - id: 4
+                      nama: PROGRAM SUPPORTING SYSTEM
+                      id_bidang: 1
+                      created_at: '2024-07-17T08:23:35.000000Z'
+                      updated_at: '2024-07-17T08:23:35.000000Z'
+    post:
+      tags:
+        - api > program
+      summary: Post Api Program
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                nama:
+                  type: string
+                  description: '(Required) '
+                  example: Program Buatan Manusia
+                id_bidang:
+                  type: integer
+                  example: '2'
+      parameters:
+        - name: cookie
+          in: header
+          schema:
+            type: string
+          description: cookie
+          example: >-
+            XSRF-TOKEN=eyJpdiI6ImZjK2kxUTFUd0xRdVFJazBOeUw2dUE9PSIsInZhbHVlIjoiTndkcm5CQ0liTGJtOTRxSXJXcHd2ODFmR3EwZWZ3amZvMGNqejkzNzJmN1IxMjFKajkzNWhoSWJsVGhxLzVJNHFSNzkxbExFRDhRZXpmMVp5c0FSTXZtbDBycTJrZ2tsd24yODVRZFVmSm9xOGZabUs4emE5WEpPZWp0Z1hIV3ciLCJtYWMiOiI4NzU5NzBhNjQ4ZThhYWEzNjRlYTg1M2Q0OWE2ZTliMGYzYThiYTVjODE0MzI1MzJjNWRkYjc5ODg2MmVhMTI3IiwidGFnIjoiIn0%3D;
+            salman_finance_api_session=eyJpdiI6InVRVU1paWx0TnV6aTdXNjZVRHdtVmc9PSIsInZhbHVlIjoib0dJbGQxYjU5MW5aWkIvQlpYTGNMMWlTaXJCNmdXbFo1bnp4VWRpa0xBMWE4UXFGdEx4MHNGZUNNWEhMdC9SZHVnQXhjMzFpMmtuVnpHQVV4TGxLYyttaTN3T0xkVDdCbnpUajVmVEJ0VE1RWUpWWG1DYUxZaW54Vk5jRXMxNUwiLCJtYWMiOiIxOWE0NzQ1Y2M5MTBmYmRmYjNlNTMwZDFhMWQ1YmU3MTc2Nzg1NzhmNjE4ZjUxZDQ3ZWVlZDA3NDc3MzAxMjhlIiwidGFnIjoiIn0%3D
+        - name: Content-Type
+          in: header
+          schema:
+            type: string
+          example: application/x-www-form-urlencoded
+        - name: Accept
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '201':
+          description: Created
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:25:23 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                nama: Program Buatan Manusia
+                id_bidang: '2'
+                updated_at: '2024-07-17T08:25:23.000000Z'
+                created_at: '2024-07-17T08:25:23.000000Z'
+                id: 11
   /api/programKegiatanRKA/{id}:
     get:
       tags:
@@ -8966,6 +9727,12 @@ paths:
       summary: Program list
       security:
         - noauthAuth: []
+      parameters:
+        - name: id_bidang
+          in: query
+          schema:
+            type: integer
+          example: '1'
       responses:
         '200':
           description: OK
@@ -8973,7 +9740,7 @@ paths:
             Date:
               schema:
                 type: string
-                example: Mon, 15 Jul 2024 14:36:39 GMT
+                example: Wed, 17 Jul 2024 08:53:24 GMT
             Server:
               schema:
                 type: number
@@ -9017,180 +9784,24 @@ paths:
               example:
                 - id: 1
                   nama: PROGRAM KEPUSTAKAAN
-                  created_at: '2024-07-15T14:02:29.000000Z'
-                  updated_at: '2024-07-15T14:02:29.000000Z'
+                  id_bidang: 1
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
                 - id: 2
                   nama: PROGRAM INTELEKTUALITAS
-                  created_at: '2024-07-15T14:02:29.000000Z'
-                  updated_at: '2024-07-15T14:02:29.000000Z'
+                  id_bidang: 1
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
                 - id: 3
                   nama: PROGRAM EKOLITERASI
-                  created_at: '2024-07-15T14:02:29.000000Z'
-                  updated_at: '2024-07-15T14:02:29.000000Z'
+                  id_bidang: 1
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
                 - id: 4
                   nama: PROGRAM SUPPORTING SYSTEM
-                  created_at: '2024-07-15T14:02:30.000000Z'
-                  updated_at: '2024-07-15T14:02:30.000000Z'
-                - id: 5
-                  nama: shaina.gottlieb
-                  created_at: '2024-07-15T14:28:45.000000Z'
-                  updated_at: '2024-07-15T14:28:45.000000Z'
-                - id: 6
-                  nama: goyette.coleman
-                  created_at: '2024-07-15T14:28:45.000000Z'
-                  updated_at: '2024-07-15T14:28:45.000000Z'
-                - id: 7
-                  nama: jackeline57
-                  created_at: '2024-07-15T14:28:45.000000Z'
-                  updated_at: '2024-07-15T14:28:45.000000Z'
-                - id: 8
-                  nama: ifay
-                  created_at: '2024-07-15T14:28:45.000000Z'
-                  updated_at: '2024-07-15T14:28:45.000000Z'
-                - id: 9
-                  nama: iwiegand
-                  created_at: '2024-07-15T14:28:45.000000Z'
-                  updated_at: '2024-07-15T14:28:45.000000Z'
-                - id: 10
-                  nama: rosalyn.ortiz
-                  created_at: '2024-07-15T14:28:46.000000Z'
-                  updated_at: '2024-07-15T14:28:46.000000Z'
-                - id: 11
-                  nama: kfeeney
-                  created_at: '2024-07-15T14:28:46.000000Z'
-                  updated_at: '2024-07-15T14:28:46.000000Z'
-                - id: 12
-                  nama: isabella20
-                  created_at: '2024-07-15T14:28:46.000000Z'
-                  updated_at: '2024-07-15T14:28:46.000000Z'
-                - id: 13
-                  nama: buford.robel
-                  created_at: '2024-07-15T14:28:46.000000Z'
-                  updated_at: '2024-07-15T14:28:46.000000Z'
-                - id: 14
-                  nama: oscar.pfeffer
-                  created_at: '2024-07-15T14:28:46.000000Z'
-                  updated_at: '2024-07-15T14:28:46.000000Z'
-                - id: 15
-                  nama: gussie.wisozk
-                  created_at: '2024-07-15T14:30:25.000000Z'
-                  updated_at: '2024-07-15T14:30:25.000000Z'
-                - id: 16
-                  nama: skyla87
-                  created_at: '2024-07-15T14:30:26.000000Z'
-                  updated_at: '2024-07-15T14:30:26.000000Z'
-                - id: 17
-                  nama: jaqueline.dickinson
-                  created_at: '2024-07-15T14:30:26.000000Z'
-                  updated_at: '2024-07-15T14:30:26.000000Z'
-                - id: 18
-                  nama: acarter
-                  created_at: '2024-07-15T14:30:26.000000Z'
-                  updated_at: '2024-07-15T14:30:26.000000Z'
-                - id: 19
-                  nama: noelia.zemlak
-                  created_at: '2024-07-15T14:30:26.000000Z'
-                  updated_at: '2024-07-15T14:30:26.000000Z'
-                - id: 20
-                  nama: lucile.stoltenberg
-                  created_at: '2024-07-15T14:30:27.000000Z'
-                  updated_at: '2024-07-15T14:30:27.000000Z'
-                - id: 21
-                  nama: blanda.kylie
-                  created_at: '2024-07-15T14:30:27.000000Z'
-                  updated_at: '2024-07-15T14:30:27.000000Z'
-                - id: 22
-                  nama: bennie92
-                  created_at: '2024-07-15T14:30:27.000000Z'
-                  updated_at: '2024-07-15T14:30:27.000000Z'
-                - id: 23
-                  nama: geovanny58
-                  created_at: '2024-07-15T14:30:27.000000Z'
-                  updated_at: '2024-07-15T14:30:27.000000Z'
-                - id: 24
-                  nama: schroeder.katelin
-                  created_at: '2024-07-15T14:30:27.000000Z'
-                  updated_at: '2024-07-15T14:30:27.000000Z'
-                - id: 25
-                  nama: aisha.beatty
-                  created_at: '2024-07-15T14:32:08.000000Z'
-                  updated_at: '2024-07-15T14:32:08.000000Z'
-                - id: 26
-                  nama: rylee.langworth
-                  created_at: '2024-07-15T14:32:08.000000Z'
-                  updated_at: '2024-07-15T14:32:08.000000Z'
-                - id: 27
-                  nama: reinger.aniya
-                  created_at: '2024-07-15T14:32:08.000000Z'
-                  updated_at: '2024-07-15T14:32:08.000000Z'
-                - id: 28
-                  nama: filiberto.altenwerth
-                  created_at: '2024-07-15T14:32:09.000000Z'
-                  updated_at: '2024-07-15T14:32:09.000000Z'
-                - id: 29
-                  nama: oheathcote
-                  created_at: '2024-07-15T14:32:09.000000Z'
-                  updated_at: '2024-07-15T14:32:09.000000Z'
-                - id: 30
-                  nama: gbotsford
-                  created_at: '2024-07-15T14:32:09.000000Z'
-                  updated_at: '2024-07-15T14:32:09.000000Z'
-                - id: 31
-                  nama: julianne.bode
-                  created_at: '2024-07-15T14:32:09.000000Z'
-                  updated_at: '2024-07-15T14:32:09.000000Z'
-                - id: 32
-                  nama: moen.dolly
-                  created_at: '2024-07-15T14:32:09.000000Z'
-                  updated_at: '2024-07-15T14:32:09.000000Z'
-                - id: 33
-                  nama: evert17
-                  created_at: '2024-07-15T14:32:10.000000Z'
-                  updated_at: '2024-07-15T14:32:10.000000Z'
-                - id: 34
-                  nama: ona77
-                  created_at: '2024-07-15T14:32:10.000000Z'
-                  updated_at: '2024-07-15T14:32:10.000000Z'
-                - id: 35
-                  nama: joany04
-                  created_at: '2024-07-15T14:33:01.000000Z'
-                  updated_at: '2024-07-15T14:33:01.000000Z'
-                - id: 36
-                  nama: ledner.vesta
-                  created_at: '2024-07-15T14:33:01.000000Z'
-                  updated_at: '2024-07-15T14:33:01.000000Z'
-                - id: 37
-                  nama: reese.beatty
-                  created_at: '2024-07-15T14:33:01.000000Z'
-                  updated_at: '2024-07-15T14:33:01.000000Z'
-                - id: 38
-                  nama: terry.ernie
-                  created_at: '2024-07-15T14:33:01.000000Z'
-                  updated_at: '2024-07-15T14:33:01.000000Z'
-                - id: 39
-                  nama: tierra69
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
-                - id: 40
-                  nama: zpfannerstill
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
-                - id: 41
-                  nama: daisy57
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
-                - id: 42
-                  nama: ansley61
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
-                - id: 43
-                  nama: cole.kay
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
-                - id: 44
-                  nama: walker.gennaro
-                  created_at: '2024-07-15T14:33:02.000000Z'
-                  updated_at: '2024-07-15T14:33:02.000000Z'
+                  id_bidang: 1
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
   /api/mobile/laporan:
     get:
       tags:
@@ -9738,6 +10349,96 @@ paths:
                       id_judul_kegiatan: 4
                       created_at: '2024-07-15T14:02:29.000000Z'
                       updated_at: '2024-07-15T14:02:29.000000Z'
+  /api/mobile/bidang:
+    get:
+      tags:
+        - api > Mobile API
+      summary: bidang list
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 17 Jul 2024 08:53:54 GMT
+            Server:
+              schema:
+                type: number
+                example: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4
+            Vary:
+              schema:
+                type: string
+                example: Authorization
+            X-Powered-By:
+              schema:
+                type: number
+                example: PHP/8.2.4
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: https://app.localhost.direct
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                example: 'true'
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - id: 1
+                  nama: Bidang Pengkajian dan Penerbitan
+                  created_at: '2024-07-17T08:23:35.000000Z'
+                  updated_at: '2024-07-17T08:23:35.000000Z'
+                - id: 2
+                  nama: Bidang Mahasiswa, Kaderisasi, dan Alumni
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 3
+                  nama: Bidang Dakwah
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 4
+                  nama: Lembaga Pengembangan Pendidikan
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 5
+                  nama: Bidang Sarana dan Prasarana
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 6
+                  nama: Sekretariat, Humas, dan Personalia
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 7
+                  nama: Pusat Halal
+                  created_at: '2024-07-17T08:23:36.000000Z'
+                  updated_at: '2024-07-17T08:23:36.000000Z'
+                - id: 8
+                  nama: Bidang pembuatan dan pengembangan AI
+                  created_at: '2024-07-17T08:42:52.000000Z'
+                  updated_at: '2024-07-17T08:44:01.000000Z'
   /api/user:
     get:
       tags:
@@ -9853,7 +10554,7 @@ paths:
                   example: password
                 remember:
                   type: boolean
-                  example: 'true'
+                  example: 'false'
       parameters:
         - name: x-xsrf-token
           in: header
