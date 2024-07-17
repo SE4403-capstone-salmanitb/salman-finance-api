@@ -22,7 +22,7 @@ class UpdateProgramRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama' => ['nullable', 'string'],
+            'nama' => ['nullable', 'string', 'unique:programs,nama'],
             'id_bidang' => ['nullable', 'integer', 'exists:bidangs,id'],
         ];
     }
