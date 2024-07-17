@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Bidang extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+    ];
+
+    public function Programs()
+    {
+        return $this->hasMany(Bidang::class, 'id_bidang');
+    }
 }
