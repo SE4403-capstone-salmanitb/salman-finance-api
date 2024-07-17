@@ -67,7 +67,7 @@ Route::apiResources(
 
 
 Route::prefix('mobile')->group(function () {
-    Route::get('/bidang', [BidangController::class, 'index'])->name('mobile.program');
+    Route::get('/bidang', [BidangController::class, 'index'])->name('mobile.bidang');
     Route::get('/program', [ProgramController::class, 'index'])->name('mobile.program');
     Route::get('/laporan', SeeLaporanBulananController::class)->name('mobile.laporan');
 });
