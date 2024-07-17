@@ -11,7 +11,7 @@ class StoreProgramRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return $this->user()->is_admin == 1;
+        return true; //$this->user()->is_admin == 1;
     }
 
     /**
@@ -23,6 +23,7 @@ class StoreProgramRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string'],
+            'id_bidang' => ['required', 'integer', 'exists:bidangs,id'],
         ];
     }
 }

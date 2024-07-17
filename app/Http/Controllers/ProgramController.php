@@ -13,12 +13,21 @@ class ProgramController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {   
         Gate::authorize('viewAny', Program::class);
-        
-        return response()->json(Program::all());
 
+        $query = Program::query();
+
+        $request->validate([
+            'id_bidang' => ['nullable', 'integer', 'exists:bidangs,id']
+        ]);
+
+        if ($request->has('id_bidang')){
+            $query->where('id_bidang', $request->id_bidang);
+        }
+        
+        return response()->json($query->get());
     }
 
     /**
@@ -28,9 +37,7 @@ class ProgramController extends Controller
     {
         Gate::authorize('create', Program::class);
 
-        $Program = Program::create([
-            'nama' => $request->nama
-        ]);
+        $Program = Program::create(array_filter($request->validated()));
 
         return response()->json($Program, $status = 201);
     }
@@ -52,7 +59,7 @@ class ProgramController extends Controller
     {
         Gate::authorize('update', $Program);
 
-        $Program->update(['nama' => $request->nama]);
+        $Program->update(array_filter($request->validated()));
 
         return response()->json($Program);
     }

@@ -11,12 +11,10 @@ use App\Http\Controllers\Mobile\SeeLaporanBulananController;
 use App\Http\Controllers\PelaksanaanController;
 use App\Http\Controllers\PenerimaManfaatController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\BidangController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
-use App\Http\Middleware\geolocationNotification; // <----
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use Stevebauman\Location\Facades\Location;
 
@@ -45,6 +43,7 @@ Route::match(['patch', 'put'], '/laporanBulanan/verify/{laporanBulanan}', [Lapor
 
 Route::apiResources(
     [
+        '/bidang' => BidangController::class,
         '/program' => ProgramController::class,
         '/programKegiatanRKA' => ProgramKegiatanRKAController::class,
         '/programKegiatanKPI' => ProgramKegiatanKPIController::class,
@@ -68,6 +67,7 @@ Route::apiResources(
 
 
 Route::prefix('mobile')->group(function () {
+    Route::get('/bidang', [BidangController::class, 'index'])->name('mobile.bidang');
     Route::get('/program', [ProgramController::class, 'index'])->name('mobile.program');
     Route::get('/laporan', SeeLaporanBulananController::class)->name('mobile.laporan');
 });

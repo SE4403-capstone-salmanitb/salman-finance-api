@@ -11,7 +11,13 @@ class Program extends Model
 
     protected $fillable = [
         'nama',
+        'id_bidang'
     ];
+
+    public function Bidang()
+    {
+        return $this->belongsTo(Bidang::class, 'id_bidang');
+    }
 
     public function ProgramKegiatanRKA()
     {

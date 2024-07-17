@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProgramRequest extends FormRequest
+class UpdateBidangRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true; //$this->user()->is_admin == 1;
+        return true;
     }
 
     /**
@@ -23,7 +23,6 @@ class UpdateProgramRequest extends FormRequest
     {
         return [
             'nama' => ['nullable', 'string'],
-            'id_bidang' => ['nullable', 'integer', 'exists:bidangs,id'],
         ];
     }
 }
