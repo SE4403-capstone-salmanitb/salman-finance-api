@@ -13,12 +13,21 @@ class ProgramController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {   
         Gate::authorize('viewAny', Program::class);
-        
-        return response()->json(Program::all());
 
+        $query = Program::query();
+
+        $request->validate([
+            'id_bidang' => ['nullable', 'integer', 'exists:bidangs,id']
+        ]);
+
+        if ($request->has('id_bidang')){
+            $query->where('id_bidang', $request->id_bidang);
+        }
+        
+        return response()->json($query->get());
     }
 
     /**

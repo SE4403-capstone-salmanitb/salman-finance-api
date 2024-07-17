@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('nama')->unique();
+            $table->foreignId('id_bidang')->references('id')->on('bidangs')->cascadeOnDelete();
             $table->timestamps();
         });
     }

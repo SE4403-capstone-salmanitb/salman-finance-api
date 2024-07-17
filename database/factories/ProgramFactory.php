@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Bidang;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,14 @@ class ProgramFactory extends Factory
     {
         return [
             //
-            'nama' => fake()->userName
-
+            'nama' => fake()->userName,
+            'id_bidang' => function() {
+                $program = Bidang::first();
+                if (!$program) {
+                    $program = Bidang::factory()->create();
+                }
+                return $program->id;
+            },
         ];
     }
 }

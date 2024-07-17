@@ -17,7 +17,7 @@ class BidangFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama' => 'Bidang '.fake()->jobTitle,
         ];
     }
 }
