@@ -31,7 +31,7 @@ class ProgramPolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin == 1;
+        return true;
     }
 
     /**
@@ -39,7 +39,7 @@ class ProgramPolicy
      */
     public function update(User $user, program $program): bool
     {
-        return $user->is_admin == 1;
+        return true;
         
     }
 
@@ -48,22 +48,6 @@ class ProgramPolicy
      */
     public function delete(User $user, program $program): bool
     {
-        return $user->is_admin == 1;
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, program $program): bool
-    {
-        return $user->is_admin == 1;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, program $program): bool
-    {
-        return $user->is_admin == 1;
+        return true;
     }
 }

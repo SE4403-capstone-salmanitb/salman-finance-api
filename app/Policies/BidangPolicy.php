@@ -11,9 +11,10 @@ class BidangPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user = null): bool
     {
         //
+        return true;
     }
 
     /**
@@ -21,7 +22,7 @@ class BidangPolicy
      */
     public function view(User $user, Bidang $bidang): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +30,8 @@ class BidangPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return $user->is_admin == 1;
+        
     }
 
     /**
@@ -37,7 +39,8 @@ class BidangPolicy
      */
     public function update(User $user, Bidang $bidang): bool
     {
-        //
+        return $user->is_admin == 1;
+        
     }
 
     /**
@@ -45,22 +48,6 @@ class BidangPolicy
      */
     public function delete(User $user, Bidang $bidang): bool
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Bidang $bidang): bool
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Bidang $bidang): bool
-    {
-        //
+        return $user->is_admin == 1;   
     }
 }
