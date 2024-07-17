@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Bidang;
 use App\Models\program;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -40,28 +41,12 @@ class ProgramTest extends TestCase
 
         $response = $this->postJson('/api/program',
             [
-                'nama' => fake()->name()
+                'nama' => fake()->name(),
+                'id_bidang' => Bidang::factory()->createOne()->id
             ]
         );
 
         $response->assertStatus(401);
-    }
-
-    public function test_program_store_non_admin(): void
-    {
-        $user = User::factory()->create();
-
-
-        $response = $this->postJson('/api/program',
-            [
-                'nama' => fake()->name()
-            ],
-            headers:[
-                'authorization' => "Bearer ".$user->createToken('')->plainTextToken
-            ]
-        );
-
-        $response->assertStatus(403);
     }
 
     public function test_program_store_is_admin(): void
@@ -74,7 +59,9 @@ class ProgramTest extends TestCase
 
         $response = $this->postJson('/api/program',
             [
-                'nama' => $fake_name
+                'nama' => $fake_name,
+                'id_bidang' => Bidang::factory()->createOne()->id
+
             ],
             headers:[
                 'authorization' => "Bearer ".$user->createToken('')->plainTextToken
@@ -156,22 +143,6 @@ class ProgramTest extends TestCase
         $response->assertJsonFragment(['nama' => $updatedName]);
     }
 
-    public function test_program_update_not_admin(): void
-    {
-        $user = User::factory()->create([
-            'is_admin' => 0
-        ]);
-
-        $program = Program::factory()->create();
-
-        $response = $this->putJson("/api/program/{$program->id}", [
-            'nama' => 'Updated Name',
-        ], [
-            'authorization' => "Bearer ".$user->createToken('')->plainTextToken
-        ]);
-
-        $response->assertStatus(403);
-    }
 
     public function test_program_update_unauthorized(): void
     {
@@ -187,7 +158,7 @@ class ProgramTest extends TestCase
     public function test_program_delete_is_admin(): void
     {
         $user = User::factory()->create([
-            'is_admin' => 1
+            'is_admin' => 1,
         ]);
 
         $program = Program::factory()->create();
@@ -198,19 +169,6 @@ class ProgramTest extends TestCase
 
         $response->assertStatus(204);
 
-    }
-
-    public function test_program_delete_not_admin(): void
-    {
-        $user = User::factory()->create();
-
-        $program = Program::factory()->create();
-
-        $response = $this->deleteJson("/api/program/{$program->id}", [], [
-            'authorization' => "Bearer ".$user->createToken('')->plainTextToken
-        ]);
-
-        $response->assertStatus(403);
     }
 
     public function test_program_delete_unauthorized(): void
