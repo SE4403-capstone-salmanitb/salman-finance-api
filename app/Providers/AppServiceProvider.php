@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Bidang;
+use App\Policies\BidangPolicy;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

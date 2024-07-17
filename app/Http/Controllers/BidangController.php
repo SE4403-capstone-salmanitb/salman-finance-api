@@ -5,24 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Bidang;
 use App\Http\Requests\StoreBidangRequest;
 use App\Http\Requests\UpdateBidangRequest;
-use App\Policies\BidangPolicy;
 use Illuminate\Support\Facades\Gate;
 
 class BidangController extends Controller
 {
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
-    {
-        Gate::policy(Bidang::class, BidangPolicy::class);
-    }
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        Gate::authorize('viewAny', Bidang::class);
+
         return response()->json(Bidang::all());
     }
 
@@ -31,6 +25,8 @@ class BidangController extends Controller
      */
     public function store(StoreBidangRequest $request)
     {
+        Gate::authorize('create', Bidang::class);
+
         $bidang = Bidang::create(array_filter($request->validated()));
 
         return response()->json($bidang, $status = 201);
@@ -41,6 +37,8 @@ class BidangController extends Controller
      */
     public function show(Bidang $bidang)
     {
+        Gate::authorize('view', $bidang);
+
         return response()->json($bidang);
     }
 
@@ -49,6 +47,8 @@ class BidangController extends Controller
      */
     public function update(UpdateBidangRequest $request, Bidang $bidang)
     {
+        Gate::authorize('update', $bidang);
+
         $bidang->update(array_filter($request->validated()));
 
         return response()->json($bidang);
@@ -59,6 +59,8 @@ class BidangController extends Controller
      */
     public function destroy(Bidang $bidang)
     {
+        Gate::authorize('delete', $bidang);
+        
         $bidang->deleteOrFail();
 
         return response()->noContent();
