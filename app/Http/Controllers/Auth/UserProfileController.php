@@ -5,22 +5,44 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\DeleteMyAccountRequested;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Validation\Rules\File;
+use Intervention\Image\Drivers\Imagick\Driver;
+use Intervention\Image\Exceptions\NotWritableException;
+use Intervention\Image\ImageManager;
 
 class UserProfileController extends Controller
 {
     public function update(Request $request){
         $request->validate([
             "name" => ['string', 'nullable', 'max:255'],
-            "profile_picture" => ['nullable', 'url', 'regex:~^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpe?g|gif|png)$~'] # regex for image url
+            "profile_picture_url" => ['nullable', 'prohibits:profile_picture_raw', 'url', 'regex:~^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpe?g|gif|png)$~'], # regex for image url,
+            "profile_picture_raw" => ['nullable', 'prohibits:profile_picture_url', File::image()->max('10mb')]
         ]);
+
+        $uploadedImage = null; // if somehow error happened
+
+        if ($request->has('profile_picture_raw')){
+            /** @var UploadedFile */
+            $image = $request->file('profile_picture_raw');
+
+            $image_name = time().'_'.$image->getClientOriginalName();
+            $path = public_path('profile') . "/" . $image_name;
+
+            ImageManager::gd()->read($image->getRealPath())->cover(400,400)->save($path); // https://www.searchenginejournal.com/social-media-image-sizes/488891/
+            
+            $uploadedImage = config('app.url')."/profile/".$image_name;
+        }
 
         $request->user()->updateOrFail(array_filter([
             "name" => $request->name,
-            "profile_picture" => $request->profile_picture
+            "profile_picture" => $request->profile_picture_url ?? $uploadedImage,
         ]));
 
         return response()->json($request->user()); 

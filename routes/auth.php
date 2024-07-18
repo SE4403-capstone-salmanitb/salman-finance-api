@@ -57,7 +57,7 @@ Route::match(['patch', 'put'], '/user/password', UserPasswordChangeController::c
 ->middleware(['auth', 'auth:sanctum', 'throttle:6,1'])
 ->name("user.changePassword");
 
-Route::match(['patch', 'put'], '/user', [UserProfileController::class, 'update'])
+Route::match(['patch', 'put', 'post'], '/user', [UserProfileController::class, 'update'])
 ->middleware(['auth', 'auth:sanctum'])
 ->name("user.profile.update");
 
