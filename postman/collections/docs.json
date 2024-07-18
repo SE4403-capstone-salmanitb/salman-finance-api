@@ -9647,7 +9647,8 @@
 							{
 								"key": "cookie",
 								"value": "XSRF-TOKEN=eyJpdiI6ImJVNFdreng2Qzg4Sy9kYU85WW44cUE9PSIsInZhbHVlIjoiRW9TSzFWVkh3Sk12ZjZZK29TVWtXQStaNXBER3dlMWZ6TDg2NEZmbUJnMzY1M2dVdzFyRG1hU1lSbGtIVnArYTdvaVBOekp2eWJ3M0ticGZJeFVtbzR4T3RsRU1BNFlEdXE5bUpuaHBONVN5M1l5RlQ5OFpsSmQ5Mm5rYnA4TksiLCJtYWMiOiI0YjNhZTkyNjVmNGYxNWJlZjFkOGRjN2NiMzM4N2JkYjhlN2E5NWQxMTk4NDIyYzdlOTk2N2U0OGU4MDcyMDVhIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6ImNkNGp2WCtjOXY0SkpYeW1XWFRKdFE9PSIsInZhbHVlIjoiY0hrY3JqMmVaL1cveG9DYmZrOFUwcHNGWDZRdzlVbWQ3QUI0TUdDZExQWGQxTkZZRWs5eHo1QzRlV0R1L2hwMHUvYXZIVEhoN0phbERBcVVJOTYydW9qcGdmdkIyVkp5emVsNEI4N0N3VmpJYUZUTFBHSklKTFNpT0s3WGd1dEgiLCJtYWMiOiI0MzdlZWY5OGI4ZjhlM2RmOWNhMzAxZTk2ZTcxNmEyYTliNTMwNTE4Nzc1ZGFhNzMyNmFiNzQ0MmJjZjUwZDRjIiwidGFnIjoiIn0%3D",
-								"description": "cookie"
+								"description": "cookie",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -11204,7 +11205,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
@@ -11218,17 +11219,27 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+							"mode": "formdata",
+							"formdata": [
 								{
 									"key": "name",
-									"value": "Bapak Teman saya",
+									"value": "test upload raw",
 									"type": "text"
 								},
 								{
-									"key": "profile_picture",
-									"value": "https://i.ibb.co.com/26q1msP/default-blue2.png",
-									"type": "text"
+									"key": "profile_picture_url",
+									"value": "https://i.ibb.co.com/2qXwjX3/default-blue1.png",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "profile_picture_raw",
+									"type": "file",
+									"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+									"filesNotInWorkingDirectory": [
+										"/C:/Users/acer/Pictures/Public Domain Art/edison-s-backwards-bicycle-rider-1899.gif"
+									],
+									"src": "postman-cloud:///1ef44cf5-d330-4b00-8c26-c204e112b5e4"
 								}
 							]
 						},
@@ -11269,7 +11280,7 @@
 											"type": "text"
 										},
 										{
-											"key": "profile_picture",
+											"key": "profile_picture_url",
 											"value": "https://i.ibb.co.com/26q1msP/default-blue2.png",
 											"type": "text"
 										}
@@ -11363,7 +11374,7 @@
 											"type": "text"
 										},
 										{
-											"key": "profile_picture",
+											"key": "profile_picture_url",
 											"value": "https://i.ibb.co.com/regex-fail",
 											"type": "text"
 										}
@@ -11430,6 +11441,327 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"The profile picture field format is invalid.\",\n    \"errors\": {\n        \"profile_picture\": [\n            \"The profile picture field format is invalid.\"\n        ]\n    }\n}"
+						},
+						{
+							"id": "c0b02937-0680-4942-a8ba-22a4a1bfa35f",
+							"name": "don't use both option!",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test upload not both image1",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture_url",
+											"value": "https://i.ibb.co.com/2qXwjX3/default-blue1.png",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture_raw",
+											"type": "file",
+											"src": [
+												"postman-cloud:///1eeece15-0011-48f0-a08c-3158ca301a6c"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "Unprocessable Content",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 05:55:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6ImNOeUFFcUpCeUNNRjBoOUZDZjhEN0E9PSIsInZhbHVlIjoiTkNVMFlVQkJvL1p1N3dmejhNL0Q0L0RBeElwT2I4ZzFOdm1EMUFSSzFkdEhJNjR6ck0wMVF3eFJ4aW13Vm9Id2xEN09RMmtWczBXTHU4b2tmUHYyUW5iVnNYYXpMWG9QMk9Od0JCVXRPOXo1eG1KNnZ6bWJWWHVaL3NkY0pBVU0iLCJtYWMiOiI4ZjdiMWE4ZDhkZmRhNjRkMWE3M2Q4ODhiMjU2OWE0N2I1ZmVhYzM2ZWI0YTgzZTE0YzA4NmUzMWQ0YmQ3OTU4IiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 07:55:00 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6InFqNXV4VjdReTI1VVowV0lJd3BwVnc9PSIsInZhbHVlIjoiTk9aaU1ET1QzNnlRMzlqKzdabnlIaXVkMm85bnNQV0J0d1gvTWNYVWpqa1BhZFpsVHo4VnNWNHloT2VZQW9jalFKNzBJN0JlT2lzTHJiWWcrcjdOWnltblVxdndZbHhFRGtVY1RNdXdQQ25WeUc3RjduL1JKL29YK2YrOWt6NzIiLCJtYWMiOiIyMWYzM2VjNmI4YWY2OWZmYzYxNTJlMzQwYzlhNWFiNzE1MzkyYTJjNDAxNWFiYmYwMzM1ZGE1N2Q1ZjEwODkxIiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 07:55:00 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The profile picture url field prohibits profile picture raw from being present. (and 1 more error)\",\n    \"errors\": {\n        \"profile_picture_url\": [\n            \"The profile picture url field prohibits profile picture raw from being present.\"\n        ],\n        \"profile_picture_raw\": [\n            \"The profile picture raw field prohibits profile picture url from being present.\"\n        ]\n    }\n}"
+						},
+						{
+							"id": "4e3442d2-7518-480e-9393-e3bb4ef26d2c",
+							"name": "update with raw file",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test upload raw",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture_url",
+											"value": "https://i.ibb.co.com/2qXwjX3/default-blue1.png",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "profile_picture_raw",
+											"type": "file",
+											"src": [
+												"postman-cloud:///1eeece15-0011-48f0-a08c-3158ca301a6c"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 06:13:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6Ijh4LzVHRGs0K29RYXQ2UGJJT3hRMWc9PSIsInZhbHVlIjoib0ZaSDBjSXFZNEx5R2I2QTFoelJSMy9zTGRlbGdQVEpacVRPeHhxMStxWWdCaHltemJpT040aEFIRGYrZHZtNDhDdGZZeXBQNHVQbmhNNlRnNFRPaDh0WWdNVitMS2FLdnRSdjhjZGsxdDZabjliV09XeXhNcmY0SmlzK2p4WGsiLCJtYWMiOiIwNDg4YzI1N2RmNTVhNDcxOWExNzNjZDc4MGJhMTU2MzhlYWU0MDE0ZjgyNDUzYzVkNDFkYzcwNzFmNGQzYTEzIiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 08:13:21 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6InhEcUwvc2hIVGVzdUdmbTVvbmdBMXc9PSIsInZhbHVlIjoidnNOMTBxQjJBc0xrMjAvdC9xR0ZMSjRvMm4rYmt5MUxuSmRNdE1pYmsxQm1Vc1huaVdJMWNwZHppUWNaMFErY1VQdWFyWEp4eFhQZUZqZjFqelkvRXkwMUgza3ZvTWJJUU5yekpubkx2eTBndE9Uck1tVHJxQUhiY0pFa0dGamYiLCJtYWMiOiJlMjdkYzFiMjYzMzNjODNjMDZhNTM2NGYzMzRkM2MwYzg4ZDdiNDU3NjY1ZDdhMzUzOWY5ZTk5OGM3MzIyNjhjIiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 08:13:21 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"test upload raw\",\n    \"email\": \"test@example.com\",\n    \"email_verified_at\": \"2024-07-18T05:44:38.000000Z\",\n    \"is_admin\": 1,\n    \"profile_picture\": \"https://api.localhost.direct/profile/1721283201_tes1.jpg\",\n    \"created_at\": \"2024-07-18T05:44:38.000000Z\",\n    \"updated_at\": \"2024-07-18T06:13:21.000000Z\"\n}"
+						},
+						{
+							"id": "74d7b55e-1ca3-4661-be81-b0a669d394a8",
+							"name": "gif is also possible",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test upload raw",
+											"type": "text"
+										},
+										{
+											"key": "profile_picture_url",
+											"value": "https://i.ibb.co.com/2qXwjX3/default-blue1.png",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "profile_picture_raw",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/C:/Users/acer/Pictures/Public Domain Art/edison-s-backwards-bicycle-rider-1899.gif"
+											],
+											"src": [
+												"postman-cloud:///1ef44cf5-d330-4b00-8c26-c204e112b5e4"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 06:31:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6Im44N2IzQ3dDM3hjLzRFSVJkTUV4UHc9PSIsInZhbHVlIjoiNUUxa2J6T0dTOFZKN0gzbHZUcHFOR2FnVDkyMkVFNnFhNld5Wi9ySGRYR3hYY2Zqa2JhVFZnS3pnM0EwM1c2TnBNeVFXczBpZ3FZVXkrVFQwbVhqQnZFNUZSY0xNTFg2NHpjMm9MOEt6WUplWENVN201dDJmdUk5dS9KczRPN0oiLCJtYWMiOiI0MTZmNGJmMTM2ZjZlOGQ5YzcxZGY4OGJlZWVmNGY1OWRkNTA5NmZhZDljMmEzODcwODJmYTI3NDBjMjM4MmNkIiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 08:31:37 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ii90akI0MGFyejVOdTdGalRJZmY5Y2c9PSIsInZhbHVlIjoiOUY2YTRaOGhnT3BPTzREbEhVLzVvTUk1N2NtNDlNdnd2L1FGQzFxeEFuVzJzRmlnYXRBSTRtOHd6UnFKcWdRYkI3dkJDUnNzUDN1clFjZm55ZC9XUEFYRThSUGdFM0ZjZWticFNPb0g1aERLNFliVXBKVEFQN1FtK0Y5ejFCNTUiLCJtYWMiOiI3OGJmNDQ0OTQwZWQ1OGFjZDU0ZWU1ZGFhYjk2ZTQ2MTE3NjE4NmYyZjk2Mzc1OThiMGU5NGIzMzQ2NTkwZmVhIiwidGFnIjoiIn0%3D; expires=Thu, 18 Jul 2024 08:31:37 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"name\": \"test upload raw\",\n    \"email\": \"test@example.com\",\n    \"email_verified_at\": \"2024-07-18T05:44:38.000000Z\",\n    \"is_admin\": 1,\n    \"profile_picture\": \"https://api.localhost.direct/profile/1721284293_edison-s-backwards-bicycle-rider-1899.gif\",\n    \"created_at\": \"2024-07-18T05:44:38.000000Z\",\n    \"updated_at\": \"2024-07-18T06:31:37.000000Z\"\n}"
 						}
 					]
 				},
@@ -11933,42 +12265,42 @@
 	],
 	"variable": [
 		{
-			"id": "2be3a840-bb9e-4557-96cb-dc5f6a6ee412",
+			"id": "116ff7c2-182e-4f72-baad-4bde289f30c9",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "c9833f76-5e21-404c-bf0c-47a171577961",
+			"id": "26ae9dd6-02a4-45f5-b6a2-e17d4a13de57",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "fb8cd68d-7831-4429-8751-b74241b36389",
+			"id": "a5e8f49e-04b7-4114-a786-84accfe30088",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "5fa831b6-14ed-4d83-b08e-235812b1f9b2",
+			"id": "e7a2c018-b938-4350-bbd1-a74a76affe9e",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "8261bf66-7d1a-452f-98a2-42cec54b3ef6",
+			"id": "a169225b-2e36-4eb7-91af-dda80be8533f",
 			"key": "id_penerima_manfaat",
 			"value": ""
 		},
 		{
-			"id": "a6a14fdd-a043-45d0-a22f-1aabc3fff8fc",
+			"id": "662dab52-85f6-4cd9-97a1-46e083e5f93e",
 			"key": "laporan_id",
 			"value": ""
 		},
 		{
-			"id": "1cd15ae5-8cd9-4e93-a255-17ce7dcd4695",
+			"id": "603a8657-51eb-4205-aef1-0a9205218012",
 			"key": "id_dana",
 			"value": ""
 		},
 		{
-			"id": "a007d7ed-47fa-487c-8b8e-de6510f466f1",
+			"id": "bbdd5836-330a-439f-a31b-b0dac88a2903",
 			"key": "alokasiDana_id",
 			"value": ""
 		}
