@@ -9704,31 +9704,23 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "x-xsrf-token",
-								"value": "eyJpdiI6IjVmN2VSc1BFaTEwcDRkU0ZIdzZzS1E9PSIsInZhbHVlIjoiMnZ1Nk11WThvL3lsMmlqcFZKbFhlY1h5dGpEdWw3Y1dqS3Y2ekdwM05HSXRUNGM4QzlUa0JLdnc5c2RyWXlLaW1JY0piNTVXck05c2hhRXBTamdCNGw4U040dzAwNnRXSkpTNVBFSlhtTjY0T2VReXp4djI2SmhaRytrbzNSYnIiLCJtYWMiOiIyYjYxODJjYTBmYjJlNjRiNDNiNTU3MDU2ZTU3NTVhOTg2MmEyYTM3MGMyM2Y2NjZlYWZmOTE4MWYwNDZmYWZkIiwidGFnIjoiIn0=",
-								"description": "x-xsrf-token"
-							},
-							{
-								"key": "cookie",
-								"value": "XSRF-TOKEN=eyJpdiI6IjVmN2VSc1BFaTEwcDRkU0ZIdzZzS1E9PSIsInZhbHVlIjoiMnZ1Nk11WThvL3lsMmlqcFZKbFhlY1h5dGpEdWw3Y1dqS3Y2ekdwM05HSXRUNGM4QzlUa0JLdnc5c2RyWXlLaW1JY0piNTVXck05c2hhRXBTamdCNGw4U040dzAwNnRXSkpTNVBFSlhtTjY0T2VReXp4djI2SmhaRytrbzNSYnIiLCJtYWMiOiIyYjYxODJjYTBmYjJlNjRiNDNiNTU3MDU2ZTU3NTVhOTg2MmEyYTM3MGMyM2Y2NjZlYWZmOTE4MWYwNDZmYWZkIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IldmYWYyY2Nnc3BJVVBvbEdHRTZYaVE9PSIsInZhbHVlIjoiS1NiNnozK3FqdTlTUUNONmttblEzdXl5Qm8yWmI1TG56SC9NNVhJR1ZvZG1ZWkpyWU5CMWo0Nm1yVkN2dmJuVkRyOVI4dFU5RTdNNkUzTHpuY3c2RlZ1SnYxdEZRcEpCUlNwZER3ejFtVG1icnEzdXFkUHB0bXVaa0JVNXBaOG4iLCJtYWMiOiI2NmIzYzkxYzg0OWU4ZjgyMjhjYzVlODVlOWJjODY1MDVmMmEzZDRiMGQwYzRiMDczMTVhNWI4MzIyNzkyM2M5IiwidGFnIjoiIn0%3D",
-								"description": "cookie"
-							},
-							{
-								"key": "Content-Type",
-								"value": "multipart/form-data"
-							},
-							{
 								"key": "Accept",
-								"value": "application/json"
+								"value": "Application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{csrf-token}}",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
-									"description": "(Required) ",
-									"key": "----------------------------774156007657604883734833\r\nContent-Disposition: form-data; name",
-									"value": "<string>",
+									"key": "email",
+									"value": "renner.laurence@example.net",
 									"type": "text"
 								}
 							]
@@ -9745,37 +9737,29 @@
 					},
 					"response": [
 						{
-							"id": "b7e1c6c7-4b46-48a4-ba22-4cf04a5f4c01",
-							"name": "Untitled Example",
+							"id": "6d3270c4-3cbf-434e-8c6c-ff243adf8deb",
+							"name": "Minta token reset password",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
-										"description": "x-xsrf-token",
-										"key": "x-xsrf-token",
-										"value": "eyJpdiI6IjVmN2VSc1BFaTEwcDRkU0ZIdzZzS1E9PSIsInZhbHVlIjoiMnZ1Nk11WThvL3lsMmlqcFZKbFhlY1h5dGpEdWw3Y1dqS3Y2ekdwM05HSXRUNGM4QzlUa0JLdnc5c2RyWXlLaW1JY0piNTVXck05c2hhRXBTamdCNGw4U040dzAwNnRXSkpTNVBFSlhtTjY0T2VReXp4djI2SmhaRytrbzNSYnIiLCJtYWMiOiIyYjYxODJjYTBmYjJlNjRiNDNiNTU3MDU2ZTU3NTVhOTg2MmEyYTM3MGMyM2Y2NjZlYWZmOTE4MWYwNDZmYWZkIiwidGFnIjoiIn0="
-									},
-									{
-										"description": "cookie",
-										"key": "cookie",
-										"value": "XSRF-TOKEN=eyJpdiI6IjVmN2VSc1BFaTEwcDRkU0ZIdzZzS1E9PSIsInZhbHVlIjoiMnZ1Nk11WThvL3lsMmlqcFZKbFhlY1h5dGpEdWw3Y1dqS3Y2ekdwM05HSXRUNGM4QzlUa0JLdnc5c2RyWXlLaW1JY0piNTVXck05c2hhRXBTamdCNGw4U040dzAwNnRXSkpTNVBFSlhtTjY0T2VReXp4djI2SmhaRytrbzNSYnIiLCJtYWMiOiIyYjYxODJjYTBmYjJlNjRiNDNiNTU3MDU2ZTU3NTVhOTg2MmEyYTM3MGMyM2Y2NjZlYWZmOTE4MWYwNDZmYWZkIiwidGFnIjoiIn0%3D; salman_finance_api_session=eyJpdiI6IldmYWYyY2Nnc3BJVVBvbEdHRTZYaVE9PSIsInZhbHVlIjoiS1NiNnozK3FqdTlTUUNONmttblEzdXl5Qm8yWmI1TG56SC9NNVhJR1ZvZG1ZWkpyWU5CMWo0Nm1yVkN2dmJuVkRyOVI4dFU5RTdNNkUzTHpuY3c2RlZ1SnYxdEZRcEpCUlNwZER3ejFtVG1icnEzdXFkUHB0bXVaa0JVNXBaOG4iLCJtYWMiOiI2NmIzYzkxYzg0OWU4ZjgyMjhjYzVlODVlOWJjODY1MDVmMmEzZDRiMGQwYzRiMDczMTVhNWI4MzIyNzkyM2M5IiwidGFnIjoiIn0%3D"
-									},
-									{
-										"key": "Content-Type",
-										"value": "multipart/form-data"
-									},
-									{
 										"key": "Accept",
-										"value": "application/json"
+										"value": "Application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
 									}
 								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"mode": "urlencoded",
+									"urlencoded": [
 										{
-											"description": "(Required) ",
-											"key": "----------------------------774156007657604883734833\r\nContent-Disposition: form-data; name",
-											"value": "<string>",
+											"key": "email",
+											"value": "renner.laurence@example.net",
 											"type": "text"
 										}
 									]
@@ -9795,12 +9779,224 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "Date",
+									"value": "Sun, 21 Jul 2024 06:00:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IllibHFkRXpyZUlXa3R2VmNRVUhSelE9PSIsInZhbHVlIjoicEZLQ3JheUtzZ1lNNkh6eVpPemh6TWc4bkJQdUtlZm1rZ3gvWDREWHlsUUtlcENlWFF4RXNnQlZySHhDYUY3WWoyaWt3dXJ6ZFRNT0RvWU5yVmNHaStLeHJ6bis3b0kzYkppdU0rYXFmN05XRnF5VU1BQ3hDK1NVWWszcVlTU3EiLCJtYWMiOiJmNGVkZjhiNWJjMGU4Njc2ZWM4NjcwODJlOTFlZGI5MTg2ZjkyNjcxMDQxNWE0M2I2YmNjNGJmOTk3ZmJiYzcxIiwidGFnIjoiIn0%3D; expires=Sun, 21 Jul 2024 08:00:27 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6IlJiYTNMU2QvSUdtNlpoeE5QR0pBbkE9PSIsInZhbHVlIjoiYVg2YlFMdHNkSVBzT2xxckRKOFBERnNwNmNrZ2pnZkg1bWg0NE5CaVJTRjNiT3ZLNjdsY2tOUEhONDhDMUNNcW9uSEErdXZsTTJkcTFtaTRhN296ZEJObER3dU91T3F0SytTd2dXMU9CanZSZVVwczJSSGdYMmc4Y1NhOWJqMmYiLCJtYWMiOiJhNDM3ZmU2NzBhM2M5ZmMwN2ZjODQ4NWZmMzY0NGFmYTc1ZDRmNzJkYmQ4OTBmOGUxNjA5MjkxMDA3OTBkOWM2IiwidGFnIjoiIn0%3D; expires=Sun, 21 Jul 2024 08:00:27 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
 									"key": "Content-Type",
 									"value": "application/json"
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"status\": \"<string>\"\n}"
+							"body": "{\n    \"status\": \"We have emailed your password reset link.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset forgotten Password",
+					"id": "b7af57d8-bf14-4c9d-bead-6b06ef45d204",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "Application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{csrf-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "renner.laurence@example.net",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "376f547654fa7bed408598bf99bd2fe6f9a530ba1b6684fa9d7e14dbc03fa1fd",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "KemonoMini",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "KemonoMini",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/reset-password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reset-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1bef9ba1-1998-49b2-a4cb-23bbbdee0b95",
+							"name": "Reset forgotten Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "renner.laurence@example.net",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "376f547654fa7bed408598bf99bd2fe6f9a530ba1b6684fa9d7e14dbc03fa1fd",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "KemonoMini",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "KemonoMini",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reset-password",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reset-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 21 Jul 2024 06:02:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://app.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6ImxvNTk2dGhaY2pTOWdhdmovMWJXMWc9PSIsInZhbHVlIjoibVlYQ1pyK082c3ZETUFGZ0FzTzdJYjRNbncwcWtQUG1OQk1hY2RMU3ZXU3ExS3JNZDFiOTF3dThpOWFKbUlaelJVL3dGaGlvZ3JENjBTTnFoM2pLR0ZOdnFkQnRNMTdhaTdiQ0N0UDB6elFKeDlDcmowNldwK2p3cG1HcWFVblUiLCJtYWMiOiI0ZTlkODkzNTI4NWUzNmNmOWJkZTk4MTgxOGRlYzljNWIyYTZhMjk1OTlmN2U4NDk0ZmVmNzE3ODIwNDcwYmVkIiwidGFnIjoiIn0%3D; expires=Sun, 21 Jul 2024 08:02:56 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ik8yUVRHdVJaSVgxeUExaXlKSGdzWVE9PSIsInZhbHVlIjoiMi8vK1RRQ3JvOXJMN1Jid3dpbWVJMlE3TWw1U3lxZ1Z1SFFPcmc5M05DMFlnaTNudk5rNjdjdWU4Z2V3aUdOeGYyUERIR01TK25RWDVWS2xRNitzZlArQ2tXdXMyb2E0RWNXdVdhV0pCT29TeUVlRVp1OFREYk1kbkhnVVhENkgiLCJtYWMiOiJhYjU3MzE3ZDQ2ZGQ5NDkzOGVkNzQzMDJhZDliN2MyMTMwMzc4OTQ4OTQ0YzUwMTA2ODdhNDhmOWIxYmRiMjkyIiwidGFnIjoiIn0%3D; expires=Sun, 21 Jul 2024 08:02:56 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Your password has been reset.\"\n}"
 						}
 					]
 				},
@@ -12265,42 +12461,42 @@
 	],
 	"variable": [
 		{
-			"id": "116ff7c2-182e-4f72-baad-4bde289f30c9",
+			"id": "46f78a12-25e3-4701-bce6-652e6fb88c18",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "26ae9dd6-02a4-45f5-b6a2-e17d4a13de57",
+			"id": "be9947fc-8115-4828-a5f0-8ed9a1705346",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "a5e8f49e-04b7-4114-a786-84accfe30088",
+			"id": "2c9114cf-3501-489b-b057-2bf68c241491",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "e7a2c018-b938-4350-bbd1-a74a76affe9e",
+			"id": "c8d85506-ad93-43b0-b428-066a758bdda9",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "a169225b-2e36-4eb7-91af-dda80be8533f",
+			"id": "1248c354-6326-4efc-8cfa-f8e4ded6b23c",
 			"key": "id_penerima_manfaat",
 			"value": ""
 		},
 		{
-			"id": "662dab52-85f6-4cd9-97a1-46e083e5f93e",
+			"id": "88a1391f-6e0f-4b65-85cd-8c969f44d8f7",
 			"key": "laporan_id",
 			"value": ""
 		},
 		{
-			"id": "603a8657-51eb-4205-aef1-0a9205218012",
+			"id": "00dd3967-ba8b-41c3-a985-807a0f3f9b8c",
 			"key": "id_dana",
 			"value": ""
 		},
 		{
-			"id": "bbdd5836-330a-439f-a31b-b0dac88a2903",
+			"id": "da5dcdee-f647-4a34-8698-5ec47d77af8e",
 			"key": "alokasiDana_id",
 			"value": ""
 		}
