@@ -48,6 +48,7 @@ class geolocationNotification
                 'cityName' => $newLocation->cityName,
                 'timezone' => $newLocation->timezone,
                 'driver' => $newLocation->driver,
+                'is_blocked' => false,
                 'created_at'=> now(),
                 'updated_at'=> now()
             ]); 
@@ -62,7 +63,7 @@ class geolocationNotification
                 $local = $newLocation->cityName.", ".$local;
             }
 
-            Mail::to($user->email)->send(new newLoginLocation($local));
+            Mail::to($user->email)->send(new newLoginLocation($local, $user->name));
         }
 
         return $response;

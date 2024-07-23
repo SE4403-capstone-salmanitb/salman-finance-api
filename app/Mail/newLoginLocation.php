@@ -14,13 +14,15 @@ class newLoginLocation extends Mailable
     use Queueable, SerializesModels;
 
     protected string $geolocation;
+    protected string $name;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(string $newLocation)
+    public function __construct(string $newLocation, string $name)
     {
         $this->geolocation = $newLocation;
+        $this->name = $name;
     }
 
     /**
@@ -40,7 +42,13 @@ class newLoginLocation extends Mailable
     {
         return new Content(
             view: 'mail.new-login-location',
-            with: ['geolocation' => $this->geolocation]
+            with: [
+                'geolocation' => $this->geolocation,
+                'name' => $this->name,
+                'date' => now()->format('d-m-Y'),
+                'time' => now()->format('H:i'),
+                'urlChangePassword' => config('app.frontend_url').'/profile'
+            ]
         );
     }
 
