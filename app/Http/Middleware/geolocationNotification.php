@@ -48,7 +48,6 @@ class geolocationNotification
                 'cityName' => $newLocation->cityName,
                 'timezone' => $newLocation->timezone,
                 'driver' => $newLocation->driver,
-                'is_blocked' => false,
                 'created_at'=> now(),
                 'updated_at'=> now()
             ]); 
