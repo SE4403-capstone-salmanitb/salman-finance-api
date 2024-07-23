@@ -62,7 +62,7 @@ class geolocationNotification
                 $local = $newLocation->cityName.", ".$local;
             }
 
-            Mail::to($user->email)->send(new newLoginLocation($local));
+            Mail::to($user->email)->send(new newLoginLocation($local, $user->name));
         }
 
         return $response;
