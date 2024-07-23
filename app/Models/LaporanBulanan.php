@@ -21,6 +21,10 @@ class LaporanBulanan extends Model
         'program_id'
     ];
 
+    protected $casts = [
+        'kode' => 'encrypted',
+    ];
+
     public $timestamps = true;
 
     const CREATED_AT = 'tanggal_pembuatan';

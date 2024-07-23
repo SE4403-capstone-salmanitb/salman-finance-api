@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('alokasi_danas', function (Blueprint $table) {
             $table->id();
-            $table->integer('jumlah_realisasi')->default('0');
+            $table->text('jumlah_realisasi')->default('0');
             $table->foreignId('id_laporan_bulanan')->references('id')
                 ->on('laporan_bulanans')->cascadeOnDelete();
             $table->foreignId('id_item_rka')->references('id')

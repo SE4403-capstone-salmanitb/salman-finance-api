@@ -13,6 +13,10 @@ class Bidang extends Model
         'nama',
     ];
 
+    protected $casts = [
+        'nama' => 'encrypted',
+    ];
+
     public function Programs()
     {
         return $this->hasMany(Bidang::class, 'id_bidang');

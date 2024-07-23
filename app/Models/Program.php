@@ -13,6 +13,13 @@ class Program extends Model
         'nama',
         'id_bidang'
     ];
+    
+    protected function casts()
+    {
+        return [
+            'nama' => 'encrypted',
+        ];
+    }
 
     public function Bidang()
     {

@@ -15,6 +15,10 @@ class JudulKegiatanRKA extends Model
         'id_program_kegiatan_rka'
     ];
 
+    protected $casts = [
+        'nama' => 'encrypted',
+    ];
+
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
      */

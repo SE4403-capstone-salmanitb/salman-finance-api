@@ -19,6 +19,13 @@ class Pelaksanaan extends Model
         "id_laporan_bulanan"
     ];
 
+    protected $casts = [
+        "penjelasan" => 'encrypted',
+        "waktu" => 'encrypted',
+        "tempat"=> 'encrypted',
+        "penyaluran"=> 'encrypted',
+    ];
+
     public function programKegiatan()
     {
         return $this->belongsTo(ProgramKegiatanKPI::class, 'id_program_kegiatan_kpi');

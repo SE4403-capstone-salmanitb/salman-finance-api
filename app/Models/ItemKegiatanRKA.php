@@ -33,6 +33,27 @@ class ItemKegiatanRKA extends Model
         'id_judul_kegiatan'
     ];
 
+    protected $casts = [
+        'uraian'=> 'encrypted',
+        'nilai_satuan'=> 'encrypted',
+        'quantity'=> 'encrypted',
+        'quantity_unit'=> 'encrypted',
+        'frequency'=> 'encrypted',
+        'frequency_unit'=> 'encrypted',
+        'dana_jan'=> 'encrypted',
+        'dana_feb'=> 'encrypted',
+        'dana_mar'=> 'encrypted',
+        'dana_apr'=> 'encrypted',
+        'dana_mei'=> 'encrypted',
+        'dana_jun'=> 'encrypted',
+        'dana_jul'=> 'encrypted',
+        'dana_aug'=> 'encrypted',
+        'dana_sep'=> 'encrypted',
+        'dana_oct'=> 'encrypted',
+        'dana_nov'=> 'encrypted',
+        'dana_dec'=> 'encrypted',
+    ];
+
     public function Judul()
     {
         return $this->BelongsTo(JudulKegiatanRKA::class, 'id_judul_kegiatan');

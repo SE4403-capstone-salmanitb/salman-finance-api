@@ -23,6 +23,17 @@ class PenerimaManfaat extends Model
         'id_laporan_bulanan',
     ];
 
+    protected function casts()
+    {
+        return [
+            'kategori'=> 'encrypted',
+            'tipe_rutinitas'=> 'encrypted',
+            'tipe_penyaluran'=> 'encrypted',
+            'rencana'=> 'encrypted',
+            'realisasi'=> 'encrypted',
+        ];
+    }
+
     /**
      * Get the laporan_bulanan that owns the PenerimaManfaat.
      */

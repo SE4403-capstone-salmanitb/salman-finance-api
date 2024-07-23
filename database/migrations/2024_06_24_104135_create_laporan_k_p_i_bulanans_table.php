@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('laporan_k_p_i_bulanans', function (Blueprint $table) {
             $table->id();
-            $table->integer('capaian')->nullable();
-            $table->string('deskripsi')->nullable();
+            $table->text('capaian')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->foreignId('id_kpi')->nullable()->references('id')
                 ->on('key_performance_indicators')->cascadeOnDelete();
             $table->foreignId('id_laporan_bulanan')->references('id')

@@ -15,6 +15,13 @@ class ProgramKegiatanKPI extends Model
         'id_program',
     ];
 
+    protected function casts()
+    {
+        return [
+            'nama' => 'encrypted',
+        ];
+    }
+
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
      */

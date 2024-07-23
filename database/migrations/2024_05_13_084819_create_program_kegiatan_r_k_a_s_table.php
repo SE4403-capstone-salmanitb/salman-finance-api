@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('program_kegiatan_r_k_a_s', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('deskripsi');
-            $table->string('output');
+            $table->text('nama');
+            $table->text('deskripsi');
+            $table->text('output');
             $table->integer('tahun');
             $table->foreignId('id_program')->references('id')->on('programs')->onDelete('cascade');
             $table->timestamps();

@@ -16,6 +16,11 @@ class LaporanKPIBulanan extends Model
         "id_kpi"
     ];
 
+    protected $casts = [
+        "capaian"=> 'encrypted',
+        "deskripsi" => 'encrypted',
+    ];
+
     public function KPI()
     {
         return $this->belongsTo(KeyPerformanceIndicator::class, 'id_kpi');
