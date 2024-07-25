@@ -36,7 +36,8 @@ class LaporanBulanan extends Model
         return [
             'tanggal_pembuatan' => 'datetime',
             'tanggal_pemeriksaan' => 'datetime',
-            'bulan_laporan' => 'date:m-Y',
+            'bulan_laporan' => 'date:Y-m-01',
+            'kode' => 'encrypted',
         ];
     }
 

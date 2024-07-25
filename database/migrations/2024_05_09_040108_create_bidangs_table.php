@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bidangs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama')->unique();
+            $table->text('nama')->unique();
             $table->timestamps();
         });
     }

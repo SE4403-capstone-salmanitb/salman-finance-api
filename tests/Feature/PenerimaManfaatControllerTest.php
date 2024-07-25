@@ -38,8 +38,7 @@ class PenerimaManfaatControllerTest extends TestCase
 
         PenerimaManfaat::factory()->count(7)->create();
         PenerimaManfaat::factory()->createOne($data);
-        $response = $this->actingAs($user)->get('/api/penerimaManfaat?kategori='.$data["kategori"].
-                    "&id_laporan_bulanan=".$lap->id);
+        $response = $this->actingAs($user)->get("/api/penerimaManfaat?id_laporan_bulanan={$lap->id}");
 
         $response->assertStatus(200);
         $response->assertJsonCount(1);
@@ -57,9 +56,9 @@ class PenerimaManfaatControllerTest extends TestCase
             "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
-            "rencana" => 4,
-            "realisasi" => 4,
-            "id_laporan_bulanan" => $lap->id
+            "rencana" =>(string) 4,
+            "realisasi" =>(string) 4,
+            "id_laporan_bulanan" =>(string) $lap->id
         ];
 
         $response = $this->actingAs($user)->postJson("/api/penerimaManfaat", $data);
@@ -80,9 +79,9 @@ class PenerimaManfaatControllerTest extends TestCase
             "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
-            "rencana" => 4,
-            "realisasi" => 4,
-            "id_laporan_bulanan" => $lap->id
+            "rencana" =>(string) 4,
+            "realisasi" =>(string) 4,
+            "id_laporan_bulanan" =>(string) $lap->id
         ];
 
         $response = $this->actingAs($user2)->postJson("/api/penerimaManfaat", $data);
@@ -120,8 +119,8 @@ class PenerimaManfaatControllerTest extends TestCase
             "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
-            "rencana" => 4,
-            "realisasi" => 4,
+            "rencana" =>(string) 4,
+            "realisasi" =>(string) 4,
         ];
 
         $response = $this->actingAs($user)->patchJson("/api/penerimaManfaat/".$pm->id, $data);
@@ -147,8 +146,8 @@ class PenerimaManfaatControllerTest extends TestCase
             "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
-            "rencana" => 4,
-            "realisasi" => 4,
+            "rencana" =>(string) 4,
+            "realisasi" =>(string) 4,
         ];
 
         $response = $this->actingAs($user2)->patchJson("/api/penerimaManfaat/".$pm->id, $data);
@@ -179,8 +178,8 @@ class PenerimaManfaatControllerTest extends TestCase
             "kategori" => "Internal",
             "tipe_rutinitas" => "Rutin",
             "tipe_penyaluran" => "Dakwah-Advokasi",
-            "rencana" => 4,
-            "realisasi" => 4,
+            "rencana" =>(string) 4,
+            "realisasi" =>(string) 4,
         ];
 
         $response = $this->actingAs($user2)->patchJson("/api/penerimaManfaat/".$pm->id, $data);

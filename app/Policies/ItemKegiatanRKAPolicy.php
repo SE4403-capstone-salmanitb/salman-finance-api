@@ -52,21 +52,4 @@ class ItemKegiatanRKAPolicy
         
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, ItemKegiatanRKA $itemKegiatanRKA): bool
-    {
-        return true;
-        
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, ItemKegiatanRKA $itemKegiatanRKA): bool
-    {
-        return true;
-        
-    }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAlokasiDanaRequest;
 use App\Models\LaporanBulanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\ValidationException;
 
 class AlokasiDanaController extends Controller
 {
@@ -47,9 +48,25 @@ class AlokasiDanaController extends Controller
         LaporanBulanan::findOrFail($request->id_laporan_bulanan)
         ->checkIfAuthorizedToEdit($request->user());
 
+        $this->UniqueValueCheck($request->id_item_rka, $request->id_laporan_bulanan);
+
         $alokasiDana = AlokasiDana::Create(array_filter($request->validated()));
 
         return response()->json($alokasiDana, 201);
+    }
+
+    protected function UniqueValueCheck(int $item, int $laporan){
+        $record = AlokasiDana::where('id_item_rka', $item)
+        ->where('id_laporan_bulanan', $laporan)
+        ->first();
+
+        if ($record) {
+            // A record for the foreign ID already exists for the given month.
+            throw ValidationException::withMessages([
+                'id_laporan_bulanan' => ["Unique constrain violation"],
+                'id_item_rka' => ["Unique constrain violation"],
+            ]);
+        }
     }
 
     /**

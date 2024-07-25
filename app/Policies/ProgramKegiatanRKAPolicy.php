@@ -55,24 +55,4 @@ class ProgramKegiatanRKAPolicy
         return true;
 
     }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
-    {
-        //
-        return true;
-
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, ProgramKegiatanRKA $programKegiatanRKA): bool
-    {
-        //
-        return true;
-
-    }
 }

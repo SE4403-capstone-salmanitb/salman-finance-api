@@ -15,6 +15,10 @@ class AlokasiDana extends Model
         'jumlah_realisasi'
     ];
 
+    protected $casts = [
+        'jumlah_realisasi' => 'encrypted',
+    ];
+
     /**
      * Get the laporan_bulanan that owns this thing.
      */

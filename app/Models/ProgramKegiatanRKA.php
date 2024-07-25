@@ -18,6 +18,15 @@ class ProgramKegiatanRKA extends Model
         'id_program'
     ];
 
+    protected function casts()
+    {
+        return [
+            'nama' => 'encrypted',
+            'deskripsi'=> 'encrypted',
+            'output'=> 'encrypted',
+        ];
+    }
+
     /**
      * Satu ProgramKegiatanRKA dimiliki oleh sebuah program
      */

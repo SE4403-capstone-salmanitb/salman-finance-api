@@ -33,8 +33,7 @@ class PelaksanaanControllerTest extends TestCase
 
         Pelaksanaan::factory()->create($data);
         $response = $this->actingAs($user)->get(
-            '/api/pelaksanaan?id_laporan_bulanan='.$data["id_laporan_bulanan"].
-            "&penyaluran=".$data['penyaluran']
+            '/api/pelaksanaan?id_laporan_bulanan='.$data["id_laporan_bulanan"]
         );
 
         $response->assertStatus(200);

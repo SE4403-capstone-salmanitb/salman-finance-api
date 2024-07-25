@@ -15,6 +15,11 @@ class KeyPerformanceIndicator extends Model
         'id_program_kegiatan_kpi'
     ];
 
+    protected $casts = [
+        'indikator'=> 'encrypted',
+        'target'=> 'encrypted',
+    ];
+
     public function programKegiatan()
     {
         return $this->belongsTo(ProgramKegiatanKPI::class, 'id_program_kegiatan_kpi');

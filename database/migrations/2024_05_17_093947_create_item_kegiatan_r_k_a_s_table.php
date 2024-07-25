@@ -13,26 +13,26 @@ return new class extends Migration
     {
         Schema::create('item_kegiatan_r_k_a_s', function (Blueprint $table) {
             $table->id();
-            $table->string('uraian');
-            $table->integer('nilai_satuan');
-            $table->integer('quantity');
-            $table->string('quantity_unit');
-            $table->integer('frequency');
-            $table->string('frequency_unit');
+            $table->text('uraian');
+            $table->text('nilai_satuan');
+            $table->text('quantity');
+            $table->text('quantity_unit');
+            $table->text('frequency');
+            $table->text('frequency_unit');
             $table->string('sumber_dana');
 
-            $table->boolean('dana_jan')->default(0);
-            $table->boolean('dana_feb')->default(0);
-            $table->boolean('dana_mar')->default(0);
-            $table->boolean('dana_apr')->default(0);
-            $table->boolean('dana_mei')->default(0);
-            $table->boolean('dana_jun')->default(0);
-            $table->boolean('dana_jul')->default(0);
-            $table->boolean('dana_aug')->default(0);
-            $table->boolean('dana_sep')->default(0);
-            $table->boolean('dana_oct')->default(0);
-            $table->boolean('dana_nov')->default(0);
-            $table->boolean('dana_dec')->default(0);
+            $table->text('dana_jan');
+            $table->text('dana_feb');
+            $table->text('dana_mar');
+            $table->text('dana_apr');
+            $table->text('dana_mei');
+            $table->text('dana_jun');
+            $table->text('dana_jul');
+            $table->text('dana_aug');
+            $table->text('dana_sep');
+            $table->text('dana_oct');
+            $table->text('dana_nov');
+            $table->text('dana_dec');
 
             $table->foreignId('id_judul_kegiatan')->references('id')->on('judul_kegiatan_r_k_a_s')->cascadeOnDelete();
             $table->timestamps();

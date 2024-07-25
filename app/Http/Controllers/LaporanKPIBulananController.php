@@ -9,6 +9,7 @@ use App\Models\KeyPerformanceIndicator;
 use App\Models\LaporanBulanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\ValidationException;
 
 class LaporanKPIBulananController extends Controller
 {
@@ -61,14 +62,21 @@ class LaporanKPIBulananController extends Controller
         $sebuahkpi = KeyPerformanceIndicator::where("id", $request->validated("id_kpi"))->first();
 
         if($laporanBulanan->program->id !== $sebuahkpi->programKegiatan->program->id ){
-            return response()
-            ->json([
-                'message' => 'Missmatch program',
-                'errors' => [
-                    'id_laporan_bulanan' => ["This entity belongs to a different program"],
-                    'id_kpi' => ["This entity belongs to a different program"],
-                ]
-            ], 422);
+            throw ValidationException::withMessages([
+                'id_laporan_bulanan' => ["This entity belongs to a different program"],
+                'id_kpi' => ["This entity belongs to a different program"],
+            ]);
+        }
+
+        if ($record = LaporanKPIBulanan::where('id_kpi', $request->id_kpi)
+            ->where('id_laporan_bulanan', $request->id_laporan_bulanan)
+            ->first()) {
+            
+            // A record for the foreign ID already exists for the given month.
+            throw ValidationException::withMessages([
+                'id_laporan_bulanan' => ["Unique constrain violation"],
+                'id_kpi' => ["Unique constrain violation"],
+            ]);
         }
         
 
