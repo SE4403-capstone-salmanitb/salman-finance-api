@@ -21,18 +21,18 @@ return new class extends Migration
             $table->text('frequency_unit');
             $table->string('sumber_dana');
 
-            $table->text('dana_jan')->default(0);
-            $table->text('dana_feb')->default(0);
-            $table->text('dana_mar')->default(0);
-            $table->text('dana_apr')->default(0);
-            $table->text('dana_mei')->default(0);
-            $table->text('dana_jun')->default(0);
-            $table->text('dana_jul')->default(0);
-            $table->text('dana_aug')->default(0);
-            $table->text('dana_sep')->default(0);
-            $table->text('dana_oct')->default(0);
-            $table->text('dana_nov')->default(0);
-            $table->text('dana_dec')->default(0);
+            $table->text('dana_jan');
+            $table->text('dana_feb');
+            $table->text('dana_mar');
+            $table->text('dana_apr');
+            $table->text('dana_mei');
+            $table->text('dana_jun');
+            $table->text('dana_jul');
+            $table->text('dana_aug');
+            $table->text('dana_sep');
+            $table->text('dana_oct');
+            $table->text('dana_nov');
+            $table->text('dana_dec');
 
             $table->foreignId('id_judul_kegiatan')->references('id')->on('judul_kegiatan_r_k_a_s')->cascadeOnDelete();
             $table->timestamps();

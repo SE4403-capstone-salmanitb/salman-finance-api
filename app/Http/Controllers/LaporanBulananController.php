@@ -18,7 +18,7 @@ class LaporanBulananController extends Controller
     public function index(Request $request)
     {
         Gate::authorize("viewAny", LaporanBulanan::class);
-        $query = DB::table('laporan_bulanans');
+        $query = LaporanBulanan::query();
 
         $filters = ['program_id', 'bulan', 'tahun'];
 

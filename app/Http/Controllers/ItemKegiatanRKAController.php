@@ -28,7 +28,30 @@ class ItemKegiatanRKAController extends Controller
     {
         Gate::authorize('create', ItemKegiatanRKA::class);
 
-        $itemKegiatanRKA = ItemKegiatanRKA::create(array_filter($request->validated()));
+        $itemKegiatanRKA = ItemKegiatanRKA::create([
+            'uraian' => $request->uraian,
+            'nilai_satuan' => $request->nilai_satuan,
+            'quantity' => $request->quantity,
+            'quantity_unit' => $request->quantity_unit,
+            'frequency' => $request->frequency,
+            'frequency_unit' => $request->frequency_unit,
+            'sumber_dana' => $request->sumber_dana,
+
+            'dana_jan' => $request->dana_jan ?? false,
+            'dana_feb' => $request->dana_feb ?? false,
+            'dana_mar' => $request->dana_mar ?? false,
+            'dana_apr' => $request->dana_apr ?? false,
+            'dana_mei' => $request->dana_mei ?? false,
+            'dana_jun' => $request->dana_jun ?? false,
+            'dana_jul' => $request->dana_jul ?? false,
+            'dana_aug' => $request->dana_aug ?? false,
+            'dana_sep' => $request->dana_sep ?? false,
+            'dana_oct' => $request->dana_oct ?? false,
+            'dana_nov' => $request->dana_nov ?? false,
+            'dana_dec' => $request->dana_dec ?? false,
+
+            'id_judul_kegiatan' => $request->id_judul_kegiatan,
+        ]);
 
         return response()->json($itemKegiatanRKA, 201);
     }
