@@ -51,7 +51,7 @@ class AlokasiDanaControllerTest extends TestCase
         $data = [
             'id_laporan_bulanan' => $lap->id,
             'id_item_rka' => $irka->id,
-            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)
+            'jumlah_realisasi' => (string) fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)
         ];
 
         $response = $this->actingAs($user)->postJson($this->path, $data);
@@ -72,7 +72,7 @@ class AlokasiDanaControllerTest extends TestCase
         ]);
 
         $data = [
-            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
+            'jumlah_realisasi' =>(string) (fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200)
         ];
 
         $response = $this->actingAs($user)->putJson("$this->path/$test->id", $data);
@@ -95,7 +95,7 @@ class AlokasiDanaControllerTest extends TestCase
 
         $data = [
             'id_laporan_bulanan' => $lap2->id,
-            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
+            'jumlah_realisasi' =>(string) (fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200)
         ];
 
         $response = $this->actingAs($user)->putJson("$this->path/$test->id", $data);
@@ -117,7 +117,7 @@ class AlokasiDanaControllerTest extends TestCase
         ]);
 
         $data = [
-            'jumlah_realisasi' => fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
+            'jumlah_realisasi' =>(string) fake()->numberBetween(0, $irka->nilai_satuan * $irka->quantity)+3200
         ];
 
         $response = $this->actingAs($user2)->putJson("$this->path/$test->id", $data);
