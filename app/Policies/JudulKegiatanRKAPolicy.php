@@ -52,21 +52,4 @@ class JudulKegiatanRKAPolicy
         
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
-    {
-        return true;
-        
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, JudulKegiatanRKA $judulKegiatanRKA): bool
-    {
-        return true;
-        
-    }
 }
