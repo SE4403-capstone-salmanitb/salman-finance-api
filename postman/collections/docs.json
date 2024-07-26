@@ -11832,13 +11832,49 @@
 				},
 				{
 					"name": "resend email verification",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d664d33b-8f62-47a6-9b57-6ff4cbf47873",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "c5e0abe1-da91-4c55-8279-cffb12262594",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{csrf-token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_email",
+									"value": "test.840@example.com",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{baseUrl}}/email/verification-notification",
 							"host": [
@@ -11850,7 +11886,208 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"id": "a5f057ed-0bf3-4286-9fa8-61e63d58d4ad",
+							"name": "error if the user already verified",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user_email",
+											"value": "test.user@example.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/email/verification-notification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"email",
+										"verification-notification"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 08:27:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://vue.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6ImUyZUpVbXNkNEVUVlRxRXZLVXdBYnc9PSIsInZhbHVlIjoiU0htTXZMRzJoVldhcmhvZVFjZ1BBenJPcGIxTmxUZ2xONzlKZzF4WVh5Uk1uMTR2bFVBeXMzS2xiNzY1SnFwZU1TaWl4RUVSR21ocGxSRmE3R0xBVHdBMFVZdDZnTWhyMXU2TWxYemdwQ3l2d0FwV1plZWovR0tvOUtxcW5oVlIiLCJtYWMiOiIzNmI0YmVkNTMxMWFlM2M5YTBkMzczMDFkMDJjNzRlNmJhNzZkYzBhYjIzN2Q5OWQ4M2NjNWEwZGUyZTcwNjVhIiwidGFnIjoiIn0%3D; expires=Fri, 26 Jul 2024 10:27:05 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Ik93Vm1lbDdUa2I4cDQ0Y3dPMm5LTnc9PSIsInZhbHVlIjoiTVV2OWRSZmZ2c3VTN0FYbjB3SWtnQmw1anZBZllrNFZ0OHJIWTgyU05WUDRCb2JYd291MkNxcG4zWEpGN2ZKZ2F0T2w3WWU2VGxsQkZCY3lCQ1IyK3dieHZLdktEaVVPWFFVRkE1MzBoSUJMaWQwVlZHd3cxMkNaV0FDR2FPSWMiLCJtYWMiOiI1Y2NjODdmYzViZTA0MGZiOWE2NDI3YjljYWYwYWMzN2IyMDEzYTVlN2JhYjEzODI3NzIxYTVkMDcxMGY4ZWUxIiwidGFnIjoiIn0%3D; expires=Fri, 26 Jul 2024 10:27:05 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User already verified or no user_email is found\"\n}"
+						},
+						{
+							"id": "064d8213-b434-457b-9108-246648b38bc2",
+							"name": "success resend email verification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user_email",
+											"value": "test.840@example.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/email/verification-notification",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"email",
+										"verification-notification"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 26 Jul 2024 08:28:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "6"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "5"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "https://vue.localhost.direct"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6ImhwOXNQYTBwY0luc2pCUG5FbVFpdXc9PSIsInZhbHVlIjoiUU8xMitLZmlEN2k3bndPakZtc0dDWGN0K0hEWjRReWtSdnd0QjdpZ2JuZ2lNVEpBKzFuNzFUMVdVcDFpeG12LzBrTGdSZyt2MXRTQkN3cDB4dUozS0xjU2NSVzlGbXZSKzRnUnYvNWxEWG9VOGlWdW1DcEJlMUp1R3UzdXhrZGQiLCJtYWMiOiI5OTkxZWNhZmQzYjMxNGJmYWNiNTk2ZjQ4NjIwMGVkYjU3NzRlZGVmYTBkMzJhMmEyM2I1YWJkY2I4MjExZDc4IiwidGFnIjoiIn0%3D; expires=Fri, 26 Jul 2024 10:28:54 GMT; Max-Age=7199; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "salman_finance_api_session=eyJpdiI6Im00cElXSFhWdHU5bGpnTzg4S1kzT2c9PSIsInZhbHVlIjoiYkE5OWhlR1YyWk11UWxHajJja1B6SHVzZkJuZmZyY2U3SStSenlKY0pvNC8za25tQzkxbkVONU1GSU1uM3dRN05QV3FyVmI3amVLZWJHZi8rRFAzeUNSOEhSMi93VStpRklSMmd5cHgvb0w1bkptYVBOUWNiTWc3NWNOUEE1dWwiLCJtYWMiOiIyMWM5NjAwZWM2NjgyNzFjMzg5MzAyMzI5ZGMxOTc0NmI0N2QwNjM3NDMyOWM5OWQ2ZTUzMzMzMzVkNzE4NTBhIiwidGFnIjoiIn0%3D; expires=Fri, 26 Jul 2024 10:28:54 GMT; Max-Age=7199; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"verification-link-sent\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get all user",
@@ -13872,92 +14109,92 @@
 	],
 	"variable": [
 		{
-			"id": "c14cb205-ef40-4689-84dc-6d3e46ea9df9",
+			"id": "ef93bfa3-6653-48a9-b4d6-2717816cc49c",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "47e8b9c2-df5b-4b0c-971e-14b4f698acdf",
+			"id": "86cd006c-88f8-4ca2-860a-2a48d888612b",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "4f7ad33d-8905-47cf-a78f-f6abd642f512",
+			"id": "c03c5fe1-184e-4fb2-ae29-62e3d7e0b9da",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "bb2d5ec4-5ae4-4853-b97c-47d3ec2cffe0",
+			"id": "0ecfade1-081d-4f27-93b2-2b885b87e7af",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "100da56a-f2fe-4ffd-b821-4d51cd852ec6",
+			"id": "4377e50e-035f-4b62-be15-1af59f56dfe5",
 			"key": "id_penerima_manfaat",
 			"value": ""
 		},
 		{
-			"id": "9b2fe493-0ce5-481b-b413-e125d150c9f4",
+			"id": "8668cb8c-c94d-4002-9918-889f8fe63593",
 			"key": "laporan_id",
 			"value": ""
 		},
 		{
-			"id": "18a2ae7f-e799-4d6b-a0a5-2de46654cc97",
+			"id": "457c902f-cff9-4e4f-9200-0e83bfeb01ae",
 			"key": "id_dana",
 			"value": ""
 		},
 		{
-			"id": "4fdcc316-e5eb-4168-a337-52931610e72a",
+			"id": "04ed6368-08ee-4d84-ae99-926b567cdaea",
 			"key": "alokasiDana_id",
 			"value": ""
 		},
 		{
-			"id": "9a5d6d39-f49a-46b8-a8f9-a9e80333533a",
+			"id": "52b2680c-4603-4896-ab4e-b532cc681e32",
 			"key": "id_item_rka",
 			"value": ""
 		},
 		{
-			"id": "71b175ab-8f3a-4446-8610-3ff7f67604fe",
+			"id": "9d1b5847-b39a-4237-804a-8bfc7ae88be5",
 			"key": "id_bidang",
 			"value": "1"
 		},
 		{
-			"id": "dc5165a4-905c-4eec-b4fe-717d4a9c916c",
+			"id": "dcec082d-aca0-4016-90c8-5560e2d4a09c",
 			"key": "id_program",
 			"value": "1"
 		},
 		{
-			"id": "eb6d15d4-5172-4edb-8891-5e0759d019b2",
+			"id": "8b6efa7b-aee8-4285-a1d2-d55c87be8add",
 			"key": "id_pkrka",
 			"value": "1"
 		},
 		{
-			"id": "39ba9c3f-bd02-408b-80fd-30f892e614a6",
+			"id": "170ab375-ebd1-4881-bb65-402b79a6db16",
 			"key": "id_jrka",
 			"value": "1"
 		},
 		{
-			"id": "6a1a6545-a7b8-48db-b903-ca4507c9c497",
+			"id": "0a5a1b84-2221-4982-b2b1-ecf16d1d8d32",
 			"key": "id_kpi",
 			"value": "1"
 		},
 		{
-			"id": "17a60e46-6867-4ba0-ba33-b4c68ef6bfb9",
+			"id": "c7736b27-25d2-4090-9b58-6b1d6b482bb1",
 			"key": "id_pkkpi",
 			"value": ""
 		},
 		{
-			"id": "1487a3f1-4cd1-46ae-87d4-4672ebcee43d",
+			"id": "18804545-e67a-4023-a5af-3b7379333379",
 			"key": "second_user_token ",
 			"value": "2|LOCAL_SECRET_DURV6gAb2qGS7Nni7XQHxYR4e9wc0c5jlNzpsLctad8c2b93"
 		},
 		{
-			"id": "b1e6cb5f-b10a-4f9b-990e-fc298ca4804c",
+			"id": "5e2236a8-c4d8-44f8-b526-ac58e31144b1",
 			"key": "id_lapkpi",
 			"value": "1"
 		},
 		{
-			"id": "dfc9cd73-0295-4a08-a2cb-fca540648296",
+			"id": "a2892bbd-c22f-4ae2-ab19-252d7028d39d",
 			"key": "id_lappel",
 			"value": "1"
 		}
