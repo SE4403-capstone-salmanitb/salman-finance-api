@@ -50,7 +50,8 @@ class PenerimaManfaatController extends Controller
     {
         Gate::authorize("create", PenerimaManfaat::class);
 
-        $this->chechForLaporanAuthor($request->id_laporan_bulanan, $request->user());
+        LaporanBulanan::findOrFail($request->id_laporan_bulanan)
+            ->checkIfAuthorizedToEdit($request->user());
 
         $penerimaManfaat = PenerimaManfaat::create(array_filter($request->validated()));
 
@@ -94,14 +95,5 @@ class PenerimaManfaatController extends Controller
         $penerimaManfaat->deleteOrFail();
 
         return response()->noContent();
-    }
-
-    protected function chechForLaporanAuthor(int $id_laporan_bulanan, User $user)
-    {
-        if( LaporanBulanan::findOrFail($id_laporan_bulanan)->isDisusunOleh($user) === false ){
-            abort(403, "Resource belongs to someone else");
-        } else {
-            return true;
-        }
     }
 }
