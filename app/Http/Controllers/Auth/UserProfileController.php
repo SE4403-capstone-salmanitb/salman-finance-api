@@ -67,7 +67,7 @@ class UserProfileController extends Controller
             )
         ));
 
-        return response()->json(['message' => 'We have send you an email containing link to verify your request']);
+        return response()->json(['message' => "Kami telah mengirimkan email yang berisi tautan untuk memverifikasi permintaan Anda"]);
     }
 
     public function destroyUser(User $user, Request $request){
@@ -81,7 +81,7 @@ class UserProfileController extends Controller
             
             $user->deleteOrFail();
 
-            return response()->json(['message' => "user with id {$user->id} is deleted successfully"]);
+            return response()->json(['message' => "pengguna dengan id {$user->id} telah berhasil dihapus"]);
 
         } else {
             abort(403);

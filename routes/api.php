@@ -60,7 +60,8 @@ Route::apiResources(
     [
         'middleware' => [
             'auth:sanctum', 
-            'verified'
+            'verified',
+            'ability:web'
         ]
     ]
 );

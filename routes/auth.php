@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\UserManagementController;
 use App\Http\Controllers\Auth\UserProfileController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\UserPasswordChangeController;
+use App\Http\Controllers\Mobile\MobileAuthController;
 use App\Http\Middleware\geolocationNotification;
 use Illuminate\Support\Facades\Route;
 
@@ -68,3 +69,11 @@ Route::delete('/user/delete', [UserProfileController::class, 'deleteRequest'])
 Route::get('/verify-delete/{user}', [UserProfileController::class, 'destroyUser'])
 ->middleware([ 'throttle:6,1'])
 ->name('verification.delete');
+
+Route::post('/mobile/login', [MobileAuthController::class, 'login'])
+->middleware(['throttle:6,1'])
+->name('mobile.login');
+
+Route::post('/mobile/register', [MobileAuthController::class, 'register'])
+->middleware(['throttle:6,1'])
+->name('mobile.register');
