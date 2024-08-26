@@ -32,7 +32,7 @@ class PelaksanaanControllerTest extends TestCase
         ];
 
         Pelaksanaan::factory()->create($data);
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/pelaksanaan?id_laporan_bulanan='.$data["id_laporan_bulanan"]
         );
 
@@ -46,7 +46,7 @@ class PelaksanaanControllerTest extends TestCase
         $user = User::factory()->create();
         Pelaksanaan::factory(2);
 
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/pelaksanaan'
         );
         $response->assertStatus(200);
@@ -71,11 +71,11 @@ class PelaksanaanControllerTest extends TestCase
             "penyaluran" => "tidak berjumpa dengan kau"
         ];
         
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/pelaksanaan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("test", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("test", ["*"])->plainTextToken
 
             ]
         );
@@ -103,11 +103,11 @@ class PelaksanaanControllerTest extends TestCase
             "penyaluran" => "tidak berjumpa dengan kau"
         ];
 
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/pelaksanaan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 
@@ -133,11 +133,11 @@ class PelaksanaanControllerTest extends TestCase
             "penyaluran" => "tidak berjumpa dengan kau"
         ];
         
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/pelaksanaan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("test", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("test", ["*"])->plainTextToken
 
             ]
         );
@@ -164,7 +164,7 @@ class PelaksanaanControllerTest extends TestCase
 
         $pel = Pelaksanaan::factory()->create($data);
 
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/pelaksanaan/'.$pel->id
         );
 
@@ -187,7 +187,7 @@ class PelaksanaanControllerTest extends TestCase
 
         $pel = Pelaksanaan::factory()->create($data);
 
-        $response = $this->actingAs($user)->delete(
+        $response = $this->actingAs($user)->deleteJson(
             '/api/pelaksanaan/'.$pel->id
         );
 
@@ -213,11 +213,11 @@ class PelaksanaanControllerTest extends TestCase
             "penyaluran" => "tidak berjumpa dengan kau"
         ];
 
-        $response = $this->patch(
+        $response = $this->patchJson(
             '/api/pelaksanaan/'.$pel->id,
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 
@@ -248,11 +248,11 @@ class PelaksanaanControllerTest extends TestCase
             "id_program_kegiatan_kpi" => $pkkpi->id
         ];
 
-        $response = $this->patch(
+        $response = $this->patchJson(
             '/api/pelaksanaan/'.$pel->id,
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 

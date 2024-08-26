@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Rules\NoBannedWords;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,12 +23,12 @@ class RegisteredUserController extends Controller
     public function store(Request $request): JsonResponse
     {
         if (!$request->user()->tokenCan('admin')){
-            return response(["message" => "user is authenticated but your sanctum/user 
-            token does not have a required ability assigned to it"]);
+            abort(403, 'Pendaftaran tidak berhasil: Anda tidak 
+            memiliki wewenang untuk malukan pembuatan akun baru');
         }
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', new NoBannedWords()],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             "profile_picture" => ['nullable', 'url', 'regex:~^https?://(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:/[^/#?]+)+\.(?:jpe?g|gif|png)$~']

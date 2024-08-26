@@ -34,7 +34,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         ];
 
         LaporanKPIBulanan::factory()->create($data);
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/laporanKPIBulanan?id_laporan_bulanan='.$data["id_laporan_bulanan"]
         );
 
@@ -48,7 +48,7 @@ class LaporanKPIBulananControllerTest extends TestCase
         $user = User::factory()->create();
         LaporanKPIBulanan::factory(2);
 
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/laporanKPIBulanan'
         );
         $response->assertStatus(200);
@@ -69,11 +69,11 @@ class LaporanKPIBulananControllerTest extends TestCase
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
         
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/laporanKPIBulanan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("test", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("test", ["*"])->plainTextToken
 
             ]
         );
@@ -99,11 +99,11 @@ class LaporanKPIBulananControllerTest extends TestCase
             "deskripsi" => "100 John Doe, 100 Jane Doe, 100 Lainnya"
         ];
 
-        $response = $this->post(
+        $response = $this->postJson(
             '/api/laporanKPIBulanan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 
@@ -130,7 +130,7 @@ class LaporanKPIBulananControllerTest extends TestCase
             '/api/laporanKPIBulanan',
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("test", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("test", ["*"])->plainTextToken
 
             ]
         );
@@ -155,7 +155,7 @@ class LaporanKPIBulananControllerTest extends TestCase
 
         $pel = LaporanKPIBulanan::factory()->create($data);
 
-        $response = $this->actingAs($user)->get(
+        $response = $this->actingAs($user)->getJson(
             '/api/laporanKPIBulanan/'.$pel->id
         );
 
@@ -180,7 +180,7 @@ class LaporanKPIBulananControllerTest extends TestCase
 
         $pel = LaporanKPIBulanan::factory()->create($data);
 
-        $response = $this->actingAs($user)->delete(
+        $response = $this->actingAs($user)->deleteJson(
             '/api/laporanKPIBulanan/'.$pel->id
         );
 
@@ -205,11 +205,11 @@ class LaporanKPIBulananControllerTest extends TestCase
             "id_kpi" => $kpi->id,
         ]);
 
-        $response = $this->patch(
+        $response = $this->patchJson(
             '/api/laporanKPIBulanan/'.$pel->id,
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 
@@ -239,11 +239,11 @@ class LaporanKPIBulananControllerTest extends TestCase
             "id_kpi" => $kpi->id,
         ]);
 
-        $response = $this->patch(
+        $response = $this->patchJson(
             '/api/laporanKPIBulanan/'.$pel->id,
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 
@@ -271,11 +271,11 @@ class LaporanKPIBulananControllerTest extends TestCase
             "id_kpi" => $kpi->id,
         ]);
 
-        $response = $this->patch(
+        $response = $this->patchJson(
             '/api/laporanKPIBulanan/'.$pel->id,
             $data,
             [
-                "authorization" => "Bearer ".$user->createToken("", ["user"])->plainTextToken
+                "authorization" => "Bearer ".$user->createToken("", ["*"])->plainTextToken
             ]
         );
 

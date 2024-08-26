@@ -24,7 +24,7 @@ class EmailVerificationNotificationController extends Controller
             User::where('email', $request->user_email)->first() : 
             $request->user(); 
         
-        abort_if($user->hasVerifiedEmail(), 400, "User already verified or no user_email is found");
+        abort_if($user->hasVerifiedEmail(), 400, "Terjadi kegagalan. Pengguna telah memiliki email yang tervalidasi");
 
         $user->sendEmailVerificationNotification();
 
