@@ -18,14 +18,18 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        if(request()->user()->is_admin){
+            $ability = ["*"];
+        } else {
+            if ($request->user()->is_mobile_user) {
+                abort(403, 'Login tidak berhasil: Akses melalui perangkat mobile tidak didukung. Silakan gunakan aplikasi mobile kami atau akses melalui perangkat desktop.');
+            } else {
+                $ability = ['web'];
+            }
+        }
+
         $request->session()->regenerate();
         $request->user()->tokens()->delete();
-        
-        if(request()->user()->is_admin){
-            $ability = ["*", "admin"];
-        } else {
-            $ability = ["user"];
-        }
 
         return response()->json([
             'user' => $request->user(),
