@@ -10932,6 +10932,587 @@
 									"body": "[\n    {\n        \"id\": 1,\n        \"nama\": \"Bidang Pengkajian dan Penerbitan\",\n        \"created_at\": \"2024-07-17T08:23:35.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:35.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nama\": \"Bidang Mahasiswa, Kaderisasi, dan Alumni\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nama\": \"Bidang Dakwah\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nama\": \"Lembaga Pengembangan Pendidikan\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"nama\": \"Bidang Sarana dan Prasarana\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"nama\": \"Sekretariat, Humas, dan Personalia\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"nama\": \"Pusat Halal\",\n        \"created_at\": \"2024-07-17T08:23:36.000000Z\",\n        \"updated_at\": \"2024-07-17T08:23:36.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"nama\": \"Bidang pembuatan dan pengembangan AI\",\n        \"created_at\": \"2024-07-17T08:42:52.000000Z\",\n        \"updated_at\": \"2024-07-17T08:44:01.000000Z\"\n    }\n]"
 								}
 							]
+						},
+						{
+							"name": "Login",
+							"id": "2a52ff6b-9518-4ae4-b657-b1066c30e08d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "mobile@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/mobile/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "182ea9d5-b010-40c5-9703-2527d310f239",
+									"name": "salah email/password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "Application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{csrf-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "mobile@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/mobile/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"login"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Aug 2024 09:08:17 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "6"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "5"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://vue.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "XSRF-TOKEN=eyJpdiI6IklpVHAzOUdFUGdEOHIvM0ladVVQNUE9PSIsInZhbHVlIjoieEM0Q1ZxNEhiVC9GVFltQU5xOEl0Mmc1dUQvL3V5TzNsdCtTeWsyYlk1eTFLZDlmK0ZpQUxmS0NrdTVON0JPck5xdzlHSm9LYTh6SmhuV09vWG0zVG9MRUpYbklpalljK04vaXI2Yk5NdWpyR0UxSGdDR3RseWZSUkJZNWZUTE4iLCJtYWMiOiJmYTIzOTA0ZjgxZmJlMmE4NzAyNWY4YTdmYjc2YWE5N2Q3ZjA3NWI2Yzc0MzMyMjdjYzJjZmM0Njc3NTQwMWUyIiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:08:18 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "salman_finance_api_session=eyJpdiI6ImQ3TWxDOUxhdjBKSGRIOE84WjBFSlE9PSIsInZhbHVlIjoiOFJqRzB5cnB0YWlQc1lQR1ptRXlYS2dPMHM2VjczN3VFMlJWaFVhYmtiUnVOWjQvSm5VNGtMbjhSblBDaHNvLzh1Y3JTNmZpQjUrSE0waHV1STBzWUtIQzlkVmhiVGc4ekZ3MWUvdTJpWUh5NFYwRHFMS3NtQmVRM0xNVDQvSnQiLCJtYWMiOiIwOTUzODU0OThkMmQ0YWE1Y2ZkZDY1OTNjNTFkYWNhYWJlZDJlOTllZjA1MWIzMmRlMWFmNmUxY2JhOWQzYTI4IiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:08:18 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"These credentials do not match our records.\",\n    \"errors\": {\n        \"email\": [\n            \"These credentials do not match our records.\"\n        ]\n    }\n}"
+								},
+								{
+									"id": "8f648efe-0e38-48a0-a7c5-d808e55364f2",
+									"name": "Login success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "Application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{csrf-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "email",
+													"value": "mobile@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/mobile/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Aug 2024 09:38:58 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "6"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "4"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://vue.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "XSRF-TOKEN=eyJpdiI6IkZ0dWpiSmlFOXRoTkpZd3RJQ05CRUE9PSIsInZhbHVlIjoiQjd2czN5dHlZVElaNDV0a0FVVVVXSFFENDdyN2xhUzZlV09Sak1rL3JlTmFLM0wzTjl0TVZqMXdyMnI1ZThMOVYwTEJ0QWFBMzJVSEdxVEhsNUc3ZUN6aFYrZ0tIeDhkY1RZaG92c1RsclpnMzYySVkwcVdhVGVKSUtFSWJWQi8iLCJtYWMiOiJkMmEwM2I3ZTEzZGRhMjY3ZjkwOTM0M2FhMjhmN2MyY2I2YWZkYWYxZjMzNDIxZWE2N2ZiMDU3Yjk2M2QxMWI3IiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:38:58 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "salman_finance_api_session=eyJpdiI6IndKL3JjbGhwdjF4Ums5cXpZY1BZQlE9PSIsInZhbHVlIjoiZC9zTTNIYlhhbEVHMEliQXQwTGYwTEFJWXdsN3lwWFRoOElWdmREOVV5OTN0Qnl2d1dycWl2Q1lVZ2phY3c2NStCMFduOHp0d0lQdXBnTUZGUWIwSmhxcjBmSUs5bTE1NEprUEI0dUErWFVzV2NRanloYk9xajZDaW4wQXpha0siLCJtYWMiOiJhYzY3MjRhNmNiZTFiNDA2NTBhYzc5YzNmNDc0Mjg0ZDIzYTVlYWVmMjk0ZmI4MWNmZTUwZjczN2YwNjI3ZDlmIiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:38:58 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"id\": 4,\n        \"name\": \"republik rakyat china\",\n        \"email\": \"mobile@example.com\",\n        \"email_verified_at\": null,\n        \"is_admin\": 0,\n        \"is_mobile_user\": 1,\n        \"profile_picture\": \"https://i.ibb.co.com/2qXwjX3/default-blue1.png\",\n        \"created_at\": \"2024-08-26T09:38:42.000000Z\",\n        \"updated_at\": \"2024-08-26T09:38:42.000000Z\"\n    },\n    \"access_token\": \"1|LOCAL_SECRET_DT2pMWVAz9FXKAgHeS2EPe1MMgD2JMVrQPY6QXHu78de57cd\"\n}"
+								}
+							]
+						},
+						{
+							"name": "register",
+							"id": "164307b9-d2a3-4821-8095-0c4b97afe1c0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "Application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-XSRF-TOKEN",
+										"value": "{{csrf-token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "republik rakyat china",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mobile@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/mobile/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"mobile",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d0c7a5a7-b961-4137-b3c0-88811b25b648",
+									"name": "kena sensor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "Application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{csrf-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "republik rakyat cina",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "mobile@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "password_confirmation",
+													"value": "password",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/mobile/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"register"
+											]
+										}
+									},
+									"status": "Unprocessable Content",
+									"code": 422,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Aug 2024 09:30:28 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "6"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "4"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://vue.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "XSRF-TOKEN=eyJpdiI6Ikc4TmM5WnpIVlNNVytlbjNCR0xYNFE9PSIsInZhbHVlIjoiekJnY05ENmNXUVRFdWlxdWZwUVB6Tyt3YndCMmRQUjlBQ1NUQitxcmRRNWdJYWRBTDlVLzQwTE1YRHBOK29RdjFIQU8xaEtLZERJRmRLZVphVENKTFVwaDNkMUxVcXZQM3EwUG94czZZVHh6cjlCcVVYUFpvZDBGc09vVnpyRUUiLCJtYWMiOiIzYjQ4MmE4OGZkODk2NGMwZjI4YzZkOGM4YjI5YjYxMjNiMWY1Zjk3ZmMxMjM5ZDI0ZThlYmMyMDJjMWNjYmY4IiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:30:29 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "salman_finance_api_session=eyJpdiI6IlJPWENsd2Y4MTNrdENERG1jNkxrY2c9PSIsInZhbHVlIjoiR2VQZ2QwUkdmS1dobGhGUG4zc1Naa0lqZlZZczI2NENHa09IMzNOQzZsT04wTjBWWXlXQ1hPUG1XQjk0bFRrQjB4SFlzYkdtTWQrWGVra2ZQTmZxRTBlWmVSQTNVeWNqeDJDQTQ1b1Z5MmtNQUVWbUNaVDVzQnFwQTFOcDJVZXYiLCJtYWMiOiIwMzg1MWE2ZDYwZDE1YjZhZWQ4NjE3YmM2YjVmZjk5YjI0YzlmODhhYWM5YmEwNzY3YjMwZTdhYmM0NzdkOWNkIiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:30:29 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"name mengandung kata yang tidak pantas\",\n    \"errors\": {\n        \"name\": [\n            \"name mengandung kata yang tidak pantas\"\n        ]\n    }\n}"
+								},
+								{
+									"id": "e5cb37ba-f096-46ed-853a-4742de2c1624",
+									"name": "register success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "Application/json",
+												"type": "text"
+											},
+											{
+												"key": "X-XSRF-TOKEN",
+												"value": "{{csrf-token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "republik rakyat china",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "mobile@example.com",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "password",
+													"type": "text"
+												},
+												{
+													"key": "password_confirmation",
+													"value": "password",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/mobile/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"mobile",
+												"register"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 26 Aug 2024 09:31:55 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.2.4"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.4"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "6"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "5"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "https://vue.localhost.direct"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "XSRF-TOKEN=eyJpdiI6ImFmRlBweDU3TW9YK05xSW1UOS9xUnc9PSIsInZhbHVlIjoiL0ZXaVQ3TG1zU3ZRTG5qY3RucFMvYnB2WW1ad2IzK2N6UHpGaVAzaWJjSUVGeGs0c1ZJV08rN3NWbWJSZFhRQW1kdVhhRzR6cDN2UW5yckgyK2ZTeHhFS2dWdTJiclprdjNMYnpwQmlaYldBVU9GUDZtS2dpSkpYL2tIMU90ZXEiLCJtYWMiOiJjNjQxNThjYmFmNGE5MjRiMjNlODZjNTI2NGE5MTdiZWY3OTI5YzM0Zjc1MTg2ZWEzZmE2OTYzMmM2MGQyNTE0IiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:32:02 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; samesite=strict; partitioned"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "salman_finance_api_session=eyJpdiI6Im1BMGJMVzExc0crT1dxWWtsTEFOaHc9PSIsInZhbHVlIjoiQ1dpV0w1ZHNpSTZBamFYTkU5QXN5WHpvVmJHcDhhU2NjS2tIZ3JlbU40S0FSRS9RcWFWQndiM3VETzcwcG5lY3Z3c3RHNXdlbDFiRHRJV3hiUStaSGtXdGl6RndwbXF2Z2ZqMU9SdlFRZ2Z0cXhhQisreWJ5M1JNMUwxQ2dZY1oiLCJtYWMiOiI2YmRiNDE0ZmQ1ZGI4MjNhNDUyMzhlZmJkZTM1MzlmNGExM2MxNzMzNTkwYWJlY2Q0YjczYmJmNDFmZDE4ZDg3IiwidGFnIjoiIn0%3D; expires=Mon, 26 Aug 2024 11:32:02 GMT; Max-Age=7200; path=/; domain=.localhost.direct; secure; httponly; samesite=strict; partitioned"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"user\": {\n        \"name\": \"republik rakyat china\",\n        \"email\": \"mobile@example.com\",\n        \"profile_picture\": \"https://i.ibb.co.com/2qXwjX3/default-blue1.png\",\n        \"updated_at\": \"2024-08-26T09:31:56.000000Z\",\n        \"created_at\": \"2024-08-26T09:31:56.000000Z\",\n        \"id\": 3\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "e3f45b24-8f79-4e3d-9ac4-b01741201ed5"
@@ -14109,92 +14690,92 @@
 	],
 	"variable": [
 		{
-			"id": "ef93bfa3-6653-48a9-b4d6-2717816cc49c",
+			"id": "32992c01-6c6c-460f-9e33-94ea8c26b46f",
 			"key": "baseUrl",
 			"value": "http://localhost:8000"
 		},
 		{
-			"id": "86cd006c-88f8-4ca2-860a-2a48d888612b",
+			"id": "28e77ec3-0077-4ba7-b880-c65e2e68b8a1",
 			"key": "csrf-token",
 			"value": "-"
 		},
 		{
-			"id": "c03c5fe1-184e-4fb2-ae29-62e3d7e0b9da",
+			"id": "714ce306-33cd-449d-900e-97ade6de47ca",
 			"key": "access_token",
 			"value": ""
 		},
 		{
-			"id": "0ecfade1-081d-4f27-93b2-2b885b87e7af",
+			"id": "79cfe2bd-f47f-4973-a6ac-bf1c9ecfbf9e",
 			"key": "id",
 			"value": ""
 		},
 		{
-			"id": "4377e50e-035f-4b62-be15-1af59f56dfe5",
+			"id": "a51bd7e2-ee4e-4391-ba4e-5b26204b9904",
 			"key": "id_penerima_manfaat",
 			"value": ""
 		},
 		{
-			"id": "8668cb8c-c94d-4002-9918-889f8fe63593",
+			"id": "8fd5a971-12c4-4d88-955f-b45f964d031b",
 			"key": "laporan_id",
 			"value": ""
 		},
 		{
-			"id": "457c902f-cff9-4e4f-9200-0e83bfeb01ae",
+			"id": "93aa2c0b-c40e-44a0-b9f1-48cedb5925bc",
 			"key": "id_dana",
 			"value": ""
 		},
 		{
-			"id": "04ed6368-08ee-4d84-ae99-926b567cdaea",
+			"id": "516fcb3d-ca70-4230-a3cb-c577f458b1da",
 			"key": "alokasiDana_id",
 			"value": ""
 		},
 		{
-			"id": "52b2680c-4603-4896-ab4e-b532cc681e32",
+			"id": "408f9320-c8bf-4bcb-9545-c3fbddf76211",
 			"key": "id_item_rka",
 			"value": ""
 		},
 		{
-			"id": "9d1b5847-b39a-4237-804a-8bfc7ae88be5",
+			"id": "a554fab6-7a19-4070-b0bb-38725a68ad46",
 			"key": "id_bidang",
 			"value": "1"
 		},
 		{
-			"id": "dcec082d-aca0-4016-90c8-5560e2d4a09c",
+			"id": "0ed8a8c9-d3fe-474e-97d5-9d48280975a8",
 			"key": "id_program",
 			"value": "1"
 		},
 		{
-			"id": "8b6efa7b-aee8-4285-a1d2-d55c87be8add",
+			"id": "7c419dbe-219a-4e26-a48a-77f405eea33f",
 			"key": "id_pkrka",
 			"value": "1"
 		},
 		{
-			"id": "170ab375-ebd1-4881-bb65-402b79a6db16",
+			"id": "ecb01412-ef99-481f-8766-0ad5633e6bd8",
 			"key": "id_jrka",
 			"value": "1"
 		},
 		{
-			"id": "0a5a1b84-2221-4982-b2b1-ecf16d1d8d32",
+			"id": "2a077edf-1109-4808-8153-f6fdabb40eed",
 			"key": "id_kpi",
 			"value": "1"
 		},
 		{
-			"id": "c7736b27-25d2-4090-9b58-6b1d6b482bb1",
+			"id": "174875e1-5941-4f0f-8da2-473e8f36c175",
 			"key": "id_pkkpi",
 			"value": ""
 		},
 		{
-			"id": "18804545-e67a-4023-a5af-3b7379333379",
+			"id": "627f1637-ad72-4df6-a4bf-00e056177ad8",
 			"key": "second_user_token ",
 			"value": "2|LOCAL_SECRET_DURV6gAb2qGS7Nni7XQHxYR4e9wc0c5jlNzpsLctad8c2b93"
 		},
 		{
-			"id": "5e2236a8-c4d8-44f8-b526-ac58e31144b1",
+			"id": "a4e3516c-0131-40c1-b129-d64e1da62a24",
 			"key": "id_lapkpi",
 			"value": "1"
 		},
 		{
-			"id": "a2892bbd-c22f-4ae2-ab19-252d7028d39d",
+			"id": "9ae948bc-5d21-4eb9-9153-1996a75e9783",
 			"key": "id_lappel",
 			"value": "1"
 		}
