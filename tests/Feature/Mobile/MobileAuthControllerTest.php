@@ -25,7 +25,7 @@ class MobileAuthControllerTest extends TestCase
             'password_confirmation' => 'password',
         ];
 
-        $response = $this->post('/mobile/register', $body);
+        $response = $this->post('/api/mobile/register', $body);
 
         $response->assertStatus(201);
     }
@@ -37,7 +37,7 @@ class MobileAuthControllerTest extends TestCase
         ];
         $user = User::factory()->createOne($data);
 
-        $response = $this->post('/mobile/login', [
+        $response = $this->post('/api/mobile/login', [
             'email' => $data['email'],
             'password' => 'password'
         ]);

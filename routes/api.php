@@ -12,6 +12,7 @@ use App\Http\Controllers\PelaksanaanController;
 use App\Http\Controllers\PenerimaManfaatController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\BidangController;
+use App\Http\Controllers\Mobile\MobileAuthController;
 use App\Http\Controllers\ProgramKegiatanKPIController;
 use App\Http\Controllers\ProgramKegiatanRKAController;
 use Illuminate\Http\Request;
@@ -71,4 +72,11 @@ Route::prefix('mobile')->group(function () {
     Route::get('/bidang', [BidangController::class, 'index'])->name('mobile.bidang');
     Route::get('/program', [ProgramController::class, 'index'])->name('mobile.program');
     Route::get('/laporan', SeeLaporanBulananController::class)->name('mobile.laporan');
+
+    Route::post('/login', [MobileAuthController::class, 'login'])
+    ->middleware(['throttle:3,1'])
+    ->name('mobile.login');
+    Route::post('/register', [MobileAuthController::class, 'register'])
+    ->middleware(['throttle:3,1'])
+    ->name('mobile.register');
 });
