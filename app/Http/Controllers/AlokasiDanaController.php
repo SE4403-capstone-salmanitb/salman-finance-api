@@ -63,8 +63,8 @@ class AlokasiDanaController extends Controller
         if ($record) {
             // A record for the foreign ID already exists for the given month.
             throw ValidationException::withMessages([
-                'id_laporan_bulanan' => ["Unique constrain violation"],
-                'id_item_rka' => ["Unique constrain violation"],
+                'id_laporan_bulanan' => ["pelanggaran batasan yang unik"],
+                'id_item_rka' => ["pelanggaran batasan yang unik"],
             ]);
         }
     }
