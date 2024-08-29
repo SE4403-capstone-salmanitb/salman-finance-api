@@ -67,10 +67,10 @@ class PelaksanaanController extends Controller
             if($laporanBulanan->program->id !== $prokegKPI->program->id ){
                 return response()
                 ->json([
-                    'message' => 'Missmatch program',
+                    'message' => 'Program tidak cocok',
                     'errors' => [
-                        'id_laporan_bulanan' => ["This entity belongs to a different program"],
-                        'id_program_kegiatan_kpi' => ["This entity belongs to a different program"],
+                        'id_laporan_bulanan' => ["Entitas ini termasuk dalam program yang berbeda"],
+                        'id_program_kegiatan_kpi' => ["Entitas ini termasuk dalam program yang berbeda"],
                     ]
                 ], 422);
             }
@@ -100,10 +100,10 @@ class PelaksanaanController extends Controller
 
         $failResponse = response()
         ->json([
-            'message' => 'Missmatch program',
+            'message' => 'Program tidak cocok',
             'errors' => [
-                'id_laporan_bulanan' => ["This entity belongs to a different program"],
-                'id_program_kegiatan_kpi' => ["This entity belongs to a different program"],
+                'id_laporan_bulanan' => ["Entitas ini termasuk dalam program yang berbeda"],
+                'id_program_kegiatan_kpi' => ["Entitas ini termasuk dalam program yang berbeda"],
             ]
         ], 422);
 

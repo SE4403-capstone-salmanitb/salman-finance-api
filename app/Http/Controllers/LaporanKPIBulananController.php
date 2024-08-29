@@ -63,8 +63,8 @@ class LaporanKPIBulananController extends Controller
 
         if($laporanBulanan->program->id !== $sebuahkpi->programKegiatan->program->id ){
             throw ValidationException::withMessages([
-                'id_laporan_bulanan' => ["This entity belongs to a different program"],
-                'id_kpi' => ["This entity belongs to a different program"],
+                'id_laporan_bulanan' => ["Entitas ini termasuk dalam program yang berbeda"],
+                'id_kpi' => ["Entitas ini termasuk dalam program yang berbeda"],
             ]);
         }
 
@@ -74,8 +74,8 @@ class LaporanKPIBulananController extends Controller
             
             // A record for the foreign ID already exists for the given month.
             throw ValidationException::withMessages([
-                'id_laporan_bulanan' => ["Unique constrain violation"],
-                'id_kpi' => ["Unique constrain violation"],
+                'id_laporan_bulanan' => ["pelanggaran batasan yang unik"],
+                'id_kpi' => ["pelanggaran batasan yang unik"],
             ]);
         }
         
@@ -104,10 +104,10 @@ class LaporanKPIBulananController extends Controller
 
         $failResponse = response()
         ->json([
-            'message' => 'Missmatch program',
+            'message' => 'Program tidak cocok',
             'errors' => [
-                'id_laporan_bulanan' => ["This entity belongs to a different program"],
-                'id_program_kegiatan_kpi' => ["This entity belongs to a different program"],
+                'id_laporan_bulanan' => ["Entitas ini termasuk dalam program yang berbeda"],
+                'id_program_kegiatan_kpi' => ["Entitas ini termasuk dalam program yang berbeda"],
             ]
         ], 422);
 

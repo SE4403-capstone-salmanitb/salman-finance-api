@@ -61,7 +61,7 @@ class LaporanBulanan extends Model
         if ( $this->isNotVerified() ){
             return true;
         } else {
-            abort(423, "Locked, this laporan is already verified and may not be edited");
+            abort(423, "Terkunci, laporan ini sudah diverifikasi dan tidak dapat diedit");
         }
     }
 
@@ -70,7 +70,7 @@ class LaporanBulanan extends Model
         if ( $this->isDisusunOleh($user) ){
             return $this->checkIfEditPossible();
         } else {
-            abort(403, "Unauthorized, resource belongs to someone else");
+            abort(403, "Tidak sah, sumber daya milik orang lain");
         }
     }
 
