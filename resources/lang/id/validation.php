@@ -138,6 +138,13 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
+    'password' => [
+        'letters' => ':attribute harus mengandung setidaknya satu huruf.',
+        'mixed' => ':attribute harus mengandung kombinasi huruf besar dan kecil.',
+        'numbers' => ':attribute harus mengandung setidaknya satu angka.',
+        'symbols' => ':attribute harus mengandung setidaknya satu simbol.',
+        'uncompromised' => ':attribute muncul dalam kebocoran data. Silakan pilih :attribute yang berbeda.',
+    ],
 
     /*
     |--------------------------------------------------------------------------
