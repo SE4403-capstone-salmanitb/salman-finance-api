@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Bidang;
 use App\Policies\BidangPolicy;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -41,5 +43,16 @@ class AppServiceProvider extends ServiceProvider
             return App::isProduction()? $strictRule : $rule;
 
         });
+
+        VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
+            return (new MailMessage)
+                ->subject("Verifikasi Akun SI Salman ITB")
+                ->greeting("Selamat Bergabung!")
+                ->line('Terima kasih telah mendaftar ke Sistem Informasi Masjid Salman ITB! Untuk menyelesaikan pendaftaran anda, dimohon untuk menggunakan tombol dibawah ini untuk memverifikasi email yang anda gunakan')
+                ->action('Verifikasi Email', $url)
+                ->line('Jika anda tidak merasa melakukan pendaftaran pada SI Salman ITB, tidak perlu melakukan tindakan lebih lanjut. Akun tidak akan dapat digunakan jika tidak memiliki email yang terverifikasi.');
+        });
+
+        
     }
 }
