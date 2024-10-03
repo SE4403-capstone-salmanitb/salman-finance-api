@@ -28,7 +28,7 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
 
 ### 1. **Siapkan Server**
    - **Pilih Server:** Gunakan penyedia layanan seperti **DigitalOcean**, **AWS**, atau **Vultr**.
-   - **Install LAMP/LEMP Stack:** Pastikan server menggunakan **Linux**, **Apache/Nginx**, **MySQL**, dan **PHP** (versi 7.4+).
+   - **Install LAMP/LEMP Stack:** Pastikan server menggunakan **Linux**, **Apache/Nginx**, **MySQL**, dan **PHP** (versi 8.1+).
    - **Install Composer:** Laravel membutuhkan Composer untuk mengelola dependensi:
      ```bash
      sudo apt install composer
@@ -43,11 +43,6 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
      ```bash
      php -m | grep gd
      ```
-     Jika **gd** sudah ada dalam daftar, maka GD sudah aktif. Jika tidak, restart layanan PHP:
-     ```bash
-     sudo systemctl restart php7.4-fpm  # Untuk Nginx
-     sudo systemctl restart apache2     # Untuk Apache
-     ```
 
 ### 3. **Kloning Proyek Laravel**
    - **Login ke Server via SSH**:
@@ -60,7 +55,7 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
      ```
    - **Kloning Repositori Anda**:
      ```bash
-     git clone https://github.com/usernameanda/proyeklaravel.git
+     git clone [https://github.com/SE4403-capstone-salmanitb/salman-finance-api.git]
      ```
 
 ### 4. **Konfigurasi Environment**
@@ -72,7 +67,7 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
      ```bash
      php artisan key:generate
      ```
-   - **Sesuaikan file `.env`** (atur kredensial database, URL aplikasi, dll.)
+   - **Sesuaikan file `.env`** (atur kredensial database, URL aplikasi, dll. lihat lebih lanjut pada [#Environtment])
 
 ### 5. **Install Dependensi**
    ```bash
@@ -83,6 +78,10 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
    - **Jalankan Migrasi**:
      ```bash
      php artisan migrate --force
+     ```
+   - **Download Data Geolocation terbaru**:
+     ```bash
+     php artisan location:update
      ```
 
 ### 7. **Atur Izin Akses (Permissions)**
@@ -142,7 +141,7 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
    php artisan view:cache
    ```
 
-### 10. **Atur Cron Jobs**
+### 10. **Atur Cron Jobs (Opsional)**
    - Buka crontab:
      ```bash
      crontab -e
@@ -161,6 +160,9 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
 
 ### Selesai!
 Aplikasi Laravel Anda sudah aktif dengan dukungan PHP GD dan siap digunakan.
+
+## Environtment
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
