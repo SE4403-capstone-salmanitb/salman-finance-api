@@ -22,10 +22,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Deployment Guide
-Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia yang mudah dipahami:
-
 ---
-
 ### 1. **Siapkan Server**
    - **Pilih Server:** Gunakan penyedia layanan seperti **DigitalOcean**, **AWS**, atau **Vultr**.
    - **Install LAMP/LEMP Stack:** Pastikan server menggunakan **Linux**, **Apache/Nginx**, **MySQL**, dan **PHP** (versi 8.1+).
@@ -162,7 +159,87 @@ Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia ya
 Aplikasi Laravel Anda sudah aktif dengan dukungan PHP GD dan siap digunakan.
 
 ## Environtment
+---
+Berikut adalah penjelasan dengan tambahan keterangan apakah nilai dari setiap item pada file environment (env) perlu diubah atau tidak:
 
+- **APP_NAME**: Nama aplikasi yang digunakan dalam Laravel. **(Ubah jika nama aplikasi berbeda)**
+- **APP_ENV**: Menentukan lingkungan aplikasi. **(Ubah ke `production` saat siap untuk produksi)**
+- **APP_KEY**: Kunci enkripsi aplikasi untuk keamanan data sensitif. **(Perlu diisi dengan kunci unik, dibuat secara otomatis pada tahap deployment)**
+- **APP_DEBUG**: Jika diset `true`, aplikasi menampilkan informasi debugging. **(Ubah ke `false` pada produksi)**
+- **APP_TIMEZONE**: Zona waktu default yang digunakan aplikasi. **(Ubah jika zona waktu berbeda, biasanya menggunakan 'Asia/Jakarta')**
+- **APP_URL**: URL dasar aplikasi. **(Ubah sesuai dengan URL dari aplikasi backend)**
+- **FRONTEND_URL**: URL frontend aplikasi. **(Ubah jika terpisah dari backend)**
+  
+- **APP_LOCALE**: Bahasa default aplikasi. **(Ubah menjadi id jika ingin menggunkana bahasa Indonesia)**
+- **APP_FALLBACK_LOCALE**: Bahasa fallback jika terjemahan tidak ditemukan. **(Ubah jika bahasa fallback berbeda)**
+- **APP_FAKER_LOCALE**: Lokal untuk `Faker`. **(Ubah jika ingin menggunakan lokal yang berbeda, tidak digunakan dalam deployment)**
+
+- **APP_MAINTENANCE_DRIVER**: Metode penyimpanan status pemeliharaan. **(Ubah jika menggunakan metode lain, biasanya tidak perlu diubah)**
+- **APP_MAINTENANCE_STORE**: Tempat penyimpanan status pemeliharaan. **(Ubah jika menggunakan metode lain, biasanya tidak perlu diubah)**
+
+- **BCRYPT_ROUNDS**: Jumlah putaran untuk hashing kata sandi. **(Ubah jika memerlukan tingkat keamanan yang lebih tinggi, biasanya tidak perlu diubah)**
+
+- **LOG_CHANNEL**: Channel yang digunakan untuk logging. **(Ubah jika ingin menggunakan channel lain)**
+- **LOG_STACK**: Jenis stack logging. **(Ubah jika ingin metode lain)**
+- **LOG_DEPRECATIONS_CHANNEL**: Channel log untuk pesan deprecation. **(Ubah jika ingin mencatat pesan deprecation)**
+- **LOG_LEVEL**: Level logging yang ditampilkan. **(Ubah sesuai kebutuhan, misalnya ke `error` di produksi)**
+
+- **DB_CONNECTION**: Jenis database yang digunakan. **(Ubah jika menggunakan jenis database lain)**
+- **DB_HOST**: Alamat host database. **(Ubah jika database tidak berada di localhost)**
+- **DB_PORT**: Port untuk koneksi database. **(Ubah jika menggunakan port yang berbeda)**
+- **DB_DATABASE**: Nama database yang digunakan. **(Ubah sesuai nama database yang digunakan)**
+- **DB_USERNAME**: Username untuk autentikasi ke database. **(Ubah jika menggunakan username yang berbeda)**
+- **DB_PASSWORD**: Password untuk koneksi ke database. **(Ubah jika menggunakan password)**
+- **DB_CHARSET**: Set karakter database. **(Tidak perlu diubah)**
+- **DB_COLLATION**: Aturan perbandingan teks dalam database. **(Tidak perlu diubah)**
+
+- **SESSION_DRIVER**: Driver untuk manajemen sesi. **(Tidak perlu diubah)**
+- **SESSION_LIFETIME**: Durasi sesi (dalam menit). **(Ubah sesuai kebutuhan)**
+- **SESSION_ENCRYPT**: Jika `true`, sesi akan dienkripsi. **(Tidak perlu diubah)**
+- **SESSION_PATH**: Path untuk sesi. **(Tidak perlu diubah)**
+- **SESSION_DOMAIN**: Domain sesi. **(Ubah jika perlu untuk domain tertentu)**
+- **SESSION_SAME_SITE**: Kebijakan SameSite untuk cookie sesi. **(Tidak perlu diubah)**
+- **SESSION_SECURE_COOKIE**: Jika `true`, cookie sesi hanya dikirim melalui HTTPS. **(Tidak perlu diubah)**
+- **SESSION_PARTITIONED_COOKIE**: Jika `true`, cookie sesi akan dipartisi. **(Tidak perlu diubah)**
+
+- **BROADCAST_CONNECTION**: Koneksi untuk broadcasting. **(Ubah jika menggunakan metode lain)**
+- **FILESYSTEM_DISK**: Disk default untuk penyimpanan file. **(Ubah jika menggunakan disk lain)**
+- **QUEUE_CONNECTION**: Koneksi untuk antrian tugas. **(Ubah jika menggunakan metode lain)**
+
+- **CACHE_STORE**: Store cache yang digunakan. **(Ubah jika menggunakan metode lain)**
+- **CACHE_PREFIX**: Prefix untuk kunci cache. **(Ubah jika diperlukan)**
+
+- **MEMCACHED_HOST**: Alamat host untuk server Memcached. **(Ubah jika menggunakan Memcached)**
+  
+- **REDIS_CLIENT**: Klien Redis yang digunakan. **(Ubah jika menggunakan klien lain)**
+- **REDIS_HOST**: Host server Redis. **(Ubah jika Redis tidak berada di localhost)**
+- **REDIS_PASSWORD**: Password untuk Redis. **(Ubah jika menggunakan password)**
+- **REDIS_PORT**: Port yang digunakan Redis. **(Ubah jika menggunakan port yang berbeda)**
+
+- **MAIL_MAILER**: Driver mail yang digunakan. **(Ubah sesuai kebutuhan)**
+- **MAIL_HOST**: Host server mail. **(Ubah jika menggunakan server lain)**
+- **MAIL_PORT**: Port untuk pengiriman email. **(Ubah jika menggunakan port yang berbeda)**
+- **MAIL_USERNAME**: Username untuk autentikasi ke server mail. **(Ubah jika menggunakan username yang berbeda)**
+- **MAIL_PASSWORD**: Password untuk autentikasi ke server mail. **(Ubah jika menggunakan password)**
+- **MAIL_ENCRYPTION**: Metode enkripsi email. **(Ubah sesuai kebutuhan)**
+- **MAIL_FROM_ADDRESS**: Alamat email pengirim default. **(Ubah jika perlu menggunakan alamat lain)**
+- **MAIL_FROM_NAME**: Nama pengirim dalam email. **(Ubah jika perlu menggunakan nama lain)**
+
+- **AWS_ACCESS_KEY_ID**: Kunci akses untuk AWS. **(Perlu diisi jika menggunakan AWS)**
+- **AWS_SECRET_ACCESS_KEY**: Kunci rahasia untuk AWS. **(Perlu diisi jika menggunakan AWS)**
+- **AWS_DEFAULT_REGION**: Wilayah default AWS. **(Ubah jika menggunakan wilayah lain)**
+- **AWS_BUCKET**: Nama bucket S3 yang digunakan. **(Perlu diisi jika menggunakan S3)**
+- **AWS_USE_PATH_STYLE_ENDPOINT**: Jika `true`, menggunakan gaya path endpoint untuk AWS S3. **(Ubah sesuai kebutuhan)**
+
+- **VITE_APP_NAME**: Nama aplikasi untuk konfigurasi Vite. **(Tidak perlu di ubah)**
+  
+- **LOCATION_TESTING**: Untuk pengujian lokasi. **(Isi 'false' jika tidak digunakan)**
+- **MAXMIND_USE_WEB**: Jika `true`, menggunakan API web MaxMind untuk geolokasi. Jika 'false' maka akan menggunakan database geolokasi yang sudah didownload. **(Ubah sesuai kebutuhan)**
+- **MAXMIND_USER_ID**: ID pengguna untuk MaxMind. **(Ubah dengan id dari [https://www.maxmind.com/en/geolite2/signup])**
+- **MAXMIND_LICENSE_KEY**: Kunci lisensi MaxMind. **(Ubah dengan license key dari [Maxmind](https://www.maxmind.com/en/geolite2/signup))**
+- **IP2LOCATIONIO_TOKEN**: Token API untuk layanan IP2Location. **(Ubah dengan token yang di dapat dari [https://www.ip2location.io/])**
+
+Keterangan ini membantu menentukan bagian mana dari konfigurasi yang perlu disesuaikan sesuai kebutuhan aplikasi Anda.
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
