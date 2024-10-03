@@ -21,46 +21,146 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Deployment Guide
+Berikut adalah panduan deployment aplikasi **Laravel** dalam bahasa Indonesia yang mudah dipahami:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. **Siapkan Server**
+   - **Pilih Server:** Gunakan penyedia layanan seperti **DigitalOcean**, **AWS**, atau **Vultr**.
+   - **Install LAMP/LEMP Stack:** Pastikan server menggunakan **Linux**, **Apache/Nginx**, **MySQL**, dan **PHP** (versi 7.4+).
+   - **Install Composer:** Laravel membutuhkan Composer untuk mengelola dependensi:
+     ```bash
+     sudo apt install composer
+     ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. **Install Ekstensi PHP (termasuk GD)**
+   - **Pastikan PHP mendukung GD**:
+     ```bash
+     sudo apt install php-gd
+     ```
+   - **Cek apakah GD sudah terpasang**:
+     ```bash
+     php -m | grep gd
+     ```
+     Jika **gd** sudah ada dalam daftar, maka GD sudah aktif. Jika tidak, restart layanan PHP:
+     ```bash
+     sudo systemctl restart php7.4-fpm  # Untuk Nginx
+     sudo systemctl restart apache2     # Untuk Apache
+     ```
 
-## Laravel Sponsors
+### 3. **Kloning Proyek Laravel**
+   - **Login ke Server via SSH**:
+     ```bash
+     ssh user@alamat-server-anda
+     ```
+   - **Masuk ke Direktori Web**:
+     ```bash
+     cd /var/www/html
+     ```
+   - **Kloning Repositori Anda**:
+     ```bash
+     git clone https://github.com/usernameanda/proyeklaravel.git
+     ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 4. **Konfigurasi Environment**
+   - **Salin `.env.example` menjadi `.env`**:
+     ```bash
+     cp .env.example .env
+     ```
+   - **Generate App Key**:
+     ```bash
+     php artisan key:generate
+     ```
+   - **Sesuaikan file `.env`** (atur kredensial database, URL aplikasi, dll.)
 
-### Premium Partners
+### 5. **Install Dependensi**
+   ```bash
+   composer install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 6. **Migrasi Database**
+   - **Jalankan Migrasi**:
+     ```bash
+     php artisan migrate --force
+     ```
 
-## Contributing
+### 7. **Atur Izin Akses (Permissions)**
+   - Pastikan direktori **storage** dan **bootstrap/cache** bisa ditulis:
+     ```bash
+     sudo chown -R www-data:www-data /var/www/html/proyeklaravel
+     sudo chmod -R 775 /var/www/html/proyeklaravel/storage
+     sudo chmod -R 775 /var/www/html/proyeklaravel/bootstrap/cache
+     ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 8. **Konfigurasi Web Server**
+   - **Untuk Nginx**: Buat file konfigurasi di `/etc/nginx/sites-available/proyeklaravel`:
+     ```nginx
+     server {
+         listen 80;
+         server_name namadomainanda.com;
+         root /var/www/html/proyeklaravel/public;
 
-## Code of Conduct
+         index index.php index.html;
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+         location / {
+             try_files $uri $uri/ /index.php?$query_string;
+         }
 
-## Security Vulnerabilities
+         location ~ \.php$ {
+             include snippets/fastcgi-php.conf;
+             fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+             include fastcgi_params;
+         }
+     }
+     ```
+   - **Untuk Apache**: Ubah **`/etc/apache2/sites-available/000-default.conf`**:
+     ```apache
+     <VirtualHost *:80>
+         ServerAdmin admin@namadomainanda.com
+         DocumentRoot /var/www/html/proyeklaravel/public
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+         <Directory /var/www/html/proyeklaravel>
+             AllowOverride All
+         </Directory>
 
+         ErrorLog ${APACHE_LOG_DIR}/error.log
+         CustomLog ${APACHE_LOG_DIR}/access.log combined
+     </VirtualHost>
+     ```
+   - **Aktifkan Modul Rewrite (untuk Apache)**:
+     ```bash
+     sudo a2enmod rewrite
+     sudo systemctl restart apache2
+     ```
+
+### 9. **Optimasi Laravel untuk Produksi**
+   ```bash
+   php artisan config:cache
+   php artisan route:cache
+   php artisan view:cache
+   ```
+
+### 10. **Atur Cron Jobs**
+   - Buka crontab:
+     ```bash
+     crontab -e
+     ```
+   - Tambahkan baris ini untuk menjalankan **Laravel task scheduler** setiap menit:
+     ```bash
+     * * * * * cd /var/www/html/proyeklaravel && php artisan schedule:run >> /dev/null 2>&1
+     ```
+
+### 11. **Pengaturan SSL (Opsional)**
+   - Gunakan **Certbot** untuk sertifikat SSL gratis:
+     ```bash
+     sudo apt install certbot python3-certbot-nginx
+     sudo certbot --nginx -d namadomainanda.com
+     ```
+
+### Selesai!
+Aplikasi Laravel Anda sudah aktif dengan dukungan PHP GD dan siap digunakan.
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
