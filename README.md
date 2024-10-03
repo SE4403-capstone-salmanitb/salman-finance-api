@@ -22,7 +22,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Deployment Guide
----
 ### 1. **Siapkan Server**
    - **Pilih Server:** Gunakan penyedia layanan seperti **DigitalOcean**, **AWS**, atau **Vultr**.
    - **Install LAMP/LEMP Stack:** Pastikan server menggunakan **Linux**, **Apache/Nginx**, **MySQL**, dan **PHP** (versi 8.1+).
@@ -159,8 +158,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 Aplikasi Laravel Anda sudah aktif dengan dukungan PHP GD dan siap digunakan.
 
 ## Environtment
----
-Berikut adalah penjelasan dengan tambahan keterangan apakah nilai dari setiap item pada file environment (env) perlu diubah atau tidak:
+Berikut adalah penjelasan masing-masing item yang ada pada konfigurasi .env
 
 - **APP_NAME**: Nama aplikasi yang digunakan dalam Laravel. **(Ubah jika nama aplikasi berbeda)**
 - **APP_ENV**: Menentukan lingkungan aplikasi. **(Ubah ke `production` saat siap untuk produksi)**
@@ -239,7 +237,7 @@ Berikut adalah penjelasan dengan tambahan keterangan apakah nilai dari setiap it
 - **MAXMIND_LICENSE_KEY**: Kunci lisensi MaxMind. **(Ubah dengan license key dari [Maxmind](https://www.maxmind.com/en/geolite2/signup))**
 - **IP2LOCATIONIO_TOKEN**: Token API untuk layanan IP2Location. **(Ubah dengan token yang di dapat dari [https://www.ip2location.io/])**
 
-Keterangan ini membantu menentukan bagian mana dari konfigurasi yang perlu disesuaikan sesuai kebutuhan aplikasi Anda.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
