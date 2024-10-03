@@ -191,8 +191,8 @@ Berikut adalah penjelasan masing-masing item yang ada pada konfigurasi .env
 - **DB_CHARSET**: Set karakter database. **(Tidak perlu diubah)**
 - **DB_COLLATION**: Aturan perbandingan teks dalam database. **(Tidak perlu diubah)**
 
-- **SESSION_DRIVER**: Driver untuk manajemen sesi. **(Tidak perlu diubah)**
-- **SESSION_LIFETIME**: Durasi sesi (dalam menit). **(Ubah sesuai kebutuhan)**
+- **SESSION_DRIVER**: Driver untuk manajemen sesi. **(Disarankan menggunakan 'redis', jika server tidak memiliki redis gunakan 'file')**
+- **SESSION_LIFETIME**: Durasi sesi (dalam menit). **(Ubah sesuai kebutuhan jika diperlukan)**
 - **SESSION_ENCRYPT**: Jika `true`, sesi akan dienkripsi. **(Tidak perlu diubah)**
 - **SESSION_PATH**: Path untuk sesi. **(Tidak perlu diubah)**
 - **SESSION_DOMAIN**: Domain sesi. **(Ubah jika perlu untuk domain tertentu)**
